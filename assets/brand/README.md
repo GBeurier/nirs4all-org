@@ -42,7 +42,7 @@ brand/
 | `nirs4all-formats` | `#6732B9` | n4f | nirs4all-formats |
 | `nirs4all-benchmarks` | `#00704A` | n4b | nirs4all-benchmarks |
 | `nirs4all-repository` | `#AC564A` | n4r | nirs4all-repository |
-| `nirs4all-papers` | `#767171` | n4p | nirs4all-papers |
+| `nirs4all-papers` | `#C2255C` | n4p | nirs4all-papers |
 | `nirs4all-cluster` | `#1B5789` | n4c | nirs4all-cluster |
 | `dag-ml` | teal `#058E96` | DM | DAG-ML |
 | `dag-ml-data` | yellow `#FFBE00` | DMd | DAG-ML-data |

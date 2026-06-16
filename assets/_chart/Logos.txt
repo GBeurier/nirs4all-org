@@ -8,7 +8,7 @@ nirs4all-io - 204, 153, 255
 nirs4all-formats - 103, 50, 185
 nirs4all-benchmarks - 0, 112, 74
 nirs4all-repository - 172, 86, 74
-nirs4all-papers - 118, 113, 113
+nirs4all-papers - 194, 37, 92
 nirs4all-cluster - 27, 87, 137
 
 dag-ml - 5, 142, 150
