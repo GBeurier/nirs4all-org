@@ -11,7 +11,7 @@ Bold), so they render identically everywhere with no web-font dependency.
 
 ```
 brand/
-├── _ecosystem/                 ← umbrella marks (rich emblem + wordmark)
+├── ecosystem/                  ← umbrella marks (rich emblem + wordmark)
 │   ├── nirs4all_horizontal.svg/.png      nirs4all  (nirs black · 4 red · all teal)
 │   ├── nirs4all_stacked.svg/.png
 │   ├── dag-ml_horizontal.svg/.png        DAG-ML    (DAG- navy · ML teal)
