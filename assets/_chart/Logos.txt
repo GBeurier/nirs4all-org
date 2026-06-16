@@ -1,0 +1,48 @@
+nirs4all (python lib) - 5, 142, 150
+nirs4all-Studio - 150, 200, 0
+nirs4all-lite - 233, 54, 45
+nirs4all-web - 255, 100, 0
+nirs4all-datasets - 255, 190, 0
+nirs4all-methods - 0, 165, 210
+nirs4all-io - 204, 153, 255
+nirs4all-formats - 103, 50, 185
+nirs4all-benchmarks - 0, 112, 74
+nirs4all-repository - 172, 86, 74
+nirs4all-papers - 118, 113, 113
+nirs4all-cluster - 27, 87, 137
+
+dag-ml - 5, 142, 150
+dag-ml-data - 255, 190, 0
+
+
+
+1 icone carré svg pour dag_ml et nirs4all: nirs4all_icon.svg, dag-ml_icon.svg
+La couleur doit être adaptée en fonction du package.
+
+Le logo général nir4all est nirs4all_logo.svg et le logo general DAG-ML est dag-ml_logo.svg
+
+Après pour les différents package, on utilise le svg de l'icon (qui est carré) et en ajoute le nom en police "Inter SemiBold". Le logo est recolorier de la couleur du package
+
+pour le logo stacked:
+
+Icone au dessus et en dessous 3 lettres:
+- n4 + la première lettre du package (a pour la lib python, premiere lettre pour le reste): ie. n4a, n4p, n4d, etc.
+- n4X s'écrit avec le n en noir (0,0,0), le 4 en rouge (233, 54, 45) et la 3eme lettre de la couleur du logo du package.
+
+Pour le logo horizontal:
+
+Icone a gauche et à droite on écrit:
+- nirs4all-le_package
+- nirs s'écrit en noir, 4 en rouge (233, 54, 45)  et le nom du paquet dans la couleur du package
+
+
+
+Pour le logo général de l'écosystem, c'est le meme principe (stacked et horizontal) mais tu utilise nirs4all-logo.svg et le texte s'écrit
+
+nirs4all avec nirs en noir (0,0,0), 4 en rouge (233,54,45) et all en couleur python lib (5, 142, 150).
+
+
+idem pour dag-ml sauf que DAG-ML est écrit en majuscule avec "DAG-" en (13, 46, 75) et "ML" en (5, 142, 450)
+
+
+Bracket for DAG-ML logo is font: "Microsoft Jhengeu UI Light"

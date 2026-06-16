@@ -6,3 +6,6 @@
 
 # Local codegraph index (tooling artifact)
 .codegraph/
+
+# Brand-kit build tooling (venv, font, generator scratch, contact sheets)
+assets/_chart/build/

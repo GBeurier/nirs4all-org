@@ -55,7 +55,7 @@
           "@id": "https://nirs4all.org/#organization",
           "name": "nirs4all",
           "url": "https://nirs4all.org/",
-          "logo": "https://nirs4all.org/assets/nirs4all_logo.png",
+          "logo": "https://nirs4all.org/assets/brand/nirs4all/icon-512.png",
           "description": "Open-source NIR spectroscopy software with a Python library and desktop app for preprocessing, chemometrics, ML/DL pipelines, visualization, and deployment.",
           "email": "mailto:nirs4all@cirad.fr",
           "foundingDate": "2024",
@@ -122,7 +122,7 @@
               "@id": "https://nirs4all.org/#studio"
             }
           ],
-          "primaryImageOfPage": "https://nirs4all.org/assets/nirs4all_logo.png",
+          "primaryImageOfPage": "https://nirs4all.org/assets/brand/_ecosystem/nirs4all_og.png",
           "inLanguage": "en"
         },
         {
@@ -1132,8 +1132,8 @@
       box-shadow: 0 8px 20px -8px var(--eco-glow);
       overflow: hidden; letter-spacing: -.01em;
     }
-    .eco-logo.has-logo { background: #fff; box-shadow: var(--shadow); }
-    .eco-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    .eco-logo.has-logo { background: transparent; box-shadow: var(--shadow); }
+    .eco-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; }
     .eco-titles { min-width: 0; }
     .eco-cat {
       font-family: var(--mono); font-size: .64rem; font-weight: 600;
@@ -1498,7 +1498,7 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a href="#hero" class="nav-logo">
-      <img src="assets/nirs4all_logo.png" alt="nirs4all logo" />
+      <img src="assets/brand/nirs4all/icon.svg" alt="nirs4all logo" />
       nirs4all
     </a>
     <div class="nav-links" id="nav-links">
@@ -1574,7 +1574,7 @@
   </div>
 
   <div class="container hero-content fade-in">
-    <img src="assets/nirs4all_logo.png" alt="nirs4all" class="hero-logo" />
+    <img src="assets/brand/_ecosystem/nirs4all_horizontal.svg" alt="nirs4all" class="hero-logo" />
     <!-- <div class="hero-kicker">Near-Infrared Spectroscopy · Open Source</div> -->
     <h1 class="hero-tagline">Open spectroscopy <em>for everyone</em></h1>
     <p class="hero-sub">From raw spectra to deployed models &mdash; a comprehensive Python framework and desktop application for Near-Infrared Spectroscopy, built by researchers, shared with the world.</p>
@@ -2265,18 +2265,34 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         </div>
       </div>
 
-      <!-- nirs4all-pipelines · Planned -->
+      <!-- nirs4all-repository · Planned -->
       <div class="eco-card cat-soon fade-in">
         <div class="eco-head">
-          <span class="eco-logo" data-eco-logo="nirs4all-pipelines" aria-hidden="true">pl</span>
+          <span class="eco-logo" data-eco-logo="nirs4all-repository" aria-hidden="true">re</span>
           <div class="eco-titles">
             <div class="eco-cat">Pipeline library</div>
-            <div class="eco-name">nirs4all-pipelines</div>
+            <div class="eco-name">nirs4all-repository</div>
           </div>
         </div>
         <p>A planned public repository of <strong>pre-configured, tested nirs4all pipelines</strong> &mdash; ready-to-run recipes consumable from nirs4all Studio and from every binding (nirs4all Python and the nirs4all-lite R, MATLAB &amp; WASM stacks).</p>
         <div class="eco-links">
-          <a href="https://github.com/GBeurier/nirs4all-pipelines" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <a href="https://github.com/GBeurier/nirs4all-repository" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <span class="eco-status">Planned</span>
+        </div>
+      </div>
+
+      <!-- nirs4all-papers · Planned -->
+      <div class="eco-card cat-soon fade-in">
+        <div class="eco-head">
+          <span class="eco-logo" data-eco-logo="nirs4all-papers" aria-hidden="true">pa</span>
+          <div class="eco-titles">
+            <div class="eco-cat">Repro publishing</div>
+            <div class="eco-name">nirs4all-papers</div>
+          </div>
+        </div>
+        <p>A planned tool that turns a finished experiment into a self-contained <strong>reproduction document</strong> &mdash; an auto-generated methods &amp; bibliography report alongside a WASM web page that re-runs the exact pipeline in the browser.</p>
+        <div class="eco-links">
+          <a href="https://github.com/GBeurier/nirs4all-papers" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <span class="eco-status">Planned</span>
         </div>
       </div>
@@ -2289,7 +2305,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <span class="hud-corner"></span>
         <span class="hud-label">Ecosystem<i>_</i></span>
         <span class="hud-rule"></span>
-        <span class="hud-meta">12 repos &middot; open&nbsp;source</span>
+        <span class="hud-meta">15 repos &middot; open&nbsp;source</span>
         <span class="hud-dot"></span>
       </div>
       <div class="hud-body">
@@ -2428,7 +2444,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
         <!-- column 4 · hub stack: PACKAGE / ANALYZE / ML -->
         <div class="map-node map-hub" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" aria-label="Analyze — nirs4all and n4a-methods">
           <span class="map-hub-gear"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
-          <span class="mn-logo"><img src="assets/nirs4all_logo.png" alt="nirs4all" /></span>
+          <span class="mn-logo"><img src="assets/brand/nirs4all/icon.svg" alt="nirs4all" /></span>
           <span class="mn-div"></span>
           <span class="mn-label">Analyze · Train · Explain</span>
           <span class="mn-pkg">nirs4all, n4a-methods</span>
@@ -2953,7 +2969,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   <div class="container">
     <div class="footer-inner">
       <a class="footer-logo" href="#hero" aria-label="nirs4all — back to top">
-        <img src="assets/nirs4all_logo.png" alt="nirs4all" />
+        <img src="assets/brand/nirs4all/icon.svg" alt="nirs4all" />
         nirs4all
       </a>
       <div class="footer-links">
@@ -3324,19 +3340,21 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   // below; an empty string keeps the lettermark fallback. No network request
   // is made while a path is empty, so unconfigured logos cost nothing.
   const ECOSYSTEM_LOGOS = {
-    "nirs4all":          "assets/nirs4all_logo.png",
-    "nirs4all-studio":   "assets/logos_ecosystem/logo_studio.png",
-    "nirs4all-methods":  "assets/logos_ecosystem/logo_methods.png",
-    "nirs4all-aom":      "",                            // TODO: add logo
-    "nirs4all-formats":  "assets/logos_ecosystem/logo_formats.png",
-    "nirs4all-io":       "assets/logos_ecosystem/logo_io.png",
-    "nirs4all-datasets": "assets/logos_ecosystem/logo_datasets.png",
-    "dag-ml":            "",                            // TODO: add logo
-    "dag-ml-data":       "",                            // TODO: add logo
-    "nirs4all-web":      "assets/logos_ecosystem/logo_lite.png",
-    "nirs4all-lite":     "assets/logos_ecosystem/logo_lite.png",
-    "nirs4all-benchmarks": "assets/logos_ecosystem/logo_benchmarks.png",
-    "nirs4all-pipelines": "",                           // TODO: add logo (lettermark placeholder for now)
+    "nirs4all":          "assets/brand/nirs4all/icon.svg",
+    "nirs4all-studio":   "assets/brand/nirs4all-studio/icon.svg",
+    "nirs4all-methods":  "assets/brand/nirs4all-methods/icon.svg",
+    "nirs4all-aom":      "",                            // TODO: no brand color assigned yet
+    "nirs4all-formats":  "assets/brand/nirs4all-formats/icon.svg",
+    "nirs4all-io":       "assets/brand/nirs4all-io/icon.svg",
+    "nirs4all-datasets": "assets/brand/nirs4all-datasets/icon.svg",
+    "dag-ml":            "assets/brand/dag-ml/icon.svg",
+    "dag-ml-data":       "assets/brand/dag-ml-data/icon.svg",
+    "nirs4all-web":      "assets/brand/nirs4all-web/icon.svg",
+    "nirs4all-lite":     "assets/brand/nirs4all-lite/icon.svg",
+    "nirs4all-benchmarks": "assets/brand/nirs4all-benchmarks/icon.svg",
+    "nirs4all-repository": "assets/brand/nirs4all-repository/icon.svg",
+    "nirs4all-cluster":  "assets/brand/nirs4all-cluster/icon.svg",
+    "nirs4all-papers":   "assets/brand/nirs4all-papers/icon.svg",
   };
   document.querySelectorAll('[data-eco-logo]').forEach(el => {
     const src = ECOSYSTEM_LOGOS[el.dataset.ecoLogo];
