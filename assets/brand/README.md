@@ -1,6 +1,7 @@
 # nirs4all / dag-ml brand kit
 
-Generated logo assets for every package in the nirs4all + dag-ml ecosystems.
+Generated logo assets for the nirs4all + dag-ml package keys that currently
+have brand assets in this checkout.
 Built from the source marks in [`../_chart/`](../_chart/) following the rules in
 [`../_chart/Logos.txt`](../_chart/Logos.txt).
 
@@ -46,6 +47,11 @@ brand/
 | `nirs4all-cluster` | `#1B5789` | n4c | nirs4all-cluster |
 | `dag-ml` | teal `#058E96` | DM | DAG-ML |
 | `dag-ml-data` | yellow `#FFBE00` | DMd | DAG-ML-data |
+
+RC topology note: `nirs4all-core` (future aggregate) and `nirs4all-ui` (shared
+Studio/Web UI package) are public ecosystem packages, but generated brand assets
+for them are not present in this checkout yet. The website uses text lettermark
+fallbacks for those cards.
 
 Constant accents: the **4** / **-** is always red `#E9362D`; package-suffix text is
 black `#000000` (white in `-dark` variants).
