@@ -2381,7 +2381,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <span class="hud-corner"></span>
         <span class="hud-label">Ecosystem<i>_</i></span>
         <span class="hud-rule"></span>
-        <span class="hud-meta">18 repos &middot; open&nbsp;source</span>
+        <span class="hud-meta">21 projects &middot; open&nbsp;source</span>
         <span class="hud-dot"></span>
       </div>
       <div class="hud-body">
@@ -2403,12 +2403,12 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <button class="hud-tab" data-tab="runiverse">R&middot;universe</button>
             <button class="hud-tab" data-tab="cran">CRAN <span class="s">soon</span></button>
             <button class="hud-tab" data-tab="octave">Octave / MATLAB</button>
-            <button class="hud-tab" data-tab="npm">npm <span class="s">soon</span></button>
+            <button class="hud-tab" data-tab="npm">npm <span class="s">RC</span></button>
             <button class="hud-tab" data-tab="dl">&#8595; Releases</button>
           </div>
           <div class="hud-panels">
             <div class="hud-panel active" data-panel="pypi">
-              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;pip install nirs4all-lite&#10;# RC/cutover aggregate: pip install nirs4all-core&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
+              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;pip install nirs4all-lite&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
 pip install <span class="pk">nirs4all</span>
 pip install <span class="pk">nirs4all-methods</span>
 pip install <span class="pk">pls4all</span>
@@ -2417,9 +2417,8 @@ pip install <span class="pk">nirs4all-formats</span>
 pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
 pip install <span class="pk">nirs4all-lite</span>
-<span class="cm"># RC/cutover aggregate:</span> pip install <span class="pk">nirs4all-core</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
-              <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; RC-only names such as <b>nirs4all-core</b> remain tracked separately.</div>
+              <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; <b>nirs4all-core</b> is an RC release target until its PyPI Trusted Publisher is enabled.</div>
             </div>
             <div class="hud-panel" data-panel="runiverse">
               <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R preview/subset packages, auto-built from source</span>
@@ -2441,8 +2440,9 @@ pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-doc
               <div class="hud-note">Methods bindings are a subset surface for both runtimes; aggregate MATLAB/Octave packaging remains RC-gated.</div>
             </div>
             <div class="hud-panel" data-panel="npm">
-              <div class="hud-code"><button class="hud-copy" data-copy="npm install nirs4all&#10;npm install @nirs4all/datasets-wasm">copy</button><span class="cm"># JS / WASM bindings (the lite aggregate &amp; datasets)</span>
+              <div class="hud-code"><button class="hud-copy" data-copy="npm install nirs4all&#10;npm install nirs4all-ui&#10;npm install @nirs4all/datasets-wasm">copy</button><span class="cm"># JS / WASM bindings and shared React UI</span>
 npm install <span class="pk">nirs4all</span>
+npm install <span class="pk">nirs4all-ui</span>
 npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
               <div class="hud-note"><b>nirs4all-web</b> runs live as a client-side-only WASM app; <b>nirs4all-ui</b> is the shared Studio/Web React package.</div>
             </div>
