@@ -209,7 +209,7 @@
               "name": "What is nirs4all?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-lite is the current portable aggregate, and nirs4all-core is the future aggregate package for the v1 line."
+                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published."
               }
             },
             {
@@ -241,7 +241,7 @@
               "name": "What is the v1 RC package topology?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-lite remains the current production portable aggregate while nirs4all-core is prepared as the future aggregate, web.nirs4all.org runs client-side-only through WASM, and nirs4all-ui is the shared React UI package used by Studio and the web client."
+                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-core is the aggregate target issued from the nirs4all-lite line, current production artifacts may still use nirs4all-lite names until the cutover is published, web.nirs4all.org runs client-side-only through WASM, and nirs4all-ui is the shared React UI package used by Studio and the web client."
               }
             }
           ]
@@ -1533,8 +1533,8 @@
           <a href="https://papers.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-papers</b><span>Repro · Demo</span></a>
           <a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml</b><span>Execution core</span></a>
           <a href="https://github.com/GBeurier/dag-ml-data" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml-data</b><span>Data contracts</span></a>
-          <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Current portable aggregate</span></a>
-          <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>Future v1 aggregate</span></a>
+          <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Legacy/current artifacts</span></a>
+          <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>V1 RC aggregate target</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-ui</b><span>Shared Studio/Web UI</span></a>
           <a href="https://web.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-web</b><span>Client-side WASM</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ecosystem" target="_blank" rel="noopener" class="nav-dd-all" role="menuitem">Browse all repositories &rarr;</a>
@@ -1708,7 +1708,7 @@
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">Where we make the difference</span></div>
     <h2 class="section-title fade-in">The library and the <em>app</em></h2>
-    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. The v1 RC topology then separates the portable aggregate (<strong>nirs4all-lite</strong> today, <strong>nirs4all-core</strong> next), the client-side WASM web app, shared UI package, file readers, datasets, and engines.</p>
+    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. The v1 RC topology then separates the portable aggregate (<strong>nirs4all-core</strong> target, <strong>nirs4all-lite</strong> legacy-current artifacts), the client-side WASM web app, shared UI package, file readers, datasets, and engines.</p>
     <div class="overview-grid fade-in">
 
       <!-- Library card · with the Get-started component -->
@@ -2005,7 +2005,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">The full picture</span></div>
     <h2 class="section-title fade-in">One growing <em>ecosystem</em></h2>
-    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. In the v1 RC topology, <strong>nirs4all-lite</strong> is the current portable aggregate, <strong>nirs4all-core</strong> is the future aggregate, <strong>web.nirs4all.org</strong> is client-side-only WASM, and <strong>nirs4all-ui</strong> is shared by Studio and the web client.</p>
+    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. In the v1 RC topology, <strong>nirs4all-core</strong> is the aggregate target issued from the <strong>nirs4all-lite</strong> line, <strong>web.nirs4all.org</strong> is client-side-only WASM, and <strong>nirs4all-ui</strong> is shared by Studio and the web client.</p>
 
     <!-- Evolution rail: origin → built on the core → next generation -->
     <div class="eco-arc fade-in">
@@ -2028,9 +2028,9 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
       <article class="arc-step">
         <div class="arc-marker"><span>03</span></div>
         <div class="arc-body">
-          <div class="arc-kicker">Next generation &middot; v1</div>
-          <h3>lite now &rarr; core next</h3>
-          <p><strong>nirs4all-lite</strong> remains the current production portable aggregate. <strong>nirs4all-core</strong> is the future v1 aggregate being prepared on top of the same reproducible runtime stack.</p>
+          <div class="arc-kicker">RC aggregate &middot; v1</div>
+          <h3>core target, lite legacy line</h3>
+          <p><strong>nirs4all-core</strong> is the V1 RC aggregate target. <strong>nirs4all-lite</strong> remains visible for current production artifacts until the repo/package cutover is published.</p>
           <div class="arc-langs"><span>R</span><span>MATLAB</span><span>Octave</span><span>WASM</span></div>
         </div>
       </article>
@@ -2266,12 +2266,12 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <div class="eco-head">
           <span class="eco-logo" data-eco-logo="nirs4all-lite" aria-hidden="true">lt</span>
           <div class="eco-titles">
-            <div class="eco-cat">Current portable aggregate</div>
+            <div class="eco-cat">Legacy/current artifacts</div>
             <div class="eco-name">nirs4all-lite <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
           <span class="eco-ver" data-ver="pypi:nirs4all-lite">v0.2.0</span>
         </div>
-        <p>The current production portable aggregate of dag-ml, dag-ml-data, formats, io, datasets and methods &mdash; one binding surface across Rust, Python, R and WASM, adding no parsers or methods of its own. It remains the current package while <strong>nirs4all-core</strong> is prepared as the future v1 aggregate.</p>
+        <p>The legacy/current artifact line for the portable aggregate of dag-ml, dag-ml-data, formats, io, datasets and methods &mdash; one binding surface across Rust, Python, R and WASM, adding no parsers or methods of its own. <strong>nirs4all-core</strong> is the V1 RC aggregate target issued from this line.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://pypi.org/project/nirs4all-lite" target="_blank" class="pill pill-amber">PyPI</a>
@@ -2280,20 +2280,20 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         </div>
       </div>
 
-      <!-- nirs4all-core · Future aggregate -->
+      <!-- nirs4all-core · V1 RC aggregate -->
       <div class="eco-card cat-dag fade-in">
         <div class="eco-head">
           <span class="eco-logo" data-eco-logo="nirs4all-core" aria-hidden="true">core</span>
           <div class="eco-titles">
-            <div class="eco-cat">Future aggregate</div>
+            <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">v1 target</span></div>
           </div>
-          <span class="eco-ver">future</span>
+          <span class="eco-ver">RC target</span>
         </div>
-        <p>The planned v1 aggregate package for the reproducible cross-language stack. It is the target successor to the current portable aggregate role; until it is promoted, production/current installs should keep using <strong>nirs4all-lite</strong>.</p>
+        <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. Until the cutover is published, current production artifacts may still use lite names.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-          <span class="eco-status">Future</span>
+          <span class="eco-status">RC target</span>
         </div>
       </div>
 
@@ -2396,26 +2396,26 @@ pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
 pip install <span class="pk">nirs4all-lite</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
-              <div class="hud-note">All packages now on <b>PyPI</b>. CRAN tarballs &amp; binding zips &rarr; <b>&#8595; Releases</b>.</div>
+              <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; RC-only names such as <b>nirs4all-core</b> remain tracked separately.</div>
             </div>
             <div class="hud-panel" data-panel="runiverse">
-              <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R &mdash; the whole stack, auto-built from source</span>
+              <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R preview/subset packages, auto-built from source</span>
 <span class="fn">install.packages</span>(
   <span class="pk">c("n4m", "pls4all", "nirs4allformats",
     "nirs4allio", "nirs4alldatasets", "nirs4all")</span>,
   repos = <span class="pk">"https://gbeurier.r-universe.dev"</span>
 )</div>
-              <div class="hud-note">Rebuilt on <b>every release</b> &mdash; no compiler needed.</div>
+              <div class="hud-note">R surfaces are release-candidate previews; local execution can still be environment-dependent.</div>
             </div>
             <div class="hud-panel" data-panel="cran">
-              <div class="hud-soon"><b>CRAN &mdash; submission in progress.</b><br>CRAN-ready source tarballs (n4m, pls4all, nirs4allformats, nirs4allio, nirs4alldatasets, nirs4all) ship on each <b>&#8595; Releases</b>. Until they land on CRAN, the <b>R&middot;universe</b> tab installs the same packages.</div>
+              <div class="hud-soon"><b>CRAN &mdash; release-candidate preview.</b><br>Source tarballs for the R subset (n4m, pls4all, nirs4allformats, nirs4allio, nirs4alldatasets, nirs4all) are handled through Releases/R&middot;universe while CRAN publication remains gated.</div>
             </div>
             <div class="hud-panel" data-panel="octave">
               <div class="hud-dlrow">
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>Octave + MATLAB</b><span class="meta">methods-matlab-octave.zip</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>MATLAB only</b><span class="meta">methods-matlab.zip</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
               </div>
-              <div class="hud-note">One <b>+n4m</b> binding for both runtimes &mdash; unzip, <b>addpath</b>, go.</div>
+              <div class="hud-note">Methods bindings are a subset surface for both runtimes; aggregate MATLAB/Octave packaging remains RC-gated.</div>
             </div>
             <div class="hud-panel" data-panel="npm">
               <div class="hud-code"><button class="hud-copy" data-copy="npm install nirs4all&#10;npm install @nirs4all/datasets-wasm">copy</button><span class="cm"># JS / WASM bindings (the lite aggregate &amp; datasets)</span>
@@ -2425,14 +2425,14 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
             </div>
             <div class="hud-panel" data-panel="dl">
               <div class="hud-dlrow">
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-formats/releases/latest" target="_blank" rel="noopener"><b>nirs4all-formats</b><span class="meta">v0.1.0 &middot; wheels &middot; R &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>nirs4all-methods</b><span class="meta">v0.99.0 &middot; R &middot; MATLAB/Octave &middot; src</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>pls4all</b><span class="meta">v0.99.0 &middot; R tarball</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-io/releases/latest" target="_blank" rel="noopener"><b>nirs4all-io</b><span class="meta">v0.1.1 &middot; wheels &middot; R &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-datasets/releases/latest" target="_blank" rel="noopener"><b>nirs4all-datasets</b><span class="meta">v0.2.0 &middot; wheels &middot; R &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-lite/releases/latest" target="_blank" rel="noopener"><b>nirs4all-lite</b><span class="meta">v0.1.0 &middot; R &middot; MATLAB/Octave &middot; src</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-formats/releases/latest" target="_blank" rel="noopener"><b>nirs4all-formats</b><span class="meta">latest &middot; wheels &middot; R subset &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>nirs4all-methods</b><span class="meta">latest &middot; R &middot; MATLAB/Octave subset &middot; src</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>pls4all</b><span class="meta">latest &middot; R tarball</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-io/releases/latest" target="_blank" rel="noopener"><b>nirs4all-io</b><span class="meta">latest &middot; wheels &middot; R subset &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-datasets/releases/latest" target="_blank" rel="noopener"><b>nirs4all-datasets</b><span class="meta">latest &middot; wheels &middot; R subset</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-lite/releases/latest" target="_blank" rel="noopener"><b>nirs4all-lite</b><span class="meta">latest &middot; legacy/current artifacts</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
               </div>
-              <div class="hud-note">Every package ships <b>CRAN tarballs</b>, wheels &amp; binding zips on its Release.</div>
+              <div class="hud-note">Release assets vary by package: wheels, source tarballs, and binding zips are tracked per surface.</div>
             </div>
           </div>
         </div>
@@ -2525,7 +2525,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <span class="mn-div"></span>
           <span class="mn-label">Package · Interop</span>
           <span class="mn-pkg">dag-ml, lite/core</span>
-          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-lite is current, nirs4all-core is the future aggregate target.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener">lite</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
+          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate target; nirs4all-lite remains visible as the legacy/current artifact line.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener">lite</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
         </div>
 
         <div class="map-ar a-apw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -2851,7 +2851,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     <div class="faq-grid fade-in">
       <article class="faq-item">
         <h3>What is nirs4all?</h3>
-        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-lite is the current portable aggregate, and nirs4all-core is the future aggregate package for the v1 line.</p>
+        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published.</p>
       </article>
       <article class="faq-item">
         <h3>Can I use nirs4all without coding?</h3>
@@ -2867,7 +2867,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
       </article>
       <article class="faq-item">
         <h3>What is the v1 RC package topology?</h3>
-        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-lite</code> remains the current production portable aggregate while <code>nirs4all-core</code> is prepared as the future aggregate, <code>web.nirs4all.org</code> runs client-side-only through WASM, and <code>nirs4all-ui</code> is the shared React UI package used by Studio and the web client.</p>
+        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-core</code> is the aggregate target issued from the <code>nirs4all-lite</code> line, current production artifacts may still use <code>nirs4all-lite</code> names until the cutover is published, <code>web.nirs4all.org</code> runs client-side-only through WASM, and <code>nirs4all-ui</code> is the shared React UI package used by Studio and the web client.</p>
       </article>
     </div>
   </div>
@@ -2969,14 +2969,14 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><circle cx="8" cy="7" r="1"/><circle cx="8" cy="12" r="1"/><circle cx="8" cy="17" r="1"/></svg>
         </div>
         <h4>nirs4all-lite</h4>
-        <p>Current production portable aggregate while nirs4all-core is prepared for the v1 line</p>
+        <p>Legacy/current artifact line while nirs4all-core is the V1 RC aggregate target</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="link-card">
         <div class="link-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="M4 7l8 4 8-4"/><path d="M12 11v10"/></svg>
         </div>
         <h4>nirs4all-core</h4>
-        <p>Future v1 aggregate target for the reproducible cross-language stack</p>
+        <p>V1 RC aggregate target for the reproducible cross-language stack</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" class="link-card">
         <div class="link-icon">

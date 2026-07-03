@@ -36,8 +36,8 @@ nirs4all-org/
 
 - **Hero**: Logo, tagline, install command, CTA buttons
 - **Overview**: Python reference library vs Studio comparison
-- **RC topology**: `nirs4all-lite` as the current portable aggregate,
-  `nirs4all-core` as the future aggregate, `web.nirs4all.org` as
+- **RC topology**: `nirs4all-core` as the V1 RC aggregate target,
+  `nirs4all-lite` as the legacy/current artifact line, `web.nirs4all.org` as
   client-side-only/WASM, and `nirs4all-ui` as the shared Studio/Web UI package
 - **Features**: 6 key capability cards
 - **Screenshots**: Tabbed gallery of Studio UI
