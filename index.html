@@ -1534,8 +1534,8 @@
           <a href="https://papers.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-papers</b><span>Repro · Demo</span></a>
           <a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml</b><span>Execution core</span></a>
           <a href="https://github.com/GBeurier/dag-ml-data" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml-data</b><span>Data contracts</span></a>
-          <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Legacy/current artifacts</span></a>
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>V1 RC aggregate target</span></a>
+          <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Legacy/current artifacts</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-ui</b><span>Shared Studio/Web UI</span></a>
           <a href="https://web.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-web</b><span>Client-side WASM</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ecosystem" target="_blank" rel="noopener" class="nav-dd-all" role="menuitem">Browse all repositories &rarr;</a>
@@ -2161,7 +2161,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Dataset bridge</div>
             <div class="eco-name">nirs4all-io <span class="eco-lang">Python &middot; Rust &middot; R</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.1.3</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.1.5</span>
         </div>
         <p>A dataset-assembly bridge: turn any input &mdash; a folder, a glob, vendor spectra plus a reference table, or a config &mdash; into a pipeline-ready dataset through resolve &rarr; infer &rarr; configure &rarr; materialize, with a score-based inference engine. Built on nirs4all-formats.</p>
         <div class="eco-links">
@@ -2181,7 +2181,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Reference datasets</div>
             <div class="eco-name">nirs4all-datasets <span class="eco-lang">Python</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-datasets">v0.2.2</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-datasets">v0.3.2</span>
         </div>
         <p>A Python library that transparently pulls curated, hand-picked NIRS test datasets from Dataverse &mdash; turning reproducible, DOI-citable benchmarks and lab experiments into a one-line import.</p>
         <div class="eco-links">
@@ -2201,7 +2201,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Execution core</div>
             <div class="eco-name">dag-ml <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml">v0.2.1</span>
+          <span class="eco-ver" data-ver="gh:dag-ml">v0.2.2</span>
         </div>
         <p>A leakage-safe, in-process DAG execution core. It owns the graph, phases, folds, out-of-fold joins, lineage, caching and deterministic RNG &mdash; exposed through a C ABI so any host language can drive reproducible ML pipelines.</p>
         <div class="eco-links">
@@ -2218,7 +2218,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Data contracts</div>
             <div class="eco-name">dag-ml-data <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.1</span>
+          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.3</span>
         </div>
         <p>The data-contract and planning layer beneath dag-ml: typed, sample-aligned, multi-source data views, representation adapters, data plans, and schema fingerprints &mdash; the foundation that keeps pipelines reproducible.</p>
         <div class="eco-links">
@@ -2287,13 +2287,14 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           <span class="eco-logo" data-eco-logo="nirs4all-core" aria-hidden="true">core</span>
           <div class="eco-titles">
             <div class="eco-cat">V1 RC aggregate</div>
-            <div class="eco-name">nirs4all-core <span class="eco-lang">v1 target</span></div>
+            <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver">RC target</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.1 RC</span>
         </div>
-        <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. Until the cutover is published, current production artifacts may still use lite names.</p>
+        <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. It pins dag-ml 0.2.2, dag-ml-data 0.2.3, io 0.1.5 and datasets 0.3.2 while current production artifacts may still use lite names until the cutover is published.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
           <span class="eco-status">RC target</span>
         </div>
       </div>
@@ -2306,7 +2307,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">New</div>
             <div class="eco-name">nirs4all-benchmarks</div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.0</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.2</span>
         </div>
         <p>Reproducible, scored nirs4all pipelines run on curated reference datasets, published as a browsable benchmark resource with interactive dataviz (leaderboards, effect analysis, 3D landscapes, clustered pipeline graphs). An early <strong>prototype</strong> &mdash; currently a static client-side demo; a live meta-analysis service is planned.</p>
         <div class="eco-links">
@@ -2324,7 +2325,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Pipeline library</div>
             <div class="eco-name">nirs4all-repository</div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-repository">v0.1.0</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-repository">v0.1.2</span>
         </div>
         <p>The public, versioned repository of <strong>pre-configured, tested nirs4all &amp; dag-ml pipelines</strong> &mdash; ready-to-run recipes stored with provenance, validated against reference datasets, and intended to be loadable from the Python reference and portable runtime surfaces.</p>
         <div class="eco-links">
@@ -2387,7 +2388,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <div class="hud-panels">
             <div class="hud-panel active" data-panel="pypi">
-              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;pip install nirs4all-lite&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
+              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;pip install nirs4all-lite&#10;# RC/cutover aggregate: pip install nirs4all-core&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
 pip install <span class="pk">nirs4all</span>
 pip install <span class="pk">nirs4all-methods</span>
 pip install <span class="pk">pls4all</span>
@@ -2396,6 +2397,7 @@ pip install <span class="pk">nirs4all-formats</span>
 pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
 pip install <span class="pk">nirs4all-lite</span>
+<span class="cm"># RC/cutover aggregate:</span> pip install <span class="pk">nirs4all-core</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
               <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; RC-only names such as <b>nirs4all-core</b> remain tracked separately.</div>
             </div>
@@ -2431,7 +2433,8 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>pls4all</b><span class="meta">latest &middot; R tarball</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-io/releases/latest" target="_blank" rel="noopener"><b>nirs4all-io</b><span class="meta">latest &middot; wheels &middot; R subset &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-datasets/releases/latest" target="_blank" rel="noopener"><b>nirs4all-datasets</b><span class="meta">latest &middot; wheels &middot; R subset</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-lite/releases/latest" target="_blank" rel="noopener"><b>nirs4all-lite</b><span class="meta">latest &middot; legacy/current artifacts</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" rel="noopener"><b>nirs4all-core</b><span class="meta">v1 RC &middot; aggregate target</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-lite/releases/latest" target="_blank" rel="noopener"><b>nirs4all-lite</b><span class="meta">legacy/current artifacts</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
               </div>
               <div class="hud-note">Release assets vary by package: wheels, source tarballs, and binding zips are tracked per surface.</div>
             </div>
@@ -2525,8 +2528,8 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <span class="mn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
           <span class="mn-div"></span>
           <span class="mn-label">Package · Interop</span>
-          <span class="mn-pkg">dag-ml, lite/core</span>
-          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate target; nirs4all-lite remains visible as the legacy/current artifact line.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener">lite</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
+          <span class="mn-pkg">dag-ml, core/lite</span>
+          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate target; nirs4all-lite remains visible as the legacy/current artifact line.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a><a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener">lite</a></div></div>
         </div>
 
         <div class="map-ar a-apw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -3234,10 +3237,13 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     pypi: pkg => fetch('https://pypi.org/pypi/' + pkg + '/json')
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => d.info.version),
-    gh: repo => fetch('https://api.github.com/repos/GBeurier/' + repo + '/tags?per_page=1',
+    gh: repo => fetch('https://api.github.com/repos/GBeurier/' + repo + '/tags?per_page=20',
         { headers: { 'Accept': 'application/vnd.github+json' } })
       .then(r => r.ok ? r.json() : Promise.reject())
-      .then(d => ((d[0] && d[0].name) || '').replace(/^v/, '')),
+      .then(d => {
+        const tag = (d.find(t => /^v?\d+\.\d+\.\d+/.test(t.name)) || d[0] || {}).name || '';
+        return tag.replace(/^v/, '');
+      }),
   };
   document.querySelectorAll('.eco-ver[data-ver]').forEach(el => {
     const [src, pkg] = el.dataset.ver.split(':');
