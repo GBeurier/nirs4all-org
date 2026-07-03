@@ -2,7 +2,8 @@
 
 Official landing page for the public nirs4all ecosystem: the Python
 reference/oracle package, [nirs4all Studio](https://github.com/GBeurier/nirs4all-studio),
-the client-side WASM web app, and the v1 RC package topology.
+the client-side WASM web app, the shared UI package, the provider client layer,
+and the v1 RC package topology.
 
 Repository name: `nirs4all-org`
 
@@ -43,7 +44,9 @@ nirs4all-org/
 - **Overview**: Python reference library vs Studio comparison
 - **RC topology**: `nirs4all-core` as the V1 RC aggregate target,
   `nirs4all-lite` as the legacy/current artifact line, `web.nirs4all.org` as
-  client-side-only/WASM, and `nirs4all-ui` as the shared Studio/Web UI package
+  client-side-only/WASM, `nirs4all-ui` as the shared Studio/Web UI package,
+  and `nirs4all-providers` as the soft-importing read layer over datasets,
+  repository, benchmarks, and papers
 - **Features**: 6 key capability cards
 - **Screenshots**: Tabbed gallery of Studio UI
 - **Quick Start**: Tabbed code blocks (install, basic usage, advanced pipelines)

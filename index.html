@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nirs4all | Open-Source NIR Spectroscopy Software for Python, Desktop, and WASM</title>
-  <meta name="description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, and portable RC package topology." />
+  <meta name="description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, shared UI package, provider clients, and portable RC package topology." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Gregory Beurier, Denis Cornet, Lauriane Rouan" />
@@ -23,7 +23,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="nirs4all" />
   <meta property="og:title" content="nirs4all | Open-Source NIR Spectroscopy Software for Python, Desktop, and WASM" />
-  <meta property="og:description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, and portable RC package topology." />
+  <meta property="og:description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, shared UI package, provider clients, and portable RC package topology." />
   <meta property="og:url" content="https://nirs4all.org/" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta property="og:image:secure_url" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
@@ -35,7 +35,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="nirs4all | Open-Source NIR Spectroscopy Software for Python, Desktop, and WASM" />
-  <meta name="twitter:description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, and portable RC package topology." />
+  <meta name="twitter:description" content="Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, shared UI package, provider clients, and portable RC package topology." />
   <meta name="twitter:url" content="https://nirs4all.org/" />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:image:alt" content="nirs4all logo for the open-source NIR spectroscopy platform" />
@@ -56,7 +56,7 @@
           "name": "nirs4all",
           "url": "https://nirs4all.org/",
           "logo": "https://nirs4all.org/assets/brand/nirs4all/icon-512.png",
-          "description": "Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, and portable RC package topology.",
+          "description": "Open-source NIR spectroscopy software with a Python reference library, desktop Studio app, client-side WASM web client, shared UI package, provider clients, and portable RC package topology.",
           "email": "mailto:nirs4all@cirad.fr",
           "foundingDate": "2024",
           "sameAs": [
@@ -67,6 +67,7 @@
             "https://github.com/GBeurier/nirs4all-ecosystem",
             "https://github.com/GBeurier/nirs4all-core",
             "https://github.com/GBeurier/nirs4all-ui",
+            "https://github.com/GBeurier/nirs4all-providers",
             "https://github.com/GBeurier/nirs4all-methods",
             "https://methods.nirs4all.org/",
             "https://github.com/GBeurier/nirs4all-aom",
@@ -115,7 +116,7 @@
           "@id": "https://nirs4all.org/#webpage",
           "url": "https://nirs4all.org/",
           "name": "nirs4all | Open-Source NIR Spectroscopy Software for Python, Desktop, and WASM",
-          "description": "Official landing page for the nirs4all public ecosystem, including the Python reference library, Studio, web client, and RC package topology.",
+          "description": "Official landing page for the nirs4all public ecosystem, including the Python reference library, Studio, web client, shared UI package, provider clients, and RC package topology.",
           "isPartOf": {
             "@id": "https://nirs4all.org/#website"
           },
@@ -209,7 +210,7 @@
               "name": "What is nirs4all?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published."
+                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React UI package, nirs4all-providers is the soft-importing provider client layer, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published."
               }
             },
             {
@@ -241,7 +242,7 @@
               "name": "What is the v1 RC package topology?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-core is the aggregate target issued from the nirs4all-lite line, current production artifacts may still use nirs4all-lite names until the cutover is published, web.nirs4all.org runs client-side-only through WASM, and nirs4all-ui is the shared React UI package used by Studio and the web client."
+                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-core is the aggregate target issued from the nirs4all-lite line, current production artifacts may still use nirs4all-lite names until the cutover is published, web.nirs4all.org runs client-side-only through WASM, nirs4all-ui is the shared React UI package used by Studio and the web client, and nirs4all-providers is the soft-importing read layer over datasets, repository, benchmarks, and papers."
               }
             }
           ]
@@ -1537,6 +1538,7 @@
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>V1 RC aggregate target</span></a>
           <a href="https://github.com/GBeurier/nirs4all-lite" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Legacy/current artifacts</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-ui</b><span>Shared Studio/Web UI</span></a>
+          <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-providers</b><span>Soft-import provider layer</span></a>
           <a href="https://web.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-web</b><span>Client-side WASM</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ecosystem" target="_blank" rel="noopener" class="nav-dd-all" role="menuitem">Browse all repositories &rarr;</a>
         </div>
@@ -1591,7 +1593,7 @@
     <img src="assets/brand/ecosystem/nirs4all_horizontal.svg" alt="nirs4all" class="hero-logo" />
     <!-- <div class="hero-kicker">Near-Infrared Spectroscopy · Open Source</div> -->
     <h1 class="hero-tagline">Open spectroscopy <em>for everyone</em></h1>
-    <p class="hero-sub">From raw spectra to deployed models &mdash; a Python reference library, desktop Studio app, client-side WASM web client, and portable RC package topology for Near-Infrared Spectroscopy.</p>
+    <p class="hero-sub">From raw spectra to deployed models &mdash; a Python reference library, desktop Studio app, client-side WASM web client, shared UI package, provider clients, and portable RC package topology for Near-Infrared Spectroscopy.</p>
     <div class="hero-institutions">
       <a href="https://www.cirad.fr/en" target="_blank" class="hero-inst-link">
         <img src="assets/institutions/logo-cirad-en.jpg" alt="CIRAD" class="hero-inst-logo" />
@@ -1709,7 +1711,7 @@
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">Where we make the difference</span></div>
     <h2 class="section-title fade-in">The library and the <em>app</em></h2>
-    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. The v1 RC topology then separates the portable aggregate (<strong>nirs4all-core</strong> target, <strong>nirs4all-lite</strong> legacy-current artifacts), the client-side WASM web app, shared UI package, file readers, datasets, and engines.</p>
+    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. The v1 RC topology then separates the portable aggregate (<strong>nirs4all-core</strong> target, <strong>nirs4all-lite</strong> legacy-current artifacts), the client-side WASM web app, the shared UI package, the soft-importing provider layer, file readers, datasets, and engines.</p>
     <div class="overview-grid fade-in">
 
       <!-- Library card · with the Get-started component -->
@@ -2006,7 +2008,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">The full picture</span></div>
     <h2 class="section-title fade-in">One growing <em>ecosystem</em></h2>
-    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. In the v1 RC topology, <strong>nirs4all-core</strong> is the aggregate target issued from the <strong>nirs4all-lite</strong> line, <strong>web.nirs4all.org</strong> is client-side-only WASM, and <strong>nirs4all-ui</strong> is shared by Studio and the web client.</p>
+    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. In the v1 RC topology, <strong>nirs4all-core</strong> is the aggregate target issued from the <strong>nirs4all-lite</strong> line, <strong>web.nirs4all.org</strong> is client-side-only WASM, <strong>nirs4all-ui</strong> is shared by Studio and the web client, and <strong>nirs4all-providers</strong> offers one soft-import read surface over datasets, repository, benchmarks, and papers.</p>
 
     <!-- Evolution rail: origin → built on the core → next generation -->
     <div class="eco-arc fade-in">
@@ -2088,9 +2090,9 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Shared UI package</div>
             <div class="eco-name">nirs4all-ui <span class="eco-lang">React &middot; TypeScript</span></div>
           </div>
-          <span class="eco-ver">RC</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-ui">v0.1.1</span>
         </div>
-        <p>The shared React UI package for Studio and nirs4all-web: presentational components plus runtime and score view-model helpers kept in one place, without owning the numerical runtime or data readers.</p>
+        <p>The shared React UI package for Studio and nirs4all-web: presentational components plus pure TypeScript runtime and score helpers kept in one place, while host apps keep routing, data fetching, execution, icons, and app state ownership.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <span class="eco-status">RC</span>
@@ -2289,7 +2291,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.2 RC</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.3 RC</span>
         </div>
         <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. It pins dag-ml 0.2.2, dag-ml-data 0.2.3, io 0.1.5 and datasets 0.3.2 while current production artifacts may still use lite names until the cutover is published.</p>
         <div class="eco-links">
@@ -2343,13 +2345,31 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Repro publishing</div>
             <div class="eco-name">nirs4all-papers</div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-papers">v0.2.0</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-papers">v0.2.1</span>
         </div>
         <p>An early <strong>prototype</strong> that turns a finished experiment into a self-contained <strong>reproduction document</strong> &mdash; an auto-generated methods &amp; bibliography report alongside an in-browser page that re-runs the exact pipeline, on the bundled data or your own.</p>
         <div class="eco-links">
           <a href="https://papers.nirs4all.org/" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/><path d="m10 13 3 2-3 2z" fill="currentColor"/></svg>Live demo</a>
           <a href="https://github.com/GBeurier/nirs4all-papers" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <span class="eco-status">Prototype</span>
+        </div>
+      </div>
+
+      <!-- nirs4all-providers · Soft-import read layer -->
+      <div class="eco-card cat-data fade-in">
+        <div class="eco-head">
+          <span class="eco-logo" data-eco-logo="nirs4all-providers" aria-hidden="true">prov</span>
+          <div class="eco-titles">
+            <div class="eco-cat">Provider clients</div>
+            <div class="eco-name">nirs4all-providers <span class="eco-lang">Python</span></div>
+          </div>
+          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.1</span>
+        </div>
+        <p>A dependency-light, soft-importing client layer over <strong>nirs4all-datasets</strong>, <strong>nirs4all-repository</strong>, <strong>nirs4all-benchmarks</strong>, and <strong>nirs4all-papers</strong>. It exposes one provider contract for read access and local export helpers without owning NIRS, ML, IO, parsing, or write-back logic.</p>
+        <div class="eco-links">
+          <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <a href="https://github.com/GBeurier/nirs4all-providers/tags" target="_blank" class="pill pill-cyan">Tags</a>
+          <span class="eco-status">Read layer</span>
         </div>
       </div>
 
@@ -2361,7 +2381,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <span class="hud-corner"></span>
         <span class="hud-label">Ecosystem<i>_</i></span>
         <span class="hud-rule"></span>
-        <span class="hud-meta">17 repos &middot; open&nbsp;source</span>
+        <span class="hud-meta">18 repos &middot; open&nbsp;source</span>
         <span class="hud-dot"></span>
       </div>
       <div class="hud-body">
@@ -2455,7 +2475,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">How it fits together</span></div>
     <h2 class="section-title fade-in">From spectra to <em>shared models</em></h2>
-    <p class="section-sub fade-in">The whole pipeline, end to end &mdash; every box is a package you can use on its own. Hover or tap a node to see what it does and where to get it.</p>
+    <p class="section-sub fade-in">The whole pipeline, end to end &mdash; every box is a package you can use on its own, and the provider layer offers one read surface over datasets, repository, benchmarks, and papers. Hover or tap a node to see what it does and where to get it.</p>
 
     <div class="map-wrap fade-in">
       <div class="map-grid">
@@ -2855,7 +2875,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     <div class="faq-grid fade-in">
       <article class="faq-item">
         <h3>What is nirs4all?</h3>
-        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published.</p>
+        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, Studio is the desktop application, nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React UI package, nirs4all-providers is the soft-importing provider client layer, nirs4all-core is the V1 RC aggregate target, and nirs4all-lite remains the legacy/current artifact line until the cutover is published.</p>
       </article>
       <article class="faq-item">
         <h3>Can I use nirs4all without coding?</h3>
@@ -2871,7 +2891,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
       </article>
       <article class="faq-item">
         <h3>What is the v1 RC package topology?</h3>
-        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-core</code> is the aggregate target issued from the <code>nirs4all-lite</code> line, current production artifacts may still use <code>nirs4all-lite</code> names until the cutover is published, <code>web.nirs4all.org</code> runs client-side-only through WASM, and <code>nirs4all-ui</code> is the shared React UI package used by Studio and the web client.</p>
+        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-core</code> is the aggregate target issued from the <code>nirs4all-lite</code> line, current production artifacts may still use <code>nirs4all-lite</code> names until the cutover is published, <code>web.nirs4all.org</code> runs client-side-only through WASM, <code>nirs4all-ui</code> is the shared React UI package used by Studio and the web client, and <code>nirs4all-providers</code> is the soft-importing read layer over datasets, repository, benchmarks, and papers.</p>
       </article>
     </div>
   </div>
@@ -2882,7 +2902,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">Dive deeper</span></div>
     <h2 class="section-title fade-in"><em>Resources</em></h2>
-    <p class="section-sub fade-in">Everything you need to get started, contribute, or explore the wider nirs4all ecosystem &mdash; from the Python reference library and Studio to the client-side web app, shared UI package, portable aggregate, engines, and file readers underneath.</p>
+    <p class="section-sub fade-in">Everything you need to get started, contribute, or explore the wider nirs4all ecosystem &mdash; from the Python reference library and Studio to the client-side web app, shared UI package, provider clients, portable aggregate, engines, and file readers underneath.</p>
     <div class="links-grid fade-in">
       <a href="open-source-nirs-tools.html" class="link-card">
         <div class="link-icon">
@@ -2995,6 +3015,13 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
         </div>
         <h4>nirs4all-ui</h4>
         <p>Shared React UI package used by Studio and the client-side web app</p>
+      </a>
+      <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="link-card">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h13"/><circle cx="18" cy="12" r="2.2"/><circle cx="20" cy="17" r="2.2"/></svg>
+        </div>
+        <h4>nirs4all-providers</h4>
+        <p>Soft-importing Python provider clients for datasets, repository, benchmarks, and papers</p>
       </a>
       <a href="https://pypi.org/project/nirs4all-aom" target="_blank" class="link-card">
         <div class="link-icon">
@@ -3459,14 +3486,15 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     "nirs4all-datasets": "assets/brand/nirs4all-datasets/icon.svg",
     "dag-ml":            "assets/brand/dag-ml/icon.svg",
     "dag-ml-data":       "assets/brand/dag-ml-data/icon.svg",
-    "nirs4all-ui":       "",                            // TODO: no generated brand asset in this checkout yet
+    "nirs4all-ui":       "assets/brand/nirs4all-ui/icon.svg",
     "nirs4all-web":      "assets/brand/nirs4all-web/icon.svg",
     "nirs4all-lite":     "assets/brand/nirs4all-lite/icon.svg",
-    "nirs4all-core":     "",                            // TODO: no generated brand asset in this checkout yet
+    "nirs4all-core":     "assets/brand/nirs4all-core/icon.svg",
     "nirs4all-benchmarks": "assets/brand/nirs4all-benchmarks/icon.svg",
     "nirs4all-repository": "assets/brand/nirs4all-repository/icon.svg",
     "nirs4all-cluster":  "assets/brand/nirs4all-cluster/icon.svg",
     "nirs4all-papers":   "assets/brand/nirs4all-papers/icon.svg",
+    "nirs4all-providers": "assets/brand/nirs4all-providers/icon.svg",
   };
   document.querySelectorAll('[data-eco-logo]').forEach(el => {
     const src = ECOSYSTEM_LOGOS[el.dataset.ecoLogo];

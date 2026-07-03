@@ -36,6 +36,7 @@ brand/
 | `nirs4all` (lib) | teal `#058E96` | n4a | nirs·4·all |
 | `nirs4all-studio` | `#96C800` | n4s | nirs4all-studio |
 | `nirs4all-lite` | `#E9362D` | n4l | nirs4all-lite |
+| `nirs4all-core` | `#E9362D` | n4o | nirs4all-core |
 | `nirs4all-web` | `#FF6400` | n4w | nirs4all-web |
 | `nirs4all-datasets` | `#FFBE00` | n4d | nirs4all-datasets |
 | `nirs4all-methods` | `#00A5D2` | n4m | nirs4all-methods |
@@ -45,13 +46,15 @@ brand/
 | `nirs4all-repository` | `#AC564A` | n4r | nirs4all-repository |
 | `nirs4all-papers` | `#C2255C` | n4p | nirs4all-papers |
 | `nirs4all-cluster` | `#1B5789` | n4c | nirs4all-cluster |
+| `nirs4all-ui` | `#2563EB` | n4u | nirs4all-ui |
+| `nirs4all-providers` | `#D946EF` | n4v | nirs4all-providers |
 | `dag-ml` | teal `#058E96` | DM | DAG-ML |
 | `dag-ml-data` | yellow `#FFBE00` | DMd | DAG-ML-data |
 
-RC topology note: `nirs4all-core` (future aggregate) and `nirs4all-ui` (shared
-Studio/Web UI package) are public ecosystem packages, but generated brand assets
-for them are not present in this checkout yet. The website uses text lettermark
-fallbacks for those cards.
+RC topology note: `nirs4all-core`, `nirs4all-ui`, and `nirs4all-providers` now
+ship site-local generated brand assets in this checkout. `nirs4all-providers`
+uses the stacked mark `n4v` to stay distinct from `nirs4all-papers` (`n4p`);
+`nirs4all-core` uses `n4o` so `n4c` remains reserved for `nirs4all-cluster`.
 
 Constant accents: the **4** / **-** is always red `#E9362D`; package-suffix text is
 black `#000000` (white in `-dark` variants).
