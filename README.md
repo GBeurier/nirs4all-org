@@ -8,6 +8,10 @@ Repository name: `nirs4all-org`
 
 Visible at [nirs4all.org](https://nirs4all.org)
 
+The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-tools.html)
+maps the nirs4all file readers, datasets, methods engine, browser modelling app,
+pipeline repository, papers archive, benchmarks, and release cockpit.
+
 ## Local preview
 
 Open `index.html` directly in any browser — no server needed.
@@ -29,7 +33,8 @@ nirs4all-org/
 │   └── inspector-after-refresh.jpg
 ├── CNAME                   # GitHub Pages custom domain
 ├── robots.txt
-└── sitemap.xml
+├── sitemap.xml
+└── sitemap-index.xml
 ```
 
 ## Content
