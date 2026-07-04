@@ -77,7 +77,6 @@
             "https://formats.nirs4all.org/",
             "https://github.com/GBeurier/nirs4all-io",
             "https://io.nirs4all.org/",
-            "https://pypi.org/project/nirs4all-lite/0.2.0/",
             "https://github.com/GBeurier/nirs4all-web",
             "https://web.nirs4all.org/",
             "https://github.com/GBeurier/nirs4all-papers",
@@ -1539,7 +1538,6 @@
           <a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml</b><span>Execution core</span></a>
           <a href="https://github.com/GBeurier/dag-ml-data" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml-data</b><span>Data contracts</span></a>
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>V1 RC aggregate target</span></a>
-          <a href="https://pypi.org/project/nirs4all-lite/0.2.0/" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-lite</b><span>Legacy PyPI alias</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-ui</b><span>Shared Studio/Web UI</span></a>
           <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-providers</b><span>Soft-import provider layer</span></a>
           <a href="https://github.com/GBeurier/nirs4all-tools" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-tools</b><span>Migration toolkit</span></a>
@@ -2414,7 +2412,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <div class="hud-panels">
             <div class="hud-panel active" data-panel="pypi">
-              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;# nirs4all-core PyPI pending; nirs4all-lite is a compatibility alias&#10;pip install nirs4all-lite&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
+              <div class="hud-code"><button class="hud-copy" data-copy="pip install nirs4all&#10;pip install nirs4all-methods&#10;pip install pls4all&#10;pip install nirs4all-aom&#10;pip install nirs4all-formats&#10;pip install nirs4all-io&#10;pip install nirs4all-datasets&#10;pip install nirs4all-papers">copy</button><span class="cm"># the library, the engines, the models &amp; the data tools</span>
 pip install <span class="pk">nirs4all</span>
 pip install <span class="pk">nirs4all-methods</span>
 pip install <span class="pk">pls4all</span>
@@ -2422,9 +2420,8 @@ pip install <span class="pk">nirs4all-aom</span>
 pip install <span class="pk">nirs4all-formats</span>
 pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
-pip install <span class="pk">nirs4all-lite</span> <span class="cm"># compatibility alias until nirs4all-core PyPI is live</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
-              <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; <b>nirs4all-core</b> is an RC release target until its PyPI Trusted Publisher is enabled.</div>
+              <div class="hud-note">Current Python/reference and data/tool packages are on <b>PyPI</b>; <b>nirs4all-core</b> is an RC release target until its PyPI Trusted Publisher is enabled. The old <b>nirs4all-lite</b> PyPI name remains a compatibility alias only.</div>
             </div>
             <div class="hud-panel" data-panel="runiverse">
               <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R preview/subset packages, auto-built from source</span>
@@ -2460,7 +2457,6 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-io/releases/latest" target="_blank" rel="noopener"><b>nirs4all-io</b><span class="meta">latest &middot; wheels &middot; R subset &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-datasets/releases/latest" target="_blank" rel="noopener"><b>nirs4all-datasets</b><span class="meta">latest &middot; wheels &middot; R subset</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" rel="noopener"><b>nirs4all-core</b><span class="meta">v1 RC &middot; aggregate target</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://pypi.org/project/nirs4all-lite/0.2.0/" target="_blank" rel="noopener"><b>nirs4all-lite</b><span class="meta">legacy PyPI alias · 0.2.0</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
               </div>
               <div class="hud-note">Release assets vary by package: wheels, source tarballs, and binding zips are tracked per surface.</div>
             </div>
@@ -2554,8 +2550,8 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <span class="mn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
           <span class="mn-div"></span>
           <span class="mn-label">Package · Interop</span>
-          <span class="mn-pkg">dag-ml, core/lite</span>
-          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate; nirs4all-lite remains visible only as a legacy PyPI compatibility alias.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a><a href="https://pypi.org/project/nirs4all-lite/0.2.0/" target="_blank" rel="noopener">lite PyPI alias</a></div></div>
+          <span class="mn-pkg">dag-ml, nirs4all-core</span>
+          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate; nirs4all-lite remains only a legacy PyPI compatibility alias during cutover.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
         </div>
 
         <div class="map-ar a-apw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
