@@ -40,8 +40,8 @@ nirs4all-org/
 
 - **Hero**: Logo, tagline, install command, CTA buttons
 - **Overview**: Python reference library vs Studio comparison
-- **RC topology**: `nirs4all-core` as the V1 RC aggregate target,
-  `nirs4all-lite` as the legacy/current artifact line, `web.nirs4all.org` as
+- **RC topology**: `nirs4all-core` as the V1 RC portable aggregate,
+  `nirs4all-lite` as a compatibility alias during cutover, `web.nirs4all.org` as
   client-side-only/WASM, `nirs4all-ui` as the shared Studio/Web UI package,
   and `nirs4all-providers` as the soft-importing read layer over datasets,
   repository, benchmarks, and papers
