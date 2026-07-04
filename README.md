@@ -23,15 +23,13 @@ Open `index.html` directly in any browser — no server needed.
 nirs4all-org/
 ├── index.html              # The entire landing page (HTML + CSS + JS)
 ├── assets/                 # Logos and screenshots
-│   ├── nirs4all_logo.png
-│   ├── nirs4all_logo_green.png
-│   ├── nirs4all.svg
-│   ├── nirs4all.ico
-│   ├── logo-cirad-en.jpg
-│   ├── results-page.png
-│   ├── runs-page.png
-│   ├── predictions-page.png
-│   └── inspector-after-refresh.jpg
+│   ├── brand/              # Ecosystem and per-package brand kits
+│   │   ├── nirs4all-ui/
+│   │   ├── nirs4all-core/
+│   │   └── nirs4all-providers/
+│   ├── institutions/
+│   ├── partners/
+│   └── screenshots_studio/
 ├── CNAME                   # GitHub Pages custom domain
 ├── robots.txt
 ├── sitemap.xml

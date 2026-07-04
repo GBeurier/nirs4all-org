@@ -1102,8 +1102,10 @@
       background: var(--bg-alt); display: flex; align-items: center;
       justify-content: center; color: var(--teal);
     }
+    .link-icon.brand-icon { background: #fff; border: 1px solid var(--border); box-shadow: var(--shadow); }
     .link-icon svg { width: 24px; height: 24px; }
     .link-icon img { height: 24px; width: auto; margin: 0 auto; border-radius: 0; }
+    .link-icon.brand-icon img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
     .link-card h4 { font-size: .95rem; font-weight: 700; color: var(--text); }
     .link-card p { color: var(--text-2); font-size: .82rem; line-height: 1.6; }
 
@@ -2092,9 +2094,10 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-ui">v0.1.1</span>
         </div>
-        <p>The shared React UI package for Studio and nirs4all-web: presentational components plus pure TypeScript runtime and score helpers kept in one place, while host apps keep routing, data fetching, execution, icons, and app state ownership.</p>
+        <p>The shared React UI package for Studio and the client-side web app: reusable presentational components, runtime status view models, score helpers, and packaged brand assets, while host apps keep routing, data fetching, execution, icons, and app state ownership.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="pill pill-teal">Components</a>
           <span class="eco-status">RC</span>
         </div>
       </div>
@@ -2293,7 +2296,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.3 RC</span>
         </div>
-        <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. It pins dag-ml 0.2.2, dag-ml-data 0.2.3, io 0.1.5 and datasets 0.3.2 while current production artifacts may still use lite names until the cutover is published.</p>
+        <p>The V1 RC aggregate package target for the reproducible cross-language stack, issued from the <strong>nirs4all-lite</strong> line. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface while current production artifacts may still use lite names until the cutover is published.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
@@ -2365,7 +2368,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.1</span>
         </div>
-        <p>A dependency-light, soft-importing client layer over <strong>nirs4all-datasets</strong>, <strong>nirs4all-repository</strong>, <strong>nirs4all-benchmarks</strong>, and <strong>nirs4all-papers</strong>. It exposes one provider contract for read access and local export helpers without owning NIRS, ML, IO, parsing, or write-back logic.</p>
+        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong>, <strong>nirs4all-repository</strong>, <strong>nirs4all-benchmarks</strong>, and <strong>nirs4all-papers</strong>. It exposes one optional-dependency read contract and local export helpers without owning NIRS, ML, IO, parsing, or write-back logic.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-providers/tags" target="_blank" class="pill pill-cyan">Tags</a>
@@ -3003,25 +3006,25 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
         <p>Legacy/current artifact line while nirs4all-core is the V1 RC aggregate target</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="link-card">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="M4 7l8 4 8-4"/><path d="M12 11v10"/></svg>
+        <div class="link-icon brand-icon">
+          <img src="assets/brand/nirs4all-core/icon.svg" alt="nirs4all-core logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-core</h4>
-        <p>V1 RC aggregate target for the reproducible cross-language stack</p>
+        <p>V1 RC aggregate package target for the reproducible cross-language stack</p>
       </a>
-      <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" class="link-card">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10"/><path d="M7 12h5"/><path d="M8 22h8"/><path d="M12 18v4"/></svg>
+      <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="link-card">
+        <div class="link-icon brand-icon">
+          <img src="assets/brand/nirs4all-ui/icon.svg" alt="nirs4all-ui logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-ui</h4>
-        <p>Shared React UI package used by Studio and the client-side web app</p>
+        <p>Component showcase, shared React package, and Studio/Web view-model helpers</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="link-card">
-        <div class="link-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h13"/><circle cx="18" cy="12" r="2.2"/><circle cx="20" cy="17" r="2.2"/></svg>
+        <div class="link-icon brand-icon">
+          <img src="assets/brand/nirs4all-providers/icon.svg" alt="nirs4all-providers logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-providers</h4>
-        <p>Soft-importing Python provider clients for datasets, repository, benchmarks, and papers</p>
+        <p>Soft-importing provider client layer for datasets, repository, benchmarks, and papers</p>
       </a>
       <a href="https://pypi.org/project/nirs4all-aom" target="_blank" class="link-card">
         <div class="link-icon">
@@ -3473,7 +3476,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   }
 
   // ── Ecosystem logos ────────────────────────────────────────
-  // Drop a logo into assets/ecosystem/<repo>.svg (or .png) and set its path
+  // Drop a logo into assets/brand/<repo>/icon.svg (or another site-local path)
   // below; an empty string keeps the lettermark fallback. No network request
   // is made while a path is empty, so unconfigured logos cost nothing.
   const ECOSYSTEM_LOGOS = {
