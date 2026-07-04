@@ -1,0 +1,12 @@
+# Local hygiene hooks for the static site (no Python/ruff gate here).
+# Install: uvx pre-commit install    Run all: uvx pre-commit run --all-files
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+      - id: detect-private-key
