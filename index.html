@@ -66,7 +66,11 @@
             "https://pypi.org/project/nirs4all/",
             "https://github.com/GBeurier/nirs4all-ecosystem",
             "https://github.com/GBeurier/nirs4all-core",
+            "https://www.npmjs.com/package/nirs4all",
+            "https://crates.io/crates/nirs4all",
             "https://github.com/GBeurier/nirs4all-ui",
+            "https://gbeurier.github.io/nirs4all-ui/",
+            "https://www.npmjs.com/package/nirs4all-ui",
             "https://github.com/GBeurier/nirs4all-providers",
             "https://github.com/GBeurier/nirs4all-tools",
             "https://github.com/GBeurier/nirs4all-methods",
@@ -126,6 +130,15 @@
             },
             {
               "@id": "https://nirs4all.org/#studio"
+            },
+            {
+              "@id": "https://nirs4all.org/#core"
+            },
+            {
+              "@id": "https://nirs4all.org/#ui"
+            },
+            {
+              "@id": "https://nirs4all.org/#providers"
             }
           ],
           "primaryImageOfPage": "https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png",
@@ -200,6 +213,94 @@
             "@id": "https://nirs4all.org/#organization"
           },
           "description": "Desktop application for interactive spectral data exploration, visual analytics, model building, and deployment workflows."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://nirs4all.org/#core",
+          "name": "nirs4all-core",
+          "url": "https://github.com/GBeurier/nirs4all-core",
+          "image": "https://nirs4all.org/assets/brand/nirs4all-core/og.png",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Cross-platform",
+          "programmingLanguage": "Rust, Python, R, JavaScript, MATLAB/Octave",
+          "softwareVersion": "0.2.5",
+          "downloadUrl": "https://github.com/GBeurier/nirs4all-core/releases/latest",
+          "codeRepository": "https://github.com/GBeurier/nirs4all-core",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Portable aggregate over dag-ml and dag-ml-data",
+            "Bindings for Rust, Python, R, WebAssembly and MATLAB/Octave",
+            "Re-export/load hooks for formats, IO, datasets and methods",
+            "Parity checks against the Python nirs4all oracle"
+          ],
+          "publisher": {
+            "@id": "https://nirs4all.org/#organization"
+          },
+          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. The public Rust crate and JavaScript/WASM npm package use the nirs4all name; PyPI nirs4all-core publishing is still pending."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://nirs4all.org/#ui",
+          "name": "nirs4all-ui",
+          "url": "https://gbeurier.github.io/nirs4all-ui/",
+          "image": "https://nirs4all.org/assets/brand/nirs4all-ui/og.png",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Cross-platform",
+          "programmingLanguage": "TypeScript",
+          "softwareVersion": "0.1.4",
+          "downloadUrl": "https://www.npmjs.com/package/nirs4all-ui",
+          "codeRepository": "https://github.com/GBeurier/nirs4all-ui",
+          "softwareHelp": "https://gbeurier.github.io/nirs4all-ui/",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Shared presentational React components",
+            "Runtime status view models",
+            "Score and metric display helpers",
+            "Packaged nirs4all brand assets"
+          ],
+          "publisher": {
+            "@id": "https://nirs4all.org/#organization"
+          },
+          "description": "Shared React and TypeScript package for Studio and the client-side web app, with presentational components, runtime view models, score helpers, and packaged brand assets while host apps keep routing, data fetching, execution, icons, and state."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://nirs4all.org/#providers",
+          "name": "nirs4all-providers",
+          "url": "https://github.com/GBeurier/nirs4all-providers",
+          "image": "https://nirs4all.org/assets/brand/nirs4all-providers/og.png",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "OS Independent",
+          "programmingLanguage": "Python",
+          "softwareVersion": "0.2.5",
+          "downloadUrl": "https://github.com/GBeurier/nirs4all-providers/tags",
+          "codeRepository": "https://github.com/GBeurier/nirs4all-providers",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Soft-import provider registry",
+            "Read clients for datasets, repository, benchmarks, and papers",
+            "Optional dependency health and capability descriptors",
+            "Local export helpers without ecosystem write-back"
+          ],
+          "publisher": {
+            "@id": "https://nirs4all.org/#organization"
+          },
+          "description": "Dependency-light, soft-importing Python provider client layer over nirs4all-datasets, nirs4all-repository, nirs4all-benchmarks, and nirs4all-papers. It owns no NIRS, ML, IO, parsing, or write-back logic; PyPI publishing is still pending."
         },
         {
           "@type": "FAQPage",
@@ -2092,12 +2193,13 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Shared UI package</div>
             <div class="eco-name">nirs4all-ui <span class="eco-lang">React &middot; TypeScript</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-ui">v0.1.3</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-ui">v0.1.4</span>
         </div>
         <p>The shared React UI package for Studio and the client-side web app: reusable presentational components, runtime status view models, score helpers, and packaged brand assets, while host apps keep routing, data fetching, execution, icons, and app state ownership.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="pill pill-teal">Components</a>
+          <a href="https://www.npmjs.com/package/nirs4all-ui" target="_blank" class="pill pill-teal">npm</a>
           <span class="eco-status">RC</span>
         </div>
       </div>
@@ -2110,7 +2212,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">PLS engine</div>
             <div class="eco-name">nirs4all-methods <span class="eco-lang">C++ &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-methods">v1.0.1</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-methods">v1.0.3</span>
         </div>
         <p>A portable Partial Least Squares engine in C++17 with a stable C ABI (<code style="color:var(--indigo-d);background:var(--bg-alt);padding:1px 5px;border-radius:4px">libn4m</code>) and binding surfaces for Python, R, MATLAB/Octave, JavaScript/WebAssembly and Android targets &mdash; one numerical core with parity checks across supported bindings.</p>
         <div class="eco-links">
@@ -2275,7 +2377,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.4 RC</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.5 RC</span>
         </div>
         <p>The canonical V1 RC aggregate for the reproducible cross-language stack. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. npm/crates/GitHub release surfaces are visible; <strong>PyPI nirs4all-core is not published yet</strong>, with <strong>nirs4all-lite</strong> kept only as a compatibility alias until that cutover finishes.</p>
         <div class="eco-links">
@@ -2295,7 +2397,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">New</div>
             <div class="eco-name">nirs4all-benchmarks</div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.3</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.4</span>
         </div>
         <p>Reproducible, scored nirs4all pipelines run on curated reference datasets, published as a browsable benchmark resource with interactive dataviz (leaderboards, effect analysis, 3D landscapes, clustered pipeline graphs). An early <strong>prototype</strong> &mdash; currently a static client-side demo; a live meta-analysis service is planned.</p>
         <div class="eco-links">
@@ -2313,7 +2415,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Pipeline library</div>
             <div class="eco-name">nirs4all-repository</div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-repository">v0.1.5</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-repository">v0.1.6</span>
         </div>
         <p>A public beta catalogue of <strong>pre-configured nirs4all &amp; dag-ml pipeline recipes</strong> stored with provenance, checksums, reference dataset hints, and per-recipe evaluation status. Treat published entries as draft/community recipes unless their catalogue record is marked validated.</p>
         <div class="eco-links">
@@ -2331,7 +2433,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Repro publishing</div>
             <div class="eco-name">nirs4all-papers</div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-papers">v0.2.2</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-papers">v0.2.3</span>
         </div>
         <p>An early <strong>prototype</strong> that turns a finished experiment into a self-contained <strong>reproduction document</strong> &mdash; an auto-generated methods &amp; bibliography report alongside an in-browser page that re-runs the exact pipeline, on the bundled data or your own.</p>
         <div class="eco-links">
@@ -2349,9 +2451,9 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Provider clients</div>
             <div class="eco-name">nirs4all-providers <span class="eco-lang">Python</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.4</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.5</span>
         </div>
-        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong>, <strong>nirs4all-repository</strong>, <strong>nirs4all-benchmarks</strong>, and <strong>nirs4all-papers</strong>. It exposes one optional-dependency read contract and local export helpers without owning NIRS, ML, IO, parsing, or write-back logic. The v0.2.4 source is tagged; <strong>PyPI nirs4all-providers is not published yet</strong>.</p>
+        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong>, <strong>nirs4all-repository</strong>, <strong>nirs4all-benchmarks</strong>, and <strong>nirs4all-papers</strong>. It exposes one optional-dependency read contract and local export helpers without owning NIRS, ML, IO, parsing, or write-back logic. The v0.2.5 source is tagged; <strong>PyPI nirs4all-providers is not published yet</strong>.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-providers/tags" target="_blank" class="pill pill-cyan">Tags</a>
@@ -3002,21 +3104,21 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <img src="assets/brand/nirs4all-core/icon.svg" alt="nirs4all-core logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-core</h4>
-        <p>V1 RC aggregate package target for the reproducible cross-language stack</p>
+        <p>V1 RC portable aggregate with public npm/crates surfaces and pending PyPI publication</p>
       </a>
       <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="link-card">
         <div class="link-icon brand-icon">
           <img src="assets/brand/nirs4all-ui/icon.svg" alt="nirs4all-ui logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-ui</h4>
-        <p>Component showcase, shared React package, and Studio/Web view-model helpers</p>
+        <p>Published npm package, component showcase, and Studio/Web view-model helpers</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="link-card">
         <div class="link-icon brand-icon">
           <img src="assets/brand/nirs4all-providers/icon.svg" alt="nirs4all-providers logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-providers</h4>
-        <p>Soft-importing provider client layer for datasets, repository, benchmarks, and papers</p>
+        <p>Tagged source-only provider client layer for datasets, repository, benchmarks, and papers</p>
       </a>
       <a href="https://github.com/GBeurier/nirs4all-tools" target="_blank" class="link-card">
         <div class="link-icon">

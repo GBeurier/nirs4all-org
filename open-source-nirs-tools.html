@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open-Source NIRS Tools | nirs4all ecosystem</title>
-  <meta name="description" content="Find open-source NIRS tools from nirs4all: Studio, core bindings, shared UI, provider clients, spectroscopy file readers, datasets, PLS methods, browser modelling, pipeline repositories, papers, benchmarks, and release dashboards." />
+  <meta name="description" content="Find open-source NIRS tools from nirs4all: Studio, portable core aggregate, shared UI package, provider clients, spectroscopy file readers, datasets, PLS methods, browser modelling, pipeline repositories, papers, benchmarks, and release dashboards." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0d9488" />
   <link rel="canonical" href="https://nirs4all.org/open-source-nirs-tools.html" />
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="nirs4all" />
   <meta property="og:title" content="Open-Source NIRS Tools | nirs4all ecosystem" />
-  <meta property="og:description" content="A practical map of open-source near-infrared spectroscopy tools for Studio, core bindings, UI, providers, formats, datasets, methods, browser modelling, papers, benchmarks, and pipelines." />
+  <meta property="og:description" content="A practical map of open-source near-infrared spectroscopy tools for Studio, portable core aggregate, UI, providers, formats, datasets, methods, browser modelling, papers, benchmarks, and pipelines." />
   <meta property="og:url" content="https://nirs4all.org/open-source-nirs-tools.html" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Open-Source NIRS Tools | nirs4all ecosystem" />
-  <meta name="twitter:description" content="Open-source near-infrared spectroscopy tools for Studio, core bindings, shared UI, providers, file reading, datasets, PLS methods, browser modelling, pipelines, papers, and benchmarks." />
+  <meta name="twitter:description" content="Open-source near-infrared spectroscopy tools for Studio, portable core aggregate, shared UI, providers, file reading, datasets, PLS methods, browser modelling, pipelines, papers, and benchmarks." />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <link rel="icon" type="image/x-icon" href="assets/nirs4all.ico" />
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
@@ -103,8 +103,8 @@
     <header class="hero">
       <div class="wrap">
         <div class="eyebrow">Open-source near-infrared spectroscopy tools</div>
-        <h1>NIRS tools for Studio, core bindings, formats, datasets, methods, pipelines, papers, and browser modelling</h1>
-        <p class="lead">nirs4all is an open-source ecosystem for NIR spectroscopy workflows: use Studio, share UI components, consume portable core bindings, read vendor files, assemble datasets, run chemometric methods, publish reproducible pipelines, benchmark results, and inspect ecosystem health.</p>
+        <h1>NIRS tools for Studio, core aggregate, formats, datasets, methods, pipelines, papers, and browser modelling</h1>
+        <p class="lead">nirs4all is an open-source ecosystem for NIR spectroscopy workflows: use Studio, share UI components, consume the portable core aggregate, read vendor files, assemble datasets, run chemometric methods, publish reproducible pipelines, benchmark results, and inspect ecosystem health.</p>
         <div class="actions">
           <a class="btn primary" href="https://web.nirs4all.org/">Run the browser workbench</a>
           <a class="btn" href="https://formats.nirs4all.org/">Open the file reader</a>
@@ -116,7 +116,7 @@
     <section class="band">
       <div class="wrap">
         <h2 class="section-title">Find the right nirs4all tool</h2>
-        <p class="sub">Use this page when searching for open-source NIRS software, Studio tooling, portable bindings, shared UI components, provider clients, near-infrared spectroscopy file readers, PLS tools, reproducible NIRS datasets, or browser-based spectroscopy modelling.</p>
+        <p class="sub">Use this page when searching for open-source NIRS software, Studio tooling, the portable core aggregate, shared UI components, provider clients, near-infrared spectroscopy file readers, PLS tools, reproducible NIRS datasets, or browser-based spectroscopy modelling.</p>
         <div class="tool-grid">
           <article class="tool">
             <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all</h2>
@@ -132,19 +132,19 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-core/icon.svg" alt="" /> nirs4all-core</h2>
-            <p>V1 RC portable aggregate for Rust, Python, R, WASM and MATLAB/Octave bindings over dag-ml, formats, IO, datasets and methods. The PyPI package is not published yet.</p>
-            <div class="tags"><span class="tag">core</span><span class="tag">bindings</span><span class="tag">RC</span></div>
+            <p>V1 RC portable aggregate over dag-ml, dag-ml-data, formats, IO, datasets and methods. Public Rust crate and JavaScript/WASM npm package use the nirs4all name; PyPI nirs4all-core is not published yet.</p>
+            <div class="tags"><span class="tag">aggregate</span><span class="tag">npm/crates</span><span class="tag">RC</span></div>
             <a href="https://github.com/GBeurier/nirs4all-core">Open nirs4all-core</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-ui/icon.svg" alt="" /> nirs4all-ui</h2>
-            <p>Shared React/TypeScript package and component showcase for Studio and the client-side web app.</p>
-            <div class="tags"><span class="tag">React</span><span class="tag">components</span><span class="tag">Pages</span></div>
+            <p>Published React/TypeScript package, component showcase, runtime status view models, score helpers, and packaged brand assets for Studio and the client-side web app.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">npm</span><span class="tag">Pages</span></div>
             <a href="https://gbeurier.github.io/nirs4all-ui/">Open component showcase</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-providers/icon.svg" alt="" /> nirs4all-providers</h2>
-            <p>Soft-importing Python read layer over datasets, repository, benchmarks and papers contracts. Tagged as RC; the PyPI package is not published yet.</p>
+            <p>Dependency-light Python provider clients over datasets, repository, benchmarks and papers contracts. Tagged as RC/source-only; PyPI nirs4all-providers is not published yet.</p>
             <div class="tags"><span class="tag">providers</span><span class="tag">contracts</span><span class="tag">RC</span></div>
             <a href="https://github.com/GBeurier/nirs4all-providers">Open nirs4all-providers</a>
           </article>
@@ -217,8 +217,8 @@
             <tr><td>Find reference data</td><td>Browse NIRS datasets with provenance, license, DOI, and statistical identity cards.</td><td><a href="https://datasets.nirs4all.org/">nirs4all-datasets</a></td></tr>
             <tr><td>Run methods</td><td>Use portable PLS and NIRS methods through C, Python, R, MATLAB, JavaScript, and other bindings.</td><td><a href="https://methods.nirs4all.org/">nirs4all-methods</a></td></tr>
             <tr><td>Use a desktop app</td><td>Build and inspect NIRS workflows with the desktop app while the shared RC package surfaces keep evolving.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">nirs4all-studio</a></td></tr>
-            <tr><td>Consume portable bindings</td><td>Use the V1 RC aggregate across Rust, Python, R, WASM and MATLAB/Octave surfaces.</td><td><a href="https://github.com/GBeurier/nirs4all-core">nirs4all-core</a></td></tr>
-            <tr><td>Share UI components</td><td>Reuse Studio/Web runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
+            <tr><td>Consume the portable aggregate</td><td>Use the V1 RC aggregate across Rust, Python, R, WASM and MATLAB/Octave surfaces.</td><td><a href="https://github.com/GBeurier/nirs4all-core">nirs4all-core</a></td></tr>
+            <tr><td>Share UI components</td><td>Reuse the published Studio/Web package, runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
             <tr><td>Read provider contracts</td><td>Consume datasets, repository, benchmark and paper metadata through one soft-importing read layer.</td><td><a href="https://github.com/GBeurier/nirs4all-providers">nirs4all-providers</a></td></tr>
             <tr><td>Model in the browser</td><td>Upload spectra, build a pipeline, run cross-validation, inspect results, and predict without a backend.</td><td><a href="https://web.nirs4all.org/">nirs4all-web</a></td></tr>
             <tr><td>Reuse pipelines</td><td>Browse pipeline recipes with provenance and checksums; validation status is recorded per recipe.</td><td><a href="https://repository.nirs4all.org/">nirs4all-repository</a></td></tr>
