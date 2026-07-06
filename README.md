@@ -42,9 +42,9 @@ nirs4all-org/
 - **Overview**: Python reference library vs Studio comparison
 - **RC topology**: `nirs4all-core` as the V1 RC portable aggregate,
   `nirs4all-lite` as a compatibility alias during cutover, `web.nirs4all.org` as
-  client-side-only/WASM, `nirs4all-ui` as the shared Studio/Web UI package,
-  and `nirs4all-providers` as the soft-importing read layer over datasets,
-  repository, benchmarks, and papers
+  client-side-only/WASM, `nirs4all-ui` as the shared Studio/Web reusable
+  components/assets package, and `nirs4all-providers` as the soft-importing
+  read-side client layer over datasets, repository, benchmarks, and papers
 - **Features**: 6 key capability cards
 - **Screenshots**: Tabbed gallery of Studio UI
 - **Quick Start**: Tabbed code blocks (install, basic usage, advanced pipelines)
