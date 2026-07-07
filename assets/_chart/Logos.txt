@@ -1,6 +1,5 @@
 nirs4all (python lib) - 5, 142, 150
 nirs4all-Studio - 150, 200, 0
-nirs4all-lite - 233, 54, 45
 nirs4all-core - 233, 54, 45
 nirs4all-web - 255, 100, 0
 nirs4all-datasets - 255, 190, 0

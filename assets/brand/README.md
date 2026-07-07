@@ -35,7 +35,6 @@ brand/
 |---|---|---|---|
 | `nirs4all` (lib) | teal `#058E96` | n4a | nirs·4·all |
 | `nirs4all-studio` | `#96C800` | n4s | nirs4all-studio |
-| `nirs4all-lite` | `#E9362D` | n4l | nirs4all-lite |
 | `nirs4all-core` | `#E9362D` | n4o | nirs4all-core |
 | `nirs4all-web` | `#FF6400` | n4w | nirs4all-web |
 | `nirs4all-datasets` | `#FFBE00` | n4d | nirs4all-datasets |
