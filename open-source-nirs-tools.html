@@ -46,7 +46,9 @@
       {"@type": "ListItem", "position": 12, "name": "nirs4all-core", "url": "https://github.com/GBeurier/nirs4all-core"},
       {"@type": "ListItem", "position": 13, "name": "nirs4all-ui", "url": "https://gbeurier.github.io/nirs4all-ui/"},
       {"@type": "ListItem", "position": 14, "name": "nirs4all-providers", "url": "https://gbeurier.github.io/nirs4all-providers/"},
-      {"@type": "ListItem", "position": 15, "name": "nirs4all-cluster", "url": "https://github.com/GBeurier/nirs4all-cluster"}
+      {"@type": "ListItem", "position": 15, "name": "nirs4all-cluster", "url": "https://github.com/GBeurier/nirs4all-cluster"},
+      {"@type": "ListItem", "position": 16, "name": "nirs4all-tools", "url": "https://github.com/GBeurier/nirs4all-tools"},
+      {"@type": "ListItem", "position": 17, "name": "nirs4all-aom", "url": "https://pypi.org/project/nirs4all-aom/"}
     ]
   }
   </script>
@@ -151,6 +153,12 @@
             <a href="https://github.com/GBeurier/nirs4all-providers">Open source repo</a>
           </article>
           <article class="tool">
+            <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all-tools</h2>
+            <p>Migration toolkit for auditing legacy workspaces, converting supported saved runs and predictions, and producing machine-readable cutover reports. The v0.0.3 release has wheel/sdist fallback assets while PyPI trusted publishing is configured.</p>
+            <div class="tags"><span class="tag">migration</span><span class="tag">CLI</span><span class="tag">release assets</span></div>
+            <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">Open nirs4all-tools releases</a>
+          </article>
+          <article class="tool">
             <h2><img src="assets/brand/nirs4all-formats/icon.svg" alt="" /> nirs4all-formats</h2>
             <p>Rust and WebAssembly readers for vendor NIRS and spectroscopy file formats, with an in-browser demo that keeps files local.</p>
             <div class="tags"><span class="tag">file formats</span><span class="tag">WASM</span><span class="tag">Rust</span></div>
@@ -167,6 +175,13 @@
             <p>Portable C++17 libn4m methods engine with a stable C ABI, language bindings, parity reports, and benchmark documentation.</p>
             <div class="tags"><span class="tag">PLS</span><span class="tag">C ABI</span><span class="tag">bindings</span></div>
             <a href="https://methods.nirs4all.org/">Open methods.nirs4all.org</a>
+          </article>
+          <article class="tool">
+            <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all-aom</h2>
+            <p>Python/sklearn package for AOM-PLS, POP-PLS, AOM-Ridge and FastAOM models used by the adaptive-model paper companion workflows.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">sklearn</span><span class="tag">adaptive models</span></div>
+            <a href="https://pypi.org/project/nirs4all-aom/">Open nirs4all-aom on PyPI</a>
+            <a href="https://github.com/GBeurier/nirs4all-aom">Open source repo</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-web/icon.svg" alt="" /> nirs4all-web</h2>
@@ -224,10 +239,12 @@
             <tr><td>Build datasets</td><td>Combine spectra, targets, metadata, sidecars, and validations into one dataset specification.</td><td><a href="https://io.nirs4all.org/">nirs4all-io</a></td></tr>
             <tr><td>Find reference data</td><td>Browse NIRS datasets with provenance, license, DOI, and statistical identity cards.</td><td><a href="https://datasets.nirs4all.org/">nirs4all-datasets</a></td></tr>
             <tr><td>Run methods</td><td>Use portable PLS and NIRS methods through C, Python, R, MATLAB, JavaScript, and other bindings.</td><td><a href="https://methods.nirs4all.org/">nirs4all-methods</a></td></tr>
+            <tr><td>Run adaptive models</td><td>Use the paper companion implementation of AOM-PLS, POP-PLS, AOM-Ridge and FastAOM estimators.</td><td><a href="https://pypi.org/project/nirs4all-aom/">nirs4all-aom</a></td></tr>
             <tr><td>Use a desktop app</td><td>Build and inspect NIRS workflows with the desktop app while the shared RC package surfaces keep evolving.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">nirs4all-studio</a></td></tr>
             <tr><td>Consume the portable aggregate</td><td>Use the V1 RC aggregate across Rust, Python, R, WASM and MATLAB/Octave surfaces.</td><td><a href="https://github.com/GBeurier/nirs4all-core">nirs4all-core</a></td></tr>
             <tr><td>Share UI components</td><td>Reuse the published Studio/Web package, runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
             <tr><td>Read provider contracts</td><td>Consume datasets and repository descriptors through one soft-importing read-side client layer; benchmarks and papers keep their own APIs.</td><td><a href="https://gbeurier.github.io/nirs4all-providers/">nirs4all-providers</a></td></tr>
+            <tr><td>Migrate saved artifacts</td><td>Audit legacy workspaces, convert supported saved runs and predictions, and write cutover reports before switching runtimes.</td><td><a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">nirs4all-tools</a></td></tr>
             <tr><td>Model in the browser</td><td>Upload spectra, build a pipeline, run cross-validation, inspect results, and predict without a backend.</td><td><a href="https://web.nirs4all.org/">nirs4all-web</a></td></tr>
             <tr><td>Distribute lab execution</td><td>Route trusted-LAN jobs across local lab machines with scheduler, leases, capability matching, and crash recovery.</td><td><a href="https://github.com/GBeurier/nirs4all-cluster">nirs4all-cluster</a></td></tr>
             <tr><td>Reuse pipelines</td><td>Browse pipeline recipes with provenance and checksums; validation status is recorded per recipe.</td><td><a href="https://repository.nirs4all.org/">nirs4all-repository</a></td></tr>
