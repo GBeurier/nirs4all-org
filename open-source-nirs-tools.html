@@ -45,7 +45,8 @@
       {"@type": "ListItem", "position": 11, "name": "nirs4all-studio", "url": "https://github.com/GBeurier/nirs4all-studio"},
       {"@type": "ListItem", "position": 12, "name": "nirs4all-core", "url": "https://github.com/GBeurier/nirs4all-core"},
       {"@type": "ListItem", "position": 13, "name": "nirs4all-ui", "url": "https://gbeurier.github.io/nirs4all-ui/"},
-      {"@type": "ListItem", "position": 14, "name": "nirs4all-providers", "url": "https://gbeurier.github.io/nirs4all-providers/"}
+      {"@type": "ListItem", "position": 14, "name": "nirs4all-providers", "url": "https://gbeurier.github.io/nirs4all-providers/"},
+      {"@type": "ListItem", "position": 15, "name": "nirs4all-cluster", "url": "https://github.com/GBeurier/nirs4all-cluster"}
     ]
   }
   </script>
@@ -174,6 +175,12 @@
             <a href="https://web.nirs4all.org/">Open web.nirs4all.org</a>
           </article>
           <article class="tool">
+            <h2><img src="assets/brand/nirs4all-cluster/icon.svg" alt="" /> nirs4all-cluster</h2>
+            <p>Trusted-LAN beta for distributing nirs4all execution across lab machines with a FastAPI coordinator, SQLite queue, capability routing, and crash-safe leases. It is a validation bench, not a public multi-tenant service.</p>
+            <div class="tags"><span class="tag">cluster</span><span class="tag">scheduler</span><span class="tag">beta</span></div>
+            <a href="https://github.com/GBeurier/nirs4all-cluster">Open nirs4all-cluster</a>
+          </article>
+          <article class="tool">
             <h2><img src="assets/brand/nirs4all-io/icon.svg" alt="" /> nirs4all-io</h2>
             <p>Dataset assembly bridge and browser dataset builder for turning spectra and sidecars into validated nirs4all dataset specifications.</p>
             <div class="tags"><span class="tag">dataset builder</span><span class="tag">sidecars</span><span class="tag">validation</span></div>
@@ -222,6 +229,7 @@
             <tr><td>Share UI components</td><td>Reuse the published Studio/Web package, runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
             <tr><td>Read provider contracts</td><td>Consume datasets and repository descriptors through one soft-importing read-side client layer; benchmarks and papers keep their own APIs.</td><td><a href="https://gbeurier.github.io/nirs4all-providers/">nirs4all-providers</a></td></tr>
             <tr><td>Model in the browser</td><td>Upload spectra, build a pipeline, run cross-validation, inspect results, and predict without a backend.</td><td><a href="https://web.nirs4all.org/">nirs4all-web</a></td></tr>
+            <tr><td>Distribute lab execution</td><td>Route trusted-LAN jobs across local lab machines with scheduler, leases, capability matching, and crash recovery.</td><td><a href="https://github.com/GBeurier/nirs4all-cluster">nirs4all-cluster</a></td></tr>
             <tr><td>Reuse pipelines</td><td>Browse pipeline recipes with provenance and checksums; validation status is recorded per recipe.</td><td><a href="https://repository.nirs4all.org/">nirs4all-repository</a></td></tr>
             <tr><td>Publish reproducible work</td><td>Deposit paper bundles with methods, bibliography, reproducibility sidecars, and live replay.</td><td><a href="https://papers.nirs4all.org/">nirs4all-papers</a></td></tr>
             <tr><td>Monitor quality</td><td>Track benchmarks, package health, releases, CI, and ecosystem status.</td><td><a href="https://benchmarks.nirs4all.org/">benchmarks</a> and <a href="https://cockpit.nirs4all.org/">cockpit</a></td></tr>
