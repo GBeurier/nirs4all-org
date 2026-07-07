@@ -224,7 +224,7 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Cross-platform",
           "programmingLanguage": "Rust, Python, R, JavaScript, MATLAB/Octave",
-          "softwareVersion": "0.2.8",
+          "softwareVersion": "0.2.12",
           "downloadUrl": "https://github.com/GBeurier/nirs4all-core/releases/latest",
           "codeRepository": "https://github.com/GBeurier/nirs4all-core",
           "isAccessibleForFree": true,
@@ -236,13 +236,13 @@
           "featureList": [
             "Portable aggregate over dag-ml and dag-ml-data",
             "Bindings for Rust, Python, R, WebAssembly and MATLAB/Octave",
-            "Re-export/load hooks for formats, IO, datasets and methods",
+            "Runtime contracts and re-export/load hooks for formats, IO, datasets and methods",
             "Parity checks against the Python nirs4all oracle"
           ],
           "publisher": {
             "@id": "https://nirs4all.org/#organization"
           },
-          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. The public Rust crate and JavaScript/WASM npm package use the nirs4all name; PyPI nirs4all-core publishing is still pending."
+          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. The public Rust crate and JavaScript/WASM npm package use the nirs4all name; PyPI nirs4all-core publishing remains blocked by trusted-publisher configuration."
         },
         {
           "@type": "SoftwareApplication",
@@ -2379,15 +2379,15 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.8 RC</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.12 RC</span>
         </div>
-        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. npm/crates/GitHub release surfaces are visible; <strong>PyPI nirs4all-core is not published yet</strong>, with <strong>nirs4all-lite</strong> kept only as a compatibility alias until that cutover finishes.</p>
+        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. npm/crates/GitHub release surfaces are visible and the release includes R and MATLAB/Octave artifacts; <strong>PyPI nirs4all-core is still blocked by trusted-publisher configuration</strong>, with <strong>nirs4all-lite</strong> kept only as a compatibility alias until that cutover finishes.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
           <a href="https://www.npmjs.com/package/nirs4all" target="_blank" class="pill pill-amber">npm</a>
           <a href="https://crates.io/crates/nirs4all" target="_blank" class="pill pill-amber">crates</a>
-          <span class="eco-status">RC &middot; no PyPI yet</span>
+          <span class="eco-status">RC &middot; PyPI blocked</span>
         </div>
       </div>
 
@@ -3107,7 +3107,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <img src="assets/brand/nirs4all-core/icon.svg" alt="nirs4all-core logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-core</h4>
-        <p>V1 RC portable aggregate with public npm/crates surfaces and pending PyPI publication</p>
+        <p>V1 RC portable aggregate with public npm/crates/GitHub surfaces and PyPI blocked on trusted publisher setup</p>
       </a>
       <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="link-card">
         <div class="link-icon brand-icon">
