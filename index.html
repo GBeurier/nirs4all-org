@@ -242,7 +242,7 @@
           "publisher": {
             "@id": "https://nirs4all.org/#organization"
           },
-          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. The public Rust crate and JavaScript/WASM npm package use the nirs4all name; GitHub Release fallback assets exist, while PyPI nirs4all-core publishing remains blocked by trusted-publisher configuration."
+          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. PyPI nirs4all-core is published, the public Rust crate and JavaScript/WASM npm package use the nirs4all name, and GitHub Release fallback assets carry the release bundle."
         },
         {
           "@type": "SoftwareApplication",
@@ -284,7 +284,7 @@
           "operatingSystem": "OS Independent",
           "programmingLanguage": "Python",
           "softwareVersion": "0.2.7",
-          "downloadUrl": "https://github.com/GBeurier/nirs4all-providers/tags",
+          "downloadUrl": "https://pypi.org/project/nirs4all-providers/",
           "codeRepository": "https://github.com/GBeurier/nirs4all-providers",
           "softwareHelp": "https://gbeurier.github.io/nirs4all-providers/",
           "isAccessibleForFree": true,
@@ -302,7 +302,7 @@
           "publisher": {
             "@id": "https://nirs4all.org/#organization"
           },
-          "description": "Dependency-light, soft-importing Python provider client layer over nirs4all-datasets and nirs4all-repository. Benchmarks and papers keep their own public APIs. It owns no NIRS, ML, IO, parsing, or write-back logic; tagged GitHub Release fallback assets exist, while PyPI publishing remains blocked by trusted-publisher configuration."
+          "description": "Dependency-light, soft-importing Python provider client layer over nirs4all-datasets and nirs4all-repository. Benchmarks and papers keep their own public APIs. It owns no NIRS, ML, IO, parsing, or write-back logic; PyPI nirs4all-providers is published and tagged GitHub Release fallback assets remain available."
         },
         {
           "@type": "FAQPage",
@@ -313,7 +313,7 @@
               "name": "What is nirs4all?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, and Studio is the desktop application, but both maintained production lines remain outside the final V1 RC publication batch. nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React package of reusable components and brand assets, nirs4all-providers is the soft-importing read-side provider client layer, nirs4all-core is the canonical V1 RC portable aggregate, and nirs4all-lite remains only as a compatibility alias during cutover."
+                "text": "nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, and Studio is the desktop application, but both maintained production lines remain outside the final V1 RC publication batch. nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React package of reusable components and brand assets, nirs4all-providers is the soft-importing read-side provider client layer, and nirs4all-core is the canonical V1 RC portable aggregate."
               }
             },
             {
@@ -345,7 +345,7 @@
               "name": "What is the v1 RC package topology?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-core is the canonical portable aggregate, nirs4all-lite is a compatibility alias during cutover, web.nirs4all.org runs client-side-only through WASM, nirs4all-ui is the shared React package of reusable components and brand assets for Studio and the web client, and nirs4all-providers is the soft-importing read-side client layer over datasets and repository."
+                "text": "For the v1 release-candidate line, nirs4all remains the Python oracle/reference, nirs4all-core is the canonical portable aggregate, web.nirs4all.org runs client-side-only through WASM, nirs4all-ui is the shared React package of reusable components and brand assets for Studio and the web client, and nirs4all-providers is the soft-importing read-side client layer over datasets and repository."
               }
             }
           ]
@@ -1816,7 +1816,7 @@
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">Where we make the difference</span></div>
     <h2 class="section-title fade-in">The library and the <em>app</em></h2>
-    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. Those maintained production lines stay outside the final V1 RC publication batch, which separates the portable aggregate (<strong>nirs4all-core</strong>, with <strong>nirs4all-lite</strong> kept only as a compatibility alias during cutover), the client-side WASM web app, the shared UI package, the soft-importing provider layer, file readers, datasets, and engines.</p>
+    <p class="section-sub fade-in">Most people meet nirs4all through the <strong>Python reference library</strong> or <strong>Studio</strong>, the no-code desktop app. Those maintained production lines stay outside the final V1 RC publication batch, which separates the portable aggregate (<strong>nirs4all-core</strong>), the client-side WASM web app, the shared UI package, the soft-importing provider layer, file readers, datasets, and engines.</p>
     <div class="overview-grid fade-in">
 
       <!-- Library card · with the Get-started component -->
@@ -2113,7 +2113,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">The full picture</span></div>
     <h2 class="section-title fade-in">One growing <em>ecosystem</em></h2>
-    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. Its maintained production line, along with Studio's production line, stays outside the final V1 RC publication batch. In the v1 RC topology, <strong>nirs4all-core</strong> is the canonical portable aggregate, <strong>nirs4all-lite</strong> is only a compatibility line during the cutover, <strong>web.nirs4all.org</strong> is client-side-only WASM, <strong>nirs4all-ui</strong> is shared by Studio and the web client, and <strong>nirs4all-providers</strong> offers one soft-import read surface over datasets and repository.</p>
+    <p class="section-sub fade-in">It began with <strong>nirs4all</strong>, the Python library, which remains the scientific oracle and reference implementation. Its maintained production line, along with Studio's production line, stays outside the final V1 RC publication batch. In the v1 RC topology, <strong>nirs4all-core</strong> is the canonical portable aggregate, <strong>web.nirs4all.org</strong> is client-side-only WASM, <strong>nirs4all-ui</strong> is shared by Studio and the web client, and <strong>nirs4all-providers</strong> offers one soft-import read surface over datasets and repository.</p>
 
     <!-- Evolution rail: origin → built on the core → next generation -->
     <div class="eco-arc fade-in">
@@ -2137,8 +2137,8 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <div class="arc-marker"><span>03</span></div>
         <div class="arc-body">
           <div class="arc-kicker">RC aggregate &middot; v1</div>
-          <h3>core target, lite legacy line</h3>
-          <p><strong>nirs4all-core</strong> is the V1 RC aggregate. <strong>nirs4all-lite</strong> remains visible only as a compatibility alias until the package cutover is fully published.</p>
+          <h3>core aggregate target</h3>
+          <p><strong>nirs4all-core</strong> is the V1 RC aggregate and the public portable target for new integrations.</p>
           <div class="arc-langs"><span>R</span><span>MATLAB</span><span>Octave</span><span>WASM</span></div>
         </div>
       </article>
@@ -2381,13 +2381,14 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-core">v0.2.13 RC</span>
         </div>
-        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. npm/crates/GitHub release surfaces are visible, GitHub Release fallback assets exist, and the release includes R and MATLAB/Octave artifacts; <strong>PyPI nirs4all-core is still blocked by trusted-publisher configuration</strong>, with <strong>nirs4all-lite</strong> kept only as a compatibility alias until that cutover finishes.</p>
+        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. It gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. PyPI nirs4all-core is published, npm/crates/GitHub release surfaces are visible, and the release includes R and MATLAB/Octave artifacts.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
+          <a href="https://pypi.org/project/nirs4all-core/" target="_blank" class="pill pill-amber">PyPI</a>
           <a href="https://www.npmjs.com/package/nirs4all" target="_blank" class="pill pill-amber">npm</a>
           <a href="https://crates.io/crates/nirs4all" target="_blank" class="pill pill-amber">crates</a>
-          <span class="eco-status">RC &middot; PyPI blocked</span>
+          <span class="eco-status">RC &middot; published</span>
         </div>
       </div>
 
@@ -2455,12 +2456,13 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.7</span>
         </div>
-        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong> and <strong>nirs4all-repository</strong>. Benchmarks and papers keep their own public APIs. It stays read-side only, with optional-dependency contracts and local export helpers, without owning NIRS, ML, IO, parsing, or write-back logic. The v0.2.7 source is tagged and the GitHub Release carries fallback wheel/sdist assets; <strong>PyPI nirs4all-providers remains blocked by trusted-publisher configuration</strong>.</p>
+        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong> and <strong>nirs4all-repository</strong>. Benchmarks and papers keep their own public APIs. It stays read-side only, with optional-dependency contracts and local export helpers, without owning NIRS, ML, IO, parsing, or write-back logic. PyPI nirs4all-providers is published at v0.2.7 and the GitHub Release carries fallback wheel/sdist assets.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://gbeurier.github.io/nirs4all-providers/" target="_blank" class="pill pill-cyan">Pages</a>
+          <a href="https://pypi.org/project/nirs4all-providers/" target="_blank" class="pill pill-cyan">PyPI</a>
           <a href="https://github.com/GBeurier/nirs4all-providers/tags" target="_blank" class="pill pill-cyan">Tags</a>
-          <span class="eco-status">RC &middot; PyPI blocked</span>
+          <span class="eco-status">RC &middot; published</span>
         </div>
       </div>
 
@@ -2526,7 +2528,7 @@ pip install <span class="pk">nirs4all-formats</span>
 pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
-              <div class="hud-note">The packages listed above are on <b>PyPI</b>; <b>nirs4all-core</b> and <b>nirs4all-providers</b> remain off-PyPI RC/source surfaces, with tagged GitHub Release fallback assets while trusted-publisher setup is still blocking PyPI. The old <b>nirs4all-lite</b> PyPI name remains a compatibility alias only.</div>
+              <div class="hud-note">The packages listed above are on <b>PyPI</b>; <b>nirs4all-core</b> and <b>nirs4all-providers</b> are also published RC packages with tagged GitHub Release fallback assets.</div>
             </div>
             <div class="hud-panel" data-panel="runiverse">
               <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R preview/subset packages, auto-built from source</span>
@@ -2656,7 +2658,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <span class="mn-div"></span>
           <span class="mn-label">Package · Interop</span>
           <span class="mn-pkg">dag-ml, nirs4all-core</span>
-          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate; nirs4all-lite remains only a legacy PyPI compatibility alias during cutover.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
+          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate for new integrations.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
         </div>
 
         <div class="map-ar a-apw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -2982,7 +2984,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     <div class="faq-grid fade-in">
       <article class="faq-item">
         <h3>What is nirs4all?</h3>
-        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, and Studio is the desktop application, but both maintained production lines remain outside the final V1 RC publication batch. nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React package of reusable components and brand assets, nirs4all-providers is the soft-importing read-side provider client layer, nirs4all-core is the canonical V1 RC portable aggregate, and nirs4all-lite remains only as a compatibility alias during cutover.</p>
+        <p>nirs4all is an open-source Near-Infrared Spectroscopy ecosystem. The Python package is the reference implementation and scientific oracle, and Studio is the desktop application, but both maintained production lines remain outside the final V1 RC publication batch. nirs4all-web is a client-side WASM browser app, nirs4all-ui is the shared React package of reusable components and brand assets, nirs4all-providers is the soft-importing read-side provider client layer, and nirs4all-core is the canonical V1 RC portable aggregate.</p>
       </article>
       <article class="faq-item">
         <h3>Can I use nirs4all without coding?</h3>
@@ -2998,7 +3000,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
       </article>
       <article class="faq-item">
         <h3>What is the v1 RC package topology?</h3>
-        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-core</code> is the canonical portable aggregate, <code>nirs4all-lite</code> is a compatibility alias during cutover, <code>web.nirs4all.org</code> runs client-side-only through WASM, <code>nirs4all-ui</code> is the shared React package of reusable components and brand assets for Studio and the web client, and <code>nirs4all-providers</code> is the soft-importing read-side client layer over datasets and repository.</p>
+        <p>For the v1 release-candidate line, <code>nirs4all</code> remains the Python oracle/reference, <code>nirs4all-core</code> is the canonical portable aggregate, <code>web.nirs4all.org</code> runs client-side-only through WASM, <code>nirs4all-ui</code> is the shared React package of reusable components and brand assets for Studio and the web client, and <code>nirs4all-providers</code> is the soft-importing read-side client layer over datasets and repository.</p>
       </article>
     </div>
   </div>
@@ -3107,7 +3109,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <img src="assets/brand/nirs4all-core/icon.svg" alt="nirs4all-core logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-core</h4>
-        <p>V1 RC portable aggregate with public npm/crates/GitHub surfaces and PyPI blocked on trusted publisher setup</p>
+        <p>V1 RC portable aggregate with public PyPI, npm, crates and GitHub release surfaces</p>
       </a>
       <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="link-card">
         <div class="link-icon brand-icon">
@@ -3595,7 +3597,6 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     "dag-ml-data":       "assets/brand/dag-ml-data/icon.svg",
     "nirs4all-ui":       "assets/brand/nirs4all-ui/icon.svg",
     "nirs4all-web":      "assets/brand/nirs4all-web/icon.svg",
-    "nirs4all-lite":     "assets/brand/nirs4all-lite/icon.svg",
     "nirs4all-core":     "assets/brand/nirs4all-core/icon.svg",
     "nirs4all-benchmarks": "assets/brand/nirs4all-benchmarks/icon.svg",
     "nirs4all-repository": "assets/brand/nirs4all-repository/icon.svg",
