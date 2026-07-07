@@ -44,7 +44,7 @@ nirs4all-org/
   `nirs4all-lite` as a compatibility alias during cutover, `web.nirs4all.org` as
   client-side-only/WASM, `nirs4all-ui` as the shared Studio/Web reusable
   components/assets package, and `nirs4all-providers` as the soft-importing
-  read-side client layer over datasets, repository, benchmarks, and papers
+  read-side client layer over datasets and repository
 - **Features**: 6 key capability cards
 - **Screenshots**: Tabbed gallery of Studio UI
 - **Quick Start**: Tabbed code blocks (install, basic usage, advanced pipelines)
