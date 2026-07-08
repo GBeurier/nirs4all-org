@@ -224,7 +224,7 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Cross-platform",
           "programmingLanguage": "Rust, Python, R, JavaScript, MATLAB/Octave",
-          "softwareVersion": "0.3.0",
+          "softwareVersion": "0.3.7",
           "downloadUrl": "https://github.com/GBeurier/nirs4all-core/releases/latest",
           "codeRepository": "https://github.com/GBeurier/nirs4all-core",
           "isAccessibleForFree": true,
@@ -253,7 +253,7 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Cross-platform",
           "programmingLanguage": "TypeScript",
-          "softwareVersion": "0.1.7",
+          "softwareVersion": "0.1.8",
           "downloadUrl": "https://www.npmjs.com/package/nirs4all-ui",
           "codeRepository": "https://github.com/GBeurier/nirs4all-ui",
           "softwareHelp": "https://gbeurier.github.io/nirs4all-ui/",
@@ -283,7 +283,7 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "OS Independent",
           "programmingLanguage": "Python",
-          "softwareVersion": "0.2.7",
+          "softwareVersion": "0.2.9",
           "downloadUrl": "https://pypi.org/project/nirs4all-providers/",
           "codeRepository": "https://github.com/GBeurier/nirs4all-providers",
           "softwareHelp": "https://gbeurier.github.io/nirs4all-providers/",
@@ -2270,7 +2270,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Dataset bridge</div>
             <div class="eco-name">nirs4all-io <span class="eco-lang">Python &middot; Rust &middot; R</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.1.9</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.1.10</span>
         </div>
         <p>A dataset-assembly bridge: turn any input &mdash; a folder, a glob, vendor spectra plus a reference table, or a config &mdash; into a pipeline-ready dataset through resolve &rarr; infer &rarr; configure &rarr; materialize, with a score-based inference engine. Built on nirs4all-formats.</p>
         <div class="eco-links">
@@ -2310,7 +2310,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Execution core</div>
             <div class="eco-name">dag-ml <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml">v0.2.5</span>
+          <span class="eco-ver" data-ver="gh:dag-ml">v0.2.7</span>
         </div>
         <p>A leakage-safe, in-process DAG execution core. It owns the graph, phases, folds, out-of-fold joins, lineage, caching and deterministic RNG &mdash; exposed through a C ABI so any host language can drive reproducible ML pipelines.</p>
         <div class="eco-links">
@@ -2327,7 +2327,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Data contracts</div>
             <div class="eco-name">dag-ml-data <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.5</span>
+          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.7</span>
         </div>
         <p>The data-contract and planning layer beneath dag-ml: typed, sample-aligned, multi-source data views, representation adapters, data plans, and schema fingerprints &mdash; the foundation that keeps pipelines reproducible.</p>
         <div class="eco-links">
@@ -2361,7 +2361,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Browser client</div>
             <div class="eco-name">nirs4all-web <span class="eco-lang">WASM &middot; JS</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-web">v0.1.5</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-web">v0.1.6</span>
         </div>
         <p>The browser-native client at <strong>web.nirs4all.org</strong>. It runs in the page through WASM: load spectra, build a pipeline from nirs4all-methods nodes, train, score and predict &mdash; entirely client-side, with no Python runtime and no server-side analysis.</p>
         <div class="eco-links">
@@ -2379,9 +2379,9 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.3.5 RC</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.3.7 RC</span>
         </div>
-        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. Version 0.3.5 gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. PyPI nirs4all-core is published, npm/crates/GitHub release surfaces are visible, and the release includes R and MATLAB/Octave artifacts.</p>
+        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. Version 0.3.7 gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. PyPI nirs4all-core is published, npm/crates/GitHub release surfaces are visible, and the release includes R and MATLAB/Octave artifacts.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
@@ -2400,7 +2400,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">New</div>
             <div class="eco-name">nirs4all-benchmarks</div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.5</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-benchmarks">v0.1.6</span>
         </div>
         <p>Reproducible, scored nirs4all pipelines run on curated reference datasets, published as a browsable benchmark resource with interactive dataviz (leaderboards, effect analysis, 3D landscapes, clustered pipeline graphs). An early <strong>prototype</strong> &mdash; currently a static client-side demo; a live meta-analysis service is planned.</p>
         <div class="eco-links">
@@ -2454,9 +2454,9 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Provider clients</div>
             <div class="eco-name">nirs4all-providers <span class="eco-lang">Python</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.7</span>
+          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.9</span>
         </div>
-        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong> and <strong>nirs4all-repository</strong>. Benchmarks and papers keep their own public APIs. It stays read-side only, with optional-dependency contracts and local export helpers, without owning NIRS, ML, IO, parsing, or write-back logic. PyPI nirs4all-providers is published at v0.2.7 and the GitHub Release carries fallback wheel/sdist assets.</p>
+        <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong> and <strong>nirs4all-repository</strong>. Benchmarks and papers keep their own public APIs. It stays read-side only, with optional-dependency contracts and local export helpers, without owning NIRS, ML, IO, parsing, or write-back logic. PyPI nirs4all-providers is published at v0.2.9 and the GitHub Release carries fallback wheel/sdist assets.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-providers" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://gbeurier.github.io/nirs4all-providers/" target="_blank" class="pill pill-cyan">Pages</a>
