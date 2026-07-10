@@ -3,6 +3,7 @@ nirs4all-Studio - 150, 200, 0
 nirs4all-core - 233, 54, 45
 nirs4all-web - 255, 100, 0
 nirs4all-datasets - 255, 190, 0
+nirs4all-device - 16, 185, 129
 nirs4all-methods - 0, 165, 210
 nirs4all-io - 204, 153, 255
 nirs4all-formats - 103, 50, 185

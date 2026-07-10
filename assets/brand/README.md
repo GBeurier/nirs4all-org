@@ -38,6 +38,7 @@ brand/
 | `nirs4all-core` | `#E9362D` | n4o | nirs4all-core |
 | `nirs4all-web` | `#FF6400` | n4w | nirs4all-web |
 | `nirs4all-datasets` | `#FFBE00` | n4d | nirs4all-datasets |
+| `nirs4all-device` | `#10B981` | n4e | nirs4all-device |
 | `nirs4all-methods` | `#00A5D2` | n4m | nirs4all-methods |
 | `nirs4all-io` | `#CC99FF` | n4i | nirs4all-io |
 | `nirs4all-formats` | `#6732B9` | n4f | nirs4all-formats |
@@ -54,7 +55,8 @@ brand/
 RC topology note: `nirs4all-core`, `nirs4all-ui`, `nirs4all-providers`, and `nirs4all-tools` now
 ship site-local generated brand assets in this checkout. `nirs4all-providers`
 uses the stacked mark `n4v` to stay distinct from `nirs4all-papers` (`n4p`);
-`nirs4all-core` uses `n4o` so `n4c` remains reserved for `nirs4all-cluster`.
+`nirs4all-core` uses `n4o` so `n4c` remains reserved for `nirs4all-cluster`;
+`nirs4all-device` uses `n4e` since `n4d` belongs to `nirs4all-datasets`.
 
 Constant accents: the **4** / **-** is always red `#E9362D`; package-suffix text is
 black `#000000` (white in `-dark` variants).
