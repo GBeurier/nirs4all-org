@@ -12,6 +12,7 @@ nirs4all-papers - 194, 37, 92
 nirs4all-cluster - 27, 87, 137
 nirs4all-ui - 37, 99, 235
 nirs4all-providers - 217, 70, 239
+nirs4all-tools - 71, 85, 105
 
 dag-ml - 5, 142, 150
 dag-ml-data - 255, 190, 0

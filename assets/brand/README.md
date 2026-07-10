@@ -47,10 +47,11 @@ brand/
 | `nirs4all-cluster` | `#1B5789` | n4c | nirs4all-cluster |
 | `nirs4all-ui` | `#2563EB` | n4u | nirs4all-ui |
 | `nirs4all-providers` | `#D946EF` | n4v | nirs4all-providers |
+| `nirs4all-tools` | `#475569` | n4t | nirs4all-tools |
 | `dag-ml` | teal `#058E96` | DM | DAG-ML |
 | `dag-ml-data` | yellow `#FFBE00` | DMd | DAG-ML-data |
 
-RC topology note: `nirs4all-core`, `nirs4all-ui`, and `nirs4all-providers` now
+RC topology note: `nirs4all-core`, `nirs4all-ui`, `nirs4all-providers`, and `nirs4all-tools` now
 ship site-local generated brand assets in this checkout. `nirs4all-providers`
 uses the stacked mark `n4v` to stay distinct from `nirs4all-papers` (`n4p`);
 `nirs4all-core` uses `n4o` so `n4c` remains reserved for `nirs4all-cluster`.
