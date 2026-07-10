@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://nirs4all.org/sitemap.xml</loc><lastmod>2026-07-09</lastmod></sitemap>
+  <sitemap><loc>https://nirs4all.org/sitemap.xml</loc><lastmod>2026-07-10</lastmod></sitemap>
   <sitemap><loc>https://datasets.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-07</lastmod></sitemap>
   <sitemap><loc>https://papers.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-02</lastmod></sitemap>
-  <sitemap><loc>https://cockpit.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-09</lastmod></sitemap>
+  <sitemap><loc>https://cockpit.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-10</lastmod></sitemap>
   <sitemap><loc>https://repository.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-02</lastmod></sitemap>
   <sitemap><loc>https://formats.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-02</lastmod></sitemap>
   <sitemap><loc>https://io.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-07</lastmod></sitemap>
   <sitemap><loc>https://methods.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-02</lastmod></sitemap>
   <sitemap><loc>https://web.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-07</lastmod></sitemap>
   <sitemap><loc>https://quali.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-09</lastmod></sitemap>
-  <sitemap><loc>https://gbeurier.github.io/nirs4all-ui/sitemap.xml</loc><lastmod>2026-07-09</lastmod></sitemap>
+  <sitemap><loc>https://gbeurier.github.io/nirs4all-ui/sitemap.xml</loc><lastmod>2026-07-10</lastmod></sitemap>
   <sitemap><loc>https://gbeurier.github.io/nirs4all-providers/sitemap.xml</loc><lastmod>2026-07-09</lastmod></sitemap>
   <sitemap><loc>https://benchmarks.nirs4all.org/sitemap.xml</loc><lastmod>2026-07-07</lastmod></sitemap>
 </sitemapindex>
