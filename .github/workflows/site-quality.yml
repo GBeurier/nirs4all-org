@@ -1,0 +1,23 @@
+name: site-quality
+
+on:
+  push:
+    branches: [main, rc/**]
+  pull_request:
+    branches: [main, rc/**]
+
+permissions:
+  contents: read
+
+jobs:
+  static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Validate manifest, HTML, links, accessibility and SEO
+        run: python scripts/validate_site.py
+      - name: Run release-manifest negative tests
+        run: python -m unittest discover -s tests -v
