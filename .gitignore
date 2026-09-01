@@ -7,5 +7,9 @@
 # Local codegraph index (tooling artifact)
 .codegraph/
 
+# Python cache from the stdlib validation scripts
+__pycache__/
+*.py[cod]
+
 # Brand-kit build tooling (venv, font, generator scratch, contact sheets)
 assets/_chart/build/

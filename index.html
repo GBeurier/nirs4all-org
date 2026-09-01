@@ -226,8 +226,6 @@
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "Cross-platform",
           "programmingLanguage": "Rust, Python, R, JavaScript, MATLAB/Octave",
-          "softwareVersion": "0.3.11",
-          "downloadUrl": "https://github.com/GBeurier/nirs4all-core/releases/latest",
           "codeRepository": "https://github.com/GBeurier/nirs4all-core",
           "isAccessibleForFree": true,
           "offers": {
@@ -244,7 +242,7 @@
           "publisher": {
             "@id": "https://nirs4all.org/#organization"
           },
-          "description": "Canonical V1 RC portable aggregate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. PyPI nirs4all-core is published, the public Rust crate and JavaScript/WASM npm package use the nirs4all name, and GitHub Release assets carry source, SBOM, R, MATLAB/Octave, and checksum artifacts."
+          "description": "Portable aggregate candidate over dag-ml, dag-ml-data, nirs4all-formats, nirs4all-io, nirs4all-datasets, and nirs4all-methods. The R2 publication train is incomplete; the validated release manifest is authoritative for selected versions, commits, and downloadable artifacts."
         },
         {
           "@type": "SoftwareApplication",
@@ -1643,7 +1641,7 @@
           <a href="https://papers.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-papers</b><span>Repro · Demo</span></a>
           <a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml</b><span>Execution core</span></a>
           <a href="https://github.com/GBeurier/dag-ml-data" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>dag-ml-data</b><span>Data contracts</span></a>
-          <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>V1 RC aggregate target</span></a>
+          <a href="release-status.html" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-core</b><span>R2 publication status</span></a>
           <a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener" class="nav-dd-item acc-dag" role="menuitem"><b>nirs4all-ui</b><span>Shared Studio/Web UI</span></a>
           <a href="https://gbeurier.github.io/nirs4all-providers/" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-providers</b><span>Soft-import provider layer</span></a>
           <a href="https://github.com/GBeurier/nirs4all-tools" target="_blank" rel="noopener" class="nav-dd-item acc-data" role="menuitem"><b>nirs4all-tools</b><span>Migration toolkit</span></a>
@@ -2147,10 +2145,10 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
       </article>
     </div>
 
-    <a class="eco-cockpit fade-in" href="https://cockpit.nirs4all.org" target="_blank" rel="noopener">
+    <a class="eco-cockpit fade-in" href="release-status.html">
       <span class="ck-dot" aria-hidden="true"></span>
-      <span class="ck-text"><b>Live ecosystem status</b> &mdash; follow every project in <strong>the cockpit</strong></span>
-      <span class="ck-host">cockpit.nirs4all.org &rarr;</span>
+      <span class="ck-text"><b>Verified release-train status</b> &mdash; the static manifest is authoritative; Cockpit remains an operational view</span>
+      <span class="ck-host">release status &rarr;</span>
     </a>
 
     <div class="eco-grid">
@@ -2382,16 +2380,13 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">V1 RC aggregate</div>
             <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-core">v0.3.11</span>
+          <span class="eco-ver">Publication en cours</span>
         </div>
-        <p>The canonical V1 RC aggregate for the reproducible cross-language stack. Version 0.3.11 gathers dag-ml, dag-ml-data, formats, io, datasets, and methods into one portable surface across Rust, Python, R, WASM and MATLAB/Octave. PyPI nirs4all-core is published, npm/crates/GitHub release surfaces are visible, and the release includes R and MATLAB/Octave artifacts.</p>
+        <p>The portable aggregate candidate for the reproducible cross-language stack gathers dag-ml, dag-ml-data, formats, IO, datasets, and methods. The R2 train remains incomplete: selected versions, commits and downloads come only from the validated release manifest.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-          <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" class="pill pill-amber">Releases</a>
-          <a href="https://pypi.org/project/nirs4all-core/" target="_blank" class="pill pill-amber">PyPI</a>
-          <a href="https://www.npmjs.com/package/nirs4all" target="_blank" class="pill pill-amber">npm</a>
-          <a href="https://crates.io/crates/nirs4all" target="_blank" class="pill pill-amber">crates</a>
-          <span class="eco-status">RC &middot; published</span>
+          <a href="release-status.html" class="pill pill-amber">Verified status</a>
+          <span class="eco-status">R2 &middot; incomplete</span>
         </div>
       </div>
 
@@ -2479,7 +2474,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-tools">v0.0.5</span>
         </div>
-        <p>The legacy migration and verification toolkit for V1 cutover: inspect old workspaces, preserve payloads, convert supported saved runs and predictions, and emit machine-readable reports. Version 0.0.5 is published on PyPI and tagged on GitHub.</p>
+        <p>The legacy migration and verification toolkit for V1 cutover: inspect old workspaces, preserve payloads, convert supported saved runs and predictions, and emit machine-readable reports. Package details remain on its registry and source-repository surfaces.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-tools" target="_blank" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest" target="_blank" class="pill pill-cyan">Releases</a>
@@ -2532,7 +2527,7 @@ pip install <span class="pk">nirs4all-formats</span>
 pip install <span class="pk">nirs4all-io</span>
 pip install <span class="pk">nirs4all-datasets</span>
 pip install <span class="pk">nirs4all-papers</span> <span class="cm"># repro-document publisher (prototype)</span></div>
-              <div class="hud-note">The packages listed above are on <b>PyPI</b>; <b>nirs4all-core</b> and <b>nirs4all-providers</b> are also published RC packages with tagged GitHub Release fallback assets.</div>
+              <div class="hud-note">Package availability outside the R2 train remains registry-specific. For <b>nirs4all-core</b>, use the <a href="release-status.html">validated release status</a>; no train artifact is announced without manifest evidence.</div>
             </div>
             <div class="hud-panel" data-panel="runiverse">
               <div class="hud-code"><button class="hud-copy" data-copy='install.packages(c("n4m", "pls4all", "nirs4allformats", "nirs4allio", "nirs4alldatasets", "nirs4all"), repos = "https://gbeurier.r-universe.dev")'>copy</button><span class="cm"># R preview/subset packages, auto-built from source</span>
@@ -2567,7 +2562,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-methods/releases/latest" target="_blank" rel="noopener"><b>pls4all</b><span class="meta">latest &middot; R tarball</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-io/releases/latest" target="_blank" rel="noopener"><b>nirs4all-io</b><span class="meta">latest &middot; wheels &middot; R subset &middot; C-API</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
                 <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-datasets/releases/latest" target="_blank" rel="noopener"><b>nirs4all-datasets</b><span class="meta">latest &middot; wheels &middot; R subset</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
-                <a class="hud-dl" href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" rel="noopener"><b>nirs4all-core</b><span class="meta">v1 RC &middot; aggregate target</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+                <a class="hud-dl" href="release-status.html"><b>nirs4all-core</b><span class="meta">R2 incomplete &middot; verified status</span><svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
               </div>
               <div class="hud-note">Release assets vary by package: wheels, source tarballs, and binding zips are tracked per surface.</div>
             </div>
@@ -2662,7 +2657,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
           <span class="mn-div"></span>
           <span class="mn-label">Package · Interop</span>
           <span class="mn-pkg">dag-ml, nirs4all-core</span>
-          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the V1 RC aggregate for new integrations.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="https://github.com/GBeurier/nirs4all-core" target="_blank" rel="noopener">core</a></div></div>
+          <div class="mn-pop" role="dialog"><p>Portable, reproducible pipelines: nirs4all-core is the aggregate candidate, with R2 publication still incomplete.</p><div class="mn-links"><a href="https://github.com/GBeurier/dag-ml" target="_blank" rel="noopener">dag-ml</a><a href="release-status.html">release status</a></div></div>
         </div>
 
         <div class="map-ar a-apw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -3115,12 +3110,12 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
         <h4>nirs4all-device</h4>
         <p>Phone/tablet workbench for Bluetooth NIRS spectrometers &mdash; field capture, quality gates, and portable inference</p>
       </a>
-      <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="link-card">
+      <a href="release-status.html" class="link-card">
         <div class="link-icon brand-icon">
           <img src="assets/brand/nirs4all-core/icon.svg" alt="nirs4all-core logo" loading="lazy" decoding="async" />
         </div>
         <h4>nirs4all-core</h4>
-        <p>V1 RC portable aggregate with public PyPI, npm, crates and GitHub release surfaces</p>
+        <p>Portable aggregate candidate; R2 versions, commits and downloads are governed by the validated release manifest</p>
       </a>
       <a href="https://gbeurier.github.io/nirs4all-ui/" target="_blank" class="link-card">
         <div class="link-icon brand-icon">

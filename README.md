@@ -13,6 +13,13 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
+The [release-train status page](https://nirs4all.org/release-status.html) is a
+fail-closed static projection of the ecosystem release lock. It reads versions,
+commits, and download evidence only from `release-manifest.json`; missing or
+invalid evidence remains “Publication en cours”. The current checked-in manifest
+describes an incomplete R2 milestone and does not announce R2, R3, or V1 as
+published.
+
 ## Local preview
 
 Open `index.html` directly in any browser — no server needed.
@@ -22,6 +29,10 @@ Open `index.html` directly in any browser — no server needed.
 ```
 nirs4all-org/
 ├── index.html              # The entire landing page (HTML + CSS + JS)
+├── release-status.html     # Manifest-driven, fail-closed release status
+├── release-manifest.json   # Public projection of the ecosystem release lock
+├── scripts/                # Stdlib projection and static-site validation
+├── tests/                  # Release-manifest negative tests
 ├── assets/                 # Logos and screenshots
 │   ├── brand/              # Ecosystem and per-package brand kits
 │   │   ├── nirs4all-ui/
@@ -34,6 +45,24 @@ nirs4all-org/
 ├── robots.txt
 ├── sitemap.xml
 └── sitemap-index.xml
+```
+
+## Release manifest staging
+
+Regenerate the public projection from an explicitly selected release lock:
+
+```bash
+python scripts/project_release_lock.py \
+  --lock ../nirs4all-ecosystem/docs/contracts/release/aggregation-lock.n4a.lock.json \
+  --output release-manifest.json
+```
+
+The projector deliberately emits no downloads: the current lock proves source
+selection, not public artifact presence. Run the full local gate before review:
+
+```bash
+python scripts/validate_site.py
+python -m unittest discover -s tests -v
 ```
 
 ## Content

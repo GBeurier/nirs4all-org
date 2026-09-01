@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>État du train de publication R2 | nirs4all</title>
+  <meta name="description" content="État vérifiable du train de publication nirs4all R2, construit depuis le release lock sans annoncer d’artefact absent." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="canonical" href="https://nirs4all.org/release-status.html" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://nirs4all.org/sitemap.xml" />
+  <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="nirs4all" />
+  <meta property="og:title" content="État du train de publication R2 | nirs4all" />
+  <meta property="og:description" content="Versions, commits et artefacts du train R2, projetés depuis le release lock." />
+  <meta property="og:url" content="https://nirs4all.org/release-status.html" />
+  <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="État du train de publication R2 | nirs4all" />
+  <meta name="twitter:description" content="Une vue statique, vérifiable et fail-closed du train R2 nirs4all." />
+  <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "État du train de publication R2 nirs4all",
+    "description": "État vérifiable du train de publication nirs4all R2, construit depuis le release lock sans annoncer d’artefact absent.",
+    "url": "https://nirs4all.org/release-status.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "nirs4all",
+      "url": "https://nirs4all.org/"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #102a2a;
+      --muted: #536b6b;
+      --paper: #fbfdfc;
+      --line: #cbdedb;
+      --brand: #0f766e;
+      --brand-dark: #115e59;
+      --pending-bg: #fff7d6;
+      --pending-ink: #7a4f01;
+      --ready-bg: #dcfce7;
+      --ready-ink: #166534;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--brand-dark); text-underline-offset: .18em; }
+    a:hover { color: var(--brand); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #22c55e; outline-offset: 3px; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: 12px; top: -80px; z-index: 10; padding: 10px 14px; color: white; background: var(--brand-dark); }
+    .skip-link:focus { top: 12px; }
+    nav { border-bottom: 1px solid var(--line); background: #fff; }
+    .nav-inner { min-height: 68px; display: flex; align-items: center; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 800; text-decoration: none; }
+    .brand img { width: 34px; height: 34px; }
+    .nav-links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 18px; }
+    header { padding: 72px 0 42px; background: linear-gradient(135deg, #e9fbf7, #f8fafc 68%); border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0; color: var(--brand-dark); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h1 { max-width: 850px; margin: 12px 0 18px; font-size: clamp(2.25rem, 7vw, 5rem); line-height: 1; letter-spacing: -.045em; }
+    .lead { max-width: 780px; margin: 0; color: var(--muted); font-size: 1.14rem; }
+    .train-state { margin-top: 28px; padding: 18px 20px; border: 1px solid #ead486; border-radius: 10px; background: var(--pending-bg); }
+    .train-state strong { display: block; color: var(--pending-ink); font-size: 1.08rem; }
+    .train-state p { margin: 4px 0 0; }
+    main { padding-bottom: 64px; }
+    .summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 30px 0; }
+    .metric { padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .metric dt { color: var(--muted); font-size: .8rem; font-weight: 700; text-transform: uppercase; }
+    .metric dd { margin: 3px 0 0; font-weight: 750; overflow-wrap: anywhere; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 44px 0 18px; }
+    h2 { margin: 0; font-size: clamp(1.5rem, 4vw, 2.15rem); }
+    .section-head p { max-width: 620px; margin: 0; color: var(--muted); }
+    .component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .component { display: flex; min-height: 270px; flex-direction: column; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .component-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+    .component h3 { margin: 0; font-size: 1.18rem; }
+    .badge { display: inline-flex; flex-shrink: 0; padding: 4px 9px; border-radius: 999px; color: var(--pending-ink); background: var(--pending-bg); font-size: .74rem; font-weight: 800; }
+    .badge.ready { color: var(--ready-ink); background: var(--ready-bg); }
+    .facts { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 12px; margin: 18px 0; }
+    .facts dt { color: var(--muted); }
+    .facts dd { margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .artifacts { margin-top: auto; }
+    .artifacts p { margin: 0; color: var(--muted); }
+    .artifacts ul { margin: 0; padding-left: 20px; }
+    .artifact-hash { display: block; color: var(--muted); font: .72rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .provenance { margin-top: 42px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: #f1f8f6; }
+    .provenance h2 { font-size: 1.35rem; }
+    .provenance p { margin-bottom: 0; color: var(--muted); overflow-wrap: anywhere; }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    .noscript { margin-top: 16px; padding: 14px; border: 1px solid #ead486; background: var(--pending-bg); }
+    @media (max-width: 720px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; gap: 10px; }
+      .nav-links { margin-left: 0; }
+      header { padding-top: 50px; }
+      .summary { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+  <nav aria-label="Navigation principale">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/brand/nirs4all/icon.svg" alt="" />
+        nirs4all
+      </a>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="open-source-nirs-tools.html">Outils</a>
+        <a href="https://cockpit.nirs4all.org/">Cockpit</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Release train · source vérifiable</p>
+      <h1>État de publication du jalon R2</h1>
+      <p class="lead">Cette page ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit. Versions, commits et téléchargements sont rendus exclusivement depuis le manifest statique projeté du release lock.</p>
+      <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
+        <strong id="train-message">Publication en cours — le jalon R2 reste incomplet.</strong>
+        <p id="train-detail">Aucun artefact n’est déclaré disponible tant que son URL et son empreinte ne sont pas présentes dans le manifest validé.</p>
+      </div>
+      <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
+    </div>
+  </header>
+
+  <main id="main-content" class="wrap">
+    <dl class="summary" aria-label="Résumé du train de publication">
+      <div class="metric"><dt>Jalon</dt><dd id="milestone">R2 — incomplet</dd></div>
+      <div class="metric"><dt>Composants verrouillés</dt><dd id="component-count">En attente du manifest</dd></div>
+      <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 vérifié</dd></div>
+    </dl>
+
+    <div class="section-head">
+      <h2>Composants sélectionnés</h2>
+      <p>Une version et un SHA identifient la sélection de source. Ils ne constituent pas une preuve de publication : seul un artefact complet dans le manifest active un lien de téléchargement.</p>
+    </div>
+    <div id="component-grid" class="component-grid">
+      <article class="component">
+        <div class="component-head">
+          <h3>Manifest indisponible</h3>
+          <span class="badge">Publication en cours</span>
+        </div>
+        <p>La page reste volontairement fermée : aucune version, aucun SHA et aucun téléchargement ne sont inventés.</p>
+      </article>
+    </div>
+
+    <section class="provenance" aria-labelledby="provenance-title">
+      <h2 id="provenance-title">Provenance</h2>
+      <p id="provenance-detail">Le manifest n’a pas encore été validé. Consultez le <a href="https://cockpit.nirs4all.org/">Cockpit</a> pour le détail opérationnel ; la disponibilité publique de ce train reste gouvernée par le manifest de cette page.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">nirs4all · <a href="release-manifest.json">Manifest public</a> · <a href="https://github.com/GBeurier/nirs4all-ecosystem">Release lock source</a></div>
+  </footer>
+
+  <template id="component-template">
+    <article class="component">
+      <div class="component-head">
+        <h3 data-name></h3>
+        <span class="badge" data-state></span>
+      </div>
+      <dl class="facts">
+        <dt>Version</dt><dd data-version></dd>
+        <dt>Commit</dt><dd><a data-commit-link><span data-commit></span></a></dd>
+      </dl>
+      <div class="artifacts" data-artifacts></div>
+    </article>
+  </template>
+
+  <script>
+  (() => {
+    'use strict';
+    const MANIFEST_URL = 'release-manifest.json';
+    const SHA256 = /^sha256:[0-9a-f]{64}$/;
+    const COMMIT = /^[0-9a-f]{40}$/;
+    const HTTPS = /^https:\/\/[^\s]+$/;
+    const grid = document.getElementById('component-grid');
+
+    const isArtifact = artifact => artifact &&
+      typeof artifact === 'object' &&
+      typeof artifact.name === 'string' && artifact.name.length > 0 &&
+      typeof artifact.url === 'string' && HTTPS.test(artifact.url) &&
+      typeof artifact.sha256 === 'string' && SHA256.test(artifact.sha256);
+
+    const isComponent = component => component &&
+      typeof component === 'object' &&
+      typeof component.id === 'string' && component.id.length > 0 &&
+      typeof component.name === 'string' && component.name.length > 0 &&
+      typeof component.version === 'string' && component.version.length > 0 &&
+      typeof component.commit_sha === 'string' && COMMIT.test(component.commit_sha) &&
+      typeof component.repository_url === 'string' && HTTPS.test(component.repository_url) &&
+      component.publication && typeof component.publication === 'object' &&
+      ['pending', 'published'].includes(component.publication.state) &&
+      Array.isArray(component.publication.artifacts) &&
+      component.publication.artifacts.every(isArtifact);
+
+    const isManifest = manifest => manifest &&
+      manifest.schema_version === 'n4a.org-release-manifest/v1' &&
+      manifest.source_lock &&
+      manifest.source_lock.aggregation_lock_version === 1 &&
+      SHA256.test(manifest.source_lock.manifest_digest) &&
+      SHA256.test(manifest.source_lock.lock_sha256) &&
+      manifest.release_train &&
+      manifest.release_train.milestone === 'R2' &&
+      manifest.release_train.state === 'in_progress' &&
+      manifest.release_train.published === false &&
+      typeof manifest.release_train.message === 'string' &&
+      Array.isArray(manifest.components) && manifest.components.length > 0 &&
+      manifest.components.every(isComponent);
+
+    const addArtifacts = (container, component) => {
+      const artifacts = component.publication.artifacts;
+      const ready = component.publication.state === 'published' && artifacts.length > 0;
+      if (!ready) {
+        const message = document.createElement('p');
+        message.textContent = 'Publication en cours — aucun artefact vérifié.';
+        container.append(message);
+        return false;
+      }
+      const list = document.createElement('ul');
+      artifacts.forEach(artifact => {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        const hash = document.createElement('span');
+        link.href = artifact.url;
+        link.textContent = artifact.name;
+        hash.className = 'artifact-hash';
+        hash.textContent = artifact.sha256;
+        item.append(link, hash);
+        list.append(item);
+      });
+      container.append(list);
+      return true;
+    };
+
+    const render = manifest => {
+      grid.replaceChildren();
+      let artifactCount = 0;
+      manifest.components.forEach(component => {
+        const card = document.getElementById('component-template').content.cloneNode(true);
+        const ready = component.publication.state === 'published' && component.publication.artifacts.length > 0;
+        card.querySelector('[data-name]').textContent = component.name;
+        card.querySelector('[data-version]').textContent = component.version;
+        card.querySelector('[data-commit]').textContent = component.commit_sha;
+        card.querySelector('[data-commit-link]').href = component.repository_url + '/commit/' + component.commit_sha;
+        const badge = card.querySelector('[data-state]');
+        badge.textContent = ready ? 'Disponible' : 'Publication en cours';
+        if (ready) badge.classList.add('ready');
+        if (addArtifacts(card.querySelector('[data-artifacts]'), component)) {
+          artifactCount += component.publication.artifacts.length;
+        }
+        grid.append(card);
+      });
+      document.getElementById('train-message').textContent = manifest.release_train.message;
+      document.getElementById('milestone').textContent = manifest.release_train.milestone + ' — incomplet';
+      document.getElementById('component-count').textContent = String(manifest.components.length);
+      document.getElementById('artifact-count').textContent = String(artifactCount) + ' vérifié' + (artifactCount > 1 ? 's' : '');
+      const lock = manifest.source_lock;
+      const source = document.createElement('a');
+      source.href = lock.repository_url + '/blob/main/' + lock.path;
+      source.textContent = lock.path;
+      const detail = document.getElementById('provenance-detail');
+      detail.replaceChildren('Projection statique de ', source, '. Empreinte du lock : ' + lock.lock_sha256 + '. Le Cockpit reste une vue opérationnelle, pas une source alternative de disponibilité.');
+    };
+
+    fetch(MANIFEST_URL, { cache: 'no-store', headers: { Accept: 'application/json' } })
+      .then(response => response.ok ? response.json() : Promise.reject(new Error('manifest unavailable')))
+      .then(manifest => {
+        if (!isManifest(manifest)) throw new Error('invalid manifest');
+        render(manifest);
+      })
+      .catch(() => {
+        document.getElementById('train-message').textContent = 'Publication en cours — manifest absent ou invalide.';
+      });
+  })();
+  </script>
+</body>
+</html>
