@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>État du train de publication R2 | nirs4all</title>
-  <meta name="description" content="État vérifiable du train de publication nirs4all R2, construit depuis le release lock sans annoncer d’artefact absent." />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>Candidat natif R4/V1 — staging NO-GO | nirs4all</title>
+  <meta name="description" content="Snapshot de staging vérifiable du candidat natif nirs4all R4/V1 : SHAs, versions, architecture et capacités qualifiées, sans publication ni téléchargement." />
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#0f766e" />
   <link rel="canonical" href="https://nirs4all.org/release-status.html" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://nirs4all.org/sitemap.xml" />
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="nirs4all" />
-  <meta property="og:title" content="État du train de publication R2 | nirs4all" />
-  <meta property="og:description" content="Versions, commits et artefacts du train R2, projetés depuis le release lock." />
+  <meta property="og:title" content="Candidat natif R4/V1 — staging NO-GO | nirs4all" />
+  <meta property="og:description" content="Identités exactes et capacités réellement qualifiées du candidat local, explicitement non publié." />
   <meta property="og:url" content="https://nirs4all.org/release-status.html" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="État du train de publication R2 | nirs4all" />
-  <meta name="twitter:description" content="Une vue statique, vérifiable et fail-closed du train R2 nirs4all." />
+  <meta name="twitter:title" content="Candidat natif R4/V1 — staging NO-GO | nirs4all" />
+  <meta name="twitter:description" content="Vue statique et fail-closed du candidat local nirs4all, sans annonce de V1 stable." />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "État du train de publication R2 nirs4all",
-    "description": "État vérifiable du train de publication nirs4all R2, construit depuis le release lock sans annoncer d’artefact absent.",
+    "name": "Candidat natif R4/V1 nirs4all — staging NO-GO",
+    "description": "Snapshot de staging du candidat local natif nirs4all, explicitement non publié et sans téléchargement.",
     "url": "https://nirs4all.org/release-status.html",
     "isPartOf": {
       "@type": "WebSite",
@@ -97,6 +97,26 @@
     .provenance { margin-top: 42px; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: #f1f8f6; }
     .provenance h2 { font-size: 1.35rem; }
     .provenance p { margin-bottom: 0; color: var(--muted); overflow-wrap: anywhere; }
+    .detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
+    .detail-card { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .detail-card h2 { font-size: 1.15rem; }
+    .detail-card p, .detail-card li { color: var(--muted); }
+    .detail-card ul { padding-left: 20px; }
+    .codes { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; }
+    .codes dt { font: 800 .9rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .codes dd { margin: 0; color: var(--muted); }
+    .table-wrap { overflow-x: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    table { width: 100%; min-width: 840px; border-collapse: collapse; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    thead th { color: var(--muted); font-size: .75rem; text-transform: uppercase; }
+    tbody th { font-weight: 700; }
+    .mono { font: .76rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .state { display: inline-flex; padding: 3px 8px; border-radius: 999px; color: #166534; background: #dcfce7; font-size: .7rem; font-weight: 800; white-space: nowrap; }
+    .state.partial, .state.qualified_bounded, .state.fixture_only { color: #854d0e; background: #fef3c7; }
+    .state.not_qualified, .state.unavailable { color: #991b1b; background: #fee2e2; }
+    .holds { margin-top: 20px; padding: 20px 24px; border: 1px solid #ead486; border-radius: 12px; background: var(--pending-bg); }
+    .holds h2 { font-size: 1.25rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
     footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); }
     .noscript { margin-top: 16px; padding: 14px; border: 1px solid #ead486; background: var(--pending-bg); }
     @media (max-width: 720px) {
@@ -104,6 +124,7 @@
       .nav-links { margin-left: 0; }
       header { padding-top: 50px; }
       .summary { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
     }
   </style>
@@ -126,12 +147,12 @@
 
   <header>
     <div class="wrap">
-      <p class="eyebrow">Release train · source vérifiable</p>
-      <h1>État de publication du jalon R2</h1>
-      <p class="lead">Cette page ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit. Versions, commits et téléchargements sont rendus exclusivement depuis le manifest statique projeté du release lock.</p>
+      <p class="eyebrow">Staging candidat · source vérifiable</p>
+      <h1>Candidat natif R4/V1 — NO-GO</h1>
+      <p class="lead">Cette page décrit le candidat local exact enregistré par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Publication en cours — le jalon R2 reste incomplet.</strong>
-        <p id="train-detail">Aucun artefact n’est déclaré disponible tant que son URL et son empreinte ne sont pas présentes dans le manifest validé.</p>
+        <strong id="train-message">Publication en cours — candidat local NO-GO; aucune V1 stable ni aucun artefact n’est publié.</strong>
+        <p id="train-detail">Tous les téléchargements et liens de registre du candidat restent désactivés jusqu’à publication, repin et reconstruction du lock.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
     </div>
@@ -139,14 +160,37 @@
 
   <main id="main-content" class="wrap">
     <dl class="summary" aria-label="Résumé du train de publication">
-      <div class="metric"><dt>Jalon</dt><dd id="milestone">R2 — incomplet</dd></div>
-      <div class="metric"><dt>Composants verrouillés</dt><dd id="component-count">En attente du manifest</dd></div>
-      <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 vérifié</dd></div>
+      <div class="metric"><dt>État</dt><dd id="milestone">R4/V1 local · NO-GO</dd></div>
+      <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
+      <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 · indisponibles</dd></div>
     </dl>
 
+    <div class="detail-grid">
+      <section class="detail-card" aria-labelledby="architecture-title">
+        <h2 id="architecture-title">Frontière d’exécution</h2>
+        <ul id="architecture-list"><li>Snapshot candidat indisponible.</li></ul>
+      </section>
+      <section class="detail-card" aria-labelledby="migration-title">
+        <h2 id="migration-title">Migration legacy</h2>
+        <div id="migration-detail"><p>Codes 0/10/20 indisponibles tant que le snapshot n’est pas validé.</p></div>
+      </section>
+      <section class="detail-card" aria-labelledby="methods-docs-title">
+        <h2 id="methods-docs-title">Documentation scientifique Methods</h2>
+        <div id="methods-docs-detail"><p>Évidence indisponible.</p></div>
+      </section>
+    </div>
+
+    <section aria-labelledby="capability-title">
+      <div class="section-head">
+        <h2 id="capability-title">Capability matrix qualifiée</h2>
+        <p>Une ligne verte vaut seulement pour les surfaces et limites citées. Les matrices générales ou externes non exécutées restent explicitement ouvertes.</p>
+      </div>
+      <div id="capability-table" class="table-wrap"><p style="padding:16px">Snapshot candidat indisponible.</p></div>
+    </section>
+
     <div class="section-head">
-      <h2>Composants sélectionnés</h2>
-      <p>Une version et un SHA identifient la sélection de source. Ils ne constituent pas une preuve de publication : seul un artefact complet dans le manifest active un lien de téléchargement.</p>
+      <h2>Composants candidats exacts</h2>
+      <p>Version, commit et tree identifient la source locale. Ils ne prouvent ni publication ni disponibilité : ce schéma ne peut contenir aucun artefact ou lien de registre.</p>
     </div>
     <div id="component-grid" class="component-grid">
       <article class="component">
@@ -154,18 +198,23 @@
           <h3>Manifest indisponible</h3>
           <span class="badge">Publication en cours</span>
         </div>
-        <p>La page reste volontairement fermée : aucune version, aucun SHA et aucun téléchargement ne sont inventés.</p>
+        <p>La page reste volontairement fermée : aucune identité ni aucun téléchargement ne sont inventés.</p>
       </article>
     </div>
 
+    <section class="holds" aria-labelledby="holds-title">
+      <h2 id="holds-title">Holds de publication</h2>
+      <ul id="holds-list"><li>Snapshot candidat indisponible; publication refusée.</li></ul>
+    </section>
+
     <section class="provenance" aria-labelledby="provenance-title">
       <h2 id="provenance-title">Provenance</h2>
-      <p id="provenance-detail">Le manifest n’a pas encore été validé. Consultez le <a href="https://cockpit.nirs4all.org/">Cockpit</a> pour le détail opérationnel ; la disponibilité publique de ce train reste gouvernée par le manifest de cette page.</p>
+      <p id="provenance-detail">Le snapshot n’a pas encore été validé. Consultez le <a href="https://cockpit.nirs4all.org/">Cockpit</a> pour le détail opérationnel ; seul un futur lock publié pourra autoriser une V1 stable.</p>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">nirs4all · <a href="release-manifest.json">Manifest public</a> · <a href="https://github.com/GBeurier/nirs4all-ecosystem">Release lock source</a></div>
+    <div class="wrap">nirs4all · <a href="native-candidate-staging.json">Snapshot candidat</a> · <a href="release-manifest.json">Baseline du lock</a> · <a href="https://github.com/GBeurier/nirs4all-ecosystem">Gouvernance</a></div>
   </footer>
 
   <template id="component-template">
@@ -177,6 +226,7 @@
       <dl class="facts">
         <dt>Version</dt><dd data-version></dd>
         <dt>Commit</dt><dd><a data-commit-link><span data-commit></span></a></dd>
+        <dt>Tree</dt><dd data-tree></dd>
       </dl>
       <div class="artifacts" data-artifacts></div>
     </article>
@@ -185,7 +235,7 @@
   <script>
   (() => {
     'use strict';
-    const MANIFEST_URL = 'release-manifest.json';
+    const MANIFEST_URL = 'native-candidate-staging.json';
     const SHA256 = /^sha256:[0-9a-f]{64}$/;
     const COMMIT = /^[0-9a-f]{40}$/;
     const HTTPS = /^https:\/\/[^\s]+$/;
@@ -202,50 +252,37 @@
       typeof component.id === 'string' && component.id.length > 0 &&
       typeof component.name === 'string' && component.name.length > 0 &&
       typeof component.version === 'string' && component.version.length > 0 &&
-      typeof component.commit_sha === 'string' && COMMIT.test(component.commit_sha) &&
+      typeof component.commit === 'string' && COMMIT.test(component.commit) &&
+      typeof component.tree === 'string' && COMMIT.test(component.tree) &&
       typeof component.repository_url === 'string' && HTTPS.test(component.repository_url) &&
-      component.publication && typeof component.publication === 'object' &&
-      ['pending', 'published'].includes(component.publication.state) &&
-      Array.isArray(component.publication.artifacts) &&
-      component.publication.artifacts.every(isArtifact);
+      component.publication === 'unavailable' &&
+      Array.isArray(component.artifacts) && component.artifacts.length === 0 &&
+      Array.isArray(component.registry_urls) && component.registry_urls.length === 0;
 
     const isManifest = manifest => manifest &&
-      manifest.schema_version === 'n4a.org-release-manifest/v1' &&
-      manifest.source_lock &&
-      manifest.source_lock.aggregation_lock_version === 1 &&
-      SHA256.test(manifest.source_lock.manifest_digest) &&
-      SHA256.test(manifest.source_lock.lock_sha256) &&
-      manifest.release_train &&
-      manifest.release_train.milestone === 'R2' &&
-      manifest.release_train.state === 'in_progress' &&
-      manifest.release_train.published === false &&
-      typeof manifest.release_train.message === 'string' &&
+      manifest.schema_version === 'n4a.native-candidate-staging/v1' &&
+      manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
+      manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
+      manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
-      manifest.components.every(isComponent);
+      manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
     const addArtifacts = (container, component) => {
-      const artifacts = component.publication.artifacts;
-      const ready = component.publication.state === 'published' && artifacts.length > 0;
-      if (!ready) {
-        const message = document.createElement('p');
-        message.textContent = 'Publication en cours — aucun artefact vérifié.';
-        container.append(message);
-        return false;
-      }
-      const list = document.createElement('ul');
-      artifacts.forEach(artifact => {
-        const item = document.createElement('li');
-        const link = document.createElement('a');
-        const hash = document.createElement('span');
-        link.href = artifact.url;
-        link.textContent = artifact.name;
-        hash.className = 'artifact-hash';
-        hash.textContent = artifact.sha256;
-        item.append(link, hash);
-        list.append(item);
-      });
-      container.append(list);
-      return true;
+      const message = document.createElement('p');
+      message.textContent = 'Indisponible — candidat local non publié.';
+      container.append(message);
+      return false;
+    };
+
+    const table = (headers, captionText) => {
+      const element = document.createElement('table');
+      const caption = document.createElement('caption');
+      const head = document.createElement('thead');
+      const row = document.createElement('tr');
+      caption.className = 'sr-only'; caption.textContent = captionText;
+      headers.forEach(text => { const cell = document.createElement('th'); cell.textContent = text; row.append(cell); });
+      head.append(row); element.append(caption, head, document.createElement('tbody'));
+      return element;
     };
 
     const render = manifest => {
@@ -253,29 +290,68 @@
       let artifactCount = 0;
       manifest.components.forEach(component => {
         const card = document.getElementById('component-template').content.cloneNode(true);
-        const ready = component.publication.state === 'published' && component.publication.artifacts.length > 0;
         card.querySelector('[data-name]').textContent = component.name;
         card.querySelector('[data-version]').textContent = component.version;
-        card.querySelector('[data-commit]').textContent = component.commit_sha;
-        card.querySelector('[data-commit-link]').href = component.repository_url + '/commit/' + component.commit_sha;
+        card.querySelector('[data-commit]').textContent = component.commit;
+        card.querySelector('[data-commit-link]').href = component.repository_url + '/commit/' + component.commit;
+        card.querySelector('[data-tree]').textContent = component.tree;
         const badge = card.querySelector('[data-state]');
-        badge.textContent = ready ? 'Disponible' : 'Publication en cours';
-        if (ready) badge.classList.add('ready');
+        badge.textContent = 'Indisponible';
         if (addArtifacts(card.querySelector('[data-artifacts]'), component)) {
-          artifactCount += component.publication.artifacts.length;
+          artifactCount += component.artifacts.length;
         }
         grid.append(card);
       });
-      document.getElementById('train-message').textContent = manifest.release_train.message;
-      document.getElementById('milestone').textContent = manifest.release_train.milestone + ' — incomplet';
+      document.getElementById('train-message').textContent = manifest.release.notice;
+      document.getElementById('milestone').textContent = 'R4/V1 local · NO-GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
-      document.getElementById('artifact-count').textContent = String(artifactCount) + ' vérifié' + (artifactCount > 1 ? 's' : '');
-      const lock = manifest.source_lock;
+      document.getElementById('artifact-count').textContent = String(artifactCount) + ' · indisponibles';
+
+      const architecture = document.getElementById('architecture-list');
+      architecture.replaceChildren();
+      [
+        'Studio HTTP, contrôle, store, jobs, scheduler et WebSocket : Rust-only.',
+        'CPython embarqué : host bibliothèque/plugin stdio borné et attesté.',
+        'Aucun serveur HTTP, scheduler, store, listener ou fallback Python.',
+        'Web : WASM client-side uniquement ; engine=legacy reste explicite et hors des chemins stricts.'
+      ].forEach(text => { const item = document.createElement('li'); item.textContent = text; architecture.append(item); });
+
+      const migration = document.getElementById('migration-detail');
+      migration.replaceChildren();
+      const migrationIntro = document.createElement('p');
+      migrationIntro.textContent = manifest.migration.tool + ' ' + manifest.migration.version + ' · copy-on-write · dry-run · reprise · verify.';
+      const codes = document.createElement('dl'); codes.className = 'codes';
+      manifest.migration.exit_codes.forEach(entry => { const dt = document.createElement('dt'); const dd = document.createElement('dd'); dt.textContent = String(entry.code); dd.textContent = entry.meaning; codes.append(dt, dd); });
+      migration.append(migrationIntro, codes);
+
+      const docs = manifest.methods_documentation;
+      const docsBox = document.getElementById('methods-docs-detail');
+      docsBox.replaceChildren();
+      const docsText = document.createElement('p');
+      docsText.textContent = docs.mapped_pages + ' pages reliées · ' + docs.bibliography_entries + ' références (' + docs.historical_entries_preserved + ' historiques + ' + docs.reviewed_entries_added + ' relues). Publication encore en attente.';
+      const docsSha = document.createElement('p'); docsSha.className = 'mono'; docsSha.textContent = docs.commit + ' · tree ' + docs.tree;
+      docsBox.append(docsText, docsSha);
+
+      const capabilityTable = table(['Capacité', 'État', 'Surfaces qualifiées', 'Limites'], 'Capability matrix du candidat natif');
+      const capabilityBody = capabilityTable.tBodies[0];
+      manifest.capabilities.forEach(capability => {
+        const row = capabilityBody.insertRow();
+        const label = document.createElement('th'); label.scope = 'row'; label.textContent = capability.label; row.append(label);
+        const stateCell = row.insertCell(); const state = document.createElement('span'); state.className = 'state ' + capability.status; state.textContent = capability.status.replaceAll('_', ' '); stateCell.append(state);
+        const surfaces = row.insertCell(); surfaces.className = 'mono'; surfaces.textContent = capability.surfaces.join(' · ');
+        row.insertCell().textContent = capability.limits;
+      });
+      document.getElementById('capability-table').replaceChildren(capabilityTable);
+
+      const holds = document.getElementById('holds-list'); holds.replaceChildren();
+      manifest.holds.forEach(text => { const item = document.createElement('li'); item.textContent = text; holds.append(item); });
+
+      const candidateSource = manifest.source;
       const source = document.createElement('a');
-      source.href = lock.repository_url + '/blob/main/' + lock.path;
-      source.textContent = lock.path;
+      source.href = candidateSource.repository_url + '/commit/' + candidateSource.commit;
+      source.textContent = candidateSource.commit;
       const detail = document.getElementById('provenance-detail');
-      detail.replaceChildren('Projection statique de ', source, '. Empreinte du lock : ' + lock.lock_sha256 + '. Le Cockpit reste une vue opérationnelle, pas une source alternative de disponibilité.');
+      detail.replaceChildren('Projection statique du ledger au commit ', source, '. Tree : ' + candidateSource.tree + '. Empreinte ledger : ' + candidateSource.ledger_sha256 + '. Le lock canonique reste inchangé et seul habilité à autoriser une publication.');
     };
 
     fetch(MANIFEST_URL, { cache: 'no-store', headers: { Accept: 'application/json' } })
@@ -285,7 +361,7 @@
         render(manifest);
       })
       .catch(() => {
-        document.getElementById('train-message').textContent = 'Publication en cours — manifest absent ou invalide.';
+        document.getElementById('train-message').textContent = 'Publication en cours — snapshot candidat absent ou invalide; aucune V1 stable ni aucun téléchargement.';
       });
   })();
   </script>

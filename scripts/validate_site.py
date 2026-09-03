@@ -26,6 +26,25 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "localhost",
     "127.0.0.1",
 )
+CANDIDATE_SOURCE = {
+    "commit": "a3ea904799b84977bc3e5661a27799e7078f8430",
+    "tree": "b240b3dfcf0758dd31dc1fc743384d82122c145d",
+    "ledger_sha256": "sha256:bf588aa87d10329aa1e96c0249583e0c432053f8ceec06cd7d8ffdb6460be8de",
+}
+CANDIDATE_COMPONENTS = {
+    "benchmarks": ("0.1.6", "433ad714d475dd0c8fd7d4ee2664665894caaee9", "4103609587714f1a19c6834c2e4bbf2d71ea4d97"),
+    "core": ("0.3.25", "6b25b63bb09adfe3c4dae8ffacc90d09a1a81e16", "11344243884a24aeec75f73e0469f23721c76978"),
+    "dag_ml": ("0.3.23", "dafb8b6fb98f9d380d30559a3f4b868c91e5b5c4", "44a2c4a46911d2c49c33fe75418674bd0e129d5e"),
+    "dag_ml_data": ("0.2.10", "1f60b920d34acda7c0fbc044b593bb6af1fab4c1", "f2144d861642e81758dcef4f6ee76ec32c0961ff"),
+    "datasets": ("0.3.9", "53017672c82df106a17b512846425bc9e846565f", "68513f3b938407846a9014d0dad47f58ded09bf4"),
+    "formats": ("0.2.8", "2d46285843dc366da1d38f133131b5329c886b12", "2ee12c035db8a78721315ee65cf684d811552aa9"),
+    "io": ("0.1.12", "54fa4f5f544f08f37317897612f78e4ee103b5a4", "c583ba2e8d2fec5376933086d4fbb765c931486f"),
+    "methods": ("1.0.15", "48ad1e5a50844f68c2b99e93b02ad6a3b491c07b", "f2eaa3c46629c26d11913a25bff723f9a9cefbc9"),
+    "python": ("0.10.3", "56db62c176e77afe8650b71aefb5988c0d172f87", "abd855244a1b4a4e818ec3f3bcce500417f440c3"),
+    "studio": ("0.9.1", "2ad862aeab4048ced6c4c70fee5b2f88adaa16e8", "e32f15cd1c4e76ef9fb82d2c2ffc81afddc6bbdc"),
+    "tools": ("0.0.7", "e3a332633f87b4652a06f8993e63c386a3568698", "c708b9153be8bfd85ba02135c1406f3f3ddf1ae2"),
+    "web": ("0.1.8", "20867a71c45731f757267a98e7928710e7c3693d", "5883040939306b8d5ef5a02eacde90caeea23efa"),
+}
 
 
 class ValidationError(ValueError):
@@ -192,9 +211,75 @@ def validate_release_manifest(manifest: Any) -> None:
     serialized = json.dumps(manifest, ensure_ascii=False)
     for fragment in FORBIDDEN_PUBLIC_FRAGMENTS:
         if fragment.lower() in serialized.lower():
-            raise ValidationError(
-                f"public manifest leaks forbidden fragment: {fragment}"
-            )
+                raise ValidationError(
+                    f"public manifest leaks forbidden fragment: {fragment}"
+                )
+
+
+def validate_native_candidate(candidate: Any) -> None:
+    """Validate the exact unpublished candidate shared with Cockpit."""
+    if not isinstance(candidate, dict) or candidate.get("schema_version") != "n4a.native-candidate-staging/v1":
+        raise ValidationError("unsupported native candidate schema")
+    source = candidate.get("source")
+    if not isinstance(source, dict):
+        raise ValidationError("native candidate source is missing")
+    for key, expected in CANDIDATE_SOURCE.items():
+        if source.get(key) != expected:
+            raise ValidationError(f"native candidate source {key} diverges")
+    if source.get("repository_url") != "https://github.com/GBeurier/nirs4all-ecosystem" or source.get("ledger_path") != "docs/contracts/release/migration-work-ledger.yaml":
+        raise ValidationError("native candidate source is not the governance ledger")
+
+    release = candidate.get("release")
+    if not isinstance(release, dict) or release.get("status") != "no_go" or release.get("publication") != "unpublished":
+        raise ValidationError("native candidate must remain NO-GO and unpublished")
+    for field in ("canonical_lock_updated", "downloads_enabled", "registry_links_enabled"):
+        if release.get(field) is not False:
+            raise ValidationError(f"native candidate must keep {field}=false")
+
+    components = candidate.get("components")
+    if not isinstance(components, list):
+        raise ValidationError("native candidate components are missing")
+    observed: dict[str, tuple[str, str, str]] = {}
+    for component in components:
+        if not isinstance(component, dict) or not isinstance(component.get("key"), str):
+            raise ValidationError("invalid native candidate component")
+        key = component["key"]
+        if key in observed:
+            raise ValidationError(f"duplicate native candidate component: {key}")
+        observed[key] = (component.get("version"), component.get("commit"), component.get("tree"))
+        if component.get("publication") != "unavailable" or component.get("artifacts") != [] or component.get("registry_urls") != []:
+            raise ValidationError(f"{key}: unpublished candidate exposes publication evidence")
+        if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
+            raise ValidationError(f"{key}: unsafe candidate repository URL")
+    if observed != CANDIDATE_COMPONENTS:
+        raise ValidationError("native candidate identities diverge from a3ea9047")
+
+    architecture = candidate.get("architecture")
+    if not isinstance(architecture, dict) or architecture.get("studio_control_plane") != "rust_only" or architecture.get("embedded_cpython") != "bounded_attested_stdio_library_plugin_host":
+        raise ValidationError("native candidate architecture boundary diverges")
+    forbidden_roles = set(architecture.get("python_forbidden_roles", []))
+    if forbidden_roles != {"http_server", "scheduler", "store", "listener", "fallback"}:
+        raise ValidationError("native candidate Python forbidden roles diverge")
+
+    migration = candidate.get("migration")
+    if not isinstance(migration, dict) or migration.get("version") != "0.0.7":
+        raise ValidationError("native candidate migration tool diverges")
+    if [item.get("code") for item in migration.get("exit_codes", []) if isinstance(item, dict)] != [0, 10, 20]:
+        raise ValidationError("native candidate migration codes diverge")
+    docs = candidate.get("methods_documentation")
+    if not isinstance(docs, dict) or docs.get("mapped_pages") != "209/209" or docs.get("bibliography_entries") != 88:
+        raise ValidationError("Methods scientific documentation evidence diverges")
+    capabilities = candidate.get("capabilities")
+    if not isinstance(capabilities, list) or not capabilities:
+        raise ValidationError("native candidate capability matrix is missing")
+    statuses = {entry.get("status") for entry in capabilities if isinstance(entry, dict)}
+    if not {"qualified_local", "qualified_bounded", "not_qualified", "fixture_only"}.issubset(statuses):
+        raise ValidationError("native candidate capability limits are incomplete")
+
+    serialized = json.dumps(candidate, ensure_ascii=False).lower()
+    for fragment in (*FORBIDDEN_PUBLIC_FRAGMENTS, "browser_download_url"):
+        if fragment.lower() in serialized:
+            raise ValidationError(f"native candidate leaks forbidden fragment: {fragment}")
 
 
 def _local_target(url: str) -> tuple[Path, str] | None:
@@ -278,8 +363,10 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
-        "Publication en cours — le jalon R2 reste incomplet.",
-        "release-manifest.json",
+        "Publication en cours — candidat local NO-GO",
+        "native-candidate-staging.json",
+        "Capability matrix qualifiée",
+        "Codes 0/10/20",
         'aria-live="polite"',
     )
     for marker in required:
@@ -339,6 +426,10 @@ def main() -> int:
             (ROOT / "release-manifest.json").read_text(encoding="utf-8")
         )
         validate_release_manifest(manifest)
+        candidate = json.loads(
+            (ROOT / "native-candidate-staging.json").read_text(encoding="utf-8")
+        )
+        validate_native_candidate(candidate)
         for path in sorted(ROOT.glob("*.html")):
             validate_document(path, parse_document(path))
         validate_release_page(ROOT / "release-status.html")
@@ -347,7 +438,7 @@ def main() -> int:
         print(f"site validation failed: {exc}", file=sys.stderr)
         return 1
     print(
-        "site validation passed: manifest, HTML, links, accessibility, SEO, JSON-LD, sitemap"
+        "site validation passed: lock baseline, native candidate, HTML, links, accessibility, SEO, JSON-LD, sitemap"
     )
     return 0
 

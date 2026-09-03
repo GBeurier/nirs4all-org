@@ -11,7 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from project_release_lock import ProjectionError, project_lock  # noqa: E402
-from validate_site import ValidationError, validate_release_manifest  # noqa: E402
+from validate_site import (  # noqa: E402
+    ValidationError,
+    validate_native_candidate,
+    validate_release_manifest,
+)
 
 
 def sample_lock() -> dict[str, object]:
@@ -106,6 +110,29 @@ class PublicManifestTests(unittest.TestCase):
         invalid["components"][0]["selected_workspace_path"] = "/tmp/worktree"
         with self.assertRaisesRegex(ValidationError, "expected keys"):
             validate_release_manifest(invalid)
+
+
+class NativeCandidateTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.candidate = json.loads(
+            (ROOT / "native-candidate-staging.json").read_text(encoding="utf-8")
+        )
+
+    def test_committed_candidate_is_exact_and_unpublished(self) -> None:
+        validate_native_candidate(self.candidate)
+
+    def test_candidate_cannot_gain_artifact_or_go_status(self) -> None:
+        invalid = copy.deepcopy(self.candidate)
+        invalid["components"][0]["artifacts"] = [
+            {"url": "https://example.invalid/fake.zip"}
+        ]
+        with self.assertRaisesRegex(ValidationError, "exposes publication"):
+            validate_native_candidate(invalid)
+
+        invalid = copy.deepcopy(self.candidate)
+        invalid["release"]["status"] = "go"
+        with self.assertRaisesRegex(ValidationError, "NO-GO"):
+            validate_native_candidate(invalid)
 
 
 if __name__ == "__main__":

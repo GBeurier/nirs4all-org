@@ -1,0 +1,333 @@
+{
+  "architecture": {
+    "embedded_cpython": "bounded_attested_stdio_library_plugin_host",
+    "legacy_profile": "explicit_engine_legacy_through_r4_unreachable_from_strict_product_paths",
+    "python_forbidden_roles": [
+      "http_server",
+      "scheduler",
+      "store",
+      "listener",
+      "fallback"
+    ],
+    "studio_control_plane": "rust_only",
+    "web_runtime": "client_side_wasm_only"
+  },
+  "capabilities": [
+    {
+      "key": "native_pipeline_v2",
+      "label": "SNV → Savitzky–Golay → PLS, Archive V2 et predict",
+      "limits": "Profil borné SNV ddof=0, SG interp fenêtre 11/polynôme 3, PLS; aucune généralisation à toute l’API.",
+      "status": "qualified_local",
+      "surfaces": [
+        "methods",
+        "dag_ml",
+        "core",
+        "python",
+        "studio",
+        "web"
+      ]
+    },
+    {
+      "key": "archive_v1_replay",
+      "label": "Relecture Archive V1 historique",
+      "limits": "Compatibilité de lecture/rejeu; aucune réécriture en place.",
+      "status": "qualified_local",
+      "surfaces": [
+        "dag_ml",
+        "core",
+        "studio",
+        "web"
+      ]
+    },
+    {
+      "key": "native_hpo_resume",
+      "label": "HPO Methods natif, reprise et export/rejeu",
+      "limits": "Témoin Python PLS random 2→4 essais; l’API publique N4MOPT de reprise n’est pas annoncée.",
+      "status": "qualified_bounded",
+      "surfaces": [
+        "methods",
+        "dag_ml",
+        "python"
+      ]
+    },
+    {
+      "key": "dataset_package_handoff",
+      "label": "DatasetPackage Rust vers plan de données",
+      "limits": "Candidat local résolu sur le patch dag-ml-data 0.2.10 encore publish=false.",
+      "status": "qualified_local",
+      "surfaces": [
+        "io"
+      ]
+    },
+    {
+      "key": "conformal",
+      "label": "Conformal natif multi-cible et Archive V2",
+      "limits": "Flux local DAG/Core/Studio qualifié; aucune promesse Web ni matrice conformal générale de l’API Python.",
+      "status": "qualified_local",
+      "surfaces": [
+        "dag_ml",
+        "core",
+        "studio"
+      ]
+    },
+    {
+      "key": "studio_control_plane",
+      "label": "Plan de contrôle Studio",
+      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; qualification externe Windows/Docker/installers en attente.",
+      "status": "qualified_local",
+      "surfaces": [
+        "studio"
+      ]
+    },
+    {
+      "key": "embedded_cpython_plugins",
+      "label": "Interopérabilité bibliothèques Python",
+      "limits": "CPython embarqué limité à un host bibliothèque/plugin stdio attesté; aucun serveur HTTP, scheduler, store ou fallback Python.",
+      "status": "qualified_bounded",
+      "surfaces": [
+        "studio",
+        "python"
+      ]
+    },
+    {
+      "key": "web_wasm",
+      "label": "Web client-side WASM",
+      "limits": "Rejeu Archive V1/V2 qualifié sur les WASM finaux; aucune UI conformal n’est annoncée.",
+      "status": "qualified_local",
+      "surfaces": [
+        "web",
+        "core",
+        "methods"
+      ]
+    },
+    {
+      "key": "full_python_api",
+      "label": "Matrice complète API Python R2",
+      "limits": "run/predict/session/cache/retrain/finetune/conformal/robustness/explain/generate et dual-Methods restent incomplets comme ensemble.",
+      "status": "not_qualified",
+      "surfaces": [
+        "python"
+      ]
+    },
+    {
+      "key": "four_surface_performance",
+      "label": "Performance sur quatre surfaces",
+      "limits": "Contrat fixture 4/4 seulement; aucune qualification performance ou budget non-WSL.",
+      "status": "fixture_only",
+      "surfaces": [
+        "benchmarks"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "artifacts": [],
+      "commit": "433ad714d475dd0c8fd7d4ee2664665894caaee9",
+      "detail_versions": {},
+      "key": "benchmarks",
+      "name": "nirs4all-benchmarks",
+      "publication": "unavailable",
+      "qualification": "local_contract_fixture_qualified_release_no_go",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
+      "tree": "4103609587714f1a19c6834c2e4bbf2d71ea4d97",
+      "version": "0.1.6"
+    },
+    {
+      "artifacts": [],
+      "commit": "6b25b63bb09adfe3c4dae8ffacc90d09a1a81e16",
+      "detail_versions": {},
+      "key": "core",
+      "name": "nirs4all-core",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_data_conformal_and_runtime_identity_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-core",
+      "tree": "11344243884a24aeec75f73e0469f23721c76978",
+      "version": "0.3.25"
+    },
+    {
+      "artifacts": [],
+      "commit": "dafb8b6fb98f9d380d30559a3f4b868c91e5b5c4",
+      "detail_versions": {},
+      "key": "dag_ml",
+      "name": "dag-ml",
+      "publication": "unavailable",
+      "qualification": "local_unpublished_data_and_conformal_v2_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/dag-ml",
+      "tree": "44a2c4a46911d2c49c33fe75418674bd0e129d5e",
+      "version": "0.3.23"
+    },
+    {
+      "artifacts": [],
+      "commit": "1f60b920d34acda7c0fbc044b593bb6af1fab4c1",
+      "detail_versions": {},
+      "key": "dag_ml_data",
+      "name": "dag-ml-data",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_unpublished_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/dag-ml-data",
+      "tree": "f2144d861642e81758dcef4f6ee76ec32c0961ff",
+      "version": "0.2.10"
+    },
+    {
+      "artifacts": [],
+      "commit": "53017672c82df106a17b512846425bc9e846565f",
+      "detail_versions": {},
+      "key": "datasets",
+      "name": "nirs4all-datasets",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_unpublished_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-datasets",
+      "tree": "68513f3b938407846a9014d0dad47f58ded09bf4",
+      "version": "0.3.9"
+    },
+    {
+      "artifacts": [],
+      "commit": "2d46285843dc366da1d38f133131b5329c886b12",
+      "detail_versions": {},
+      "key": "formats",
+      "name": "nirs4all-formats",
+      "publication": "unavailable",
+      "qualification": "local_candidate_go_global_release_no_go",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-formats",
+      "tree": "2ee12c035db8a78721315ee65cf684d811552aa9",
+      "version": "0.2.8"
+    },
+    {
+      "artifacts": [],
+      "commit": "54fa4f5f544f08f37317897612f78e4ee103b5a4",
+      "detail_versions": {},
+      "key": "io",
+      "name": "nirs4all-io",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_unpublished_datasetpackage_handoff_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-io",
+      "tree": "c583ba2e8d2fec5376933086d4fbb765c931486f",
+      "version": "0.1.12"
+    },
+    {
+      "artifacts": [],
+      "commit": "48ad1e5a50844f68c2b99e93b02ad6a3b491c07b",
+      "detail_versions": {
+        "c_abi": "2.5.0",
+        "rust_binding": "0.1.4"
+      },
+      "key": "methods",
+      "name": "nirs4all-methods",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_unpublished_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-methods",
+      "tree": "f2eaa3c46629c26d11913a25bff723f9a9cefbc9",
+      "version": "1.0.15"
+    },
+    {
+      "artifacts": [],
+      "commit": "56db62c176e77afe8650b71aefb5988c0d172f87",
+      "detail_versions": {},
+      "key": "python",
+      "name": "nirs4all",
+      "publication": "unavailable",
+      "qualification": "locally_requalified_against_final_native_stack",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all",
+      "tree": "abd855244a1b4a4e818ec3f3bcce500417f440c3",
+      "version": "0.10.3"
+    },
+    {
+      "artifacts": [],
+      "commit": "2ad862aeab4048ced6c4c70fee5b2f88adaa16e8",
+      "detail_versions": {},
+      "key": "studio",
+      "name": "nirs4all-studio",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_combined_candidate_external_release_hold",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-studio",
+      "tree": "e32f15cd1c4e76ef9fb82d2c2ffc81afddc6bbdc",
+      "version": "0.9.1"
+    },
+    {
+      "artifacts": [],
+      "commit": "e3a332633f87b4652a06f8993e63c386a3568698",
+      "detail_versions": {},
+      "key": "tools",
+      "name": "nirs4all-tools",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_unpublished_candidate",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-tools",
+      "tree": "c708b9153be8bfd85ba02135c1406f3f3ddf1ae2",
+      "version": "0.0.7"
+    },
+    {
+      "artifacts": [],
+      "commit": "20867a71c45731f757267a98e7928710e7c3693d",
+      "detail_versions": {},
+      "key": "web",
+      "name": "nirs4all-web",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_final_wasm_candidate_external_release_hold",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-web",
+      "tree": "5883040939306b8d5ef5a02eacde90caeea23efa",
+      "version": "0.1.8"
+    }
+  ],
+  "holds": [
+    "Registry HOLD: n4m 0.1.4, DMD 0.2.10, nirs4all-io 0.1.12-dagml and the selected Core/DAG packages are not yet published and repinned.",
+    "Release-artifact HOLD: the canonical lock is intentionally unchanged; signing and SBOM/provenance closure remain required where applicable.",
+    "External qualification HOLD: promised matrices, installers, soak and real performance closures remain incomplete. Local DATA, CONF and STU code flows are closed, but this snapshot grants no global GO."
+  ],
+  "methods_documentation": {
+    "bibliography_entries": 88,
+    "commit": "d9c4291783381e07eae45cb2aecdad176b939731",
+    "historical_entries_preserved": 73,
+    "mapped_pages": "209/209",
+    "reviewed_entries_added": 15,
+    "status": "qualified_local_publication_pending",
+    "tree": "a263b5fe818d7162b3e53e7eaa4a4c58898c87f2"
+  },
+  "migration": {
+    "exit_codes": [
+      {
+        "code": 0,
+        "meaning": "migration complète sans avertissement"
+      },
+      {
+        "code": 10,
+        "meaning": "migration avec avertissements ou éléments opaques préservés"
+      },
+      {
+        "code": 20,
+        "meaning": "entrée non prise en charge; aucune fausse réussite"
+      }
+    ],
+    "policy": "copy_on_write_dry_run_resume_and_verify",
+    "tool": "nirs4all-tools",
+    "version": "0.0.7"
+  },
+  "release": {
+    "canonical_lock_updated": false,
+    "downloads_enabled": false,
+    "label": "R4/V1 native backend local candidate",
+    "notice": "Publication en cours — candidat local NO-GO; aucune V1 stable ni aucun artefact n’est publié.",
+    "publication": "unpublished",
+    "registry_links_enabled": false,
+    "status": "no_go"
+  },
+  "schema_version": "n4a.native-candidate-staging/v1",
+  "source": {
+    "commit": "a3ea904799b84977bc3e5661a27799e7078f8430",
+    "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
+    "ledger_sha256": "sha256:bf588aa87d10329aa1e96c0249583e0c432053f8ceec06cd7d8ffdb6460be8de",
+    "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
+    "tree": "b240b3dfcf0758dd31dc1fc743384d82122c145d"
+  }
+}
