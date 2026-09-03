@@ -130,7 +130,7 @@
     {
       "key": "four_surface_performance",
       "label": "Performance sur quatre surfaces",
-      "limits": "Mesure local_real WSL 4/4 enregistrée sans seuil; budgets non gelés et aucune qualification release.",
+      "limits": "Mesure local_real WSL 4/4 enregistrée sans seuil; harness de soak borné prêt mais sans campagne soutenue, budgets gelés ni qualification release.",
       "status": "record_only",
       "surfaces": [
         "benchmarks"
@@ -140,15 +140,15 @@
   "components": [
     {
       "artifacts": [],
-      "commit": "3f9be0fce0a79260a0813f964704ca1f337d47fe",
+      "commit": "24751ea97a3e12d48ffb9f0438a4355b024e15d8",
       "detail_versions": {},
       "key": "benchmarks",
       "name": "nirs4all-benchmarks",
       "publication": "unavailable",
-      "qualification": "local_real_four_surface_measurement_complete_release_no_go",
+      "qualification": "local_real_measurement_and_soak_harness_ready_release_no_go",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
-      "tree": "fc1152548894a4f778a257e54bb3dcf37ce1f0f3",
+      "tree": "3c8decd2f3b28865a8093996a5bd90c1789437de",
       "version": "0.1.6"
     },
     {
@@ -260,7 +260,7 @@
     },
     {
       "artifacts": [],
-      "commit": "bb76f2c8833f430d26311422c9d7018592fcf6cb",
+      "commit": "a6688f53994b4bf9f612057a86b17a25f04401c3",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -268,7 +268,7 @@
       "qualification": "locally_qualified_combined_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "e0560c07d34e9c5e928f44076cffdba100f17ee5",
+      "tree": "3f0776a6d406a0112fa730f5cbb0e8c347d19ef6",
       "version": "0.9.1"
     },
     {
@@ -286,7 +286,22 @@
     },
     {
       "artifacts": [],
-      "commit": "59cfffbd7444a9afa9527fbaa12d078811abaf33",
+      "commit": "406d94d70004f27459ef12347af1e6f0079ab6ac",
+      "detail_versions": {
+        "registry_latest_observed": "0.1.12"
+      },
+      "key": "ui",
+      "name": "nirs4all-ui",
+      "publication": "unavailable",
+      "qualification": "locally_qualified_shared_tarball_registry_publication_hold",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-ui",
+      "tree": "377722160bbf188c474aacfecc8a6825095be2ca",
+      "version": "0.1.13"
+    },
+    {
+      "artifacts": [],
+      "commit": "e7b9a6384050c2c1a92dcec6aab41e9f0430be43",
       "detail_versions": {},
       "key": "web",
       "name": "nirs4all-web",
@@ -294,7 +309,7 @@
       "qualification": "locally_qualified_final_wasm_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-web",
-      "tree": "42926535b2f333cdec77951bcbdcef2fc2268f42",
+      "tree": "883135384bbc15939a5aa55bac0f9227cebcf16f",
       "version": "0.1.8"
     }
   ],
@@ -393,21 +408,26 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "cd1627f60a0fba6acaa22b7b1d726846a2da40dc",
+    "commit": "e9d60c3a43dcf74d6318c5d165ff413452c49b1d",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:560bd08974d5f641eae2f0e5cd0d939c099d75fc8606563259c89bcd16396592",
+    "ledger_sha256": "sha256:1a88517463d7f493326e30f5cef15dea88806d1f5b134de52ccbd9c47b4d9c3e",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "f1bfa47aaebba82fb9ec504a4d287cc0d5774e3a"
+    "tree": "02f2ce819ee9b25b9fad7fa4704f34c8b41a3790"
   },
   "work_item_states": {
+    "API-001": "complete_local_code_release_hold",
     "API-004": "complete_local_native_full_transfer_plugin_finetune_refused",
     "API-005": "complete_local_by_executable_preflight_refusal",
     "CAP-001": "complete",
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
+    "GATE-001": "complete_local_linux_functional_release_hold",
     "PERF-002": "advanced_local_evidence_not_closed",
     "REL-003": "complete_local_code_release_hold",
     "SEC-001": "advanced_local_evidence_not_closed",
-    "SOAK-001": "advanced_local_evidence_not_closed"
+    "SOAK-001": "advanced_local_evidence_not_closed",
+    "STU-006": "complete_local_code_external_release_hold",
+    "UI-001": "complete_local_code_registry_publication_hold",
+    "WEB-001": "complete_local_code_release_hold"
   }
 }

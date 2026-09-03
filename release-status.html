@@ -290,15 +290,20 @@
       manifest.performance.fallback_observed === false && manifest.performance.budgets_frozen === false && manifest.performance.threshold_passed === null && manifest.performance.release_eligible === false &&
       manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
       JSON.stringify(manifest.work_item_states || {}) === JSON.stringify({
+        'API-001': 'complete_local_code_release_hold',
         'API-004': 'complete_local_native_full_transfer_plugin_finetune_refused',
         'API-005': 'complete_local_by_executable_preflight_refusal',
         'CAP-001': 'complete',
         'DAG-001': 'complete_local_code_release_hold',
         'DOC-001': 'complete_local_docs_release_hold',
+        'GATE-001': 'complete_local_linux_functional_release_hold',
         'PERF-002': 'advanced_local_evidence_not_closed',
         'REL-003': 'complete_local_code_release_hold',
         'SEC-001': 'advanced_local_evidence_not_closed',
-        'SOAK-001': 'advanced_local_evidence_not_closed'
+        'SOAK-001': 'advanced_local_evidence_not_closed',
+        'STU-006': 'complete_local_code_external_release_hold',
+        'UI-001': 'complete_local_code_registry_publication_hold',
+        'WEB-001': 'complete_local_code_release_hold'
       }) &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);

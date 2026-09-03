@@ -27,12 +27,12 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "cd1627f60a0fba6acaa22b7b1d726846a2da40dc",
-    "tree": "f1bfa47aaebba82fb9ec504a4d287cc0d5774e3a",
-    "ledger_sha256": "sha256:560bd08974d5f641eae2f0e5cd0d939c099d75fc8606563259c89bcd16396592",
+    "commit": "e9d60c3a43dcf74d6318c5d165ff413452c49b1d",
+    "tree": "02f2ce819ee9b25b9fad7fa4704f34c8b41a3790",
+    "ledger_sha256": "sha256:1a88517463d7f493326e30f5cef15dea88806d1f5b134de52ccbd9c47b4d9c3e",
 }
 CANDIDATE_COMPONENTS = {
-    "benchmarks": ("0.1.6", "3f9be0fce0a79260a0813f964704ca1f337d47fe", "fc1152548894a4f778a257e54bb3dcf37ce1f0f3"),
+    "benchmarks": ("0.1.6", "24751ea97a3e12d48ffb9f0438a4355b024e15d8", "3c8decd2f3b28865a8093996a5bd90c1789437de"),
     "core": ("0.3.25", "b6442dc4334c62a2b6c72526bea554a734134ac6", "6241d8497aa34ad4d015664662d4d17148d547fb"),
     "dag_ml": ("0.3.23", "b7d643f450da3018c8208a84abcabfab09d5da7d", "20876a6c04c550c2f662aa58583fb7305f42ee03"),
     "dag_ml_data": ("0.2.10", "1f60b920d34acda7c0fbc044b593bb6af1fab4c1", "f2144d861642e81758dcef4f6ee76ec32c0961ff"),
@@ -41,20 +41,26 @@ CANDIDATE_COMPONENTS = {
     "io": ("0.1.12", "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac", "ba5323cce8833610d974b7aa84ac65057355a687"),
     "methods": ("1.0.15", "699d33f4f113b8068176e367e130951b1cf186c0", "f97d7debe8a8a1f88614a060d30bea3e3a7c0e8b"),
     "python": ("0.10.3", "40421617c7f39cae6d11c4c3aecb51e9d0a582f4", "884b62893a298f7fe44e20fc20b5e6c989913674"),
-    "studio": ("0.9.1", "bb76f2c8833f430d26311422c9d7018592fcf6cb", "e0560c07d34e9c5e928f44076cffdba100f17ee5"),
+    "studio": ("0.9.1", "a6688f53994b4bf9f612057a86b17a25f04401c3", "3f0776a6d406a0112fa730f5cbb0e8c347d19ef6"),
     "tools": ("0.0.7", "6796a01a75b0b51301a693011f3e904a60598817", "4e77fd5b1cb9724c21d8bff89456649ed550ddfe"),
-    "web": ("0.1.8", "59cfffbd7444a9afa9527fbaa12d078811abaf33", "42926535b2f333cdec77951bcbdcef2fc2268f42"),
+    "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
+    "web": ("0.1.8", "e7b9a6384050c2c1a92dcec6aab41e9f0430be43", "883135384bbc15939a5aa55bac0f9227cebcf16f"),
 }
 CANDIDATE_WORK_ITEM_STATES = {
+    "API-001": "complete_local_code_release_hold",
     "API-004": "complete_local_native_full_transfer_plugin_finetune_refused",
     "API-005": "complete_local_by_executable_preflight_refusal",
     "CAP-001": "complete",
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
+    "GATE-001": "complete_local_linux_functional_release_hold",
     "PERF-002": "advanced_local_evidence_not_closed",
     "REL-003": "complete_local_code_release_hold",
     "SEC-001": "advanced_local_evidence_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
+    "STU-006": "complete_local_code_external_release_hold",
+    "UI-001": "complete_local_code_registry_publication_hold",
+    "WEB-001": "complete_local_code_release_hold",
 }
 
 
@@ -263,7 +269,7 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from cd1627f")
+        raise ValidationError("native candidate identities diverge from e9d60c3")
 
     cutover = candidate.get("cutover_observability")
     expected_cutover = {
