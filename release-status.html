@@ -153,8 +153,8 @@
       <h1>Candidats natifs R1/R2/R3 — NO-GO</h1>
       <p class="lead">Cette page décrit les candidats locaux distincts R1, R2 et R3 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Candidat produit NO-GO — composants natifs et Web publiés; R1 reste en cours et Studio non publié.</strong>
-        <p id="train-detail">Les fondations natives sont disponibles et Web est déployé séparément. Le déploiement produit R1 reste en cours avec legacy par défaut; Studio R3 reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
+        <strong id="train-message">Candidat produit NO-GO — composants natifs, R1 et Web publiés; R2, R3 et Studio non publiés.</strong>
+        <p id="train-detail">R1 est publié avec legacy par défaut et Web est déployé séparément. R2 et R3 restent des candidats non publiés; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
     </div>
@@ -162,7 +162,7 @@
 
   <main id="main-content" class="wrap">
     <dl class="summary" aria-label="Résumé du train de publication">
-      <div class="metric"><dt>État</dt><dd id="milestone">R1/R2/R3 candidats · R4 tenu · NO-GO</dd></div>
+      <div class="metric"><dt>État</dt><dd id="milestone">R1 publié · R2/R3 candidats · R4 tenu · NO-GO</dd></div>
       <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
       <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 · indisponibles</dd></div>
     </dl>
@@ -290,7 +290,7 @@
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
       manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
       manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
-      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_held' && manifest.release_train.publication === 'unpublished' &&
+      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_held' && manifest.release_train.publication === 'r1_published_r2_r3_unpublished' &&
       manifest.release_train.milestones && ['r1', 'r2', 'r3', 'r4'].every(key => manifest.release_train.milestones[key]) &&
       manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
       manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
@@ -358,7 +358,7 @@
         grid.append(card);
       });
       document.getElementById('train-message').textContent = manifest.release.notice;
-      document.getElementById('milestone').textContent = 'R1/R2/R3 candidats · R4 tenu · NO-GO';
+      document.getElementById('milestone').textContent = 'R1 publié · R2/R3 candidats · R4 tenu · NO-GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
       document.getElementById('artifact-count').textContent = String(artifactCount) + ' · indisponibles';
 
@@ -368,7 +368,8 @@
       ['r1', 'r2', 'r3'].forEach(key => {
         const milestone = releaseTrain.milestones[key];
         const line = document.createElement('p');
-        line.textContent = key.toUpperCase() + ' · Python ' + milestone.python_version + ' · Studio ' + milestone.studio_version + ' · ' + milestone.default_engine.replaceAll('_', ' ') + ' · candidat non publié.';
+        const publication = key === 'r1' ? 'publié (PyPI et GHCR).' : 'candidat non publié.';
+        line.textContent = key.toUpperCase() + ' · Python ' + milestone.python_version + ' · Studio ' + milestone.studio_version + ' · ' + milestone.default_engine.replaceAll('_', ' ') + ' · ' + publication;
         releaseTrainBox.append(line);
       });
       const r4 = document.createElement('p');

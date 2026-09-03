@@ -15,6 +15,7 @@ from validate_site import (  # noqa: E402
     ValidationError,
     validate_native_candidate,
     validate_release_manifest,
+    validate_transition_copy,
 )
 
 
@@ -152,6 +153,32 @@ class NativeCandidateTests(unittest.TestCase):
         invalid["performance"]["evidence_mode"] = "local_real_record_only"
         with self.assertRaisesRegex(ValidationError, "stale Bench report"):
             validate_native_candidate(invalid)
+
+
+class TransitionCopyTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.index = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.release_page = (ROOT / "release-status.html").read_text(
+            encoding="utf-8"
+        )
+
+    def test_committed_transition_copy_matches_candidate(self) -> None:
+        validate_transition_copy(self.readme, self.index, self.release_page)
+
+    def test_stale_web_or_r1_copy_is_rejected(self) -> None:
+        with self.assertRaisesRegex(ValidationError, "stale transition copy"):
+            validate_transition_copy(
+                self.readme,
+                self.index.replace("nirs4all-web 0.1.10", "nirs4all-web 0.1.9"),
+                self.release_page,
+            )
+        with self.assertRaisesRegex(ValidationError, "stale transition copy"):
+            validate_transition_copy(
+                self.readme + "\nR1 is still in progress.\n",
+                self.index,
+                self.release_page,
+            )
 
 
 if __name__ == "__main__":

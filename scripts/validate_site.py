@@ -519,7 +519,7 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
-        "Candidat produit NO-GO — composants natifs et Web publiés",
+        "Candidat produit NO-GO — composants natifs, R1 et Web publiés",
         "native-candidate-staging.json",
         "Train R1/R2/R3 distinct",
         "Capability matrix qualifiée",
@@ -545,6 +545,51 @@ def validate_release_page(path: Path) -> None:
     ):
         if forbidden in text:
             raise ValidationError(f"release-status.html bypasses manifest: {forbidden}")
+
+
+def validate_transition_copy(readme: str, index: str, release_page: str) -> None:
+    """Keep human transition copy aligned with the candidate projection."""
+    required = {
+        "README.md": (
+            "nirs4all R1 0.13.0 are published",
+            "Web 0.1.10 is deployed",
+            "091b8a0f3069e7a90167f78c81bb9d414c50ade5",
+            "834e3985086824fb7cb692315bacdba9d672913037e04f7467fc084c934ec431",
+        ),
+        "index.html": (
+            "nirs4all R1 0.13.0</b> are published",
+            "nirs4all-web 0.1.10</b> is live",
+            "R2, R3, and Studio 0.11.0 remain unpublished",
+        ),
+        "release-status.html": (
+            "R1 publié · R2/R3 candidats · R4 tenu · NO-GO",
+            "r1_published_r2_r3_unpublished",
+            "R2 et R3 restent des candidats non publiés",
+        ),
+    }
+    documents = {
+        "README.md": re.sub(r"\s+", " ", readme),
+        "index.html": re.sub(r"\s+", " ", index),
+        "release-status.html": re.sub(r"\s+", " ", release_page),
+    }
+    stale_markers = (
+        "nirs4all-web 0.1.9",
+        "Web 0.1.9",
+        "R1 is still in progress",
+        "R1 rollout is still in progress",
+        "R1 product rollout remains in progress",
+        "R1 reste en cours",
+        "déploiement produit R1 reste en cours",
+        "R1 in progress",
+    )
+    for name, text in documents.items():
+        for marker in stale_markers:
+            if marker in text:
+                raise ValidationError(f"{name}: stale transition copy {marker!r}")
+    for name, markers in required.items():
+        for marker in markers:
+            if marker not in documents[name]:
+                raise ValidationError(f"{name}: transition copy missing {marker!r}")
 
 
 def validate_r1_archive_page(path: Path) -> None:
@@ -651,6 +696,11 @@ def main() -> int:
         for path in sorted(ROOT.glob("*.html")):
             validate_document(path, parse_document(path))
         validate_release_page(ROOT / "release-status.html")
+        validate_transition_copy(
+            (ROOT / "README.md").read_text(encoding="utf-8"),
+            (ROOT / "index.html").read_text(encoding="utf-8"),
+            (ROOT / "release-status.html").read_text(encoding="utf-8"),
+        )
         validate_r1_archive_page(ROOT / "r1-archive.html")
         validate_r2_archive_page(ROOT / "r2-archive.html")
         validate_sitemap()
