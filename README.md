@@ -13,6 +13,11 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
+Current transition note: the native foundations are available and Web 0.1.9 is
+deployed. R1 is still in progress and keeps the legacy engine as its default;
+Studio R3 0.11.0 remains unpublished and unsigned. `LOCK-RELEASE` therefore
+remains NO-GO and this is not a stable V1 announcement.
+
 The release-status page has two deliberately separate inputs. The historical
 `release-manifest.json` remains the fail-closed projection of the unchanged
 canonical lock. The historical `r1-archive.html` reads only that deterministic
