@@ -129,9 +129,9 @@
     },
     {
       "key": "four_surface_performance",
-      "label": "Performance sur quatre surfaces",
-      "limits": "Mesure local_real WSL 4/4 enregistrée sans seuil; harness de soak borné prêt mais sans campagne soutenue, budgets gelés ni qualification release.",
-      "status": "record_only",
+      "label": "Performance sur le train courant",
+      "limits": "Le rapport Bench disponible précède les candidats R1/R2/R3 distincts. Il reste historique et ne constitue pas une preuve courante; nouvelle mesure et soak requis.",
+      "status": "stale_not_current_evidence",
       "surfaces": [
         "benchmarks"
       ]
@@ -140,16 +140,16 @@
   "components": [
     {
       "artifacts": [],
-      "commit": "24751ea97a3e12d48ffb9f0438a4355b024e15d8",
+      "commit": "9aab2e13513b4e0a5a699a11ebc70f2bd00f10fb",
       "detail_versions": {},
       "key": "benchmarks",
       "name": "nirs4all-benchmarks",
       "publication": "unavailable",
-      "qualification": "local_real_measurement_and_soak_harness_ready_release_no_go",
+      "qualification": "candidate_identity_only_benchmark_report_refresh_pending",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
-      "tree": "3c8decd2f3b28865a8093996a5bd90c1789437de",
-      "version": "0.1.6"
+      "tree": "9bcd2647f332ff74ffff5da9a4326c6314835f01",
+      "version": "0.1.7"
     },
     {
       "artifacts": [],
@@ -166,7 +166,7 @@
     },
     {
       "artifacts": [],
-      "commit": "b7d643f450da3018c8208a84abcabfab09d5da7d",
+      "commit": "b08c62638829e0bcab741e66d44a3db66459e5a8",
       "detail_versions": {},
       "key": "dag_ml",
       "name": "dag-ml",
@@ -174,20 +174,20 @@
       "qualification": "local_documented_unpublished_data_conformal_and_hydration_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/dag-ml",
-      "tree": "20876a6c04c550c2f662aa58583fb7305f42ee03",
+      "tree": "5b5be85d2326fcb360e05ac65572faa18c3a322d",
       "version": "0.3.23"
     },
     {
       "artifacts": [],
-      "commit": "1f60b920d34acda7c0fbc044b593bb6af1fab4c1",
+      "commit": "7d9b9fed04c135ed4c2bba472c782aca7ef85807",
       "detail_versions": {},
       "key": "dag_ml_data",
       "name": "dag-ml-data",
       "publication": "unavailable",
-      "qualification": "locally_qualified_unpublished_candidate",
+      "qualification": "locally_qualified_publishable_seven_crate_candidate_registry_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/dag-ml-data",
-      "tree": "f2144d861642e81758dcef4f6ee76ec32c0961ff",
+      "tree": "42f02fdd723239cdbc933797e01d0d48b184712e",
       "version": "0.2.10"
     },
     {
@@ -218,20 +218,20 @@
     },
     {
       "artifacts": [],
-      "commit": "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac",
+      "commit": "ef36c215653e628749a24ab06d222ee0c5520f1d",
       "detail_versions": {},
       "key": "io",
       "name": "nirs4all-io",
       "publication": "unavailable",
-      "qualification": "locally_qualified_documented_datasetpackage_handoff_candidate",
+      "qualification": "locally_qualified_publishable_io_dagml_candidate_dependency_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
-      "tree": "ba5323cce8833610d974b7aa84ac65057355a687",
+      "tree": "5676bfdac72c06cea23d494e7fcc2dbc1323b850",
       "version": "0.1.12"
     },
     {
       "artifacts": [],
-      "commit": "699d33f4f113b8068176e367e130951b1cf186c0",
+      "commit": "e0bee1ce160cd805d3060185fd151c09230c3381",
       "detail_versions": {
         "c_abi": "2.5.0",
         "rust_binding": "0.1.4"
@@ -239,28 +239,28 @@
       "key": "methods",
       "name": "nirs4all-methods",
       "publication": "unavailable",
-      "qualification": "locally_qualified_documented_unpublished_candidate",
+      "qualification": "locally_qualified_publishable_n4m_candidate_registry_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-methods",
-      "tree": "f97d7debe8a8a1f88614a060d30bea3e3a7c0e8b",
+      "tree": "7e4658658e37f77be18ef6d3d6aff150886efb5b",
       "version": "1.0.15"
     },
     {
       "artifacts": [],
-      "commit": "40421617c7f39cae6d11c4c3aecb51e9d0a582f4",
+      "commit": "3a38f589e5acbda58c5d071c95036f2572972ecd",
       "detail_versions": {},
       "key": "python",
       "name": "nirs4all",
       "publication": "unavailable",
-      "qualification": "local_native_default_final_capability_docs_release_hold",
+      "qualification": "remote_r3_native_default_final_capability_docs_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
-      "tree": "884b62893a298f7fe44e20fc20b5e6c989913674",
-      "version": "0.10.3"
+      "tree": "eb57dd69c04db45d44765566f374d471259e0293",
+      "version": "1.0.0rc2"
     },
     {
       "artifacts": [],
-      "commit": "e027cbf8dea9fc2297ac91b9cd983346a44fb34f",
+      "commit": "bb66016cf4f7578543cdc294713011881b884969",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -268,20 +268,20 @@
       "qualification": "locally_qualified_combined_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "23882f9f9a184e35331a557b9481ed3c993ba854",
-      "version": "0.9.1"
+      "tree": "7535c4e0f8d6cc91d62f41f11935817e6fb7eb21",
+      "version": "0.11.0"
     },
     {
       "artifacts": [],
-      "commit": "6796a01a75b0b51301a693011f3e904a60598817",
+      "commit": "88c2bc1e29603049cdbf1a1080a35845edf2f3c9",
       "detail_versions": {},
       "key": "tools",
       "name": "nirs4all-tools",
       "publication": "unavailable",
-      "qualification": "locally_qualified_documented_unpublished_conversion_candidate",
+      "qualification": "locally_qualified_support_sla_and_conversion_candidate_publication_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-tools",
-      "tree": "4e77fd5b1cb9724c21d8bff89456649ed550ddfe",
+      "tree": "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3",
       "version": "0.0.7"
     },
     {
@@ -301,7 +301,7 @@
     },
     {
       "artifacts": [],
-      "commit": "e7b9a6384050c2c1a92dcec6aab41e9f0430be43",
+      "commit": "dbbbcaeaf5f0d0da35a5242f21e234ba92c67cf8",
       "detail_versions": {},
       "key": "web",
       "name": "nirs4all-web",
@@ -309,8 +309,8 @@
       "qualification": "locally_qualified_final_wasm_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-web",
-      "tree": "883135384bbc15939a5aa55bac0f9227cebcf16f",
-      "version": "0.1.8"
+      "tree": "78c0b7cbaae2939091c847f0073e565e0ad57c67",
+      "version": "0.1.9"
     }
   ],
   "cutover_observability": {
@@ -338,7 +338,8 @@
   "holds": [
     "Registry HOLD: n4m 0.1.4, DMD 0.2.10, nirs4all-io 0.1.12-dagml and the selected Core/DAG packages are not yet published and repinned; the Datasets Python sdist remains blocked on that cascade.",
     "Release-artifact HOLD: the canonical lock is intentionally unchanged; signing and SBOM/provenance closure remain required where applicable.",
-    "External qualification HOLD: promised matrices, installers, soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF, STU and four-surface WSL measurement flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO."
+    "External qualification HOLD: promised matrices, installers, soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF and STU flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO.",
+    "Benchmark HOLD: le rapport Bench existant précède les candidats R1/R2/R3 distincts et ne peut pas servir de preuve courante avant son rafraîchissement."
   ],
   "methods_documentation": {
     "bibliography_entries": 88,
@@ -371,31 +372,11 @@
   "performance": {
     "budgets_frozen": false,
     "contract": "archive_v2_same_matrix_four_surfaces",
-    "environment": "wsl_local",
-    "evidence_mode": "local_real_record_only",
-    "fallback_observed": false,
-    "maximum_prediction_delta": 0,
+    "evidence_mode": "stale_not_current_evidence",
+    "report_scope": "predates_distinct_r1_r2_r3_candidates",
     "release_eligible": false,
-    "surfaces_passed": "4/4",
-    "threshold_passed": null,
-    "timings_ms": {
-      "python": {
-        "startup": 1067.573,
-        "steady": 28.026
-      },
-      "rust": {
-        "startup": 38.148,
-        "steady": 18.244
-      },
-      "studio": {
-        "startup": 75.621,
-        "steady": 24.771
-      },
-      "web": {
-        "startup": 97.81,
-        "steady": 4.713
-      }
-    }
+    "refresh_required": true,
+    "timings_ms": null
   },
   "release": {
     "canonical_lock_updated": false,
@@ -406,9 +387,46 @@
     "registry_links_enabled": false,
     "status": "no_go"
   },
+  "release_train": {
+    "status": "r1_r2_r3_distinct_candidates_r4_held",
+    "publication": "unpublished",
+    "milestones": {
+      "r1": {
+        "python_version": "0.13.0",
+        "python_commit": "61a66d1bd0157dd9422facc4b32fca33989d4035",
+        "python_tree": "e0583f7287c13ace028b38708268305626a47372",
+        "studio_version": "0.10.1",
+        "studio_commit": "65b2aa2ac80249fdbd2fb0ccb55c82ac5b5e8219",
+        "studio_tree": "e978be82eca9df3cf44c721ea2692e6f0fc896c3",
+        "default_engine": "legacy"
+      },
+      "r2": {
+        "python_version": "1.0.0rc1",
+        "python_commit": "c44229d9f3c5cd7d76945bf51252a0f9c3d9de4d",
+        "python_tree": "9a61b8785869b3d7e417505d2710c0cda274cb52",
+        "studio_version": "0.10.2",
+        "studio_commit": "54350c688ae576bbbb393c5a24dae8d106f77322",
+        "studio_tree": "9ecf2279039ef9b5af3d5be59be695f0dc0bc1d3",
+        "default_engine": "native_with_explicit_legacy_opt_in"
+      },
+      "r3": {
+        "python_version": "1.0.0rc2",
+        "python_commit": "3a38f589e5acbda58c5d071c95036f2572972ecd",
+        "python_tree": "eb57dd69c04db45d44765566f374d471259e0293",
+        "studio_version": "0.11.0",
+        "studio_commit": "bb66016cf4f7578543cdc294713011881b884969",
+        "studio_tree": "7535c4e0f8d6cc91d62f41f11935817e6fb7eb21",
+        "default_engine": "native_fail_closed_rust_only"
+      },
+      "r4": {
+        "python_version": "1.0.0",
+        "status": "not_created_until_stable_gates_are_green"
+      }
+    }
+  },
   "schema_version": "n4a.native-candidate-staging/v1",
   "security_harnesses": {
-    "evidence_status": "three_native_targets_prepared_campaign_not_run",
+    "evidence_status": "four_native_targets_prepared_campaign_not_run",
     "harnesses": [
       {
         "canonical_entrypoint": "nirs4all_formats::open_bytes",
@@ -433,17 +451,25 @@
         "surface": "methods",
         "target": "n4m_fuzz_n4mm_driver",
         "tree": "fc4c47d6f07ad01ac52da4d19f715f2c61b968e7"
+      },
+      {
+        "canonical_entrypoint": "workspace_store::preflight_run_detail_projection",
+        "commit": "6d53f301830947ff85767c53c800829741af75ff",
+        "input_limit_bytes": 2097152,
+        "surface": "studio_store",
+        "target": "workspace_store_v5_bytes",
+        "tree": "3ae8f218a3c7eef23345ccc1630f29aa89594c2e"
       }
     ],
-    "release_limit": "These commits prepare bounded harnesses and reuse canonical parsers/APIs; they are not selected product-runtime heads and no fuzz campaign has run. cargo-fuzz/nightly and Clang 16 are unavailable locally, the Methods smoke link is blocked by the host gfortran/libm setup, and the Studio Store target is not implemented. Corpus campaigns, crash triage/reproduction, sanitizers and external matrices remain mandatory before SEC-001 closure.",
+    "release_limit": "These commits prepare bounded harnesses and reuse canonical parsers/APIs; they are not selected product-runtime heads and no fuzz campaign has run. cargo-fuzz/nightly and Clang 16 are unavailable locally, and the Methods smoke link is blocked by the host gfortran/libm setup. Corpus campaigns, crash triage/reproduction, sanitizers and external matrices remain mandatory before SEC-001 closure.",
     "work_item": "SEC-001"
   },
   "source": {
-    "commit": "ff7dfc568d0862268393c187f4e1c4eebcade4b9",
+    "commit": "8aa4540a6b97b9e6cb8facf2f3a189f0d62f1e1b",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:4037d683104dffb5e9668ea623f0904a51e9b7ee2645c0bae11e2e5096de2ea6",
+    "ledger_sha256": "sha256:9af9ed0ad4784adc01be8a396e6c9bf1ab992bf511fe64a89fae745d784fc55d",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "ae3487533585b37ef0a3995688b53d4891773735"
+    "tree": "0ba7c9f6aef3095f16da7acc7137a1d842914ada"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

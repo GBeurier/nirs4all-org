@@ -134,6 +134,25 @@ class NativeCandidateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "NO-GO"):
             validate_native_candidate(invalid)
 
+    def test_candidate_train_must_remain_distinct_and_unpublished(self) -> None:
+        invalid = copy.deepcopy(self.candidate)
+        invalid["release_train"]["milestones"]["r2"]["studio_commit"] = invalid[
+            "release_train"
+        ]["milestones"]["r3"]["studio_commit"]
+        with self.assertRaisesRegex(ValidationError, "r2 identities diverge"):
+            validate_native_candidate(invalid)
+
+        invalid = copy.deepcopy(self.candidate)
+        invalid["release_train"]["publication"] = "published"
+        with self.assertRaisesRegex(ValidationError, "distinct and unpublished"):
+            validate_native_candidate(invalid)
+
+    def test_stale_bench_report_cannot_become_current_evidence(self) -> None:
+        invalid = copy.deepcopy(self.candidate)
+        invalid["performance"]["evidence_mode"] = "local_real_record_only"
+        with self.assertRaisesRegex(ValidationError, "stale Bench report"):
+            validate_native_candidate(invalid)
+
 
 if __name__ == "__main__":
     unittest.main()

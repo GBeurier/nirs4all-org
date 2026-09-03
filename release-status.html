@@ -151,7 +151,7 @@
     <div class="wrap">
       <p class="eyebrow">Staging candidat · source vérifiable</p>
       <h1>Candidat natif R4/V1 — NO-GO</h1>
-      <p class="lead">Cette page décrit le candidat local exact enregistré par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
+      <p class="lead">Cette page décrit les candidats locaux distincts R1, R2 et R3 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
         <strong id="train-message">Publication en cours — candidat local NO-GO; aucune V1 stable ni aucun artefact n’est publié.</strong>
         <p id="train-detail">Tous les téléchargements et liens de registre du candidat restent désactivés jusqu’à publication, repin et reconstruction du lock.</p>
@@ -168,6 +168,10 @@
     </dl>
 
     <div class="detail-grid">
+      <section class="detail-card" aria-labelledby="release-train-title">
+        <h2 id="release-train-title">Train R1/R2/R3 distinct</h2>
+        <div id="release-train-detail"><p>Snapshot candidat indisponible.</p></div>
+      </section>
       <section class="detail-card" aria-labelledby="architecture-title">
         <h2 id="architecture-title">Frontière d’exécution</h2>
         <ul id="architecture-list"><li>Snapshot candidat indisponible.</li></ul>
@@ -189,7 +193,7 @@
         <div id="governance-detail"><p>Évidence indisponible.</p></div>
       </section>
       <section class="detail-card" aria-labelledby="performance-title">
-        <h2 id="performance-title">Performance WSL record-only</h2>
+        <h2 id="performance-title">Performance · preuve à rafraîchir</h2>
         <div id="performance-detail"><p>Évidence indisponible.</p></div>
       </section>
       <section class="detail-card" aria-labelledby="work-items-title">
@@ -271,7 +275,7 @@
 
     const isComponent = component => component &&
       typeof component === 'object' &&
-      typeof component.id === 'string' && component.id.length > 0 &&
+      typeof component.key === 'string' && component.key.length > 0 &&
       typeof component.name === 'string' && component.name.length > 0 &&
       typeof component.version === 'string' && component.version.length > 0 &&
       typeof component.commit === 'string' && COMMIT.test(component.commit) &&
@@ -286,10 +290,11 @@
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
       manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
       manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
+      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_held' && manifest.release_train.publication === 'unpublished' &&
+      manifest.release_train.milestones && ['r1', 'r2', 'r3', 'r4'].every(key => manifest.release_train.milestones[key]) &&
       manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
       manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
-      manifest.performance && manifest.performance.evidence_mode === 'local_real_record_only' && manifest.performance.environment === 'wsl_local' && manifest.performance.surfaces_passed === '4/4' &&
-      manifest.performance.fallback_observed === false && manifest.performance.budgets_frozen === false && manifest.performance.threshold_passed === null && manifest.performance.release_eligible === false &&
+      manifest.performance && manifest.performance.evidence_mode === 'stale_not_current_evidence' && manifest.performance.refresh_required === true && manifest.performance.timings_ms === null && manifest.performance.release_eligible === false &&
       manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
       JSON.stringify(manifest.work_item_states || {}) === JSON.stringify({
         'API-001': 'complete_local_code_release_hold',
@@ -311,9 +316,9 @@
         'WEBREL-001': 'complete_local_staging_publication_hold'
       }) &&
       manifest.security_harnesses && manifest.security_harnesses.work_item === 'SEC-001' &&
-      manifest.security_harnesses.evidence_status === 'three_native_targets_prepared_campaign_not_run' &&
-      Array.isArray(manifest.security_harnesses.harnesses) && manifest.security_harnesses.harnesses.length === 3 &&
-      JSON.stringify(manifest.security_harnesses.harnesses.map(item => item && item.surface)) === JSON.stringify(['formats', 'core', 'methods']) &&
+      manifest.security_harnesses.evidence_status === 'four_native_targets_prepared_campaign_not_run' &&
+      Array.isArray(manifest.security_harnesses.harnesses) && manifest.security_harnesses.harnesses.length === 4 &&
+      JSON.stringify(manifest.security_harnesses.harnesses.map(item => item && item.surface)) === JSON.stringify(['formats', 'core', 'methods', 'studio_store']) &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
@@ -353,9 +358,22 @@
         grid.append(card);
       });
       document.getElementById('train-message').textContent = manifest.release.notice;
-      document.getElementById('milestone').textContent = 'R4/V1 local · NO-GO';
+      document.getElementById('milestone').textContent = 'R1/R2/R3 candidats · R4 tenu · NO-GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
       document.getElementById('artifact-count').textContent = String(artifactCount) + ' · indisponibles';
+
+      const releaseTrain = manifest.release_train;
+      const releaseTrainBox = document.getElementById('release-train-detail');
+      releaseTrainBox.replaceChildren();
+      ['r1', 'r2', 'r3'].forEach(key => {
+        const milestone = releaseTrain.milestones[key];
+        const line = document.createElement('p');
+        line.textContent = key.toUpperCase() + ' · Python ' + milestone.python_version + ' · Studio ' + milestone.studio_version + ' · ' + milestone.default_engine.replaceAll('_', ' ') + ' · candidat non publié.';
+        releaseTrainBox.append(line);
+      });
+      const r4 = document.createElement('p');
+      r4.textContent = 'R4 · absent et tenu jusqu’à fermeture des gates stables.';
+      releaseTrainBox.append(r4);
 
       const architecture = document.getElementById('architecture-list');
       architecture.replaceChildren();
@@ -398,14 +416,10 @@
       governanceBox.replaceChildren(ownership, ownershipSha, inventory, inventorySha);
 
       const performance = manifest.performance;
-      const timingText = Object.entries(performance.timings_ms).map(([surface, surfaceTimings]) =>
-        surface + ' : démarrage ' + surfaceTimings.startup.toFixed(3) + ' ms · régime ' + surfaceTimings.steady.toFixed(3) + ' ms'
-      ).join(' | ');
       const performanceBox = document.getElementById('performance-detail');
-      const performanceResult = document.createElement('p'); performanceResult.textContent = 'Mesure local_real WSL ' + performance.surfaces_passed + ' · delta maximal ' + performance.maximum_prediction_delta + ' · fallback absent.';
-      const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Record-only : budgets non gelés, aucun seuil déclaré réussi et aucune qualification release.';
-      const timings = document.createElement('p'); timings.className = 'mono'; timings.textContent = timingText;
-      performanceBox.replaceChildren(performanceResult, performanceLimit, timings);
+      const performanceResult = document.createElement('p'); performanceResult.textContent = 'Le rapport Bench disponible précède les candidats R1/R2/R3 distincts et n’est pas une preuve courante.';
+      const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Nouvelle mesure, soak, budgets gelés et qualification externe restent requis avant toute promotion.';
+      performanceBox.replaceChildren(performanceResult, performanceLimit);
 
       const workItems = manifest.work_item_states;
       const closed = Object.entries(workItems).filter(([, state]) => state.startsWith('complete'));
@@ -417,7 +431,7 @@
       const advancedText = document.createElement('p'); advancedText.textContent = 'Avancés mais non clos : ' + advanced.map(([id]) => id).join(', ') + '.';
       const security = manifest.security_harnesses;
       const securityTargets = security.harnesses.map(item => item.surface + ':' + item.target + '@' + item.commit.slice(0, 12)).join(' · ');
-      const securityText = document.createElement('p'); securityText.textContent = 'SEC-001 : 3 harnesses natifs bornés préparés (' + securityTargets + ') ; aucune campagne fuzz exécutée et cible Store Studio absente.';
+      const securityText = document.createElement('p'); securityText.textContent = 'SEC-001 : 4 harnesses natifs bornés préparés (' + securityTargets + ') ; aucune campagne fuzz exécutée.';
       const workItemsLimit = document.createElement('p'); workItemsLimit.textContent = 'Ces états ne changent ni le lock canonique ni le NO-GO global.';
       workItemsBox.replaceChildren(closedText, preparedText, advancedText, securityText, workItemsLimit);
 
