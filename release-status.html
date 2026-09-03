@@ -112,7 +112,7 @@
     tbody th { font-weight: 700; }
     .mono { font: .76rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
     .state { display: inline-flex; padding: 3px 8px; border-radius: 999px; color: #166534; background: #dcfce7; font-size: .7rem; font-weight: 800; white-space: nowrap; }
-    .state.partial, .state.qualified_bounded, .state.fixture_only { color: #854d0e; background: #fef3c7; }
+    .state.partial, .state.qualified_bounded, .state.fixture_only, .state.record_only { color: #854d0e; background: #fef3c7; }
     .state.not_qualified, .state.unavailable { color: #991b1b; background: #fee2e2; }
     .holds { margin-top: 20px; padding: 20px 24px; border: 1px solid #ead486; border-radius: 12px; background: var(--pending-bg); }
     .holds h2 { font-size: 1.25rem; }
@@ -177,6 +177,18 @@
       <section class="detail-card" aria-labelledby="methods-docs-title">
         <h2 id="methods-docs-title">Documentation scientifique Methods</h2>
         <div id="methods-docs-detail"><p>Évidence indisponible.</p></div>
+      </section>
+      <section class="detail-card" aria-labelledby="cutover-title">
+        <h2 id="cutover-title">CUT-002 · observabilité</h2>
+        <div id="cutover-detail"><p>Évidence indisponible.</p></div>
+      </section>
+      <section class="detail-card" aria-labelledby="governance-title">
+        <h2 id="governance-title">Gouvernance du candidat</h2>
+        <div id="governance-detail"><p>Évidence indisponible.</p></div>
+      </section>
+      <section class="detail-card" aria-labelledby="performance-title">
+        <h2 id="performance-title">Performance WSL record-only</h2>
+        <div id="performance-detail"><p>Évidence indisponible.</p></div>
       </section>
     </div>
 
@@ -247,6 +259,10 @@
       typeof artifact.url === 'string' && HTTPS.test(artifact.url) &&
       typeof artifact.sha256 === 'string' && SHA256.test(artifact.sha256);
 
+    const isIdentity = identity => identity &&
+      typeof identity === 'object' && COMMIT.test(identity.commit || '') &&
+      COMMIT.test(identity.tree || '') && typeof identity.status === 'string';
+
     const isComponent = component => component &&
       typeof component === 'object' &&
       typeof component.id === 'string' && component.id.length > 0 &&
@@ -264,6 +280,11 @@
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
       manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
       manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
+      manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
+      manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
+      manifest.performance && manifest.performance.evidence_mode === 'local_real_record_only' && manifest.performance.environment === 'wsl_local' && manifest.performance.surfaces_passed === '4/4' &&
+      manifest.performance.fallback_observed === false && manifest.performance.budgets_frozen === false && manifest.performance.threshold_passed === null && manifest.performance.release_eligible === false &&
+      manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
@@ -331,6 +352,31 @@
       docsText.textContent = docs.mapped_pages + ' pages reliées · ' + docs.bibliography_entries + ' références (' + docs.historical_entries_preserved + ' historiques + ' + docs.reviewed_entries_added + ' relues). Publication encore en attente.';
       const docsSha = document.createElement('p'); docsSha.className = 'mono'; docsSha.textContent = docs.commit + ' · tree ' + docs.tree;
       docsBox.append(docsText, docsSha);
+
+      const cutover = manifest.cutover_observability;
+      const cutoverBox = document.getElementById('cutover-detail');
+      const cutoverText = document.createElement('p');
+      cutoverText.textContent = 'Activation legacy/dual explicite : warning JSON stable. Le compteur est opt-in, local au processus et non persistant; les chemins default/native/strict restent silencieux, sans fallback implicite.';
+      const cutoverSha = document.createElement('p'); cutoverSha.className = 'mono'; cutoverSha.textContent = cutover.evidence_commit;
+      cutoverBox.replaceChildren(cutoverText, cutoverSha);
+
+      const governance = manifest.governance;
+      const governanceBox = document.getElementById('governance-detail');
+      const ownership = document.createElement('p'); ownership.textContent = 'Lanes et handoffs : ' + governance.ownership.status + '.';
+      const ownershipSha = document.createElement('p'); ownershipSha.className = 'mono'; ownershipSha.textContent = governance.ownership.commit + ' · tree ' + governance.ownership.tree;
+      const inventory = document.createElement('p'); inventory.textContent = 'Inventaire de capacités : ' + governance.capability_inventory.status + '.';
+      const inventorySha = document.createElement('p'); inventorySha.className = 'mono'; inventorySha.textContent = governance.capability_inventory.commit + ' · tree ' + governance.capability_inventory.tree;
+      governanceBox.replaceChildren(ownership, ownershipSha, inventory, inventorySha);
+
+      const performance = manifest.performance;
+      const timingText = Object.entries(performance.timings_ms).map(([surface, surfaceTimings]) =>
+        surface + ' : démarrage ' + surfaceTimings.startup.toFixed(3) + ' ms · régime ' + surfaceTimings.steady.toFixed(3) + ' ms'
+      ).join(' | ');
+      const performanceBox = document.getElementById('performance-detail');
+      const performanceResult = document.createElement('p'); performanceResult.textContent = 'Mesure local_real WSL ' + performance.surfaces_passed + ' · delta maximal ' + performance.maximum_prediction_delta + ' · fallback absent.';
+      const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Record-only : budgets non gelés, aucun seuil déclaré réussi et aucune qualification release.';
+      const timings = document.createElement('p'); timings.className = 'mono'; timings.textContent = timingText;
+      performanceBox.replaceChildren(performanceResult, performanceLimit, timings);
 
       const capabilityTable = table(['Capacité', 'État', 'Surfaces qualifiées', 'Limites'], 'Capability matrix du candidat natif');
       const capabilityBody = capabilityTable.tBodies[0];

@@ -112,8 +112,8 @@
     {
       "key": "four_surface_performance",
       "label": "Performance sur quatre surfaces",
-      "limits": "Contrat fixture 4/4 seulement; aucune qualification performance ou budget non-WSL.",
-      "status": "fixture_only",
+      "limits": "Mesure local_real WSL 4/4 enregistrée sans seuil; budgets non gelés et aucune qualification release.",
+      "status": "record_only",
       "surfaces": [
         "benchmarks"
       ]
@@ -122,41 +122,41 @@
   "components": [
     {
       "artifacts": [],
-      "commit": "433ad714d475dd0c8fd7d4ee2664665894caaee9",
+      "commit": "5cccfe6cc50f6dde7b8b65127289dcc4f01d3e1e",
       "detail_versions": {},
       "key": "benchmarks",
       "name": "nirs4all-benchmarks",
       "publication": "unavailable",
-      "qualification": "local_contract_fixture_qualified_release_no_go",
+      "qualification": "local_real_four_surface_measurement_complete_release_no_go",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
-      "tree": "4103609587714f1a19c6834c2e4bbf2d71ea4d97",
+      "tree": "bcfa5133210954d4a699028edc9cf5592f5a56d2",
       "version": "0.1.6"
     },
     {
       "artifacts": [],
-      "commit": "6b25b63bb09adfe3c4dae8ffacc90d09a1a81e16",
+      "commit": "e0f5d485eae4279f02d58fe82fad3946202e463f",
       "detail_versions": {},
       "key": "core",
       "name": "nirs4all-core",
       "publication": "unavailable",
-      "qualification": "locally_qualified_data_conformal_and_runtime_identity_candidate",
+      "qualification": "locally_qualified_aggregate_e2e_data_conformal_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-core",
-      "tree": "11344243884a24aeec75f73e0469f23721c76978",
+      "tree": "3fd59b96fc5728088c6d1d207e783d826f87401f",
       "version": "0.3.25"
     },
     {
       "artifacts": [],
-      "commit": "dafb8b6fb98f9d380d30559a3f4b868c91e5b5c4",
+      "commit": "ce0a1963077612b3ce2604746e77a6405d0c3002",
       "detail_versions": {},
       "key": "dag_ml",
       "name": "dag-ml",
       "publication": "unavailable",
-      "qualification": "local_unpublished_data_and_conformal_v2_candidate",
+      "qualification": "local_documented_unpublished_data_and_conformal_v2_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/dag-ml",
-      "tree": "44a2c4a46911d2c49c33fe75418674bd0e129d5e",
+      "tree": "2e5c5d3b8a6e987b7457f69daf501ad847794be4",
       "version": "0.3.23"
     },
     {
@@ -200,20 +200,20 @@
     },
     {
       "artifacts": [],
-      "commit": "54fa4f5f544f08f37317897612f78e4ee103b5a4",
+      "commit": "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac",
       "detail_versions": {},
       "key": "io",
       "name": "nirs4all-io",
       "publication": "unavailable",
-      "qualification": "locally_qualified_unpublished_datasetpackage_handoff_candidate",
+      "qualification": "locally_qualified_documented_datasetpackage_handoff_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
-      "tree": "c583ba2e8d2fec5376933086d4fbb765c931486f",
+      "tree": "ba5323cce8833610d974b7aa84ac65057355a687",
       "version": "0.1.12"
     },
     {
       "artifacts": [],
-      "commit": "48ad1e5a50844f68c2b99e93b02ad6a3b491c07b",
+      "commit": "9d4e2753836eb85d61b1e7712ec6a06e627d4a5f",
       "detail_versions": {
         "c_abi": "2.5.0",
         "rust_binding": "0.1.4"
@@ -221,28 +221,28 @@
       "key": "methods",
       "name": "nirs4all-methods",
       "publication": "unavailable",
-      "qualification": "locally_qualified_unpublished_candidate",
+      "qualification": "locally_qualified_documented_unpublished_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-methods",
-      "tree": "f2eaa3c46629c26d11913a25bff723f9a9cefbc9",
+      "tree": "5efc7379d133885c78b168f23038d1816c9a3439",
       "version": "1.0.15"
     },
     {
       "artifacts": [],
-      "commit": "56db62c176e77afe8650b71aefb5988c0d172f87",
+      "commit": "e227244464983ea2a94ebc01b6af30d474a025df",
       "detail_versions": {},
       "key": "python",
       "name": "nirs4all",
       "publication": "unavailable",
-      "qualification": "locally_requalified_against_final_native_stack",
+      "qualification": "local_native_default_conversion_separation_documented_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
-      "tree": "abd855244a1b4a4e818ec3f3bcce500417f440c3",
+      "tree": "f142b410194e3c99190fb97685724140a5599159",
       "version": "0.10.3"
     },
     {
       "artifacts": [],
-      "commit": "2ad862aeab4048ced6c4c70fee5b2f88adaa16e8",
+      "commit": "e254a1ebba578e5b1932d09079088d02eb51d411",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -250,25 +250,25 @@
       "qualification": "locally_qualified_combined_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "e32f15cd1c4e76ef9fb82d2c2ffc81afddc6bbdc",
+      "tree": "d97d2faf4e9643c2bf71cd9fb242f4a1d0db35d9",
       "version": "0.9.1"
     },
     {
       "artifacts": [],
-      "commit": "e3a332633f87b4652a06f8993e63c386a3568698",
+      "commit": "6796a01a75b0b51301a693011f3e904a60598817",
       "detail_versions": {},
       "key": "tools",
       "name": "nirs4all-tools",
       "publication": "unavailable",
-      "qualification": "locally_qualified_unpublished_candidate",
+      "qualification": "locally_qualified_documented_unpublished_conversion_candidate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-tools",
-      "tree": "c708b9153be8bfd85ba02135c1406f3f3ddf1ae2",
+      "tree": "4e77fd5b1cb9724c21d8bff89456649ed550ddfe",
       "version": "0.0.7"
     },
     {
       "artifacts": [],
-      "commit": "20867a71c45731f757267a98e7928710e7c3693d",
+      "commit": "59cfffbd7444a9afa9527fbaa12d078811abaf33",
       "detail_versions": {},
       "key": "web",
       "name": "nirs4all-web",
@@ -276,14 +276,36 @@
       "qualification": "locally_qualified_final_wasm_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-web",
-      "tree": "5883040939306b8d5ef5a02eacde90caeea23efa",
+      "tree": "42926535b2f333cdec77951bcbdcef2fc2268f42",
       "version": "0.1.8"
     }
   ],
+  "cutover_observability": {
+    "counter_opt_in": true,
+    "counter_scope": "opt_in_process_local_non_persistent_intentional",
+    "evidence_commit": "b652bba3bc903f20854a3bba65a41aefc42eb2eb",
+    "implicit_fallback": false,
+    "legacy_activation": "explicit_legacy_or_dual_only",
+    "strict_paths_silent": true,
+    "warning_format": "stable_structured_json",
+    "work_item": "CUT-002"
+  },
+  "governance": {
+    "capability_inventory": {
+      "commit": "cf6cd1d96c12d7043134ab0a7b4f593e19ec553b",
+      "status": "exhaustive_candidate_inventory_complete_no_go",
+      "tree": "77aa215ba6caad62fb114d6c7d6d9879569a48e6"
+    },
+    "ownership": {
+      "commit": "fe17a3f939f9fb95c8ed1e068138c72ceac92890",
+      "status": "lanes_and_handoffs_complete_local",
+      "tree": "f3c849628f4711d8590d3d73c33af877f9cf49ab"
+    }
+  },
   "holds": [
     "Registry HOLD: n4m 0.1.4, DMD 0.2.10, nirs4all-io 0.1.12-dagml and the selected Core/DAG packages are not yet published and repinned.",
     "Release-artifact HOLD: the canonical lock is intentionally unchanged; signing and SBOM/provenance closure remain required where applicable.",
-    "External qualification HOLD: promised matrices, installers, soak and real performance closures remain incomplete. Local DATA, CONF and STU code flows are closed, but this snapshot grants no global GO."
+    "External qualification HOLD: promised matrices, installers, soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF, STU and four-surface WSL measurement flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO."
   ],
   "methods_documentation": {
     "bibliography_entries": 88,
@@ -313,21 +335,50 @@
     "tool": "nirs4all-tools",
     "version": "0.0.7"
   },
+  "performance": {
+    "budgets_frozen": false,
+    "contract": "archive_v2_same_matrix_four_surfaces",
+    "environment": "wsl_local",
+    "evidence_mode": "local_real_record_only",
+    "fallback_observed": false,
+    "maximum_prediction_delta": 0,
+    "release_eligible": false,
+    "surfaces_passed": "4/4",
+    "threshold_passed": null,
+    "timings_ms": {
+      "python": {
+        "startup": 1067.573,
+        "steady": 28.026
+      },
+      "rust": {
+        "startup": 38.148,
+        "steady": 18.244
+      },
+      "studio": {
+        "startup": 75.621,
+        "steady": 24.771
+      },
+      "web": {
+        "startup": 97.81,
+        "steady": 4.713
+      }
+    }
+  },
   "release": {
     "canonical_lock_updated": false,
     "downloads_enabled": false,
     "label": "R4/V1 native backend local candidate",
-    "notice": "Publication en cours — candidat local NO-GO; aucune V1 stable ni aucun artefact n’est publié.",
+    "notice": "Candidat local strictement NO-GO et non publié; aucune V1 stable ni aucun artefact n’est publié.",
     "publication": "unpublished",
     "registry_links_enabled": false,
     "status": "no_go"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "a3ea904799b84977bc3e5661a27799e7078f8430",
+    "commit": "e2d17cc80622894ba78e97fdd2bebf8c9970f3cb",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:bf588aa87d10329aa1e96c0249583e0c432053f8ceec06cd7d8ffdb6460be8de",
+    "ledger_sha256": "sha256:9648fb90700f96bc6de602eba6f8f5cc55ef579a22d562be5357156ef9e0f4f3",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "b240b3dfcf0758dd31dc1fc743384d82122c145d"
+    "tree": "4c2146281b112d8c81335e453a173421554c9cfa"
   }
 }

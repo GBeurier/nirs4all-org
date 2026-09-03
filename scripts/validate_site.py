@@ -27,23 +27,23 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "a3ea904799b84977bc3e5661a27799e7078f8430",
-    "tree": "b240b3dfcf0758dd31dc1fc743384d82122c145d",
-    "ledger_sha256": "sha256:bf588aa87d10329aa1e96c0249583e0c432053f8ceec06cd7d8ffdb6460be8de",
+    "commit": "e2d17cc80622894ba78e97fdd2bebf8c9970f3cb",
+    "tree": "4c2146281b112d8c81335e453a173421554c9cfa",
+    "ledger_sha256": "sha256:9648fb90700f96bc6de602eba6f8f5cc55ef579a22d562be5357156ef9e0f4f3",
 }
 CANDIDATE_COMPONENTS = {
-    "benchmarks": ("0.1.6", "433ad714d475dd0c8fd7d4ee2664665894caaee9", "4103609587714f1a19c6834c2e4bbf2d71ea4d97"),
-    "core": ("0.3.25", "6b25b63bb09adfe3c4dae8ffacc90d09a1a81e16", "11344243884a24aeec75f73e0469f23721c76978"),
-    "dag_ml": ("0.3.23", "dafb8b6fb98f9d380d30559a3f4b868c91e5b5c4", "44a2c4a46911d2c49c33fe75418674bd0e129d5e"),
+    "benchmarks": ("0.1.6", "5cccfe6cc50f6dde7b8b65127289dcc4f01d3e1e", "bcfa5133210954d4a699028edc9cf5592f5a56d2"),
+    "core": ("0.3.25", "e0f5d485eae4279f02d58fe82fad3946202e463f", "3fd59b96fc5728088c6d1d207e783d826f87401f"),
+    "dag_ml": ("0.3.23", "ce0a1963077612b3ce2604746e77a6405d0c3002", "2e5c5d3b8a6e987b7457f69daf501ad847794be4"),
     "dag_ml_data": ("0.2.10", "1f60b920d34acda7c0fbc044b593bb6af1fab4c1", "f2144d861642e81758dcef4f6ee76ec32c0961ff"),
     "datasets": ("0.3.9", "53017672c82df106a17b512846425bc9e846565f", "68513f3b938407846a9014d0dad47f58ded09bf4"),
     "formats": ("0.2.8", "2d46285843dc366da1d38f133131b5329c886b12", "2ee12c035db8a78721315ee65cf684d811552aa9"),
-    "io": ("0.1.12", "54fa4f5f544f08f37317897612f78e4ee103b5a4", "c583ba2e8d2fec5376933086d4fbb765c931486f"),
-    "methods": ("1.0.15", "48ad1e5a50844f68c2b99e93b02ad6a3b491c07b", "f2eaa3c46629c26d11913a25bff723f9a9cefbc9"),
-    "python": ("0.10.3", "56db62c176e77afe8650b71aefb5988c0d172f87", "abd855244a1b4a4e818ec3f3bcce500417f440c3"),
-    "studio": ("0.9.1", "2ad862aeab4048ced6c4c70fee5b2f88adaa16e8", "e32f15cd1c4e76ef9fb82d2c2ffc81afddc6bbdc"),
-    "tools": ("0.0.7", "e3a332633f87b4652a06f8993e63c386a3568698", "c708b9153be8bfd85ba02135c1406f3f3ddf1ae2"),
-    "web": ("0.1.8", "20867a71c45731f757267a98e7928710e7c3693d", "5883040939306b8d5ef5a02eacde90caeea23efa"),
+    "io": ("0.1.12", "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac", "ba5323cce8833610d974b7aa84ac65057355a687"),
+    "methods": ("1.0.15", "9d4e2753836eb85d61b1e7712ec6a06e627d4a5f", "5efc7379d133885c78b168f23038d1816c9a3439"),
+    "python": ("0.10.3", "e227244464983ea2a94ebc01b6af30d474a025df", "f142b410194e3c99190fb97685724140a5599159"),
+    "studio": ("0.9.1", "e254a1ebba578e5b1932d09079088d02eb51d411", "d97d2faf4e9643c2bf71cd9fb242f4a1d0db35d9"),
+    "tools": ("0.0.7", "6796a01a75b0b51301a693011f3e904a60598817", "4e77fd5b1cb9724c21d8bff89456649ed550ddfe"),
+    "web": ("0.1.8", "59cfffbd7444a9afa9527fbaa12d078811abaf33", "42926535b2f333cdec77951bcbdcef2fc2268f42"),
 }
 
 
@@ -252,7 +252,59 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from a3ea9047")
+        raise ValidationError("native candidate identities diverge from e2d17cc")
+
+    cutover = candidate.get("cutover_observability")
+    expected_cutover = {
+        "work_item": "CUT-002",
+        "legacy_activation": "explicit_legacy_or_dual_only",
+        "warning_format": "stable_structured_json",
+        "counter_scope": "opt_in_process_local_non_persistent_intentional",
+        "counter_opt_in": True,
+        "strict_paths_silent": True,
+        "implicit_fallback": False,
+        "evidence_commit": "b652bba3bc903f20854a3bba65a41aefc42eb2eb",
+    }
+    if cutover != expected_cutover:
+        raise ValidationError("native candidate CUT-002 evidence diverges")
+
+    governance = candidate.get("governance")
+    expected_governance = {
+        "capability_inventory": {
+            "commit": "cf6cd1d96c12d7043134ab0a7b4f593e19ec553b",
+            "tree": "77aa215ba6caad62fb114d6c7d6d9879569a48e6",
+            "status": "exhaustive_candidate_inventory_complete_no_go",
+        },
+        "ownership": {
+            "commit": "fe17a3f939f9fb95c8ed1e068138c72ceac92890",
+            "tree": "f3c849628f4711d8590d3d73c33af877f9cf49ab",
+            "status": "lanes_and_handoffs_complete_local",
+        },
+    }
+    if governance != expected_governance:
+        raise ValidationError("native candidate governance evidence diverges")
+
+    performance = candidate.get("performance")
+    if not isinstance(performance, dict) or (
+        performance.get("evidence_mode") != "local_real_record_only"
+        or performance.get("environment") != "wsl_local"
+        or performance.get("contract") != "archive_v2_same_matrix_four_surfaces"
+        or performance.get("surfaces_passed") != "4/4"
+        or performance.get("maximum_prediction_delta") != 0
+        or performance.get("fallback_observed") is not False
+        or performance.get("budgets_frozen") is not False
+        or performance.get("threshold_passed") is not None
+        or performance.get("release_eligible") is not False
+    ):
+        raise ValidationError("performance evidence must remain WSL-local record-only")
+    timings = performance.get("timings_ms")
+    if not isinstance(timings, dict) or set(timings) != {"python", "rust", "studio", "web"}:
+        raise ValidationError("four-surface performance timings are incomplete")
+    for surface, values in timings.items():
+        if not isinstance(values, dict) or set(values) != {"startup", "steady"} or any(
+            not isinstance(value, (int, float)) or value < 0 for value in values.values()
+        ):
+            raise ValidationError(f"{surface}: malformed performance timings")
 
     architecture = candidate.get("architecture")
     if not isinstance(architecture, dict) or architecture.get("studio_control_plane") != "rust_only" or architecture.get("embedded_cpython") != "bounded_attested_stdio_library_plugin_host":
@@ -273,7 +325,7 @@ def validate_native_candidate(candidate: Any) -> None:
     if not isinstance(capabilities, list) or not capabilities:
         raise ValidationError("native candidate capability matrix is missing")
     statuses = {entry.get("status") for entry in capabilities if isinstance(entry, dict)}
-    if not {"qualified_local", "qualified_bounded", "not_qualified", "fixture_only"}.issubset(statuses):
+    if not {"qualified_local", "qualified_bounded", "not_qualified", "record_only"}.issubset(statuses):
         raise ValidationError("native candidate capability limits are incomplete")
 
     serialized = json.dumps(candidate, ensure_ascii=False).lower()
@@ -367,6 +419,9 @@ def validate_release_page(path: Path) -> None:
         "native-candidate-staging.json",
         "Capability matrix qualifiée",
         "Codes 0/10/20",
+        "CUT-002",
+        "Performance WSL record-only",
+        "Gouvernance du candidat",
         'aria-live="polite"',
     )
     for marker in required:
