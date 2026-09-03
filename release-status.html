@@ -112,7 +112,7 @@
     tbody th { font-weight: 700; }
     .mono { font: .76rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
     .state { display: inline-flex; padding: 3px 8px; border-radius: 999px; color: #166534; background: #dcfce7; font-size: .7rem; font-weight: 800; white-space: nowrap; }
-    .state.partial, .state.qualified_bounded, .state.fixture_only, .state.record_only { color: #854d0e; background: #fef3c7; }
+    .state.partial, .state.qualified_bounded, .state.fixture_only, .state.record_only, .state.stale_not_current_evidence { color: #854d0e; background: #fef3c7; }
     .state.not_qualified, .state.unavailable { color: #991b1b; background: #fee2e2; }
     .holds { margin-top: 20px; padding: 20px 24px; border: 1px solid #ead486; border-radius: 12px; background: var(--pending-bg); }
     .holds h2 { font-size: 1.25rem; }
@@ -153,7 +153,7 @@
       <h1>Candidats natifs R1/R2/R3 — NO-GO</h1>
       <p class="lead">Cette page décrit les candidats locaux distincts R1, R2 et R3 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Publication en cours — candidat local NO-GO; aucune V1 stable ni aucun artefact n’est publié.</strong>
+        <strong id="train-message">Candidat produit NO-GO — composants natifs et Web publiés; R1 reste en cours et Studio non publié.</strong>
         <p id="train-detail">Les fondations natives sont disponibles et Web est déployé séparément. Le déploiement produit R1 reste en cours avec legacy par défaut; Studio R3 reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
@@ -311,7 +311,7 @@
         'SEC-001': 'prepared_local_native_fuzz_harnesses_campaign_not_closed',
         'SOAK-001': 'advanced_local_evidence_not_closed',
         'STU-006': 'complete_local_code_external_release_hold',
-        'UI-001': 'complete_local_code_registry_publication_hold',
+        'UI-001': 'complete_registry_publication_downstream_product_hold',
         'WEB-001': 'complete_local_code_release_hold',
         'WEBREL-001': 'complete_local_staging_publication_hold'
       }) &&

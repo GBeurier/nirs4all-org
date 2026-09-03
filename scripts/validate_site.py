@@ -27,24 +27,24 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "8aa4540a6b97b9e6cb8facf2f3a189f0d62f1e1b",
-    "tree": "0ba7c9f6aef3095f16da7acc7137a1d842914ada",
-    "ledger_sha256": "sha256:9af9ed0ad4784adc01be8a396e6c9bf1ab992bf511fe64a89fae745d784fc55d",
+    "commit": "da42879f1dfbca784d1bd1b31abd18fcf437dbcf",
+    "tree": "fc8541b20b4b3a750c459f2091c66d0ce76cdbff",
+    "ledger_sha256": "sha256:7d0ef62cfbae451e58642cab2fc29eb97f6025ad10564de4d4e383b31b5b34a9",
 }
 CANDIDATE_COMPONENTS = {
-    "benchmarks": ("0.1.7", "9aab2e13513b4e0a5a699a11ebc70f2bd00f10fb", "9bcd2647f332ff74ffff5da9a4326c6314835f01"),
-    "core": ("0.3.25", "b6442dc4334c62a2b6c72526bea554a734134ac6", "6241d8497aa34ad4d015664662d4d17148d547fb"),
-    "dag_ml": ("0.3.23", "b08c62638829e0bcab741e66d44a3db66459e5a8", "5b5be85d2326fcb360e05ac65572faa18c3a322d"),
+    "benchmarks": ("0.1.7", "9ff889a5be1bbc48a16d69a27ab743c23598f7da", "7c8b9c20cf8ae1c5d16a885ddc7c04f79aa1ed6b"),
+    "core": ("0.3.26", "af4b4001e7fd2d88c7f5adca238d63f2f98858ba", "41c49809f6bc08cc949b8c04bfd564ae12d4e444"),
+    "dag_ml": ("0.3.23", "1caa26dc9b90f33bc3f53b15b4d85e18f3f67381", "8dffd6e823e214b720e1f8d715ddb7634bd4fb4e"),
     "dag_ml_data": ("0.2.10", "7d9b9fed04c135ed4c2bba472c782aca7ef85807", "42f02fdd723239cdbc933797e01d0d48b184712e"),
     "datasets": ("0.3.9", "5b528e96af80a3566a9773a617b76f447f5c8d50", "abca4e80491020126322e76dfea52950f8101da5"),
     "formats": ("0.2.8", "2d46285843dc366da1d38f133131b5329c886b12", "2ee12c035db8a78721315ee65cf684d811552aa9"),
-    "io": ("0.1.12", "ef36c215653e628749a24ab06d222ee0c5520f1d", "5676bfdac72c06cea23d494e7fcc2dbc1323b850"),
+    "io": ("0.1.13", "0b7d39ee2264fb2fe13a68a540f7297658bfcd6d", "6c34a6492ef79f66afe7b188c261658880dee7ee"),
     "methods": ("1.0.15", "e0bee1ce160cd805d3060185fd151c09230c3381", "7e4658658e37f77be18ef6d3d6aff150886efb5b"),
     "python": ("1.0.0rc2", "3a38f589e5acbda58c5d071c95036f2572972ecd", "eb57dd69c04db45d44765566f374d471259e0293"),
-    "studio": ("0.11.0", "bb66016cf4f7578543cdc294713011881b884969", "7535c4e0f8d6cc91d62f41f11935817e6fb7eb21"),
+    "studio": ("0.11.0", "aa84efc02cf89df6f87278777dc8df9b43ee8df3", "9422188b689a7c31514a6981ec0920025b08a97c"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
-    "web": ("0.1.9", "dbbbcaeaf5f0d0da35a5242f21e234ba92c67cf8", "78c0b7cbaae2939091c847f0073e565e0ad57c67"),
+    "web": ("0.1.9", "146e3e4632807d28c81031070fb1523b2ff13359", "0713ed9f14b59f19ec2bd135b79ca505a078b2ec"),
 }
 CANDIDATE_RELEASE_TRAIN = {
     "r1": (
@@ -70,8 +70,8 @@ CANDIDATE_RELEASE_TRAIN = {
         "3a38f589e5acbda58c5d071c95036f2572972ecd",
         "eb57dd69c04db45d44765566f374d471259e0293",
         "0.11.0",
-        "bb66016cf4f7578543cdc294713011881b884969",
-        "7535c4e0f8d6cc91d62f41f11935817e6fb7eb21",
+        "aa84efc02cf89df6f87278777dc8df9b43ee8df3",
+        "9422188b689a7c31514a6981ec0920025b08a97c",
         "native_fail_closed_rust_only",
     ),
 }
@@ -90,7 +90,7 @@ CANDIDATE_WORK_ITEM_STATES = {
     "SEC-001": "prepared_local_native_fuzz_harnesses_campaign_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
-    "UI-001": "complete_local_code_registry_publication_hold",
+    "UI-001": "complete_registry_publication_downstream_product_hold",
     "WEB-001": "complete_local_code_release_hold",
     "WEBREL-001": "complete_local_staging_publication_hold",
 }
@@ -331,9 +331,9 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from Governance 8aa4540")
+        raise ValidationError("native candidate identities diverge from Governance da42879")
     benchmarks = next(component for component in components if component.get("key") == "benchmarks")
-    if benchmarks.get("qualification") != "candidate_identity_only_benchmark_report_refresh_pending":
+    if benchmarks.get("qualification") != "selected_heads_unmeasured_historical_measurement_retained_release_no_go":
         raise ValidationError("stale Bench report must not be exposed as current evidence")
 
     cutover = candidate.get("cutover_observability")
@@ -511,7 +511,7 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
-        "Publication en cours — candidat local NO-GO",
+        "Candidat produit NO-GO — composants natifs et Web publiés",
         "native-candidate-staging.json",
         "Train R1/R2/R3 distinct",
         "Capability matrix qualifiée",
