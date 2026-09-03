@@ -73,7 +73,7 @@
     {
       "key": "studio_control_plane",
       "label": "Plan de contrôle Studio",
-      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; qualification externe Windows/Docker/installers en attente.",
+      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; harness AppImage local préparé sans exécution d’artefact réel; qualification externe Windows/Docker/installers en attente.",
       "status": "qualified_local",
       "surfaces": [
         "studio"
@@ -260,7 +260,7 @@
     },
     {
       "artifacts": [],
-      "commit": "a6688f53994b4bf9f612057a86b17a25f04401c3",
+      "commit": "e027cbf8dea9fc2297ac91b9cd983346a44fb34f",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -268,7 +268,7 @@
       "qualification": "locally_qualified_combined_candidate_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "3f0776a6d406a0112fa730f5cbb0e8c347d19ef6",
+      "tree": "23882f9f9a184e35331a557b9481ed3c993ba854",
       "version": "0.9.1"
     },
     {
@@ -408,11 +408,11 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "e9d60c3a43dcf74d6318c5d165ff413452c49b1d",
+    "commit": "0502c64cf4c562fa21bdcd326f89270f0d4ac505",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:1a88517463d7f493326e30f5cef15dea88806d1f5b134de52ccbd9c47b4d9c3e",
+    "ledger_sha256": "sha256:7cecf4657b9188cdf12df5faf5b3287b5760b043472eaf6093523be49f4b29a7",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "02f2ce819ee9b25b9fad7fa4704f34c8b41a3790"
+    "tree": "76f5ff3c7df597e0af1e0cb996cf407417bac4f6"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",
@@ -422,12 +422,15 @@
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
     "GATE-001": "complete_local_linux_functional_release_hold",
+    "INST-001": "prepared_local_linux_harness_external_matrix_hold",
     "PERF-002": "advanced_local_evidence_not_closed",
+    "RC-001": "prepared_local_triage_external_evidence_hold",
     "REL-003": "complete_local_code_release_hold",
     "SEC-001": "advanced_local_evidence_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_local_code_registry_publication_hold",
-    "WEB-001": "complete_local_code_release_hold"
+    "WEB-001": "complete_local_code_release_hold",
+    "WEBREL-001": "complete_local_staging_publication_hold"
   }
 }

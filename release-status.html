@@ -299,13 +299,16 @@
         'DAG-001': 'complete_local_code_release_hold',
         'DOC-001': 'complete_local_docs_release_hold',
         'GATE-001': 'complete_local_linux_functional_release_hold',
+        'INST-001': 'prepared_local_linux_harness_external_matrix_hold',
         'PERF-002': 'advanced_local_evidence_not_closed',
+        'RC-001': 'prepared_local_triage_external_evidence_hold',
         'REL-003': 'complete_local_code_release_hold',
         'SEC-001': 'advanced_local_evidence_not_closed',
         'SOAK-001': 'advanced_local_evidence_not_closed',
         'STU-006': 'complete_local_code_external_release_hold',
         'UI-001': 'complete_local_code_registry_publication_hold',
-        'WEB-001': 'complete_local_code_release_hold'
+        'WEB-001': 'complete_local_code_release_hold',
+        'WEBREL-001': 'complete_local_staging_publication_hold'
       }) &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
@@ -401,13 +404,15 @@
       performanceBox.replaceChildren(performanceResult, performanceLimit, timings);
 
       const workItems = manifest.work_item_states;
-      const closed = Object.entries(workItems).filter(([, state]) => !state.includes('not_closed'));
+      const closed = Object.entries(workItems).filter(([, state]) => state.startsWith('complete'));
+      const prepared = Object.entries(workItems).filter(([, state]) => state.startsWith('prepared'));
       const advanced = Object.entries(workItems).filter(([, state]) => state.includes('not_closed'));
       const workItemsBox = document.getElementById('work-items-detail');
       const closedText = document.createElement('p'); closedText.textContent = 'Clos localement, release tenue : ' + closed.map(([id]) => id).join(', ') + '.';
+      const preparedText = document.createElement('p'); preparedText.textContent = 'Préparés mais non clos : ' + prepared.map(([id]) => id).join(', ') + '.';
       const advancedText = document.createElement('p'); advancedText.textContent = 'Avancés mais non clos : ' + advanced.map(([id]) => id).join(', ') + '.';
       const workItemsLimit = document.createElement('p'); workItemsLimit.textContent = 'Ces états ne changent ni le lock canonique ni le NO-GO global.';
-      workItemsBox.replaceChildren(closedText, advancedText, workItemsLimit);
+      workItemsBox.replaceChildren(closedText, preparedText, advancedText, workItemsLimit);
 
       const capabilityTable = table(['Capacité', 'État', 'Surfaces qualifiées', 'Limites'], 'Capability matrix du candidat natif');
       const capabilityBody = capabilityTable.tBodies[0];

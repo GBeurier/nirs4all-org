@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "e9d60c3a43dcf74d6318c5d165ff413452c49b1d",
-    "tree": "02f2ce819ee9b25b9fad7fa4704f34c8b41a3790",
-    "ledger_sha256": "sha256:1a88517463d7f493326e30f5cef15dea88806d1f5b134de52ccbd9c47b4d9c3e",
+    "commit": "0502c64cf4c562fa21bdcd326f89270f0d4ac505",
+    "tree": "76f5ff3c7df597e0af1e0cb996cf407417bac4f6",
+    "ledger_sha256": "sha256:7cecf4657b9188cdf12df5faf5b3287b5760b043472eaf6093523be49f4b29a7",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.6", "24751ea97a3e12d48ffb9f0438a4355b024e15d8", "3c8decd2f3b28865a8093996a5bd90c1789437de"),
@@ -41,7 +41,7 @@ CANDIDATE_COMPONENTS = {
     "io": ("0.1.12", "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac", "ba5323cce8833610d974b7aa84ac65057355a687"),
     "methods": ("1.0.15", "699d33f4f113b8068176e367e130951b1cf186c0", "f97d7debe8a8a1f88614a060d30bea3e3a7c0e8b"),
     "python": ("0.10.3", "40421617c7f39cae6d11c4c3aecb51e9d0a582f4", "884b62893a298f7fe44e20fc20b5e6c989913674"),
-    "studio": ("0.9.1", "a6688f53994b4bf9f612057a86b17a25f04401c3", "3f0776a6d406a0112fa730f5cbb0e8c347d19ef6"),
+    "studio": ("0.9.1", "e027cbf8dea9fc2297ac91b9cd983346a44fb34f", "23882f9f9a184e35331a557b9481ed3c993ba854"),
     "tools": ("0.0.7", "6796a01a75b0b51301a693011f3e904a60598817", "4e77fd5b1cb9724c21d8bff89456649ed550ddfe"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
     "web": ("0.1.8", "e7b9a6384050c2c1a92dcec6aab41e9f0430be43", "883135384bbc15939a5aa55bac0f9227cebcf16f"),
@@ -54,13 +54,16 @@ CANDIDATE_WORK_ITEM_STATES = {
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
     "GATE-001": "complete_local_linux_functional_release_hold",
+    "INST-001": "prepared_local_linux_harness_external_matrix_hold",
     "PERF-002": "advanced_local_evidence_not_closed",
+    "RC-001": "prepared_local_triage_external_evidence_hold",
     "REL-003": "complete_local_code_release_hold",
     "SEC-001": "advanced_local_evidence_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_local_code_registry_publication_hold",
     "WEB-001": "complete_local_code_release_hold",
+    "WEBREL-001": "complete_local_staging_publication_hold",
 }
 
 
@@ -269,7 +272,7 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from e9d60c3")
+        raise ValidationError("native candidate identities diverge from 0502c64")
 
     cutover = candidate.get("cutover_observability")
     expected_cutover = {
