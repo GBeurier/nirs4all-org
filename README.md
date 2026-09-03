@@ -15,7 +15,10 @@ pipeline repository, papers archive, benchmarks, and release cockpit.
 
 The release-status page has two deliberately separate inputs. The historical
 `release-manifest.json` remains the fail-closed projection of the unchanged
-canonical lock. `native-candidate-staging.json` is the byte-identical Org and
+canonical lock. The historical `r1-archive.html` reads only that deterministic
+projection: it records the R1 consolidation without claiming native-default or
+exposing a candidate artifact, and links the migration center and publishable
+Methods documentation. `native-candidate-staging.json` is the byte-identical Org and
 Cockpit projection of governance commit
 `e9d60c3a43dcf74d6318c5d165ff413452c49b1d`; it exposes exact local candidate
 identities and bounded capability evidence, but its schema forbids artifacts and
@@ -31,6 +34,7 @@ Open `index.html` directly in any browser — no server needed.
 nirs4all-org/
 ├── index.html              # The entire landing page (HTML + CSS + JS)
 ├── release-status.html     # Manifest-driven, fail-closed release status
+├── r1-archive.html         # Historical R1 consolidation from the baseline lock
 ├── release-manifest.json   # Public projection of the ecosystem release lock
 ├── native-candidate-staging.json # Shared unpublished R4/V1 candidate snapshot
 ├── scripts/                # Stdlib projection and static-site validation
