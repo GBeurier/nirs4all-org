@@ -53,7 +53,7 @@
     {
       "key": "dataset_package_handoff",
       "label": "DatasetPackage Rust vers plan de données",
-      "limits": "IO 0.1.13 et dag-ml-data 0.2.10 sont publiés; les matrices externes restent requises.",
+      "limits": "IO 0.1.14 et dag-ml-data 0.2.10 sont publiés; les matrices externes restent requises.",
       "status": "qualified_local",
       "surfaces": [
         "io"
@@ -73,7 +73,7 @@
     {
       "key": "studio_control_plane",
       "label": "Plan de contrôle Studio",
-      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; harness AppImage local préparé sans exécution d’artefact réel; qualification externe Windows/Docker/installers en attente.",
+      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; matrice unsigned Linux/Windows/macOS verte; publication, signatures, soak hostile et verrou canonique restent en attente.",
       "status": "qualified_local",
       "surfaces": [
         "studio"
@@ -153,16 +153,16 @@
     },
     {
       "artifacts": [],
-      "commit": "af4b4001e7fd2d88c7f5adca238d63f2f98858ba",
+      "commit": "550cb8c80708e88ac7ebbc880acb4b82d8531632",
       "detail_versions": {},
       "key": "core",
       "name": "nirs4all-core",
       "publication": "unavailable",
-      "qualification": "published_0_3_26_io_0_1_13_repinned_external_release_hold",
+      "qualification": "published_0_3_28_windows_canonical_path_fix_formats_0_2_9_io_0_1_14_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-core",
-      "tree": "41c49809f6bc08cc949b8c04bfd564ae12d4e444",
-      "version": "0.3.26"
+      "tree": "5181e3bc65c9a3ee413bdfc8b81f34cd61450f7e",
+      "version": "0.3.28"
     },
     {
       "artifacts": [],
@@ -192,42 +192,42 @@
     },
     {
       "artifacts": [],
-      "commit": "5b528e96af80a3566a9773a617b76f447f5c8d50",
+      "commit": "007d7aafe50e6e4148d5a5cefe0ad96d9da37e7b",
       "detail_versions": {},
       "key": "datasets",
       "name": "nirs4all-datasets",
       "publication": "unavailable",
-      "qualification": "published_0_3_9_final_lock_and_io_0_1_13_consumer_review_hold",
+      "qualification": "published_0_3_10_security_train_single_tag_move_ci_only_delta_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-datasets",
-      "tree": "abca4e80491020126322e76dfea52950f8101da5",
-      "version": "0.3.9"
+      "tree": "7e37557cff5b4d825e9837e96cb4b2ff05211678",
+      "version": "0.3.10"
     },
     {
       "artifacts": [],
-      "commit": "2d46285843dc366da1d38f133131b5329c886b12",
+      "commit": "3e5a05674dfab4bbcebf23fe9d615d231ca4d551",
       "detail_versions": {},
       "key": "formats",
       "name": "nirs4all-formats",
       "publication": "unavailable",
-      "qualification": "published_0_2_8_external_release_hold",
+      "qualification": "published_0_2_9_security_dependency_refresh_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-formats",
-      "tree": "2ee12c035db8a78721315ee65cf684d811552aa9",
-      "version": "0.2.8"
+      "tree": "3b9717258fc80791d80641633a4bbf6478e7256a",
+      "version": "0.2.9"
     },
     {
       "artifacts": [],
-      "commit": "0b7d39ee2264fb2fe13a68a540f7297658bfcd6d",
+      "commit": "df7f2198862c71a24aeeba08ba09ee118524b55d",
       "detail_versions": {},
       "key": "io",
       "name": "nirs4all-io",
       "publication": "unavailable",
-      "qualification": "published_0_1_13_role_tagged_limits_restored_external_release_hold",
+      "qualification": "published_0_1_14_security_update_role_tagged_limits_retained_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
-      "tree": "6c34a6492ef79f66afe7b188c261658880dee7ee",
-      "version": "0.1.13"
+      "tree": "16b2910ec602cfa4fd1db2f1c1d9b2a89893b857",
+      "version": "0.1.14"
     },
     {
       "artifacts": [],
@@ -247,28 +247,28 @@
     },
     {
       "artifacts": [],
-      "commit": "3a38f589e5acbda58c5d071c95036f2572972ecd",
+      "commit": "53a0acb964bff86dc67002763d8e9b850336731f",
       "detail_versions": {},
       "key": "python",
       "name": "nirs4all",
       "publication": "unavailable",
-      "qualification": "remote_r3_native_default_final_capability_docs_release_hold",
+      "qualification": "remote_r3_direct_child_of_r2_native_default_candidate_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
-      "tree": "eb57dd69c04db45d44765566f374d471259e0293",
+      "tree": "2404b76783e9fc6e10723e671d274975e14756aa",
       "version": "1.0.0rc2"
     },
     {
       "artifacts": [],
-      "commit": "aa84efc02cf89df6f87278777dc8df9b43ee8df3",
+      "commit": "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
       "publication": "unavailable",
-      "qualification": "registry_repinned_candidate_external_release_hold",
+      "qualification": "registry_repinned_core_0_3_28_wheel_reproducibility_repair_platform_matrix_green_unsigned_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "9422188b689a7c31514a6981ec0920025b08a97c",
+      "tree": "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c",
       "version": "0.11.0"
     },
     {
@@ -301,16 +301,16 @@
     },
     {
       "artifacts": [],
-      "commit": "146e3e4632807d28c81031070fb1523b2ff13359",
+      "commit": "051bf636d7c1729087e5d40061b18bd690cd33b7",
       "detail_versions": {},
       "key": "web",
       "name": "nirs4all-web",
       "publication": "unavailable",
-      "qualification": "published_0_1_9_final_lock_and_core_0_3_26_refresh_hold",
+      "qualification": "published_0_1_10_pages_core_0_3_27_formats_0_2_9_final_lock_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-web",
-      "tree": "0713ed9f14b59f19ec2bd135b79ca505a078b2ec",
-      "version": "0.1.9"
+      "tree": "e94251e350f31dbb996e1a2e477c466cfdf992ff",
+      "version": "0.1.10"
     }
   ],
   "cutover_observability": {
@@ -336,9 +336,9 @@
     }
   },
   "holds": [
-    "Product HOLD: the component registry cascade is published through IO 0.1.13 and Core 0.3.26, but Python R1 publication is still in progress and Studio remains an unpublished candidate. R2/R3 are not releases.",
+    "Product HOLD: the component registry cascade, Python R1 and Web 0.1.10 are published, but Studio remains an unpublished and unsigned candidate. R2/R3 are not releases.",
     "Release-artifact HOLD: the canonical lock is intentionally unchanged; signing and SBOM/provenance closure remain required where applicable.",
-    "External qualification HOLD: promised matrices, installers, soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF, STU and four-surface WSL measurement flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO."
+    "External qualification HOLD: the Studio four-OS unsigned installer matrix is green, but remaining external matrices, signed installers, hostile soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF, STU and four-surface WSL measurement flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO."
   ],
   "methods_documentation": {
     "bibliography_entries": 88,
@@ -381,7 +381,7 @@
     "canonical_lock_updated": false,
     "downloads_enabled": false,
     "label": "R4/V1 native backend local candidate",
-    "notice": "Candidat produit strictement NO-GO; les composants natifs et Web 0.1.9 sont publiés, mais R1 reste en cours, Studio reste non publié et aucune V1 stable n’est annoncée.",
+    "notice": "Candidat produit strictement NO-GO; les composants natifs, R1 0.13.0 et Web 0.1.10 sont publiés, mais R2, R3 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
     "publication": "unpublished",
     "registry_links_enabled": false,
     "status": "no_go"
@@ -390,6 +390,10 @@
     "milestones": {
       "r1": {
         "default_engine": "legacy",
+        "publication": "pypi_and_ghcr",
+        "publication_repair_commit": "e76c834c75157f0c74fcbba7383a69a818ed6b34",
+        "publication_repair_tree": "49dadfb76d6995c2ab825d8cb937a864ea773fb9",
+        "publication_workflow_run": 33753479548,
         "python_commit": "61a66d1bd0157dd9422facc4b32fca33989d4035",
         "python_tree": "e0583f7287c13ace028b38708268305626a47372",
         "python_version": "0.13.0",
@@ -399,8 +403,8 @@
       },
       "r2": {
         "default_engine": "native_with_explicit_legacy_opt_in",
-        "python_commit": "c44229d9f3c5cd7d76945bf51252a0f9c3d9de4d",
-        "python_tree": "9a61b8785869b3d7e417505d2710c0cda274cb52",
+        "python_commit": "1de9dcb50fcdcc6273113f54a7c7235528c31ed8",
+        "python_tree": "97d348bf728144ec4324dcca6430d68eb3b9a1d5",
         "python_version": "1.0.0rc1",
         "studio_commit": "54350c688ae576bbbb393c5a24dae8d106f77322",
         "studio_tree": "9ecf2279039ef9b5af3d5be59be695f0dc0bc1d3",
@@ -408,11 +412,11 @@
       },
       "r3": {
         "default_engine": "native_fail_closed_rust_only",
-        "python_commit": "3a38f589e5acbda58c5d071c95036f2572972ecd",
-        "python_tree": "eb57dd69c04db45d44765566f374d471259e0293",
+        "python_commit": "53a0acb964bff86dc67002763d8e9b850336731f",
+        "python_tree": "2404b76783e9fc6e10723e671d274975e14756aa",
         "python_version": "1.0.0rc2",
-        "studio_commit": "aa84efc02cf89df6f87278777dc8df9b43ee8df3",
-        "studio_tree": "9422188b689a7c31514a6981ec0920025b08a97c",
+        "studio_commit": "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39",
+        "studio_tree": "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c",
         "studio_version": "0.11.0"
       },
       "r4": {
@@ -420,7 +424,7 @@
         "status": "not_created_until_stable_gates_are_green"
       }
     },
-    "publication": "unpublished",
+    "publication": "r1_published_r2_r3_unpublished",
     "status": "r1_r2_r3_distinct_candidates_r4_held"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
@@ -464,11 +468,11 @@
     "work_item": "SEC-001"
   },
   "source": {
-    "commit": "da42879f1dfbca784d1bd1b31abd18fcf437dbcf",
+    "commit": "091b8a0f3069e7a90167f78c81bb9d414c50ade5",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:7d0ef62cfbae451e58642cab2fc29eb97f6025ad10564de4d4e383b31b5b34a9",
+    "ledger_sha256": "sha256:dc7a876a8c3240789b41c192ece6d4fe711d58babb7afb4621a7e75b63d04c55",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "fc8541b20b4b3a750c459f2091c66d0ce76cdbff"
+    "tree": "aebc80acdb0fb1c92425f744907f4d43ba251ec9"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

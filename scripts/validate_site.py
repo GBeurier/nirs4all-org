@@ -27,24 +27,24 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "da42879f1dfbca784d1bd1b31abd18fcf437dbcf",
-    "tree": "fc8541b20b4b3a750c459f2091c66d0ce76cdbff",
-    "ledger_sha256": "sha256:7d0ef62cfbae451e58642cab2fc29eb97f6025ad10564de4d4e383b31b5b34a9",
+    "commit": "091b8a0f3069e7a90167f78c81bb9d414c50ade5",
+    "tree": "aebc80acdb0fb1c92425f744907f4d43ba251ec9",
+    "ledger_sha256": "sha256:dc7a876a8c3240789b41c192ece6d4fe711d58babb7afb4621a7e75b63d04c55",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "9ff889a5be1bbc48a16d69a27ab743c23598f7da", "7c8b9c20cf8ae1c5d16a885ddc7c04f79aa1ed6b"),
-    "core": ("0.3.26", "af4b4001e7fd2d88c7f5adca238d63f2f98858ba", "41c49809f6bc08cc949b8c04bfd564ae12d4e444"),
+    "core": ("0.3.28", "550cb8c80708e88ac7ebbc880acb4b82d8531632", "5181e3bc65c9a3ee413bdfc8b81f34cd61450f7e"),
     "dag_ml": ("0.3.23", "1caa26dc9b90f33bc3f53b15b4d85e18f3f67381", "8dffd6e823e214b720e1f8d715ddb7634bd4fb4e"),
     "dag_ml_data": ("0.2.10", "7d9b9fed04c135ed4c2bba472c782aca7ef85807", "42f02fdd723239cdbc933797e01d0d48b184712e"),
-    "datasets": ("0.3.9", "5b528e96af80a3566a9773a617b76f447f5c8d50", "abca4e80491020126322e76dfea52950f8101da5"),
-    "formats": ("0.2.8", "2d46285843dc366da1d38f133131b5329c886b12", "2ee12c035db8a78721315ee65cf684d811552aa9"),
-    "io": ("0.1.13", "0b7d39ee2264fb2fe13a68a540f7297658bfcd6d", "6c34a6492ef79f66afe7b188c261658880dee7ee"),
+    "datasets": ("0.3.10", "007d7aafe50e6e4148d5a5cefe0ad96d9da37e7b", "7e37557cff5b4d825e9837e96cb4b2ff05211678"),
+    "formats": ("0.2.9", "3e5a05674dfab4bbcebf23fe9d615d231ca4d551", "3b9717258fc80791d80641633a4bbf6478e7256a"),
+    "io": ("0.1.14", "df7f2198862c71a24aeeba08ba09ee118524b55d", "16b2910ec602cfa4fd1db2f1c1d9b2a89893b857"),
     "methods": ("1.0.15", "e0bee1ce160cd805d3060185fd151c09230c3381", "7e4658658e37f77be18ef6d3d6aff150886efb5b"),
-    "python": ("1.0.0rc2", "3a38f589e5acbda58c5d071c95036f2572972ecd", "eb57dd69c04db45d44765566f374d471259e0293"),
-    "studio": ("0.11.0", "aa84efc02cf89df6f87278777dc8df9b43ee8df3", "9422188b689a7c31514a6981ec0920025b08a97c"),
+    "python": ("1.0.0rc2", "53a0acb964bff86dc67002763d8e9b850336731f", "2404b76783e9fc6e10723e671d274975e14756aa"),
+    "studio": ("0.11.0", "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39", "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
-    "web": ("0.1.9", "146e3e4632807d28c81031070fb1523b2ff13359", "0713ed9f14b59f19ec2bd135b79ca505a078b2ec"),
+    "web": ("0.1.10", "051bf636d7c1729087e5d40061b18bd690cd33b7", "e94251e350f31dbb996e1a2e477c466cfdf992ff"),
 }
 CANDIDATE_RELEASE_TRAIN = {
     "r1": (
@@ -58,8 +58,8 @@ CANDIDATE_RELEASE_TRAIN = {
     ),
     "r2": (
         "1.0.0rc1",
-        "c44229d9f3c5cd7d76945bf51252a0f9c3d9de4d",
-        "9a61b8785869b3d7e417505d2710c0cda274cb52",
+        "1de9dcb50fcdcc6273113f54a7c7235528c31ed8",
+        "97d348bf728144ec4324dcca6430d68eb3b9a1d5",
         "0.10.2",
         "54350c688ae576bbbb393c5a24dae8d106f77322",
         "9ecf2279039ef9b5af3d5be59be695f0dc0bc1d3",
@@ -67,11 +67,11 @@ CANDIDATE_RELEASE_TRAIN = {
     ),
     "r3": (
         "1.0.0rc2",
-        "3a38f589e5acbda58c5d071c95036f2572972ecd",
-        "eb57dd69c04db45d44765566f374d471259e0293",
+        "53a0acb964bff86dc67002763d8e9b850336731f",
+        "2404b76783e9fc6e10723e671d274975e14756aa",
         "0.11.0",
-        "aa84efc02cf89df6f87278777dc8df9b43ee8df3",
-        "9422188b689a7c31514a6981ec0920025b08a97c",
+        "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39",
+        "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c",
         "native_fail_closed_rust_only",
     ),
 }
@@ -288,9 +288,9 @@ def validate_native_candidate(candidate: Any) -> None:
     release_train = candidate.get("release_train")
     if not isinstance(release_train, dict) or (
         release_train.get("status") != "r1_r2_r3_distinct_candidates_r4_held"
-        or release_train.get("publication") != "unpublished"
+        or release_train.get("publication") != "r1_published_r2_r3_unpublished"
     ):
-        raise ValidationError("native candidate release train must remain distinct and unpublished")
+        raise ValidationError("native candidate release train must retain only the published R1 receipt")
     milestones = release_train.get("milestones")
     if not isinstance(milestones, dict) or set(milestones) != {"r1", "r2", "r3", "r4"}:
         raise ValidationError("native candidate release milestones diverge")
@@ -309,6 +309,14 @@ def validate_native_candidate(candidate: Any) -> None:
         )
         if observed_milestone != expected:
             raise ValidationError(f"native candidate {milestone} identities diverge")
+    r1 = milestones["r1"]
+    if (
+        r1.get("publication") != "pypi_and_ghcr"
+        or r1.get("publication_repair_commit") != "e76c834c75157f0c74fcbba7383a69a818ed6b34"
+        or r1.get("publication_repair_tree") != "49dadfb76d6995c2ab825d8cb937a864ea773fb9"
+        or r1.get("publication_workflow_run") != 33753479548
+    ):
+        raise ValidationError("native candidate R1 publication receipt diverges")
     if milestones["r4"] != {
         "python_version": "1.0.0",
         "status": "not_created_until_stable_gates_are_green",
@@ -331,7 +339,7 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from Governance da42879")
+        raise ValidationError("native candidate identities diverge from Governance 091b8a0")
     benchmarks = next(component for component in components if component.get("key") == "benchmarks")
     if benchmarks.get("qualification") != "selected_heads_unmeasured_historical_measurement_retained_release_no_go":
         raise ValidationError("stale Bench report must not be exposed as current evidence")
