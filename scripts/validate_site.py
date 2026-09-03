@@ -27,23 +27,34 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "e2d17cc80622894ba78e97fdd2bebf8c9970f3cb",
-    "tree": "4c2146281b112d8c81335e453a173421554c9cfa",
-    "ledger_sha256": "sha256:9648fb90700f96bc6de602eba6f8f5cc55ef579a22d562be5357156ef9e0f4f3",
+    "commit": "cd1627f60a0fba6acaa22b7b1d726846a2da40dc",
+    "tree": "f1bfa47aaebba82fb9ec504a4d287cc0d5774e3a",
+    "ledger_sha256": "sha256:560bd08974d5f641eae2f0e5cd0d939c099d75fc8606563259c89bcd16396592",
 }
 CANDIDATE_COMPONENTS = {
-    "benchmarks": ("0.1.6", "5cccfe6cc50f6dde7b8b65127289dcc4f01d3e1e", "bcfa5133210954d4a699028edc9cf5592f5a56d2"),
-    "core": ("0.3.25", "e0f5d485eae4279f02d58fe82fad3946202e463f", "3fd59b96fc5728088c6d1d207e783d826f87401f"),
-    "dag_ml": ("0.3.23", "ce0a1963077612b3ce2604746e77a6405d0c3002", "2e5c5d3b8a6e987b7457f69daf501ad847794be4"),
+    "benchmarks": ("0.1.6", "3f9be0fce0a79260a0813f964704ca1f337d47fe", "fc1152548894a4f778a257e54bb3dcf37ce1f0f3"),
+    "core": ("0.3.25", "b6442dc4334c62a2b6c72526bea554a734134ac6", "6241d8497aa34ad4d015664662d4d17148d547fb"),
+    "dag_ml": ("0.3.23", "b7d643f450da3018c8208a84abcabfab09d5da7d", "20876a6c04c550c2f662aa58583fb7305f42ee03"),
     "dag_ml_data": ("0.2.10", "1f60b920d34acda7c0fbc044b593bb6af1fab4c1", "f2144d861642e81758dcef4f6ee76ec32c0961ff"),
-    "datasets": ("0.3.9", "53017672c82df106a17b512846425bc9e846565f", "68513f3b938407846a9014d0dad47f58ded09bf4"),
+    "datasets": ("0.3.9", "5b528e96af80a3566a9773a617b76f447f5c8d50", "abca4e80491020126322e76dfea52950f8101da5"),
     "formats": ("0.2.8", "2d46285843dc366da1d38f133131b5329c886b12", "2ee12c035db8a78721315ee65cf684d811552aa9"),
     "io": ("0.1.12", "e41bf8f94a92356e98c215d4c41e907a7dfaf6ac", "ba5323cce8833610d974b7aa84ac65057355a687"),
-    "methods": ("1.0.15", "9d4e2753836eb85d61b1e7712ec6a06e627d4a5f", "5efc7379d133885c78b168f23038d1816c9a3439"),
-    "python": ("0.10.3", "e227244464983ea2a94ebc01b6af30d474a025df", "f142b410194e3c99190fb97685724140a5599159"),
-    "studio": ("0.9.1", "e254a1ebba578e5b1932d09079088d02eb51d411", "d97d2faf4e9643c2bf71cd9fb242f4a1d0db35d9"),
+    "methods": ("1.0.15", "699d33f4f113b8068176e367e130951b1cf186c0", "f97d7debe8a8a1f88614a060d30bea3e3a7c0e8b"),
+    "python": ("0.10.3", "40421617c7f39cae6d11c4c3aecb51e9d0a582f4", "884b62893a298f7fe44e20fc20b5e6c989913674"),
+    "studio": ("0.9.1", "bb76f2c8833f430d26311422c9d7018592fcf6cb", "e0560c07d34e9c5e928f44076cffdba100f17ee5"),
     "tools": ("0.0.7", "6796a01a75b0b51301a693011f3e904a60598817", "4e77fd5b1cb9724c21d8bff89456649ed550ddfe"),
     "web": ("0.1.8", "59cfffbd7444a9afa9527fbaa12d078811abaf33", "42926535b2f333cdec77951bcbdcef2fc2268f42"),
+}
+CANDIDATE_WORK_ITEM_STATES = {
+    "API-004": "complete_local_native_full_transfer_plugin_finetune_refused",
+    "API-005": "complete_local_by_executable_preflight_refusal",
+    "CAP-001": "complete",
+    "DAG-001": "complete_local_code_release_hold",
+    "DOC-001": "complete_local_docs_release_hold",
+    "PERF-002": "advanced_local_evidence_not_closed",
+    "REL-003": "complete_local_code_release_hold",
+    "SEC-001": "advanced_local_evidence_not_closed",
+    "SOAK-001": "advanced_local_evidence_not_closed",
 }
 
 
@@ -252,7 +263,7 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from e2d17cc")
+        raise ValidationError("native candidate identities diverge from cd1627f")
 
     cutover = candidate.get("cutover_observability")
     expected_cutover = {
@@ -305,6 +316,8 @@ def validate_native_candidate(candidate: Any) -> None:
             not isinstance(value, (int, float)) or value < 0 for value in values.values()
         ):
             raise ValidationError(f"{surface}: malformed performance timings")
+    if candidate.get("work_item_states") != CANDIDATE_WORK_ITEM_STATES:
+        raise ValidationError("selected work-item states are incomplete or overclaimed")
 
     architecture = candidate.get("architecture")
     if not isinstance(architecture, dict) or architecture.get("studio_control_plane") != "rust_only" or architecture.get("embedded_cpython") != "bounded_attested_stdio_library_plugin_host":
@@ -422,6 +435,7 @@ def validate_release_page(path: Path) -> None:
         "CUT-002",
         "Performance WSL record-only",
         "Gouvernance du candidat",
+        "États finaux locaux",
         'aria-live="polite"',
     )
     for marker in required:

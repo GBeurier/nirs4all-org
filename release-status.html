@@ -190,6 +190,10 @@
         <h2 id="performance-title">Performance WSL record-only</h2>
         <div id="performance-detail"><p>Évidence indisponible.</p></div>
       </section>
+      <section class="detail-card" aria-labelledby="work-items-title">
+        <h2 id="work-items-title">États finaux locaux</h2>
+        <div id="work-items-detail"><p>Évidence indisponible.</p></div>
+      </section>
     </div>
 
     <section aria-labelledby="capability-title">
@@ -285,6 +289,17 @@
       manifest.performance && manifest.performance.evidence_mode === 'local_real_record_only' && manifest.performance.environment === 'wsl_local' && manifest.performance.surfaces_passed === '4/4' &&
       manifest.performance.fallback_observed === false && manifest.performance.budgets_frozen === false && manifest.performance.threshold_passed === null && manifest.performance.release_eligible === false &&
       manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
+      JSON.stringify(manifest.work_item_states || {}) === JSON.stringify({
+        'API-004': 'complete_local_native_full_transfer_plugin_finetune_refused',
+        'API-005': 'complete_local_by_executable_preflight_refusal',
+        'CAP-001': 'complete',
+        'DAG-001': 'complete_local_code_release_hold',
+        'DOC-001': 'complete_local_docs_release_hold',
+        'PERF-002': 'advanced_local_evidence_not_closed',
+        'REL-003': 'complete_local_code_release_hold',
+        'SEC-001': 'advanced_local_evidence_not_closed',
+        'SOAK-001': 'advanced_local_evidence_not_closed'
+      }) &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
@@ -377,6 +392,15 @@
       const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Record-only : budgets non gelés, aucun seuil déclaré réussi et aucune qualification release.';
       const timings = document.createElement('p'); timings.className = 'mono'; timings.textContent = timingText;
       performanceBox.replaceChildren(performanceResult, performanceLimit, timings);
+
+      const workItems = manifest.work_item_states;
+      const closed = Object.entries(workItems).filter(([, state]) => !state.includes('not_closed'));
+      const advanced = Object.entries(workItems).filter(([, state]) => state.includes('not_closed'));
+      const workItemsBox = document.getElementById('work-items-detail');
+      const closedText = document.createElement('p'); closedText.textContent = 'Clos localement, release tenue : ' + closed.map(([id]) => id).join(', ') + '.';
+      const advancedText = document.createElement('p'); advancedText.textContent = 'Avancés mais non clos : ' + advanced.map(([id]) => id).join(', ') + '.';
+      const workItemsLimit = document.createElement('p'); workItemsLimit.textContent = 'Ces états ne changent ni le lock canonique ni le NO-GO global.';
+      workItemsBox.replaceChildren(closedText, advancedText, workItemsLimit);
 
       const capabilityTable = table(['Capacité', 'État', 'Surfaces qualifiées', 'Limites'], 'Capability matrix du candidat natif');
       const capabilityBody = capabilityTable.tBodies[0];
