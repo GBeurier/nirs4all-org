@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "0502c64cf4c562fa21bdcd326f89270f0d4ac505",
-    "tree": "76f5ff3c7df597e0af1e0cb996cf407417bac4f6",
-    "ledger_sha256": "sha256:7cecf4657b9188cdf12df5faf5b3287b5760b043472eaf6093523be49f4b29a7",
+    "commit": "ff7dfc568d0862268393c187f4e1c4eebcade4b9",
+    "tree": "ae3487533585b37ef0a3995688b53d4891773735",
+    "ledger_sha256": "sha256:4037d683104dffb5e9668ea623f0904a51e9b7ee2645c0bae11e2e5096de2ea6",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.6", "24751ea97a3e12d48ffb9f0438a4355b024e15d8", "3c8decd2f3b28865a8093996a5bd90c1789437de"),
@@ -58,7 +58,7 @@ CANDIDATE_WORK_ITEM_STATES = {
     "PERF-002": "advanced_local_evidence_not_closed",
     "RC-001": "prepared_local_triage_external_evidence_hold",
     "REL-003": "complete_local_code_release_hold",
-    "SEC-001": "advanced_local_evidence_not_closed",
+    "SEC-001": "prepared_local_native_fuzz_harnesses_campaign_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_local_code_registry_publication_hold",
@@ -272,7 +272,7 @@ def validate_native_candidate(candidate: Any) -> None:
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from 0502c64")
+        raise ValidationError("native candidate identities diverge from ff7dfc5")
 
     cutover = candidate.get("cutover_observability")
     expected_cutover = {
@@ -327,6 +327,27 @@ def validate_native_candidate(candidate: Any) -> None:
             raise ValidationError(f"{surface}: malformed performance timings")
     if candidate.get("work_item_states") != CANDIDATE_WORK_ITEM_STATES:
         raise ValidationError("selected work-item states are incomplete or overclaimed")
+
+    security = candidate.get("security_harnesses")
+    if not isinstance(security, dict) or security.get("work_item") != "SEC-001":
+        raise ValidationError("SEC-001 harness evidence is missing")
+    if security.get("evidence_status") != "three_native_targets_prepared_campaign_not_run":
+        raise ValidationError("SEC-001 must remain prepared with no fuzz campaign")
+    expected_harnesses = {
+        "formats": ("892a48b38f6c94697f805524f6efd4e8ff7323b0", "28e9adc8dcae49c58a0e5585dcacb821a8006f58", "registry_open_bytes", 1048576),
+        "core": ("0218bfc8b9d9193f771d27470e7cf9d5cf578823", "0d2537d715bed3d5fd60c836f71e5a8fd041ac8b", "archive_v2_bytes", 2097152),
+        "methods": ("530b11c632ac467e6bf54022c7241d27cd72d73c", "fc4c47d6f07ad01ac52da4d19f715f2c61b968e7", "n4m_fuzz_n4mm_driver", 1048576),
+    }
+    observed_harnesses = {
+        item.get("surface"): (item.get("commit"), item.get("tree"), item.get("target"), item.get("input_limit_bytes"))
+        for item in security.get("harnesses", [])
+        if isinstance(item, dict)
+    }
+    if observed_harnesses != expected_harnesses:
+        raise ValidationError("SEC-001 prepared harness identities diverge")
+    release_limit = security.get("release_limit")
+    if not isinstance(release_limit, str) or "no fuzz campaign has run" not in release_limit or "Studio Store target is not implemented" not in release_limit:
+        raise ValidationError("SEC-001 open campaign and Studio holds are missing")
 
     architecture = candidate.get("architecture")
     if not isinstance(architecture, dict) or architecture.get("studio_control_plane") != "rust_only" or architecture.get("embedded_cpython") != "bounded_attested_stdio_library_plugin_host":

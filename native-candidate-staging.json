@@ -407,12 +407,43 @@
     "status": "no_go"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
+  "security_harnesses": {
+    "evidence_status": "three_native_targets_prepared_campaign_not_run",
+    "harnesses": [
+      {
+        "canonical_entrypoint": "nirs4all_formats::open_bytes",
+        "commit": "892a48b38f6c94697f805524f6efd4e8ff7323b0",
+        "input_limit_bytes": 1048576,
+        "surface": "formats",
+        "target": "registry_open_bytes",
+        "tree": "28e9adc8dcae49c58a0e5585dcacb821a8006f58"
+      },
+      {
+        "canonical_entrypoint": "nirs4all::load_archive_v2_bytes",
+        "commit": "0218bfc8b9d9193f771d27470e7cf9d5cf578823",
+        "input_limit_bytes": 2097152,
+        "surface": "core",
+        "target": "archive_v2_bytes",
+        "tree": "0d2537d715bed3d5fd60c836f71e5a8fd041ac8b"
+      },
+      {
+        "canonical_entrypoint": "public_N4MM_inspect_and_import_ABI",
+        "commit": "530b11c632ac467e6bf54022c7241d27cd72d73c",
+        "input_limit_bytes": 1048576,
+        "surface": "methods",
+        "target": "n4m_fuzz_n4mm_driver",
+        "tree": "fc4c47d6f07ad01ac52da4d19f715f2c61b968e7"
+      }
+    ],
+    "release_limit": "These commits prepare bounded harnesses and reuse canonical parsers/APIs; they are not selected product-runtime heads and no fuzz campaign has run. cargo-fuzz/nightly and Clang 16 are unavailable locally, the Methods smoke link is blocked by the host gfortran/libm setup, and the Studio Store target is not implemented. Corpus campaigns, crash triage/reproduction, sanitizers and external matrices remain mandatory before SEC-001 closure.",
+    "work_item": "SEC-001"
+  },
   "source": {
-    "commit": "0502c64cf4c562fa21bdcd326f89270f0d4ac505",
+    "commit": "ff7dfc568d0862268393c187f4e1c4eebcade4b9",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:7cecf4657b9188cdf12df5faf5b3287b5760b043472eaf6093523be49f4b29a7",
+    "ledger_sha256": "sha256:4037d683104dffb5e9668ea623f0904a51e9b7ee2645c0bae11e2e5096de2ea6",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "76f5ff3c7df597e0af1e0cb996cf407417bac4f6"
+    "tree": "ae3487533585b37ef0a3995688b53d4891773735"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",
@@ -426,7 +457,7 @@
     "PERF-002": "advanced_local_evidence_not_closed",
     "RC-001": "prepared_local_triage_external_evidence_hold",
     "REL-003": "complete_local_code_release_hold",
-    "SEC-001": "advanced_local_evidence_not_closed",
+    "SEC-001": "prepared_local_native_fuzz_harnesses_campaign_not_closed",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_local_code_registry_publication_hold",
