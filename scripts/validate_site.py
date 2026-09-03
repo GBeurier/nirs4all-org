@@ -488,6 +488,34 @@ def validate_r1_archive_page(path: Path) -> None:
             raise ValidationError(f"r1-archive.html exposes an artifact or registry path: {forbidden}")
 
 
+def validate_r2_archive_page(path: Path) -> None:
+    text = path.read_text(encoding="utf-8")
+    required = (
+        "Archive historique · profil de rollback R2",
+        "RC R2 native-default, legacy opt-in",
+        "release-manifest.json",
+        "native-candidate-staging.json",
+        "release-status.html#migration-title",
+        "https://methods.nirs4all.org/",
+        "r1-archive.html",
+        "component.publication === 'unavailable'",
+        "component.artifacts.length === 0",
+        "component.registry_urls.length === 0",
+        "implicit_fallback === false",
+        'aria-live="polite"',
+    )
+    for marker in required:
+        if marker not in text:
+            raise ValidationError(f"r2-archive.html: missing {marker!r}")
+    if re.search(r"\bv?\d+\.\d+\.\d+\b", text):
+        raise ValidationError("r2-archive.html hard-codes a release version")
+    if re.search(r"\b[0-9a-f]{40}\b", text):
+        raise ValidationError("r2-archive.html hard-codes a commit SHA")
+    for forbidden in ("releases/latest", "browser_download_url", "pypi.org/project", "npmjs.com/package"):
+        if forbidden in text:
+            raise ValidationError(f"r2-archive.html exposes an artifact or registry path: {forbidden}")
+
+
 def validate_sitemap() -> None:
     tree = ET.parse(ROOT / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -497,6 +525,7 @@ def validate_sitemap() -> None:
         f"{SITE_ORIGIN}/open-source-nirs-tools.html",
         f"{SITE_ORIGIN}/release-status.html",
         f"{SITE_ORIGIN}/r1-archive.html",
+        f"{SITE_ORIGIN}/r2-archive.html",
     }
     if not expected.issubset(urls):
         raise ValidationError(f"sitemap missing URLs: {sorted(expected - urls)}")
@@ -537,6 +566,7 @@ def main() -> int:
             validate_document(path, parse_document(path))
         validate_release_page(ROOT / "release-status.html")
         validate_r1_archive_page(ROOT / "r1-archive.html")
+        validate_r2_archive_page(ROOT / "r2-archive.html")
         validate_sitemap()
     except (OSError, json.JSONDecodeError, ET.ParseError, ValidationError) as exc:
         print(f"site validation failed: {exc}", file=sys.stderr)

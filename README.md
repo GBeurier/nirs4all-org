@@ -23,6 +23,9 @@ Cockpit projection of governance commit
 `e9d60c3a43dcf74d6318c5d165ff413452c49b1d`; it exposes exact local candidate
 identities and bounded capability evidence, but its schema forbids artifacts and
 registry links. It says NO-GO and does not announce a stable V1.
+The historical `r2-archive.html` combines these two validated inputs to document
+the native-default, explicit-legacy RC rollback profile without publishing or
+inventing an installer, package, or download URL.
 
 ## Local preview
 
@@ -35,6 +38,7 @@ nirs4all-org/
 ├── index.html              # The entire landing page (HTML + CSS + JS)
 ├── release-status.html     # Manifest-driven, fail-closed release status
 ├── r1-archive.html         # Historical R1 consolidation from the baseline lock
+├── r2-archive.html         # Historical R2 RC rollback from staging manifests
 ├── release-manifest.json   # Public projection of the ecosystem release lock
 ├── native-candidate-staging.json # Shared unpublished R4/V1 candidate snapshot
 ├── scripts/                # Stdlib projection and static-site validation
