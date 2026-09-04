@@ -246,14 +246,30 @@
       "version": "1.0.15"
     },
     {
-      "artifacts": [],
+      "artifacts": [
+        {
+          "filename": "nirs4all_providers-0.2.11-py3-none-any.whl",
+          "id": "wheel",
+          "sha256": "d536881ce7bde4b7f585ca6639027ae3f8874642c4b2422e7d033ab927052107",
+          "size": 61600
+        },
+        {
+          "filename": "nirs4all_providers-0.2.11.tar.gz",
+          "id": "sdist",
+          "sha256": "7f327a78989940ceefd6e948933b35ede12b650dd1ad7cd34c5c95dd41d5a468",
+          "size": 66415
+        }
+      ],
       "commit": "b2210ec717c0de0055fc8b9424b115a933efdb4e",
       "detail_versions": {},
       "key": "providers",
       "name": "nirs4all-providers",
-      "publication": "unavailable",
-      "qualification": "published_0_2_10_final_0_2_11_repository_repin_qualified_release_pending",
-      "registry_urls": [],
+      "publication": "published",
+      "qualification": "published_0_2_11_exact_repository_repin_release_workflow_green",
+      "registry_urls": [
+        "https://github.com/GBeurier/nirs4all-providers/releases/tag/v0.2.11",
+        "https://pypi.org/project/nirs4all-providers/0.2.11/"
+      ],
       "repository_url": "https://github.com/GBeurier/nirs4all-providers",
       "tree": "23a4a70513a33118c19923a47647a0a362c85f18",
       "version": "0.2.11"
@@ -265,28 +281,44 @@
       "key": "python",
       "name": "nirs4all",
       "publication": "unavailable",
-      "qualification": "remote_r3_direct_child_of_r2_native_default_candidate_release_hold",
+      "qualification": "published_r2_r3_direct_release_train_r4_candidate_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
       "tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
       "version": "1.0.0rc2"
     },
     {
-      "artifacts": [],
+      "artifacts": [
+        {
+          "filename": "nirs4all_repository-0.1.12-py3-none-any.whl",
+          "id": "wheel",
+          "sha256": "127ca9b43e9a17e743a983f22743213e747fa46f5b3f54e126c1b0eb43dbd8f9",
+          "size": 112110
+        },
+        {
+          "filename": "nirs4all_repository-0.1.12.tar.gz",
+          "id": "sdist",
+          "sha256": "df56c2bf7301747fca8466c2afd4f1132059ab3e89022049a4f941f2e7c43a56",
+          "size": 130997
+        }
+      ],
       "commit": "dbd9dae1205e1905692decd9fc7243f4fbda3068",
       "detail_versions": {},
       "key": "repository",
       "name": "nirs4all-repository",
-      "publication": "unavailable",
-      "qualification": "published_0_1_11_final_0_1_12_surface_contract_qualified_release_pending",
-      "registry_urls": [],
+      "publication": "published",
+      "qualification": "published_0_1_12_exact_surface_contract_release_workflow_green",
+      "registry_urls": [
+        "https://github.com/GBeurier/nirs4all-repository/releases/tag/v0.1.12",
+        "https://pypi.org/project/nirs4all-repository/0.1.12/"
+      ],
       "repository_url": "https://github.com/GBeurier/nirs4all-repository",
       "tree": "c37878a2f83baf90fcfb222944d4d06178164a71",
       "version": "0.1.12"
     },
     {
       "artifacts": [],
-      "commit": "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
+      "commit": "bea06a555f49c886ab0d02f626c347570f1127d3",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -294,7 +326,7 @@
       "qualification": "final_candidate_pinned_to_python_r3_ci_publication_and_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "4815174c3b7b70932f37de6cfce6f27a87b01abf",
+      "tree": "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
       "version": "0.11.0"
     },
     {
@@ -368,7 +400,7 @@
     }
   },
   "holds": [
-    "Product HOLD: R1 and Web are published; Repository 0.1.12, Providers 0.2.11, R2, R3, R4 and Studio 0.11.0 remain unpublished.",
+    "Product HOLD: Python R1/R2/R3, Web, Repository 0.1.12 and Providers 0.2.11 are published; R4 and Studio 0.11.0 remain unpublished.",
     "Release-artifact HOLD: the canonical lock is unchanged; final artifact digests, signatures and SBOM/provenance receipts remain incomplete where applicable.",
     "Qualification HOLD: final-head external matrices, signed installers, representative sustained soak and frozen reference-host performance budgets remain incomplete."
   ],
@@ -413,7 +445,7 @@
     "canonical_lock_updated": false,
     "downloads_enabled": false,
     "label": "R4/V1 native backend local candidate",
-    "notice": "Candidat produit strictement NO-GO; les composants natifs, R1 0.13.0 et Web 0.1.10 sont publiés, mais R2, R3, R4 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
+    "notice": "Candidat produit strictement NO-GO; les composants natifs, Python R1/R2/R3, Web 0.1.10, Repository 0.1.12 et Providers 0.2.11 sont publiés; R4 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
     "publication": "unpublished",
     "registry_links_enabled": false,
     "status": "no_go"
@@ -435,21 +467,41 @@
       },
       "r2": {
         "default_engine": "native_with_explicit_legacy_opt_in",
+        "ghcr_oci_index": "sha256:1db10c9c8ac017e3153c83b123adc12350998210690288224f22ac537b642419",
+        "installed_manifest_sha256": "4adb72f3c6a692ef8416e17c71e7456d1bdf03533d9eb00013d256a879dbbe29",
+        "publication": "pypi_and_ghcr",
+        "publication_workflow_run": 33868949671,
         "python_commit": "d351785dbc17290cdc85a797ead299ffce58f257",
         "python_tree": "364c9e63a0ef667c62e8d7223af632c5783b880a",
         "python_version": "1.0.0rc1",
+        "record_sha256": "7331a9536fd785d9543471457028d28b4ee10fb77b620b91f8cb974fd8f05d7e",
+        "release_id": 382680131,
+        "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0-rc.1",
+        "sdist_sha256": "69ecf82236c3f818472681d0d653a9f2d2d15df4738ca5ae0510ac7fef5a3f45",
         "studio_commit": "54350c688ae576bbbb393c5a24dae8d106f77322",
         "studio_tree": "9ecf2279039ef9b5af3d5be59be695f0dc0bc1d3",
-        "studio_version": "0.10.2"
+        "studio_version": "0.10.2",
+        "tag_object": "df657957bd7f867c026aba806a593e6a8837b972",
+        "wheel_sha256": "b9b44a3374ee22fd67f11964fde42e158f6e2ea2a8b829ae0f4c58f26fa1e7da"
       },
       "r3": {
         "default_engine": "native_fail_closed_rust_only",
+        "ghcr_oci_index": "sha256:461f8b61f004c6bd035a12202540e46a8df7438010dbf31094bf0b04dbd12d1a",
+        "installed_manifest_sha256": "0d8bd9ef411c7df1cf30597f5d340d58cd107e71c6cf8baa6e7f53aad6641b88",
+        "publication": "pypi_and_ghcr",
+        "publication_workflow_run": 33873060692,
         "python_commit": "3567bd4abcaa64443a1946748a579f0803e91889",
         "python_tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
         "python_version": "1.0.0rc2",
-        "studio_commit": "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
-        "studio_tree": "4815174c3b7b70932f37de6cfce6f27a87b01abf",
-        "studio_version": "0.11.0"
+        "record_sha256": "1d3b34670fd5c5c92c3a2e6bd2871f81d2d5f63f019764a021ed2099f6dbddbc",
+        "release_id": 382709680,
+        "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0-rc.2",
+        "sdist_sha256": "6a6d41dc828919f0cc0cb14d06735e6d712e672edf5b7d9a00533ddb01c0949c",
+        "studio_commit": "bea06a555f49c886ab0d02f626c347570f1127d3",
+        "studio_tree": "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
+        "studio_version": "0.11.0",
+        "tag_object": "5d82fcd06b440dc8e3668716658e7c50393f485f",
+        "wheel_sha256": "bb6f7a1f3a0de0fb9986e685b02bf48d7998f2d9261f8cdb7be35ed13bc4bdd0"
       },
       "r4": {
         "documentation_commit": "ef39f1a53dd120b9ce28907dc372d755dd621430",
@@ -460,16 +512,16 @@
         "status": "unpublished_candidate_no_public_receipt"
       }
     },
-    "publication": "r1_published_r2_r3_r4_unpublished",
-    "status": "r1_r2_r3_distinct_candidates_r4_candidate_held"
+    "publication": "python_r1_r2_r3_published_r4_and_studio_unpublished",
+    "status": "r1_r2_r3_distinct_published_releases_r4_candidate_held"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
+    "commit": "aae89519d4c807dab17a540328b97556c97307d3",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:869ef96726be65c8dfb43f16b820615c11fd8ce2b76076fa8100bd1b3b2f2b76",
+    "ledger_sha256": "sha256:521c9ab48cf78bcc9df1a6c878dac2f3a48d53c5d02a5213d09be2890762e1a3",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "f74d068c323bb47aea07f3cff859ab06bee64c68"
+    "tree": "4405d367c1cf1ff0d898bddb0cc81402c8b4289a"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

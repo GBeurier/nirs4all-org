@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
-    "tree": "f74d068c323bb47aea07f3cff859ab06bee64c68",
-    "ledger_sha256": "sha256:869ef96726be65c8dfb43f16b820615c11fd8ce2b76076fa8100bd1b3b2f2b76",
+    "commit": "aae89519d4c807dab17a540328b97556c97307d3",
+    "tree": "4405d367c1cf1ff0d898bddb0cc81402c8b4289a",
+    "ledger_sha256": "sha256:521c9ab48cf78bcc9df1a6c878dac2f3a48d53c5d02a5213d09be2890762e1a3",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
@@ -43,7 +43,7 @@ CANDIDATE_COMPONENTS = {
     "providers": ("0.2.11", "b2210ec717c0de0055fc8b9424b115a933efdb4e", "23a4a70513a33118c19923a47647a0a362c85f18"),
     "python": ("1.0.0rc2", "3567bd4abcaa64443a1946748a579f0803e91889", "a06c4015a26124df1e529f82108ee7bd115236cb"),
     "repository": ("0.1.12", "dbd9dae1205e1905692decd9fc7243f4fbda3068", "c37878a2f83baf90fcfb222944d4d06178164a71"),
-    "studio": ("0.11.0", "6d249ce69d5ddf2f0c4a831f33e70e9dda905471", "4815174c3b7b70932f37de6cfce6f27a87b01abf"),
+    "studio": ("0.11.0", "bea06a555f49c886ab0d02f626c347570f1127d3", "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
     "web": ("0.1.10", "051bf636d7c1729087e5d40061b18bd690cd33b7", "e94251e350f31dbb996e1a2e477c466cfdf992ff"),
@@ -72,8 +72,8 @@ CANDIDATE_RELEASE_TRAIN = {
         "3567bd4abcaa64443a1946748a579f0803e91889",
         "a06c4015a26124df1e529f82108ee7bd115236cb",
         "0.11.0",
-        "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
-        "4815174c3b7b70932f37de6cfce6f27a87b01abf",
+        "bea06a555f49c886ab0d02f626c347570f1127d3",
+        "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
         "native_fail_closed_rust_only",
     ),
 }
@@ -289,10 +289,10 @@ def validate_native_candidate(candidate: Any) -> None:
 
     release_train = candidate.get("release_train")
     if not isinstance(release_train, dict) or (
-        release_train.get("status") != "r1_r2_r3_distinct_candidates_r4_candidate_held"
-        or release_train.get("publication") != "r1_published_r2_r3_r4_unpublished"
+        release_train.get("status") != "r1_r2_r3_distinct_published_releases_r4_candidate_held"
+        or release_train.get("publication") != "python_r1_r2_r3_published_r4_and_studio_unpublished"
     ):
-        raise ValidationError("native candidate release train must retain only the published R1 receipt")
+        raise ValidationError("native candidate release train must retain the published Python R1/R2/R3 receipts")
     milestones = release_train.get("milestones")
     if not isinstance(milestones, dict) or set(milestones) != {"r1", "r2", "r3", "r4"}:
         raise ValidationError("native candidate release milestones diverge")
@@ -319,6 +319,20 @@ def validate_native_candidate(candidate: Any) -> None:
         or r1.get("publication_workflow_run") != 33753479548
     ):
         raise ValidationError("native candidate R1 publication receipt diverges")
+    for milestone, expected_run in {"r2": 33868949671, "r3": 33873060692}.items():
+        receipt = milestones[milestone]
+        if (
+            receipt.get("publication") != "pypi_and_ghcr"
+            or receipt.get("publication_workflow_run") != expected_run
+            or not isinstance(receipt.get("release_id"), int)
+            or not COMMIT_RE.fullmatch(receipt.get("tag_object", ""))
+            or any(
+                not re.fullmatch(r"[0-9a-f]{64}", receipt.get(field, ""))
+                for field in ("wheel_sha256", "sdist_sha256", "record_sha256", "installed_manifest_sha256")
+            )
+            or not re.fullmatch(r"sha256:[0-9a-f]{64}", receipt.get("ghcr_oci_index", ""))
+        ):
+            raise ValidationError(f"native candidate {milestone.upper()} publication receipt diverges")
     if milestones["r4"] != {
         "documentation_commit": "ef39f1a53dd120b9ce28907dc372d755dd621430",
         "documentation_tree": "126dfe87557a265d2a6c7894885c7772604d5311",
@@ -340,12 +354,32 @@ def validate_native_candidate(candidate: Any) -> None:
         if key in observed:
             raise ValidationError(f"duplicate native candidate component: {key}")
         observed[key] = (component.get("version"), component.get("commit"), component.get("tree"))
-        if component.get("publication") != "unavailable" or component.get("artifacts") != [] or component.get("registry_urls") != []:
+        if key in {"providers", "repository"}:
+            if component.get("publication") != "published" or len(component.get("artifacts", [])) != 2:
+                raise ValidationError(f"{key}: published receipt is incomplete")
+            for artifact in component["artifacts"]:
+                if (
+                    artifact.get("id") not in {"wheel", "sdist"}
+                    or not isinstance(artifact.get("filename"), str)
+                    or not re.fullmatch(r"[0-9a-f]{64}", artifact.get("sha256", ""))
+                    or not isinstance(artifact.get("size"), int)
+                    or artifact["size"] <= 0
+                ):
+                    raise ValidationError(f"{key}: malformed artifact receipt")
+            if len(component.get("registry_urls", [])) != 2 or any(
+                not re.fullmatch(
+                    r"https://(?:github\.com/GBeurier/[A-Za-z0-9_.-]+/releases/tag/[A-Za-z0-9_.-]+|pypi\.org/project/[A-Za-z0-9_.-]+/[0-9A-Za-z.-]+/)",
+                    registry_url,
+                )
+                for registry_url in component["registry_urls"]
+            ):
+                raise ValidationError(f"{key}: malformed registry receipt URL")
+        elif component.get("publication") != "unavailable" or component.get("artifacts") != [] or component.get("registry_urls") != []:
             raise ValidationError(f"{key}: unpublished candidate exposes publication evidence")
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
-        raise ValidationError("native candidate identities diverge from Governance 2d6ae208")
+        raise ValidationError("native candidate identities diverge from the pinned Governance receipt")
     benchmarks = next(component for component in components if component.get("key") == "benchmarks")
     if benchmarks.get("qualification") != "current_heads_synthetic_four_surface_and_bounded_probe_passed_representative_soak_missing":
         raise ValidationError("bounded Bench replay must not be exposed as release evidence")
@@ -512,7 +546,7 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
-        "Candidat produit NO-GO — composants natifs, R1 et Web publiés",
+        "Candidat produit NO-GO — Python R1/R2/R3, Web, Repository et Providers publiés",
         "native-candidate-staging.json",
         "Train R1/R2/R3/R4 distinct",
         "Capability matrix qualifiée",
@@ -544,20 +578,23 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
     """Keep human transition copy aligned with the candidate projection."""
     required = {
         "README.md": (
-            "nirs4all R1 0.13.0 are published",
+            "Python R1 0.13.0, R2 and R3",
+            "Repository 0.1.12 and Providers 0.2.11 are published",
             "Web 0.1.10 is deployed",
-            "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
-            "4435ce6bb0d104729a3659741a0d391a8e041b11148c3c862854d6fdb7d4257d",
+            "aae89519d4c807dab17a540328b97556c97307d3",
+            "abea5ea65ee72e8aa01b76cbefce900c3a90012c51ce45ef99377c4cc523ca1d",
         ),
         "index.html": (
-            "nirs4all R1 0.13.0</b> are published",
+            "Python R1 0.13.0, R2 and R3</b>",
+            "Repository 0.1.12</b>",
+            "Providers 0.2.11</b>",
             "nirs4all-web 0.1.10</b> is live",
-            "R2, R3, R4, and Studio 0.11.0 remain unpublished",
+            "R4 and Studio 0.11.0 remain unpublished",
         ),
         "release-status.html": (
-            "R1 publié · R2/R3/R4 candidats · NO-GO",
-            "r1_published_r2_r3_r4_unpublished",
-            "R2, R3 et R4 restent des candidats non publiés",
+            "Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO",
+            "python_r1_r2_r3_published_r4_and_studio_unpublished",
+            "R2/R3 ont leurs reçus PyPI/GHCR",
         ),
     }
     documents = {
@@ -622,6 +659,7 @@ def validate_r2_archive_page(path: Path) -> None:
         "release-status.html#migration-title",
         "https://methods.nirs4all.org/",
         "r1-archive.html",
+        "['providers', 'repository'].includes(component.key)",
         "component.publication === 'unavailable'",
         "component.artifacts.length === 0",
         "component.registry_urls.length === 0",

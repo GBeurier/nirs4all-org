@@ -135,7 +135,7 @@ class NativeCandidateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "NO-GO"):
             validate_native_candidate(invalid)
 
-    def test_candidate_train_must_remain_distinct_with_only_r1_published(self) -> None:
+    def test_candidate_train_must_remain_distinct_with_python_r1_r2_r3_published(self) -> None:
         invalid = copy.deepcopy(self.candidate)
         invalid["release_train"]["milestones"]["r2"]["studio_commit"] = invalid[
             "release_train"
@@ -145,7 +145,7 @@ class NativeCandidateTests(unittest.TestCase):
 
         invalid = copy.deepcopy(self.candidate)
         invalid["release_train"]["publication"] = "published"
-        with self.assertRaisesRegex(ValidationError, "published R1 receipt"):
+        with self.assertRaisesRegex(ValidationError, "published Python R1/R2/R3 receipts"):
             validate_native_candidate(invalid)
 
     def test_bounded_bench_replay_cannot_become_release_evidence(self) -> None:

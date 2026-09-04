@@ -154,8 +154,8 @@
       <h1>Candidats natifs R1/R2/R3/R4 — NO-GO</h1>
       <p class="lead">Cette page décrit les candidats locaux distincts R1, R2, R3 et R4 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Candidat produit NO-GO — composants natifs, R1 et Web publiés; R2, R3, R4 et Studio non publiés.</strong>
-        <p id="train-detail">R1 est publié avec legacy par défaut et Web est déployé séparément. R2, R3 et R4 restent des candidats non publiés; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
+        <strong id="train-message">Candidat produit NO-GO — Python R1/R2/R3, Web, Repository et Providers publiés; R4 et Studio non publiés.</strong>
+        <p id="train-detail">R1 est publié avec legacy par défaut, R2/R3 ont leurs reçus PyPI/GHCR et Web est déployé séparément. R4 reste candidat; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
     </div>
@@ -163,7 +163,7 @@
 
   <main id="main-content" class="wrap">
     <dl class="summary" aria-label="Résumé du train de publication">
-      <div class="metric"><dt>État</dt><dd id="milestone">R1 publié · R2/R3/R4 candidats · NO-GO</dd></div>
+      <div class="metric"><dt>État</dt><dd id="milestone">Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO</dd></div>
       <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
       <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 · indisponibles</dd></div>
     </dl>
@@ -213,7 +213,7 @@
 
     <div class="section-head">
       <h2>Composants candidats exacts</h2>
-      <p>Version, commit et tree identifient la source locale. Ils ne prouvent ni publication ni disponibilité : ce schéma ne peut contenir aucun artefact ou lien de registre.</p>
+      <p>Version, commit et tree identifient la source sélectionnée. Les reçus Repository/Providers prouvent leurs publications propres; ils n’autorisent aucun téléchargement R4 ou Studio.</p>
     </div>
     <div id="component-grid" class="component-grid">
       <article class="component">
@@ -274,6 +274,13 @@
       typeof identity === 'object' && COMMIT.test(identity.commit || '') &&
       COMMIT.test(identity.tree || '') && typeof identity.status === 'string';
 
+    const isPublishedReceipt = component =>
+      ['providers', 'repository'].includes(component.key) &&
+      component.publication === 'published' &&
+      Array.isArray(component.artifacts) && component.artifacts.length === 2 &&
+      component.artifacts.every(artifact => ['wheel', 'sdist'].includes(artifact.id) && /^[0-9a-f]{64}$/.test(artifact.sha256 || '') && Number.isInteger(artifact.size) && artifact.size > 0) &&
+      Array.isArray(component.registry_urls) && component.registry_urls.length === 2;
+
     const isComponent = component => component &&
       typeof component === 'object' &&
       typeof component.key === 'string' && component.key.length > 0 &&
@@ -282,16 +289,17 @@
       typeof component.commit === 'string' && COMMIT.test(component.commit) &&
       typeof component.tree === 'string' && COMMIT.test(component.tree) &&
       typeof component.repository_url === 'string' && HTTPS.test(component.repository_url) &&
-      component.publication === 'unavailable' &&
-      Array.isArray(component.artifacts) && component.artifacts.length === 0 &&
-      Array.isArray(component.registry_urls) && component.registry_urls.length === 0;
+      (isPublishedReceipt(component) || (
+        component.publication === 'unavailable' &&
+        Array.isArray(component.artifacts) && component.artifacts.length === 0 &&
+        Array.isArray(component.registry_urls) && component.registry_urls.length === 0));
 
     const isManifest = manifest => manifest &&
       manifest.schema_version === 'n4a.native-candidate-staging/v1' &&
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
       manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
       manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
-      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_candidate_held' && manifest.release_train.publication === 'r1_published_r2_r3_r4_unpublished' &&
+      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_published_releases_r4_candidate_held' && manifest.release_train.publication === 'python_r1_r2_r3_published_r4_and_studio_unpublished' &&
       manifest.release_train.milestones && ['r1', 'r2', 'r3', 'r4'].every(key => manifest.release_train.milestones[key]) &&
       manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
       manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
@@ -324,9 +332,20 @@
 
     const addArtifacts = (container, component) => {
       const message = document.createElement('p');
-      message.textContent = 'Indisponible — candidat local non publié.';
+      if (component.publication !== 'published') {
+        message.textContent = 'Indisponible — candidat local non publié.';
+        container.append(message);
+        return false;
+      }
+      message.textContent = 'Publié — reçus immuables (aucun téléchargement produit activé).';
       container.append(message);
-      return false;
+      component.artifacts.forEach(artifact => {
+        const receipt = document.createElement('p');
+        receipt.className = 'mono';
+        receipt.textContent = artifact.filename + ' · sha256:' + artifact.sha256 + ' · ' + artifact.size + ' octets';
+        container.append(receipt);
+      });
+      return true;
     };
 
     const table = (headers, captionText) => {
@@ -351,16 +370,16 @@
         card.querySelector('[data-commit-link]').href = component.repository_url + '/commit/' + component.commit;
         card.querySelector('[data-tree]').textContent = component.tree;
         const badge = card.querySelector('[data-state]');
-        badge.textContent = 'Indisponible';
+        badge.textContent = component.publication === 'published' ? 'Publié' : 'Indisponible';
         if (addArtifacts(card.querySelector('[data-artifacts]'), component)) {
           artifactCount += component.artifacts.length;
         }
         grid.append(card);
       });
       document.getElementById('train-message').textContent = manifest.release.notice;
-      document.getElementById('milestone').textContent = 'R1 publié · R2/R3/R4 candidats · NO-GO';
+      document.getElementById('milestone').textContent = 'Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
-      document.getElementById('artifact-count').textContent = String(artifactCount) + ' · indisponibles';
+      document.getElementById('artifact-count').textContent = String(artifactCount) + ' reçus · téléchargements produit désactivés';
 
       const releaseTrain = manifest.release_train;
       const releaseTrainBox = document.getElementById('release-train-detail');
@@ -368,7 +387,7 @@
       ['r1', 'r2', 'r3'].forEach(key => {
         const milestone = releaseTrain.milestones[key];
         const line = document.createElement('p');
-        const publication = key === 'r1' ? 'publié (PyPI et GHCR).' : 'candidat non publié.';
+        const publication = 'Python publié (PyPI et GHCR); Studio candidat.';
         line.textContent = key.toUpperCase() + ' · Python ' + milestone.python_version + ' · Studio ' + milestone.studio_version + ' · ' + milestone.default_engine.replaceAll('_', ' ') + ' · ' + publication;
         releaseTrainBox.append(line);
       });

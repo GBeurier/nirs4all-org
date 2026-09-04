@@ -152,8 +152,10 @@
       manifest.release_train && manifest.release_train.state === 'in_progress' && manifest.release_train.published === false;
     const isComponent = component => component && typeof component.name === 'string' &&
       VERSION.test(component.version || '') && COMMIT.test(component.commit || '') && COMMIT.test(component.tree || '') &&
-      component.publication === 'unavailable' && Array.isArray(component.artifacts) && component.artifacts.length === 0 &&
-      Array.isArray(component.registry_urls) && component.registry_urls.length === 0;
+      ((['providers', 'repository'].includes(component.key) && component.publication === 'published' &&
+        Array.isArray(component.artifacts) && component.artifacts.length === 2 && Array.isArray(component.registry_urls) && component.registry_urls.length === 2) ||
+       (component.publication === 'unavailable' && Array.isArray(component.artifacts) && component.artifacts.length === 0 &&
+        Array.isArray(component.registry_urls) && component.registry_urls.length === 0));
     const isCandidate = candidate => candidate && candidate.schema_version === 'n4a.native-candidate-staging/v1' &&
       candidate.release && candidate.release.status === 'no_go' && candidate.release.publication === 'unpublished' &&
       candidate.release.canonical_lock_updated === false && candidate.release.downloads_enabled === false && candidate.release.registry_links_enabled === false &&
