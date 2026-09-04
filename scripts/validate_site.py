@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "2d6ae20855b6eb960df07106b00d9b879238229e",
-    "tree": "51355656c32923aae6a2ad1ae5d98d8e1e01031b",
-    "ledger_sha256": "sha256:d6d6be806f24fae5d62e875a67e3275137d1740fecc8630a2820c0328ab5a9c0",
+    "commit": "2b08a0da0be8952b38cfc28090d757cb7a314b50",
+    "tree": "d740aa7655dad6d47f36bb2ace7e733e6eedf466",
+    "ledger_sha256": "sha256:8dea355c610976246b7f5b861c8fb87e6ba3584d05729969634638fc138fd5ae",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
@@ -546,8 +546,8 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
         "README.md": (
             "nirs4all R1 0.13.0 are published",
             "Web 0.1.10 is deployed",
-            "2d6ae20855b6eb960df07106b00d9b879238229e",
-            "9b16426739258d9e36fa8a4924d0fb74b52230954c73fb8bbc039dc1db88ad3e",
+            "2b08a0da0be8952b38cfc28090d757cb7a314b50",
+            "4d9cec2bc577fe9f9e14a1cc4c11f9d55d1b258555e5418d5c29f526bb3aaea8",
         ),
         "index.html": (
             "nirs4all R1 0.13.0</b> are published",

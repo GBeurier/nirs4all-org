@@ -465,11 +465,11 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "2d6ae20855b6eb960df07106b00d9b879238229e",
+    "commit": "2b08a0da0be8952b38cfc28090d757cb7a314b50",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:d6d6be806f24fae5d62e875a67e3275137d1740fecc8630a2820c0328ab5a9c0",
+    "ledger_sha256": "sha256:8dea355c610976246b7f5b861c8fb87e6ba3584d05729969634638fc138fd5ae",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "51355656c32923aae6a2ad1ae5d98d8e1e01031b"
+    "tree": "d740aa7655dad6d47f36bb2ace7e733e6eedf466"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",
