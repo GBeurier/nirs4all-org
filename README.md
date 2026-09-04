@@ -19,6 +19,8 @@ published, and Web 0.1.10 is deployed. R1 keeps the legacy engine as its
 default. Studio remains unsigned/non-notarized under the explicit bounded
 waiver recorded with the release receipts.
 Repository 0.1.12 and Providers 0.2.11 are published. Web 0.1.10 is deployed.
+The public projection is sealed by the annotated `v1.0.7` and
+`n4a-v1-2026.09-native-release` tags.
 
 The release-status page has two deliberately separate inputs. The historical
 `release-manifest.json` remains the fail-closed projection of the unchanged
