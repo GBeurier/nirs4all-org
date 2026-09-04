@@ -119,23 +119,21 @@ class NativeCandidateTests(unittest.TestCase):
             (ROOT / "native-candidate-staging.json").read_text(encoding="utf-8")
         )
 
-    def test_committed_candidate_is_exact_and_unpublished(self) -> None:
+    def test_committed_release_projection_is_exact_and_published(self) -> None:
         validate_native_candidate(self.candidate)
 
-    def test_candidate_cannot_gain_artifact_or_go_status(self) -> None:
+    def test_release_projection_refuses_bad_artifact_or_state_downgrade(self) -> None:
         invalid = copy.deepcopy(self.candidate)
-        invalid["components"][0]["artifacts"] = [
-            {"url": "https://example.invalid/fake.zip"}
-        ]
-        with self.assertRaisesRegex(ValidationError, "exposes publication"):
+        invalid["components"][0]["artifacts"] = [{"sha256": "bad"}]
+        with self.assertRaisesRegex(ValidationError, "malformed artifact"):
             validate_native_candidate(invalid)
 
         invalid = copy.deepcopy(self.candidate)
-        invalid["release"]["status"] = "go"
-        with self.assertRaisesRegex(ValidationError, "NO-GO"):
+        invalid["release"]["status"] = "no_go"
+        with self.assertRaisesRegex(ValidationError, "GO and published"):
             validate_native_candidate(invalid)
 
-    def test_candidate_train_must_remain_distinct_with_python_r1_r2_r3_published(self) -> None:
+    def test_release_train_must_remain_distinct_and_published(self) -> None:
         invalid = copy.deepcopy(self.candidate)
         invalid["release_train"]["milestones"]["r2"]["studio_commit"] = invalid[
             "release_train"
@@ -145,13 +143,13 @@ class NativeCandidateTests(unittest.TestCase):
 
         invalid = copy.deepcopy(self.candidate)
         invalid["release_train"]["publication"] = "published"
-        with self.assertRaisesRegex(ValidationError, "published Python R1/R2/R3 receipts"):
+        with self.assertRaisesRegex(ValidationError, "all published receipts"):
             validate_native_candidate(invalid)
 
-    def test_bounded_bench_replay_cannot_become_release_evidence(self) -> None:
+    def test_bounded_v1_soak_receipt_cannot_be_overclaimed(self) -> None:
         invalid = copy.deepcopy(self.candidate)
         invalid["performance"]["evidence_mode"] = "local_real_record_only"
-        with self.assertRaisesRegex(ValidationError, "bounded Bench replay"):
+        with self.assertRaisesRegex(ValidationError, "bounded V1 soak"):
             validate_native_candidate(invalid)
 
 

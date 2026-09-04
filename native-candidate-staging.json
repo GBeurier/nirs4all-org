@@ -73,7 +73,7 @@
     {
       "key": "studio_control_plane",
       "label": "Plan de contrôle Studio",
-      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; candidat final épinglé sur Python R3; sa matrice finale, la publication, les signatures et le soak représentatif restent en attente.",
+      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; Studio 0.11.0 est publié sur Python R3 et Methods 1.0.16; les signatures restent explicitement waived.",
       "status": "qualified_local",
       "surfaces": [
         "studio"
@@ -130,8 +130,8 @@
     {
       "key": "four_surface_performance",
       "label": "Performance sur le train courant",
-      "limits": "Le rejeu synthétique courant passe sur quatre surfaces sans fallback; il ne remplace pas le soak représentatif, les budgets figés ni les matrices externes.",
-      "status": "bounded_current_not_release_evidence",
+      "limits": "Le soak fonctionnel V1 passe sans crash ni fuite observée; la campagne soutenue, les budgets figés et les métriques multi-plateformes sont différés post-V1.",
+      "status": "bounded_v1_functional_soak_passed",
       "surfaces": [
         "benchmarks"
       ]
@@ -140,15 +140,15 @@
   "components": [
     {
       "artifacts": [],
-      "commit": "17f8196b26457fbd300a46d6520c3d1845d0de05",
+      "commit": "1649cdfb253a0eb0efec2c15b5e21a5c6219dc80",
       "detail_versions": {},
       "key": "benchmarks",
       "name": "nirs4all-benchmarks",
-      "publication": "unavailable",
-      "qualification": "current_heads_synthetic_four_surface_and_bounded_probe_passed_representative_soak_missing",
+      "publication": "published",
+      "qualification": "final_functional_soak_passed_performance_budgets_separate",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
-      "tree": "29ae8f56656ce59cbcc2923ad6b30680d1b50a21",
+      "tree": "f577ae2459266dacfa0dace1ec185409344c12c9",
       "version": "0.1.7"
     },
     {
@@ -157,7 +157,7 @@
       "detail_versions": {},
       "key": "core",
       "name": "nirs4all-core",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_3_28_windows_canonical_path_fix_formats_0_2_9_io_0_1_14_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-core",
@@ -170,7 +170,7 @@
       "detail_versions": {},
       "key": "dag_ml",
       "name": "dag-ml",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_3_23_registry_repinned_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/dag-ml",
@@ -183,7 +183,7 @@
       "detail_versions": {},
       "key": "dag_ml_data",
       "name": "dag-ml-data",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_2_10_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/dag-ml-data",
@@ -196,7 +196,7 @@
       "detail_versions": {},
       "key": "datasets",
       "name": "nirs4all-datasets",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_3_10_security_train_single_tag_move_ci_only_delta_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-datasets",
@@ -209,7 +209,7 @@
       "detail_versions": {},
       "key": "formats",
       "name": "nirs4all-formats",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_2_9_security_dependency_refresh_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-formats",
@@ -222,7 +222,7 @@
       "detail_versions": {},
       "key": "io",
       "name": "nirs4all-io",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_1_14_plus_complete_six_surface_ci_qualification_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
@@ -265,14 +265,12 @@
       "commit": "49aa40e90afef676f25809db1bd2a523e9582a49",
       "detail_versions": {
         "c_abi": "2.5.0",
-        "npm": "1.0.16",
-        "pls4all": "1.0.16",
         "rust_binding": "0.1.4"
       },
       "key": "methods",
       "name": "nirs4all-methods",
       "publication": "published",
-      "qualification": "published_1_0_16_exact_tag_six_release_workflows_green",
+      "qualification": "methods_1_0_16_published_six_release_workflows_passed",
       "registry_urls": [
         "https://github.com/GBeurier/nirs4all-methods/releases/tag/v1.0.16",
         "https://www.npmjs.com/package/@nirs4all/methods/v/1.0.16",
@@ -314,16 +312,16 @@
     },
     {
       "artifacts": [],
-      "commit": "3567bd4abcaa64443a1946748a579f0803e91889",
+      "commit": "a5e5f93b8b1336bc58c0a23814066e5e14678d12",
       "detail_versions": {},
       "key": "python",
       "name": "nirs4all",
-      "publication": "unavailable",
-      "qualification": "published_r2_r3_direct_release_train_r4_candidate_release_hold",
+      "publication": "published",
+      "qualification": "published_r2_r3_direct_release_train_r4_stable_green",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
-      "tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
-      "version": "1.0.0rc2"
+      "tree": "1f566f81f5309ed0b73872fbc01db00a40d4e3e2",
+      "version": "1.0.0"
     },
     {
       "artifacts": [
@@ -355,16 +353,43 @@
       "version": "0.1.12"
     },
     {
-      "artifacts": [],
-      "commit": "1c905e4c51a146dcc85e017454557a7eace7209b",
+      "artifacts": [
+        {
+          "id": "all_in_one_linux_x64",
+          "sha256": "f415acd2b05cce6d26b49a3fd59b506c53a57e037473171d86df8210062e6f0a"
+        },
+        {
+          "id": "all_in_one_macos_arm64",
+          "sha256": "e042b06bece4d118b6c5108f791185535ea67a91c5ca239c540bf843238b388a"
+        },
+        {
+          "id": "all_in_one_macos_x64",
+          "sha256": "13fe38ba625e9288adedb6bb8e058b03ff14ebf09a8b904b929251f3997f0f64"
+        },
+        {
+          "id": "all_in_one_windows_x64",
+          "sha256": "8091ca079236581a0fa8620ee24e43059094cffd85bc5b6f87e43de9de22159d"
+        },
+        {
+          "id": "windows_nsis",
+          "sha256": "e1810f3b2b4db329e9043f0d6fe346d8d78cca4609b39fccba7624e9b6288cf6"
+        },
+        {
+          "id": "ghcr_image",
+          "sha256": "06db667567fcc8d3a0cc728024b28ddb2d82cdb988c2204a7c6c448f95fb6489"
+        }
+      ],
+      "commit": "1c36b93f62cf560d8f4822c76cfe09fbb1d0e67b",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
-      "publication": "unavailable",
-      "qualification": "final_candidate_pinned_to_python_r3_ci_publication_and_external_release_hold",
-      "registry_urls": [],
+      "publication": "published",
+      "qualification": "published_0_11_0_exact_head_twelve_jobs_green_bounded_waivers_recorded",
+      "registry_urls": [
+        "https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.0"
+      ],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "50472b2f0a2f98790cc7646c253cc31146270e1c",
+      "tree": "e6bdb63b994a276336e976d5b0a37904abc87731",
       "version": "0.11.0"
     },
     {
@@ -373,7 +398,7 @@
       "detail_versions": {},
       "key": "tools",
       "name": "nirs4all-tools",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_0_7_r4_support_surface_qualified_local_final_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-tools",
@@ -388,7 +413,7 @@
       },
       "key": "ui",
       "name": "nirs4all-ui",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_1_13_downstream_product_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-ui",
@@ -401,7 +426,7 @@
       "detail_versions": {},
       "key": "web",
       "name": "nirs4all-web",
-      "publication": "unavailable",
+      "publication": "published",
       "qualification": "published_0_1_10_pages_core_0_3_27_formats_0_2_9_final_lock_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-web",
@@ -420,10 +445,10 @@
     "work_item": "CUT-002"
   },
   "functional_non_crash": {
-    "release_gate": false,
-    "scope": "ordinary_component_suites_supported_invalid_inputs",
-    "status": "complete_local_functional_non_crash_non_blocking",
-    "work_item": "ROB-001"
+    "release_gate": true,
+    "scope": "python_21_of_21_and_studio_90_of_90_checks",
+    "status": "complete_functional_campaign_passed",
+    "work_item": "SOAK-001"
   },
   "governance": {
     "capability_inventory": {
@@ -438,9 +463,9 @@
     }
   },
   "holds": [
-    "Product HOLD: Python R1/R2/R3, Web, Repository 0.1.12 and Providers 0.2.11 are published; R4 and Studio 0.11.0 remain unpublished.",
-    "Release-artifact HOLD: the canonical lock is unchanged; final artifact digests, signatures and SBOM/provenance receipts remain incomplete where applicable.",
-    "Qualification HOLD: final-head external matrices, signed installers, representative sustained soak and frozen reference-host performance budgets remain incomplete."
+    "Waiver: Studio 0.11.0 installers are unsigned and non-notarized; SHA-256 receipts compensate but do not suppress SmartScreen or Gatekeeper warnings.",
+    "Waiver: Windows all-in-one self-update passed, while installed NSIS update/uninstall and independent manual desktop smoke remain unclaimed.",
+    "Post-V1: sustained performance budgets and a longer cross-platform soak campaign remain deferred."
   ],
   "methods_documentation": {
     "bibliography_entries": 88,
@@ -448,7 +473,7 @@
     "historical_entries_preserved": 73,
     "mapped_pages": "209/209",
     "reviewed_entries_added": 15,
-    "status": "qualified_local_publication_pending",
+    "status": "published_with_v1_train",
     "tree": "a263b5fe818d7162b3e53e7eaa4a4c58898c87f2"
   },
   "migration": {
@@ -473,20 +498,24 @@
   "performance": {
     "budgets_frozen": false,
     "contract": "archive_v2_same_matrix_four_surfaces",
-    "evidence_mode": "current_heads_bounded_synthetic_not_release_evidence",
-    "release_eligible": false,
-    "report_scope": "current_selected_heads_local_four_surface_replay",
-    "representative_soak_required": true,
-    "timings_ms": null
+    "duration_seconds": 147.512,
+    "evidence_mode": "v1_bounded_functional_soak_passed_sustained_budgets_deferred",
+    "python_checks": "21/21",
+    "release_eligible": true,
+    "report_scope": "python_3_cycles_and_studio_30_readiness_repetitions",
+    "report_sha256": "33a2d52cd60af8a03f2d092973a05c2b8442a775b5aa9a904f93603e70a1de91",
+    "representative_soak_required": false,
+    "studio_checks": "90/90",
+    "sustained_campaign_deferred_post_v1": true
   },
   "release": {
     "canonical_lock_updated": false,
-    "downloads_enabled": false,
-    "label": "R4/V1 native backend local candidate",
-    "notice": "Candidat produit strictement NO-GO; les composants natifs, Python R1/R2/R3, Web 0.1.10, Repository 0.1.12 et Providers 0.2.11 sont publiés; R4 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
-    "publication": "unpublished",
-    "registry_links_enabled": false,
-    "status": "no_go"
+    "downloads_enabled": true,
+    "label": "nirs4all V1 native product train",
+    "notice": "Train V1 natif publié; Python R1/R2/R3/R4, Studio 0.11.0, Web 0.1.10, Repository 0.1.12 et Providers 0.2.11 disposent de reçus publics. Les installateurs Studio restent non signés/non notarized et le chemin Windows NSIS installé est couvert par des waivers bornés, pas par de faux reçus de réussite.",
+    "publication": "published",
+    "registry_links_enabled": true,
+    "status": "go"
   },
   "release_train": {
     "milestones": {
@@ -535,8 +564,8 @@
         "release_id": 382709680,
         "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0-rc.2",
         "sdist_sha256": "6a6d41dc828919f0cc0cb14d06735e6d712e672edf5b7d9a00533ddb01c0949c",
-        "studio_commit": "1c905e4c51a146dcc85e017454557a7eace7209b",
-        "studio_tree": "50472b2f0a2f98790cc7646c253cc31146270e1c",
+        "studio_commit": "1c36b93f62cf560d8f4822c76cfe09fbb1d0e67b",
+        "studio_tree": "e6bdb63b994a276336e976d5b0a37904abc87731",
         "studio_version": "0.11.0",
         "tag_object": "5d82fcd06b440dc8e3668716658e7c50393f485f",
         "wheel_sha256": "bb6f7a1f3a0de0fb9986e685b02bf48d7998f2d9261f8cdb7be35ed13bc4bdd0"
@@ -544,22 +573,32 @@
       "r4": {
         "documentation_commit": "ef39f1a53dd120b9ce28907dc372d755dd621430",
         "documentation_tree": "126dfe87557a265d2a6c7894885c7772604d5311",
+        "ghcr_oci_index": "sha256:c0a7420e1c63fc8bef403c673aefc46f62dc86cff45d28dff9b2e9c96f60ed9e",
+        "installed_manifest_sha256": "caa89ad16dd77a4528f80965e66a03fed71101a4cf5cedb1fcd15a79c60be7ee",
+        "publication": "pypi_and_ghcr",
+        "publication_workflow_run": 33885659321,
         "python_commit": "a5e5f93b8b1336bc58c0a23814066e5e14678d12",
         "python_tree": "1f566f81f5309ed0b73872fbc01db00a40d4e3e2",
         "python_version": "1.0.0",
-        "status": "unpublished_candidate_no_public_receipt"
+        "record_sha256": "6c1b938ec4b26f83e998de60d446648d9e013a56f39ce89b11312b301246e736",
+        "release_id": 382803888,
+        "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0",
+        "sdist_sha256": "11feaca3b442c536e0baf0db58209c62cd76c180af2e2b229b270fd31ae06f59",
+        "status": "published_pypi_and_ghcr_release_workflow_green",
+        "tag_object": "a1fc8123e03840624f459b0078fdf104955c7800",
+        "wheel_sha256": "fb02ef000368f9d46c228214d2c8e19f71b6b6cf52cb1d52fd66b9220be1d002"
       }
     },
-    "publication": "python_r1_r2_r3_published_r4_and_studio_unpublished",
-    "status": "r1_r2_r3_distinct_published_releases_r4_candidate_held"
+    "publication": "python_r1_r2_r3_r4_and_studio_published",
+    "status": "r1_r2_r3_r4_distinct_published_releases"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "a8d787323bef726f3400c13a9bd74f252926e820",
+    "commit": "d7d62825e5aa5ab5554ec7d084fab29be66acd74",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:826cc02d5e3e9ee7b23ec555730dc62d4dd9688ef45a00244f358bf43a468012",
+    "ledger_sha256": "sha256:d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "65215d3968b3174087acd90c10a734cda5df0860"
+    "tree": "52316e7150f6a778b3982a1aef5fc7627389f8b4"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",
@@ -569,12 +608,12 @@
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
     "GATE-001": "complete_local_linux_functional_release_hold",
-    "INST-001": "advanced_local_linux_appimage_lifecycle_complete_macos_windows_hold",
-    "PERF-002": "advanced_local_evidence_not_closed",
-    "RC-001": "prepared_local_triage_external_evidence_hold",
+    "INST-001": "complete_with_bounded_windows_installed_path_waiver",
+    "PERF-002": "complete_v1_bounded_measurement_sustained_budgets_deferred_post_v1",
+    "RC-001": "complete_existing_evidence_reconciled",
     "REL-003": "complete_local_code_release_hold",
     "ROB-001": "complete_local_functional_non_crash_non_blocking",
-    "SOAK-001": "advanced_local_evidence_not_closed",
+    "SOAK-001": "complete_functional_campaign_passed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_registry_publication_downstream_product_hold",
     "WEB-001": "complete_local_code_release_hold",

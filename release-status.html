@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all</title>
+  <title>Release native R1/R2/R3/R4 — V1 | nirs4all</title>
   <meta name="description" content="Snapshot de staging vérifiable des candidats natifs nirs4all R1/R2/R3/R4 : SHAs, versions, architecture et capacités qualifiées, sans publication produit ni téléchargement." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#0f766e" />
@@ -150,12 +150,12 @@
 
   <header>
     <div class="wrap">
-      <p class="eyebrow">Staging candidat · source vérifiable</p>
-      <h1>Candidats natifs R1/R2/R3/R4 — NO-GO</h1>
-      <p class="lead">Cette page décrit les candidats locaux distincts R1, R2, R3 et R4 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
+      <p class="eyebrow">Release V1 · source vérifiable</p>
+      <h1>Release native R1/R2/R3/R4 — GO</h1>
+      <p class="lead">Cette page décrit le train publié R1, R2, R3 et R4 enregistré par le ledger de migration, avec ses identités et reçus immuables.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Candidat produit NO-GO — Python R1/R2/R3, Web, Repository et Providers publiés; R4 et Studio non publiés.</strong>
-        <p id="train-detail">R1 est publié avec legacy par défaut, R2/R3 ont leurs reçus PyPI/GHCR et Web est déployé séparément. R4 reste candidat; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
+        <strong id="train-message">Train produit GO — Python R1/R2/R3/R4, Studio, Web, Repository et Providers publiés.</strong>
+        <p id="train-detail">R1 est publié avec legacy par défaut; R2/R3/R4 ont leurs reçus PyPI/GHCR. Studio est publié, intentionnellement non signé/non notarized sous waiver explicite.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
     </div>
@@ -163,7 +163,7 @@
 
   <main id="main-content" class="wrap">
     <dl class="summary" aria-label="Résumé du train de publication">
-      <div class="metric"><dt>État</dt><dd id="milestone">Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO</dd></div>
+      <div class="metric"><dt>État</dt><dd id="milestone">Python R1/R2/R3/R4 et Studio publiés · GO</dd></div>
       <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
       <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 · indisponibles</dd></div>
     </dl>
@@ -297,13 +297,13 @@
     const isManifest = manifest => manifest &&
       manifest.schema_version === 'n4a.native-candidate-staging/v1' &&
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
-      manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
-      manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
-      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_published_releases_r4_candidate_held' && manifest.release_train.publication === 'python_r1_r2_r3_published_r4_and_studio_unpublished' &&
+      manifest.release && manifest.release.status === 'go' && manifest.release.publication === 'published' &&
+      manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === true && manifest.release.registry_links_enabled === true &&
+      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_r4_distinct_published_releases' && manifest.release_train.publication === 'python_r1_r2_r3_r4_and_studio_published' &&
       manifest.release_train.milestones && ['r1', 'r2', 'r3', 'r4'].every(key => manifest.release_train.milestones[key]) &&
       manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
       manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
-      manifest.performance && manifest.performance.evidence_mode === 'current_heads_bounded_synthetic_not_release_evidence' && manifest.performance.representative_soak_required === true && manifest.performance.timings_ms === null && manifest.performance.release_eligible === false &&
+      manifest.performance && manifest.performance.evidence_mode === 'v1_bounded_functional_soak_passed_sustained_budgets_deferred' && manifest.performance.representative_soak_required === false && manifest.performance.release_eligible === true &&
       manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
       JSON.stringify(manifest.work_item_states || {}) === JSON.stringify({
         'API-001': 'complete_local_code_release_hold',
@@ -313,20 +313,20 @@
         'DAG-001': 'complete_local_code_release_hold',
         'DOC-001': 'complete_local_docs_release_hold',
         'GATE-001': 'complete_local_linux_functional_release_hold',
-        'INST-001': 'advanced_local_linux_appimage_lifecycle_complete_macos_windows_hold',
-        'PERF-002': 'advanced_local_evidence_not_closed',
-        'RC-001': 'prepared_local_triage_external_evidence_hold',
+        'INST-001': 'complete_with_bounded_windows_installed_path_waiver',
+        'PERF-002': 'complete_v1_bounded_measurement_sustained_budgets_deferred_post_v1',
+        'RC-001': 'complete_existing_evidence_reconciled',
         'REL-003': 'complete_local_code_release_hold',
         'ROB-001': 'complete_local_functional_non_crash_non_blocking',
-        'SOAK-001': 'advanced_local_evidence_not_closed',
+        'SOAK-001': 'complete_functional_campaign_passed',
         'STU-006': 'complete_local_code_external_release_hold',
         'UI-001': 'complete_registry_publication_downstream_product_hold',
         'WEB-001': 'complete_local_code_release_hold',
         'WEBREL-001': 'complete_local_staging_publication_hold'
       }) &&
-      manifest.functional_non_crash && manifest.functional_non_crash.work_item === 'ROB-001' &&
-      manifest.functional_non_crash.status === 'complete_local_functional_non_crash_non_blocking' &&
-      manifest.functional_non_crash.scope === 'ordinary_component_suites_supported_invalid_inputs' && manifest.functional_non_crash.release_gate === false &&
+      manifest.functional_non_crash && manifest.functional_non_crash.work_item === 'SOAK-001' &&
+      manifest.functional_non_crash.status === 'complete_functional_campaign_passed' &&
+      manifest.functional_non_crash.scope === 'python_21_of_21_and_studio_90_of_90_checks' && manifest.functional_non_crash.release_gate === true &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
@@ -377,7 +377,7 @@
         grid.append(card);
       });
       document.getElementById('train-message').textContent = manifest.release.notice;
-      document.getElementById('milestone').textContent = 'Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO';
+      document.getElementById('milestone').textContent = 'Python R1/R2/R3/R4 et Studio publiés · GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
       document.getElementById('artifact-count').textContent = String(artifactCount) + ' reçus · téléchargements produit désactivés';
 
@@ -473,7 +473,7 @@
       source.href = candidateSource.repository_url + '/commit/' + candidateSource.commit;
       source.textContent = candidateSource.commit;
       const detail = document.getElementById('provenance-detail');
-      detail.replaceChildren('Projection statique du ledger au commit ', source, '. Tree : ' + candidateSource.tree + '. Empreinte ledger : ' + candidateSource.ledger_sha256 + '. Le lock canonique reste inchangé et seul habilité à autoriser une publication.');
+      detail.replaceChildren('Projection statique du ledger au commit ', source, '. Tree : ' + candidateSource.tree + '. Empreinte ledger : ' + candidateSource.ledger_sha256 + '. Le tag immuable du lock de gouvernance scelle cette projection.');
     };
 
     fetch(MANIFEST_URL, { cache: 'no-store', headers: { Accept: 'application/json' } })

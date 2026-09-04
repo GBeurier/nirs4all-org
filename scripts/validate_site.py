@@ -27,12 +27,12 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "a8d787323bef726f3400c13a9bd74f252926e820",
-    "tree": "65215d3968b3174087acd90c10a734cda5df0860",
-    "ledger_sha256": "sha256:826cc02d5e3e9ee7b23ec555730dc62d4dd9688ef45a00244f358bf43a468012",
+    "commit": "d7d62825e5aa5ab5554ec7d084fab29be66acd74",
+    "tree": "52316e7150f6a778b3982a1aef5fc7627389f8b4",
+    "ledger_sha256": "sha256:d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
 }
 CANDIDATE_COMPONENTS = {
-    "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
+    "benchmarks": ("0.1.7", "1649cdfb253a0eb0efec2c15b5e21a5c6219dc80", "f577ae2459266dacfa0dace1ec185409344c12c9"),
     "core": ("0.3.28", "550cb8c80708e88ac7ebbc880acb4b82d8531632", "5181e3bc65c9a3ee413bdfc8b81f34cd61450f7e"),
     "dag_ml": ("0.3.23", "1caa26dc9b90f33bc3f53b15b4d85e18f3f67381", "8dffd6e823e214b720e1f8d715ddb7634bd4fb4e"),
     "dag_ml_data": ("0.2.10", "7d9b9fed04c135ed4c2bba472c782aca7ef85807", "42f02fdd723239cdbc933797e01d0d48b184712e"),
@@ -41,9 +41,9 @@ CANDIDATE_COMPONENTS = {
     "io": ("0.1.14", "df7f2198862c71a24aeeba08ba09ee118524b55d", "16b2910ec602cfa4fd1db2f1c1d9b2a89893b857"),
     "methods": ("1.0.16", "49aa40e90afef676f25809db1bd2a523e9582a49", "03de9a3f0b116b4d4c7446acc6cd1e4bf8814a83"),
     "providers": ("0.2.11", "b2210ec717c0de0055fc8b9424b115a933efdb4e", "23a4a70513a33118c19923a47647a0a362c85f18"),
-    "python": ("1.0.0rc2", "3567bd4abcaa64443a1946748a579f0803e91889", "a06c4015a26124df1e529f82108ee7bd115236cb"),
+    "python": ("1.0.0", "a5e5f93b8b1336bc58c0a23814066e5e14678d12", "1f566f81f5309ed0b73872fbc01db00a40d4e3e2"),
     "repository": ("0.1.12", "dbd9dae1205e1905692decd9fc7243f4fbda3068", "c37878a2f83baf90fcfb222944d4d06178164a71"),
-    "studio": ("0.11.0", "1c905e4c51a146dcc85e017454557a7eace7209b", "50472b2f0a2f98790cc7646c253cc31146270e1c"),
+    "studio": ("0.11.0", "1c36b93f62cf560d8f4822c76cfe09fbb1d0e67b", "e6bdb63b994a276336e976d5b0a37904abc87731"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
     "web": ("0.1.10", "051bf636d7c1729087e5d40061b18bd690cd33b7", "e94251e350f31dbb996e1a2e477c466cfdf992ff"),
@@ -72,8 +72,8 @@ CANDIDATE_RELEASE_TRAIN = {
         "3567bd4abcaa64443a1946748a579f0803e91889",
         "a06c4015a26124df1e529f82108ee7bd115236cb",
         "0.11.0",
-        "1c905e4c51a146dcc85e017454557a7eace7209b",
-        "50472b2f0a2f98790cc7646c253cc31146270e1c",
+        "1c36b93f62cf560d8f4822c76cfe09fbb1d0e67b",
+        "e6bdb63b994a276336e976d5b0a37904abc87731",
         "native_fail_closed_rust_only",
     ),
 }
@@ -85,12 +85,12 @@ CANDIDATE_WORK_ITEM_STATES = {
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
     "GATE-001": "complete_local_linux_functional_release_hold",
-    "INST-001": "advanced_local_linux_appimage_lifecycle_complete_macos_windows_hold",
-    "PERF-002": "advanced_local_evidence_not_closed",
-    "RC-001": "prepared_local_triage_external_evidence_hold",
+    "INST-001": "complete_with_bounded_windows_installed_path_waiver",
+    "PERF-002": "complete_v1_bounded_measurement_sustained_budgets_deferred_post_v1",
+    "RC-001": "complete_existing_evidence_reconciled",
     "REL-003": "complete_local_code_release_hold",
     "ROB-001": "complete_local_functional_non_crash_non_blocking",
-    "SOAK-001": "advanced_local_evidence_not_closed",
+    "SOAK-001": "complete_functional_campaign_passed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_registry_publication_downstream_product_hold",
     "WEB-001": "complete_local_code_release_hold",
@@ -268,7 +268,7 @@ def validate_release_manifest(manifest: Any) -> None:
 
 
 def validate_native_candidate(candidate: Any) -> None:
-    """Validate the exact unpublished candidate shared with Cockpit."""
+    """Validate the exact release projection shared with Cockpit."""
     if not isinstance(candidate, dict) or candidate.get("schema_version") != "n4a.native-candidate-staging/v1":
         raise ValidationError("unsupported native candidate schema")
     source = candidate.get("source")
@@ -281,18 +281,20 @@ def validate_native_candidate(candidate: Any) -> None:
         raise ValidationError("native candidate source is not the governance ledger")
 
     release = candidate.get("release")
-    if not isinstance(release, dict) or release.get("status") != "no_go" or release.get("publication") != "unpublished":
-        raise ValidationError("native candidate must remain NO-GO and unpublished")
-    for field in ("canonical_lock_updated", "downloads_enabled", "registry_links_enabled"):
-        if release.get(field) is not False:
-            raise ValidationError(f"native candidate must keep {field}=false")
+    if not isinstance(release, dict) or release.get("status") != "go" or release.get("publication") != "published":
+        raise ValidationError("native release must remain GO and published")
+    if release.get("canonical_lock_updated") is not False:
+        raise ValidationError("native release projection must precede the immutable lock tag")
+    for field in ("downloads_enabled", "registry_links_enabled"):
+        if release.get(field) is not True:
+            raise ValidationError(f"native release must keep {field}=true")
 
     release_train = candidate.get("release_train")
     if not isinstance(release_train, dict) or (
-        release_train.get("status") != "r1_r2_r3_distinct_published_releases_r4_candidate_held"
-        or release_train.get("publication") != "python_r1_r2_r3_published_r4_and_studio_unpublished"
+        release_train.get("status") != "r1_r2_r3_r4_distinct_published_releases"
+        or release_train.get("publication") != "python_r1_r2_r3_r4_and_studio_published"
     ):
-        raise ValidationError("native candidate release train must retain the published Python R1/R2/R3 receipts")
+        raise ValidationError("native release train must retain all published receipts")
     milestones = release_train.get("milestones")
     if not isinstance(milestones, dict) or set(milestones) != {"r1", "r2", "r3", "r4"}:
         raise ValidationError("native candidate release milestones diverge")
@@ -333,15 +335,26 @@ def validate_native_candidate(candidate: Any) -> None:
             or not re.fullmatch(r"sha256:[0-9a-f]{64}", receipt.get("ghcr_oci_index", ""))
         ):
             raise ValidationError(f"native candidate {milestone.upper()} publication receipt diverges")
-    if milestones["r4"] != {
+    expected_r4 = {
         "documentation_commit": "ef39f1a53dd120b9ce28907dc372d755dd621430",
         "documentation_tree": "126dfe87557a265d2a6c7894885c7772604d5311",
         "python_commit": "a5e5f93b8b1336bc58c0a23814066e5e14678d12",
         "python_tree": "1f566f81f5309ed0b73872fbc01db00a40d4e3e2",
         "python_version": "1.0.0",
-        "status": "unpublished_candidate_no_public_receipt",
-    }:
-        raise ValidationError("R4 must remain the exact unpublished held candidate")
+        "status": "published_pypi_and_ghcr_release_workflow_green",
+        "publication": "pypi_and_ghcr",
+        "publication_workflow_run": 33885659321,
+        "release_id": 382803888,
+        "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0",
+        "tag_object": "a1fc8123e03840624f459b0078fdf104955c7800",
+        "wheel_sha256": "fb02ef000368f9d46c228214d2c8e19f71b6b6cf52cb1d52fd66b9220be1d002",
+        "sdist_sha256": "11feaca3b442c536e0baf0db58209c62cd76c180af2e2b229b270fd31ae06f59",
+        "record_sha256": "6c1b938ec4b26f83e998de60d446648d9e013a56f39ce89b11312b301246e736",
+        "installed_manifest_sha256": "caa89ad16dd77a4528f80965e66a03fed71101a4cf5cedb1fcd15a79c60be7ee",
+        "ghcr_oci_index": "sha256:c0a7420e1c63fc8bef403c673aefc46f62dc86cff45d28dff9b2e9c96f60ed9e",
+    }
+    if milestones["r4"] != expected_r4:
+        raise ValidationError("R4 published receipt diverges")
 
     components = candidate.get("components")
     if not isinstance(components, list):
@@ -392,15 +405,18 @@ def validate_native_candidate(candidate: Any) -> None:
                 for registry_url in component["registry_urls"]
             ):
                 raise ValidationError(f"{key}: malformed registry receipt URL")
-        elif component.get("publication") != "unavailable" or component.get("artifacts") != [] or component.get("registry_urls") != []:
-            raise ValidationError(f"{key}: unpublished candidate exposes publication evidence")
+        elif component.get("publication") != "published":
+            raise ValidationError(f"{key}: publication receipt is missing")
+        for artifact in component.get("artifacts", []):
+            if not re.fullmatch(r"[0-9a-f]{64}", artifact.get("sha256", "")):
+                raise ValidationError(f"{key}: malformed artifact receipt")
         if not re.fullmatch(r"https://github\.com/GBeurier/[A-Za-z0-9_.-]+", component.get("repository_url", "")):
             raise ValidationError(f"{key}: unsafe candidate repository URL")
     if observed != CANDIDATE_COMPONENTS:
         raise ValidationError("native candidate identities diverge from the pinned Governance receipt")
     benchmarks = next(component for component in components if component.get("key") == "benchmarks")
-    if benchmarks.get("qualification") != "current_heads_synthetic_four_surface_and_bounded_probe_passed_representative_soak_missing":
-        raise ValidationError("bounded Bench replay must not be exposed as release evidence")
+    if benchmarks.get("qualification") != "final_functional_soak_passed_performance_budgets_separate":
+        raise ValidationError("bounded V1 soak receipt diverges")
 
     cutover = candidate.get("cutover_observability")
     expected_cutover = {
@@ -434,24 +450,24 @@ def validate_native_candidate(candidate: Any) -> None:
 
     performance = candidate.get("performance")
     if not isinstance(performance, dict) or (
-        performance.get("evidence_mode") != "current_heads_bounded_synthetic_not_release_evidence"
+        performance.get("evidence_mode") != "v1_bounded_functional_soak_passed_sustained_budgets_deferred"
         or performance.get("contract") != "archive_v2_same_matrix_four_surfaces"
         or performance.get("budgets_frozen") is not False
-        or performance.get("release_eligible") is not False
-        or performance.get("representative_soak_required") is not True
-        or performance.get("report_scope") != "current_selected_heads_local_four_surface_replay"
-        or performance.get("timings_ms") is not None
+        or performance.get("release_eligible") is not True
+        or performance.get("representative_soak_required") is not False
+        or performance.get("report_scope") != "python_3_cycles_and_studio_30_readiness_repetitions"
+        or performance.get("duration_seconds") != 147.512
     ):
-        raise ValidationError("bounded Bench replay must remain non-promotional")
+        raise ValidationError("bounded V1 soak receipt diverges")
     if candidate.get("work_item_states") != CANDIDATE_WORK_ITEM_STATES:
         raise ValidationError("selected work-item states are incomplete or overclaimed")
 
     functional = candidate.get("functional_non_crash")
     if functional != {
-        "release_gate": False,
-        "scope": "ordinary_component_suites_supported_invalid_inputs",
-        "status": "complete_local_functional_non_crash_non_blocking",
-        "work_item": "ROB-001",
+        "release_gate": True,
+        "scope": "python_21_of_21_and_studio_90_of_90_checks",
+        "status": "complete_functional_campaign_passed",
+        "work_item": "SOAK-001",
     }:
         raise ValidationError("ROB-001 functional non-crash scope diverges")
 
@@ -474,7 +490,7 @@ def validate_native_candidate(candidate: Any) -> None:
     if not isinstance(capabilities, list) or not capabilities:
         raise ValidationError("native candidate capability matrix is missing")
     statuses = {entry.get("status") for entry in capabilities if isinstance(entry, dict)}
-    if not {"qualified_local", "qualified_bounded", "bounded_current_not_release_evidence"}.issubset(statuses):
+    if not {"qualified_local", "qualified_bounded", "bounded_v1_functional_soak_passed"}.issubset(statuses):
         raise ValidationError("native candidate capability limits are incomplete")
 
     serialized = json.dumps(candidate, ensure_ascii=False).lower()
@@ -564,7 +580,7 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
-        "Candidat produit NO-GO — Python R1/R2/R3, Web, Repository et Providers publiés",
+        "Train produit GO — Python R1/R2/R3/R4, Studio, Web, Repository et Providers publiés",
         "native-candidate-staging.json",
         "Train R1/R2/R3/R4 distinct",
         "Capability matrix qualifiée",
@@ -596,23 +612,23 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
     """Keep human transition copy aligned with the candidate projection."""
     required = {
         "README.md": (
-            "Python R1 0.13.0, R2 and R3",
+            "Python R1 0.13.0, R2, R3 and stable R4 1.0.0",
             "Repository 0.1.12 and Providers 0.2.11 are published",
             "Web 0.1.10 is deployed",
-            "a8d787323bef726f3400c13a9bd74f252926e820",
-            "8b9457453fcca20de0a7fa08d0afdcb34a10a27c910de32b1dcae4d2b68ae983",
+            "d7d62825e5aa5ab5554ec7d084fab29be66acd74",
+            "d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
         ),
         "index.html": (
-            "Python R1 0.13.0, R2 and R3</b>",
+            "Python R1 0.13.0, R2, R3 and stable R4 1.0.0</b>",
             "Repository 0.1.12</b>",
             "Providers 0.2.11</b>",
             "nirs4all-web 0.1.10</b> is live",
-            "R4 and Studio 0.11.0 remain unpublished",
+            "R4 1.0.0</b> and <b>Studio 0.11.0</b> are published",
         ),
         "release-status.html": (
-            "Python R1/R2/R3 publiés · R4/Studio candidats · NO-GO",
-            "python_r1_r2_r3_published_r4_and_studio_unpublished",
-            "R2/R3 ont leurs reçus PyPI/GHCR",
+            "Python R1/R2/R3/R4 et Studio publiés · GO",
+            "python_r1_r2_r3_r4_and_studio_published",
+            "R2/R3/R4 ont leurs reçus PyPI/GHCR",
         ),
     }
     documents = {

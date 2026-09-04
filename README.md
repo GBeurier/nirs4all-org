@@ -13,11 +13,12 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
-Current transition note: the native foundations, Python R1 0.13.0, R2 and R3,
-Repository 0.1.12 and Providers 0.2.11 are published, and Web 0.1.10 is
-deployed. R1 keeps the legacy engine as its default; R4 and Studio 0.11.0
-remain unpublished, and Studio remains unsigned. `LOCK-RELEASE` therefore
-remains NO-GO and this is not a stable V1 announcement.
+Current transition note: the native foundations, Python R1 0.13.0, R2, R3 and
+stable R4 1.0.0, Repository 0.1.12, Providers 0.2.11 and Studio 0.11.0 are
+published, and Web 0.1.10 is deployed. R1 keeps the legacy engine as its
+default. Studio remains unsigned/non-notarized under the explicit bounded
+waiver recorded with the release receipts.
+Repository 0.1.12 and Providers 0.2.11 are published. Web 0.1.10 is deployed.
 
 The release-status page has two deliberately separate inputs. The historical
 `release-manifest.json` remains the fail-closed projection of the unchanged
@@ -25,15 +26,12 @@ canonical lock. The historical `r1-archive.html` reads only that deterministic
 projection: it records the R1 consolidation without claiming native-default or
 exposing a candidate artifact, and links the migration center and publishable
 Methods documentation. `native-candidate-staging.json` is the Org projection of
-governance commit `a8d787323bef726f3400c13a9bd74f252926e820`; it exposes exact candidate
-identities and the distinct R1/R2/R3/R4 train. Repository 0.1.12, Providers
-0.2.11 and Methods 1.0.16 carry immutable publication receipts without enabling R4 or
-Studio downloads. R4 now has an exact local metadata/docs candidate, remains
-unpublished, and does not announce a stable V1. The bounded current-head Bench
-replay passes on four surfaces without fallback but is not release evidence;
-representative sustained soak and frozen budgets remain required. ROB-001 is
-ordinary functional invalid-input and non-crash coverage, locally complete and
-non-blocking.
+governance commit `d7d62825e5aa5ab5554ec7d084fab29be66acd74`; it exposes exact release
+identities and the distinct R1/R2/R3/R4 train. The projected ledger SHA-256 is
+`d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450`.
+Repository 0.1.12, Providers 0.2.11 and Methods 1.0.16 carry immutable publication receipts. R4 and Studio
+are published. The bounded functional soak is release evidence for V1; sustained
+performance budgets and longer cross-platform campaigns remain deferred post-V1.
 The historical `r2-archive.html` combines these two validated inputs to document
 the native-default, explicit-legacy RC rollback profile without publishing or
 inventing an installer, package, or download URL.
