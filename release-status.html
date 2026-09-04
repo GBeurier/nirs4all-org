@@ -275,11 +275,11 @@
       COMMIT.test(identity.tree || '') && typeof identity.status === 'string';
 
     const isPublishedReceipt = component =>
-      ['providers', 'repository'].includes(component.key) &&
+      ['methods', 'providers', 'repository'].includes(component.key) &&
       component.publication === 'published' &&
-      Array.isArray(component.artifacts) && component.artifacts.length === 2 &&
-      component.artifacts.every(artifact => ['wheel', 'sdist'].includes(artifact.id) && /^[0-9a-f]{64}$/.test(artifact.sha256 || '') && Number.isInteger(artifact.size) && artifact.size > 0) &&
-      Array.isArray(component.registry_urls) && component.registry_urls.length === 2;
+      Array.isArray(component.artifacts) && component.artifacts.length > 0 &&
+      component.artifacts.every(artifact => typeof artifact.id === 'string' && /^[0-9a-f]{64}$/.test(artifact.sha256 || '') && Number.isInteger(artifact.size) && artifact.size > 0) &&
+      Array.isArray(component.registry_urls) && component.registry_urls.length > 0;
 
     const isComponent = component => component &&
       typeof component === 'object' &&

@@ -230,20 +230,58 @@
       "version": "0.1.14"
     },
     {
-      "artifacts": [],
-      "commit": "e0bee1ce160cd805d3060185fd151c09230c3381",
+      "artifacts": [
+        {
+          "filename": "nirs4all-methods-1.0.16-src.tar.gz",
+          "id": "source_tarball",
+          "sha256": "f8bb9259bdfcaac8b071d93ec6b1abebf75e5015d7f6d25fa605c0da24585d08",
+          "size": 22282689
+        },
+        {
+          "filename": "nirs4all-methods-1.0.16.cdx.json",
+          "id": "sbom",
+          "sha256": "8a580c8a78fbdcac70a01bc39b4679750e8e626d2f5de93220d081adfaf74bed",
+          "size": 105658
+        },
+        {
+          "filename": "nirs4all-methods-matlab-octave-1.0.16.zip",
+          "id": "matlab_octave",
+          "sha256": "ca60c80b574663fc104dfac56bb0a680e6aac4111c037fbdc6a950b17e3f7934",
+          "size": 91143
+        },
+        {
+          "filename": "n4m_1.0.16.tar.gz",
+          "id": "r_n4m",
+          "sha256": "29d8b7dc63d47fb8c9617a2b39d44bb43d71b68811ad4b14fc5d61bc98348c2d",
+          "size": 859946
+        },
+        {
+          "filename": "pls4all_1.0.16.tar.gz",
+          "id": "r_pls4all",
+          "sha256": "e90005fdc656119de7b9c7404d2d3d2e6286a385a16494a481463bffd3a27ac6",
+          "size": 856136
+        }
+      ],
+      "commit": "49aa40e90afef676f25809db1bd2a523e9582a49",
       "detail_versions": {
         "c_abi": "2.5.0",
+        "npm": "1.0.16",
+        "pls4all": "1.0.16",
         "rust_binding": "0.1.4"
       },
       "key": "methods",
       "name": "nirs4all-methods",
-      "publication": "unavailable",
-      "qualification": "n4m_0_1_4_published_r4_docs_qualified_local_external_release_hold",
-      "registry_urls": [],
+      "publication": "published",
+      "qualification": "published_1_0_16_exact_tag_six_release_workflows_green",
+      "registry_urls": [
+        "https://github.com/GBeurier/nirs4all-methods/releases/tag/v1.0.16",
+        "https://www.npmjs.com/package/@nirs4all/methods/v/1.0.16",
+        "https://pypi.org/project/pls4all/1.0.16/",
+        "https://pypi.org/project/nirs4all-methods/1.0.16/"
+      ],
       "repository_url": "https://github.com/GBeurier/nirs4all-methods",
-      "tree": "7e4658658e37f77be18ef6d3d6aff150886efb5b",
-      "version": "1.0.15"
+      "tree": "03de9a3f0b116b4d4c7446acc6cd1e4bf8814a83",
+      "version": "1.0.16"
     },
     {
       "artifacts": [
@@ -517,11 +555,11 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "8edd28e7428f9492387e537329fe3167eb6babbf",
+    "commit": "a8d787323bef726f3400c13a9bd74f252926e820",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:a4048d9cef78108ddd77167d6e6f2057d5441a75171da1562a4b415b2586ab59",
+    "ledger_sha256": "sha256:826cc02d5e3e9ee7b23ec555730dc62d4dd9688ef45a00244f358bf43a468012",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "b6134b7182fbe9007848daa15da7d34ef48cfc18"
+    "tree": "65215d3968b3174087acd90c10a734cda5df0860"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

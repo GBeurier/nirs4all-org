@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "8edd28e7428f9492387e537329fe3167eb6babbf",
-    "tree": "b6134b7182fbe9007848daa15da7d34ef48cfc18",
-    "ledger_sha256": "sha256:a4048d9cef78108ddd77167d6e6f2057d5441a75171da1562a4b415b2586ab59",
+    "commit": "a8d787323bef726f3400c13a9bd74f252926e820",
+    "tree": "65215d3968b3174087acd90c10a734cda5df0860",
+    "ledger_sha256": "sha256:826cc02d5e3e9ee7b23ec555730dc62d4dd9688ef45a00244f358bf43a468012",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
@@ -39,7 +39,7 @@ CANDIDATE_COMPONENTS = {
     "datasets": ("0.3.10", "007d7aafe50e6e4148d5a5cefe0ad96d9da37e7b", "7e37557cff5b4d825e9837e96cb4b2ff05211678"),
     "formats": ("0.2.9", "3e5a05674dfab4bbcebf23fe9d615d231ca4d551", "3b9717258fc80791d80641633a4bbf6478e7256a"),
     "io": ("0.1.14", "df7f2198862c71a24aeeba08ba09ee118524b55d", "16b2910ec602cfa4fd1db2f1c1d9b2a89893b857"),
-    "methods": ("1.0.15", "e0bee1ce160cd805d3060185fd151c09230c3381", "7e4658658e37f77be18ef6d3d6aff150886efb5b"),
+    "methods": ("1.0.16", "49aa40e90afef676f25809db1bd2a523e9582a49", "03de9a3f0b116b4d4c7446acc6cd1e4bf8814a83"),
     "providers": ("0.2.11", "b2210ec717c0de0055fc8b9424b115a933efdb4e", "23a4a70513a33118c19923a47647a0a362c85f18"),
     "python": ("1.0.0rc2", "3567bd4abcaa64443a1946748a579f0803e91889", "a06c4015a26124df1e529f82108ee7bd115236cb"),
     "repository": ("0.1.12", "dbd9dae1205e1905692decd9fc7243f4fbda3068", "c37878a2f83baf90fcfb222944d4d06178164a71"),
@@ -354,7 +354,25 @@ def validate_native_candidate(candidate: Any) -> None:
         if key in observed:
             raise ValidationError(f"duplicate native candidate component: {key}")
         observed[key] = (component.get("version"), component.get("commit"), component.get("tree"))
-        if key in {"providers", "repository"}:
+        if key == "methods":
+            expected_artifact_ids = {"source_tarball", "sbom", "matlab_octave", "r_n4m", "r_pls4all"}
+            if (
+                component.get("publication") != "published"
+                or {artifact.get("id") for artifact in component.get("artifacts", [])} != expected_artifact_ids
+                or len(component.get("registry_urls", [])) != 4
+            ):
+                raise ValidationError("methods: published multi-registry receipt is incomplete")
+            for artifact in component["artifacts"]:
+                if (
+                    not isinstance(artifact.get("filename"), str)
+                    or not re.fullmatch(r"[0-9a-f]{64}", artifact.get("sha256", ""))
+                    or not isinstance(artifact.get("size"), int)
+                    or artifact["size"] <= 0
+                ):
+                    raise ValidationError("methods: malformed artifact receipt")
+            if any(not registry_url.startswith("https://") for registry_url in component["registry_urls"]):
+                raise ValidationError("methods: malformed registry receipt URL")
+        elif key in {"providers", "repository"}:
             if component.get("publication") != "published" or len(component.get("artifacts", [])) != 2:
                 raise ValidationError(f"{key}: published receipt is incomplete")
             for artifact in component["artifacts"]:
@@ -581,8 +599,8 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
             "Python R1 0.13.0, R2 and R3",
             "Repository 0.1.12 and Providers 0.2.11 are published",
             "Web 0.1.10 is deployed",
-            "8edd28e7428f9492387e537329fe3167eb6babbf",
-            "c3b4f20a6649ccf88e5895d91f46f17440a578b2a425389ea71d1e180f40285b",
+            "a8d787323bef726f3400c13a9bd74f252926e820",
+            "8b9457453fcca20de0a7fa08d0afdcb34a10a27c910de32b1dcae4d2b68ae983",
         ),
         "index.html": (
             "Python R1 0.13.0, R2 and R3</b>",
@@ -659,7 +677,7 @@ def validate_r2_archive_page(path: Path) -> None:
         "release-status.html#migration-title",
         "https://methods.nirs4all.org/",
         "r1-archive.html",
-        "['providers', 'repository'].includes(component.key)",
+        "['methods', 'providers', 'repository'].includes(component.key)",
         "component.publication === 'unavailable'",
         "component.artifacts.length === 0",
         "component.registry_urls.length === 0",
