@@ -318,7 +318,7 @@
     },
     {
       "artifacts": [],
-      "commit": "bea06a555f49c886ab0d02f626c347570f1127d3",
+      "commit": "1c905e4c51a146dcc85e017454557a7eace7209b",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -326,7 +326,7 @@
       "qualification": "final_candidate_pinned_to_python_r3_ci_publication_and_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
+      "tree": "50472b2f0a2f98790cc7646c253cc31146270e1c",
       "version": "0.11.0"
     },
     {
@@ -497,8 +497,8 @@
         "release_id": 382709680,
         "release_url": "https://github.com/GBeurier/nirs4all/releases/tag/1.0.0-rc.2",
         "sdist_sha256": "6a6d41dc828919f0cc0cb14d06735e6d712e672edf5b7d9a00533ddb01c0949c",
-        "studio_commit": "bea06a555f49c886ab0d02f626c347570f1127d3",
-        "studio_tree": "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
+        "studio_commit": "1c905e4c51a146dcc85e017454557a7eace7209b",
+        "studio_tree": "50472b2f0a2f98790cc7646c253cc31146270e1c",
         "studio_version": "0.11.0",
         "tag_object": "5d82fcd06b440dc8e3668716658e7c50393f485f",
         "wheel_sha256": "bb6f7a1f3a0de0fb9986e685b02bf48d7998f2d9261f8cdb7be35ed13bc4bdd0"
@@ -517,11 +517,11 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "aae89519d4c807dab17a540328b97556c97307d3",
+    "commit": "8edd28e7428f9492387e537329fe3167eb6babbf",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:521c9ab48cf78bcc9df1a6c878dac2f3a48d53c5d02a5213d09be2890762e1a3",
+    "ledger_sha256": "sha256:a4048d9cef78108ddd77167d6e6f2057d5441a75171da1562a4b415b2586ab59",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "4405d367c1cf1ff0d898bddb0cc81402c8b4289a"
+    "tree": "b6134b7182fbe9007848daa15da7d34ef48cfc18"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

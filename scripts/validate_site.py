@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "aae89519d4c807dab17a540328b97556c97307d3",
-    "tree": "4405d367c1cf1ff0d898bddb0cc81402c8b4289a",
-    "ledger_sha256": "sha256:521c9ab48cf78bcc9df1a6c878dac2f3a48d53c5d02a5213d09be2890762e1a3",
+    "commit": "8edd28e7428f9492387e537329fe3167eb6babbf",
+    "tree": "b6134b7182fbe9007848daa15da7d34ef48cfc18",
+    "ledger_sha256": "sha256:a4048d9cef78108ddd77167d6e6f2057d5441a75171da1562a4b415b2586ab59",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
@@ -43,7 +43,7 @@ CANDIDATE_COMPONENTS = {
     "providers": ("0.2.11", "b2210ec717c0de0055fc8b9424b115a933efdb4e", "23a4a70513a33118c19923a47647a0a362c85f18"),
     "python": ("1.0.0rc2", "3567bd4abcaa64443a1946748a579f0803e91889", "a06c4015a26124df1e529f82108ee7bd115236cb"),
     "repository": ("0.1.12", "dbd9dae1205e1905692decd9fc7243f4fbda3068", "c37878a2f83baf90fcfb222944d4d06178164a71"),
-    "studio": ("0.11.0", "bea06a555f49c886ab0d02f626c347570f1127d3", "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0"),
+    "studio": ("0.11.0", "1c905e4c51a146dcc85e017454557a7eace7209b", "50472b2f0a2f98790cc7646c253cc31146270e1c"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
     "web": ("0.1.10", "051bf636d7c1729087e5d40061b18bd690cd33b7", "e94251e350f31dbb996e1a2e477c466cfdf992ff"),
@@ -72,8 +72,8 @@ CANDIDATE_RELEASE_TRAIN = {
         "3567bd4abcaa64443a1946748a579f0803e91889",
         "a06c4015a26124df1e529f82108ee7bd115236cb",
         "0.11.0",
-        "bea06a555f49c886ab0d02f626c347570f1127d3",
-        "9a873ba2bb58d9425e4df2c06f827ef6fd701ce0",
+        "1c905e4c51a146dcc85e017454557a7eace7209b",
+        "50472b2f0a2f98790cc7646c253cc31146270e1c",
         "native_fail_closed_rust_only",
     ),
 }
@@ -581,8 +581,8 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
             "Python R1 0.13.0, R2 and R3",
             "Repository 0.1.12 and Providers 0.2.11 are published",
             "Web 0.1.10 is deployed",
-            "aae89519d4c807dab17a540328b97556c97307d3",
-            "abea5ea65ee72e8aa01b76cbefce900c3a90012c51ce45ef99377c4cc523ca1d",
+            "8edd28e7428f9492387e537329fe3167eb6babbf",
+            "c3b4f20a6649ccf88e5895d91f46f17440a578b2a425389ea71d1e180f40285b",
         ),
         "index.html": (
             "Python R1 0.13.0, R2 and R3</b>",
