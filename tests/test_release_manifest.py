@@ -148,10 +148,10 @@ class NativeCandidateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "published R1 receipt"):
             validate_native_candidate(invalid)
 
-    def test_stale_bench_report_cannot_become_current_evidence(self) -> None:
+    def test_bounded_bench_replay_cannot_become_release_evidence(self) -> None:
         invalid = copy.deepcopy(self.candidate)
         invalid["performance"]["evidence_mode"] = "local_real_record_only"
-        with self.assertRaisesRegex(ValidationError, "stale Bench report"):
+        with self.assertRaisesRegex(ValidationError, "bounded Bench replay"):
             validate_native_candidate(invalid)
 
 

@@ -73,7 +73,7 @@
     {
       "key": "studio_control_plane",
       "label": "Plan de contrôle Studio",
-      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; matrice unsigned Linux/Windows/macOS verte; publication, signatures, soak hostile et verrou canonique restent en attente.",
+      "limits": "HTTP, contrôle, store, jobs, scheduler et WebSocket en Rust; candidat final épinglé sur Python R3; sa matrice finale, la publication, les signatures et le soak représentatif restent en attente.",
       "status": "qualified_local",
       "surfaces": [
         "studio"
@@ -120,9 +120,9 @@
     },
     {
       "key": "full_python_api",
-      "label": "Matrice complète API Python R2",
-      "limits": "run/predict/session/cache/conformal/robustness et les chemins dual-Methods restent incomplets comme ensemble; les dispositions retrain/explain/generate bornées sont listées séparément.",
-      "status": "not_qualified",
+      "label": "Matrice API Python bornée",
+      "limits": "Les surfaces promises run/predict/session/cache/conformal/robustness et orchestration sont qualifiées localement; transfer reste lié au plugin, et les capacités absentes refusent.",
+      "status": "qualified_bounded",
       "surfaces": [
         "python"
       ]
@@ -130,8 +130,8 @@
     {
       "key": "four_surface_performance",
       "label": "Performance sur le train courant",
-      "limits": "Le rapport Bench disponible précède les candidats R1/R2/R3 distincts. Il reste historique et ne constitue pas une preuve courante; nouvelle mesure et soak requis.",
-      "status": "stale_not_current_evidence",
+      "limits": "Le rejeu synthétique courant passe sur quatre surfaces sans fallback; il ne remplace pas le soak représentatif, les budgets figés ni les matrices externes.",
+      "status": "bounded_current_not_release_evidence",
       "surfaces": [
         "benchmarks"
       ]
@@ -140,15 +140,15 @@
   "components": [
     {
       "artifacts": [],
-      "commit": "9ff889a5be1bbc48a16d69a27ab743c23598f7da",
+      "commit": "17f8196b26457fbd300a46d6520c3d1845d0de05",
       "detail_versions": {},
       "key": "benchmarks",
       "name": "nirs4all-benchmarks",
       "publication": "unavailable",
-      "qualification": "selected_heads_unmeasured_historical_measurement_retained_release_no_go",
+      "qualification": "current_heads_synthetic_four_surface_and_bounded_probe_passed_representative_soak_missing",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-benchmarks",
-      "tree": "7c8b9c20cf8ae1c5d16a885ddc7c04f79aa1ed6b",
+      "tree": "29ae8f56656ce59cbcc2923ad6b30680d1b50a21",
       "version": "0.1.7"
     },
     {
@@ -223,7 +223,7 @@
       "key": "io",
       "name": "nirs4all-io",
       "publication": "unavailable",
-      "qualification": "published_0_1_14_security_update_role_tagged_limits_retained_external_release_hold",
+      "qualification": "published_0_1_14_plus_complete_six_surface_ci_qualification_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
       "tree": "16b2910ec602cfa4fd1db2f1c1d9b2a89893b857",
@@ -239,7 +239,7 @@
       "key": "methods",
       "name": "nirs4all-methods",
       "publication": "unavailable",
-      "qualification": "n4m_0_1_4_published_methods_external_release_hold",
+      "qualification": "n4m_0_1_4_published_r4_docs_qualified_local_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-methods",
       "tree": "7e4658658e37f77be18ef6d3d6aff150886efb5b",
@@ -247,7 +247,20 @@
     },
     {
       "artifacts": [],
-      "commit": "53a0acb964bff86dc67002763d8e9b850336731f",
+      "commit": "b2210ec717c0de0055fc8b9424b115a933efdb4e",
+      "detail_versions": {},
+      "key": "providers",
+      "name": "nirs4all-providers",
+      "publication": "unavailable",
+      "qualification": "published_0_2_10_final_0_2_11_repository_repin_qualified_release_pending",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-providers",
+      "tree": "23a4a70513a33118c19923a47647a0a362c85f18",
+      "version": "0.2.11"
+    },
+    {
+      "artifacts": [],
+      "commit": "3567bd4abcaa64443a1946748a579f0803e91889",
       "detail_versions": {},
       "key": "python",
       "name": "nirs4all",
@@ -255,20 +268,33 @@
       "qualification": "remote_r3_direct_child_of_r2_native_default_candidate_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all",
-      "tree": "2404b76783e9fc6e10723e671d274975e14756aa",
+      "tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
       "version": "1.0.0rc2"
     },
     {
       "artifacts": [],
-      "commit": "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39",
+      "commit": "dbd9dae1205e1905692decd9fc7243f4fbda3068",
+      "detail_versions": {},
+      "key": "repository",
+      "name": "nirs4all-repository",
+      "publication": "unavailable",
+      "qualification": "published_0_1_11_final_0_1_12_surface_contract_qualified_release_pending",
+      "registry_urls": [],
+      "repository_url": "https://github.com/GBeurier/nirs4all-repository",
+      "tree": "c37878a2f83baf90fcfb222944d4d06178164a71",
+      "version": "0.1.12"
+    },
+    {
+      "artifacts": [],
+      "commit": "89b5278a47ae4d38d6b508fabdd6e712f96942c0",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
       "publication": "unavailable",
-      "qualification": "registry_repinned_core_0_3_28_wheel_reproducibility_repair_platform_matrix_green_unsigned_external_release_hold",
+      "qualification": "final_candidate_pinned_to_python_r3_ci_publication_and_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c",
+      "tree": "931e2ae8c86c667c1da9507d8a2705fd20ff1ebb",
       "version": "0.11.0"
     },
     {
@@ -278,7 +304,7 @@
       "key": "tools",
       "name": "nirs4all-tools",
       "publication": "unavailable",
-      "qualification": "published_0_0_7_support_surface_final_release_hold",
+      "qualification": "published_0_0_7_r4_support_surface_qualified_local_final_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-tools",
       "tree": "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3",
@@ -323,6 +349,12 @@
     "warning_format": "stable_structured_json",
     "work_item": "CUT-002"
   },
+  "functional_non_crash": {
+    "release_gate": false,
+    "scope": "ordinary_component_suites_supported_invalid_inputs",
+    "status": "complete_local_functional_non_crash_non_blocking",
+    "work_item": "ROB-001"
+  },
   "governance": {
     "capability_inventory": {
       "commit": "cf6cd1d96c12d7043134ab0a7b4f593e19ec553b",
@@ -336,9 +368,9 @@
     }
   },
   "holds": [
-    "Product HOLD: the component registry cascade, Python R1 and Web 0.1.10 are published, but Studio remains an unpublished and unsigned candidate. R2/R3 are not releases.",
-    "Release-artifact HOLD: the canonical lock is intentionally unchanged; signing and SBOM/provenance closure remain required where applicable.",
-    "External qualification HOLD: the Studio four-OS unsigned installer matrix is green, but remaining external matrices, signed installers, hostile soak and frozen reference-host performance budgets remain incomplete. Local DATA, CONF, STU and four-surface WSL measurement flows plus aggregate/default/conversion/drop documentation are closed, but this snapshot grants no global GO."
+    "Product HOLD: R1 and Web are published; Repository 0.1.12, Providers 0.2.11, R2, R3, R4 and Studio 0.11.0 remain unpublished.",
+    "Release-artifact HOLD: the canonical lock is unchanged; final artifact digests, signatures and SBOM/provenance receipts remain incomplete where applicable.",
+    "Qualification HOLD: final-head external matrices, signed installers, representative sustained soak and frozen reference-host performance budgets remain incomplete."
   ],
   "methods_documentation": {
     "bibliography_entries": 88,
@@ -371,17 +403,17 @@
   "performance": {
     "budgets_frozen": false,
     "contract": "archive_v2_same_matrix_four_surfaces",
-    "evidence_mode": "stale_not_current_evidence",
-    "refresh_required": true,
+    "evidence_mode": "current_heads_bounded_synthetic_not_release_evidence",
     "release_eligible": false,
-    "report_scope": "predates_distinct_r1_r2_r3_candidates",
+    "report_scope": "current_selected_heads_local_four_surface_replay",
+    "representative_soak_required": true,
     "timings_ms": null
   },
   "release": {
     "canonical_lock_updated": false,
     "downloads_enabled": false,
     "label": "R4/V1 native backend local candidate",
-    "notice": "Candidat produit strictement NO-GO; les composants natifs, R1 0.13.0 et Web 0.1.10 sont publiés, mais R2, R3 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
+    "notice": "Candidat produit strictement NO-GO; les composants natifs, R1 0.13.0 et Web 0.1.10 sont publiés, mais R2, R3, R4 et Studio restent non publiés et aucune V1 stable n’est annoncée.",
     "publication": "unpublished",
     "registry_links_enabled": false,
     "status": "no_go"
@@ -403,8 +435,8 @@
       },
       "r2": {
         "default_engine": "native_with_explicit_legacy_opt_in",
-        "python_commit": "1de9dcb50fcdcc6273113f54a7c7235528c31ed8",
-        "python_tree": "97d348bf728144ec4324dcca6430d68eb3b9a1d5",
+        "python_commit": "d351785dbc17290cdc85a797ead299ffce58f257",
+        "python_tree": "364c9e63a0ef667c62e8d7223af632c5783b880a",
         "python_version": "1.0.0rc1",
         "studio_commit": "54350c688ae576bbbb393c5a24dae8d106f77322",
         "studio_tree": "9ecf2279039ef9b5af3d5be59be695f0dc0bc1d3",
@@ -412,67 +444,32 @@
       },
       "r3": {
         "default_engine": "native_fail_closed_rust_only",
-        "python_commit": "53a0acb964bff86dc67002763d8e9b850336731f",
-        "python_tree": "2404b76783e9fc6e10723e671d274975e14756aa",
+        "python_commit": "3567bd4abcaa64443a1946748a579f0803e91889",
+        "python_tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
         "python_version": "1.0.0rc2",
-        "studio_commit": "ca4ee2afbb7596b2e4ba4b00f6d5797e553dfa39",
-        "studio_tree": "baa3b0b3aaf7c9aaa8a6331590e633f6aacee97c",
+        "studio_commit": "89b5278a47ae4d38d6b508fabdd6e712f96942c0",
+        "studio_tree": "931e2ae8c86c667c1da9507d8a2705fd20ff1ebb",
         "studio_version": "0.11.0"
       },
       "r4": {
+        "documentation_commit": "ef39f1a53dd120b9ce28907dc372d755dd621430",
+        "documentation_tree": "126dfe87557a265d2a6c7894885c7772604d5311",
+        "python_commit": "a5e5f93b8b1336bc58c0a23814066e5e14678d12",
+        "python_tree": "1f566f81f5309ed0b73872fbc01db00a40d4e3e2",
         "python_version": "1.0.0",
-        "status": "not_created_until_stable_gates_are_green"
+        "status": "unpublished_candidate_no_public_receipt"
       }
     },
-    "publication": "r1_published_r2_r3_unpublished",
-    "status": "r1_r2_r3_distinct_candidates_r4_held"
+    "publication": "r1_published_r2_r3_r4_unpublished",
+    "status": "r1_r2_r3_distinct_candidates_r4_candidate_held"
   },
   "schema_version": "n4a.native-candidate-staging/v1",
-  "security_harnesses": {
-    "evidence_status": "four_native_targets_prepared_campaign_not_run",
-    "harnesses": [
-      {
-        "canonical_entrypoint": "nirs4all_formats::open_bytes",
-        "commit": "892a48b38f6c94697f805524f6efd4e8ff7323b0",
-        "input_limit_bytes": 1048576,
-        "surface": "formats",
-        "target": "registry_open_bytes",
-        "tree": "28e9adc8dcae49c58a0e5585dcacb821a8006f58"
-      },
-      {
-        "canonical_entrypoint": "nirs4all::load_archive_v2_bytes",
-        "commit": "0218bfc8b9d9193f771d27470e7cf9d5cf578823",
-        "input_limit_bytes": 2097152,
-        "surface": "core",
-        "target": "archive_v2_bytes",
-        "tree": "0d2537d715bed3d5fd60c836f71e5a8fd041ac8b"
-      },
-      {
-        "canonical_entrypoint": "public_N4MM_inspect_and_import_ABI",
-        "commit": "530b11c632ac467e6bf54022c7241d27cd72d73c",
-        "input_limit_bytes": 1048576,
-        "surface": "methods",
-        "target": "n4m_fuzz_n4mm_driver",
-        "tree": "fc4c47d6f07ad01ac52da4d19f715f2c61b968e7"
-      },
-      {
-        "canonical_entrypoint": "workspace_store::preflight_run_detail_projection",
-        "commit": "6d53f301830947ff85767c53c800829741af75ff",
-        "input_limit_bytes": 2097152,
-        "surface": "studio_store",
-        "target": "workspace_store_v5_bytes",
-        "tree": "3ae8f218a3c7eef23345ccc1630f29aa89594c2e"
-      }
-    ],
-    "release_limit": "These commits prepare bounded harnesses and reuse canonical parsers/APIs; they are not selected product-runtime heads and no fuzz campaign has run. cargo-fuzz/nightly and Clang 16 are unavailable locally, the Methods smoke link is blocked by the host gfortran/libm setup. Corpus campaigns, crash triage/reproduction, sanitizers and external matrices remain mandatory before SEC-001 closure.",
-    "work_item": "SEC-001"
-  },
   "source": {
-    "commit": "091b8a0f3069e7a90167f78c81bb9d414c50ade5",
+    "commit": "2d6ae20855b6eb960df07106b00d9b879238229e",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:dc7a876a8c3240789b41c192ece6d4fe711d58babb7afb4621a7e75b63d04c55",
+    "ledger_sha256": "sha256:d6d6be806f24fae5d62e875a67e3275137d1740fecc8630a2820c0328ab5a9c0",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "aebc80acdb0fb1c92425f744907f4d43ba251ec9"
+    "tree": "51355656c32923aae6a2ad1ae5d98d8e1e01031b"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",
@@ -482,11 +479,11 @@
     "DAG-001": "complete_local_code_release_hold",
     "DOC-001": "complete_local_docs_release_hold",
     "GATE-001": "complete_local_linux_functional_release_hold",
-    "INST-001": "prepared_local_linux_harness_external_matrix_hold",
+    "INST-001": "advanced_local_linux_appimage_lifecycle_complete_macos_windows_hold",
     "PERF-002": "advanced_local_evidence_not_closed",
     "RC-001": "prepared_local_triage_external_evidence_hold",
     "REL-003": "complete_local_code_release_hold",
-    "SEC-001": "prepared_local_native_fuzz_harnesses_campaign_not_closed",
+    "ROB-001": "complete_local_functional_non_crash_non_blocking",
     "SOAK-001": "advanced_local_evidence_not_closed",
     "STU-006": "complete_local_code_external_release_hold",
     "UI-001": "complete_registry_publication_downstream_product_hold",

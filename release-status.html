@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Candidats natifs R1/R2/R3 — staging NO-GO | nirs4all</title>
-  <meta name="description" content="Snapshot de staging vérifiable des candidats natifs nirs4all R1/R2/R3 : SHAs, versions, architecture et capacités qualifiées, sans publication produit ni téléchargement." />
+  <title>Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all</title>
+  <meta name="description" content="Snapshot de staging vérifiable des candidats natifs nirs4all R1/R2/R3/R4 : SHAs, versions, architecture et capacités qualifiées, sans publication produit ni téléchargement." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#0f766e" />
   <link rel="canonical" href="https://nirs4all.org/release-status.html" />
@@ -12,19 +12,19 @@
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="nirs4all" />
-  <meta property="og:title" content="Candidats natifs R1/R2/R3 — staging NO-GO | nirs4all" />
+  <meta property="og:title" content="Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all" />
   <meta property="og:description" content="Identités exactes et capacités réellement qualifiées du candidat local, explicitement non publié." />
   <meta property="og:url" content="https://nirs4all.org/release-status.html" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Candidats natifs R1/R2/R3 — staging NO-GO | nirs4all" />
+  <meta name="twitter:title" content="Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all" />
   <meta name="twitter:description" content="Vue statique et fail-closed du candidat local nirs4all, sans annonce de V1 stable." />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Candidats natifs R1/R2/R3 nirs4all — staging NO-GO",
+    "name": "Candidats natifs R1/R2/R3/R4 nirs4all — staging NO-GO",
     "description": "Snapshot de staging du candidat local natif nirs4all, explicitement non publié et sans téléchargement.",
     "url": "https://nirs4all.org/release-status.html",
     "isPartOf": {
@@ -112,7 +112,7 @@
     tbody th { font-weight: 700; }
     .mono { font: .76rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
     .state { display: inline-flex; padding: 3px 8px; border-radius: 999px; color: #166534; background: #dcfce7; font-size: .7rem; font-weight: 800; white-space: nowrap; }
-    .state.partial, .state.qualified_bounded, .state.fixture_only, .state.record_only, .state.stale_not_current_evidence { color: #854d0e; background: #fef3c7; }
+    .state.partial, .state.qualified_bounded, .state.fixture_only, .state.record_only, .state.bounded_current_not_release_evidence { color: #854d0e; background: #fef3c7; }
     .state.not_qualified, .state.unavailable { color: #991b1b; background: #fee2e2; }
     .holds { margin-top: 20px; padding: 20px 24px; border: 1px solid #ead486; border-radius: 12px; background: var(--pending-bg); }
     .holds h2 { font-size: 1.25rem; }
@@ -151,11 +151,11 @@
   <header>
     <div class="wrap">
       <p class="eyebrow">Staging candidat · source vérifiable</p>
-      <h1>Candidats natifs R1/R2/R3 — NO-GO</h1>
-      <p class="lead">Cette page décrit les candidats locaux distincts R1, R2 et R3 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
+      <h1>Candidats natifs R1/R2/R3/R4 — NO-GO</h1>
+      <p class="lead">Cette page décrit les candidats locaux distincts R1, R2, R3 et R4 enregistrés par le ledger de migration. Elle ne modifie pas le lock canonique et ne déduit aucune disponibilité depuis un registre, une balise Git ou le Cockpit.</p>
       <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Candidat produit NO-GO — composants natifs, R1 et Web publiés; R2, R3 et Studio non publiés.</strong>
-        <p id="train-detail">R1 est publié avec legacy par défaut et Web est déployé séparément. R2 et R3 restent des candidats non publiés; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
+        <strong id="train-message">Candidat produit NO-GO — composants natifs, R1 et Web publiés; R2, R3, R4 et Studio non publiés.</strong>
+        <p id="train-detail">R1 est publié avec legacy par défaut et Web est déployé séparément. R2, R3 et R4 restent des candidats non publiés; Studio reste non publié et non signé. Les téléchargements du candidat produit restent désactivés et LOCK-RELEASE reste NO-GO.</p>
       </div>
       <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
     </div>
@@ -163,14 +163,14 @@
 
   <main id="main-content" class="wrap">
     <dl class="summary" aria-label="Résumé du train de publication">
-      <div class="metric"><dt>État</dt><dd id="milestone">R1 publié · R2/R3 candidats · R4 tenu · NO-GO</dd></div>
+      <div class="metric"><dt>État</dt><dd id="milestone">R1 publié · R2/R3/R4 candidats · NO-GO</dd></div>
       <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
       <div class="metric"><dt>Artefacts téléchargeables</dt><dd id="artifact-count">0 · indisponibles</dd></div>
     </dl>
 
     <div class="detail-grid">
       <section class="detail-card" aria-labelledby="release-train-title">
-        <h2 id="release-train-title">Train R1/R2/R3 distinct</h2>
+        <h2 id="release-train-title">Train R1/R2/R3/R4 distinct</h2>
         <div id="release-train-detail"><p>Snapshot candidat indisponible.</p></div>
       </section>
       <section class="detail-card" aria-labelledby="architecture-title">
@@ -194,7 +194,7 @@
         <div id="governance-detail"><p>Évidence indisponible.</p></div>
       </section>
       <section class="detail-card" aria-labelledby="performance-title">
-        <h2 id="performance-title">Performance · preuve à rafraîchir</h2>
+        <h2 id="performance-title">Performance · preuve bornée non promotionnelle</h2>
         <div id="performance-detail"><p>Évidence indisponible.</p></div>
       </section>
       <section class="detail-card" aria-labelledby="work-items-title">
@@ -291,11 +291,11 @@
       manifest.source && COMMIT.test(manifest.source.commit) && COMMIT.test(manifest.source.tree) && SHA256.test(manifest.source.ledger_sha256) &&
       manifest.release && manifest.release.status === 'no_go' && manifest.release.publication === 'unpublished' &&
       manifest.release.canonical_lock_updated === false && manifest.release.downloads_enabled === false && manifest.release.registry_links_enabled === false &&
-      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_held' && manifest.release_train.publication === 'r1_published_r2_r3_unpublished' &&
+      manifest.release_train && manifest.release_train.status === 'r1_r2_r3_distinct_candidates_r4_candidate_held' && manifest.release_train.publication === 'r1_published_r2_r3_r4_unpublished' &&
       manifest.release_train.milestones && ['r1', 'r2', 'r3', 'r4'].every(key => manifest.release_train.milestones[key]) &&
       manifest.cutover_observability && manifest.cutover_observability.work_item === 'CUT-002' &&
       manifest.cutover_observability.counter_opt_in === true && manifest.cutover_observability.strict_paths_silent === true && manifest.cutover_observability.implicit_fallback === false &&
-      manifest.performance && manifest.performance.evidence_mode === 'stale_not_current_evidence' && manifest.performance.refresh_required === true && manifest.performance.timings_ms === null && manifest.performance.release_eligible === false &&
+      manifest.performance && manifest.performance.evidence_mode === 'current_heads_bounded_synthetic_not_release_evidence' && manifest.performance.representative_soak_required === true && manifest.performance.timings_ms === null && manifest.performance.release_eligible === false &&
       manifest.governance && isIdentity(manifest.governance.ownership) && isIdentity(manifest.governance.capability_inventory) &&
       JSON.stringify(manifest.work_item_states || {}) === JSON.stringify({
         'API-001': 'complete_local_code_release_hold',
@@ -305,21 +305,20 @@
         'DAG-001': 'complete_local_code_release_hold',
         'DOC-001': 'complete_local_docs_release_hold',
         'GATE-001': 'complete_local_linux_functional_release_hold',
-        'INST-001': 'prepared_local_linux_harness_external_matrix_hold',
+        'INST-001': 'advanced_local_linux_appimage_lifecycle_complete_macos_windows_hold',
         'PERF-002': 'advanced_local_evidence_not_closed',
         'RC-001': 'prepared_local_triage_external_evidence_hold',
         'REL-003': 'complete_local_code_release_hold',
-        'SEC-001': 'prepared_local_native_fuzz_harnesses_campaign_not_closed',
+        'ROB-001': 'complete_local_functional_non_crash_non_blocking',
         'SOAK-001': 'advanced_local_evidence_not_closed',
         'STU-006': 'complete_local_code_external_release_hold',
         'UI-001': 'complete_registry_publication_downstream_product_hold',
         'WEB-001': 'complete_local_code_release_hold',
         'WEBREL-001': 'complete_local_staging_publication_hold'
       }) &&
-      manifest.security_harnesses && manifest.security_harnesses.work_item === 'SEC-001' &&
-      manifest.security_harnesses.evidence_status === 'four_native_targets_prepared_campaign_not_run' &&
-      Array.isArray(manifest.security_harnesses.harnesses) && manifest.security_harnesses.harnesses.length === 4 &&
-      JSON.stringify(manifest.security_harnesses.harnesses.map(item => item && item.surface)) === JSON.stringify(['formats', 'core', 'methods', 'studio_store']) &&
+      manifest.functional_non_crash && manifest.functional_non_crash.work_item === 'ROB-001' &&
+      manifest.functional_non_crash.status === 'complete_local_functional_non_crash_non_blocking' &&
+      manifest.functional_non_crash.scope === 'ordinary_component_suites_supported_invalid_inputs' && manifest.functional_non_crash.release_gate === false &&
       Array.isArray(manifest.components) && manifest.components.length > 0 &&
       manifest.components.every(isComponent) && Array.isArray(manifest.capabilities) && Array.isArray(manifest.holds);
 
@@ -359,7 +358,7 @@
         grid.append(card);
       });
       document.getElementById('train-message').textContent = manifest.release.notice;
-      document.getElementById('milestone').textContent = 'R1 publié · R2/R3 candidats · R4 tenu · NO-GO';
+      document.getElementById('milestone').textContent = 'R1 publié · R2/R3/R4 candidats · NO-GO';
       document.getElementById('component-count').textContent = String(manifest.components.length);
       document.getElementById('artifact-count').textContent = String(artifactCount) + ' · indisponibles';
 
@@ -374,7 +373,8 @@
         releaseTrainBox.append(line);
       });
       const r4 = document.createElement('p');
-      r4.textContent = 'R4 · absent et tenu jusqu’à fermeture des gates stables.';
+      const r4Milestone = releaseTrain.milestones.r4;
+      r4.textContent = 'R4 · Python ' + r4Milestone.python_version + ' · ' + r4Milestone.python_commit + ' · docs ' + r4Milestone.documentation_commit + ' · candidat non publié.';
       releaseTrainBox.append(r4);
 
       const architecture = document.getElementById('architecture-list');
@@ -419,8 +419,8 @@
 
       const performance = manifest.performance;
       const performanceBox = document.getElementById('performance-detail');
-      const performanceResult = document.createElement('p'); performanceResult.textContent = 'Le rapport Bench disponible précède les candidats R1/R2/R3 distincts et n’est pas une preuve courante.';
-      const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Nouvelle mesure, soak, budgets gelés et qualification externe restent requis avant toute promotion.';
+      const performanceResult = document.createElement('p'); performanceResult.textContent = 'Le rejeu synthétique courant passe sur quatre surfaces sans fallback; il ne constitue pas une preuve de release.';
+      const performanceLimit = document.createElement('p'); performanceLimit.textContent = 'Soak représentatif, budgets gelés et qualification externe restent requis avant toute promotion.';
       performanceBox.replaceChildren(performanceResult, performanceLimit);
 
       const workItems = manifest.work_item_states;
@@ -431,11 +431,9 @@
       const closedText = document.createElement('p'); closedText.textContent = 'Clos localement, release tenue : ' + closed.map(([id]) => id).join(', ') + '.';
       const preparedText = document.createElement('p'); preparedText.textContent = 'Préparés mais non clos : ' + prepared.map(([id]) => id).join(', ') + '.';
       const advancedText = document.createElement('p'); advancedText.textContent = 'Avancés mais non clos : ' + advanced.map(([id]) => id).join(', ') + '.';
-      const security = manifest.security_harnesses;
-      const securityTargets = security.harnesses.map(item => item.surface + ':' + item.target + '@' + item.commit.slice(0, 12)).join(' · ');
-      const securityText = document.createElement('p'); securityText.textContent = 'SEC-001 : 4 harnesses natifs bornés préparés (' + securityTargets + ') ; aucune campagne fuzz exécutée.';
+      const functionalText = document.createElement('p'); functionalText.textContent = 'ROB-001 : les tests fonctionnels ordinaires des entrées invalides et de non-crash sont clos localement et non bloquants.';
       const workItemsLimit = document.createElement('p'); workItemsLimit.textContent = 'Ces états ne changent ni le lock canonique ni le NO-GO global.';
-      workItemsBox.replaceChildren(closedText, preparedText, advancedText, securityText, workItemsLimit);
+      workItemsBox.replaceChildren(closedText, preparedText, advancedText, functionalText, workItemsLimit);
 
       const capabilityTable = table(['Capacité', 'État', 'Surfaces qualifiées', 'Limites'], 'Capability matrix du candidat natif');
       const capabilityBody = capabilityTable.tBodies[0];
