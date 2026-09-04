@@ -286,7 +286,7 @@
     },
     {
       "artifacts": [],
-      "commit": "5adad85941f2b64784384b9ebf34295a7f53fd31",
+      "commit": "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
       "detail_versions": {},
       "key": "studio",
       "name": "nirs4all-studio",
@@ -294,7 +294,7 @@
       "qualification": "final_candidate_pinned_to_python_r3_ci_publication_and_external_release_hold",
       "registry_urls": [],
       "repository_url": "https://github.com/GBeurier/nirs4all-studio",
-      "tree": "f3bd179978b701fe5849702f8bf2977c9b6c227f",
+      "tree": "4815174c3b7b70932f37de6cfce6f27a87b01abf",
       "version": "0.11.0"
     },
     {
@@ -447,8 +447,8 @@
         "python_commit": "3567bd4abcaa64443a1946748a579f0803e91889",
         "python_tree": "a06c4015a26124df1e529f82108ee7bd115236cb",
         "python_version": "1.0.0rc2",
-        "studio_commit": "5adad85941f2b64784384b9ebf34295a7f53fd31",
-        "studio_tree": "f3bd179978b701fe5849702f8bf2977c9b6c227f",
+        "studio_commit": "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
+        "studio_tree": "4815174c3b7b70932f37de6cfce6f27a87b01abf",
         "studio_version": "0.11.0"
       },
       "r4": {
@@ -465,11 +465,11 @@
   },
   "schema_version": "n4a.native-candidate-staging/v1",
   "source": {
-    "commit": "2c0b97ec0d0dbf4eb1110a8839109d4eb242cc9e",
+    "commit": "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
     "ledger_path": "docs/contracts/release/migration-work-ledger.yaml",
-    "ledger_sha256": "sha256:c57f8203723facbf137c488cee813e28cebd8da1cb978101816fc23a576c7e87",
+    "ledger_sha256": "sha256:869ef96726be65c8dfb43f16b820615c11fd8ce2b76076fa8100bd1b3b2f2b76",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
-    "tree": "58e4d604a258e1172b056ba47320c61aea0f5968"
+    "tree": "f74d068c323bb47aea07f3cff859ab06bee64c68"
   },
   "work_item_states": {
     "API-001": "complete_local_code_release_hold",

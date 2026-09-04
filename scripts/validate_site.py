@@ -27,9 +27,9 @@ FORBIDDEN_PUBLIC_FRAGMENTS = (
     "127.0.0.1",
 )
 CANDIDATE_SOURCE = {
-    "commit": "2c0b97ec0d0dbf4eb1110a8839109d4eb242cc9e",
-    "tree": "58e4d604a258e1172b056ba47320c61aea0f5968",
-    "ledger_sha256": "sha256:c57f8203723facbf137c488cee813e28cebd8da1cb978101816fc23a576c7e87",
+    "commit": "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
+    "tree": "f74d068c323bb47aea07f3cff859ab06bee64c68",
+    "ledger_sha256": "sha256:869ef96726be65c8dfb43f16b820615c11fd8ce2b76076fa8100bd1b3b2f2b76",
 }
 CANDIDATE_COMPONENTS = {
     "benchmarks": ("0.1.7", "17f8196b26457fbd300a46d6520c3d1845d0de05", "29ae8f56656ce59cbcc2923ad6b30680d1b50a21"),
@@ -43,7 +43,7 @@ CANDIDATE_COMPONENTS = {
     "providers": ("0.2.11", "b2210ec717c0de0055fc8b9424b115a933efdb4e", "23a4a70513a33118c19923a47647a0a362c85f18"),
     "python": ("1.0.0rc2", "3567bd4abcaa64443a1946748a579f0803e91889", "a06c4015a26124df1e529f82108ee7bd115236cb"),
     "repository": ("0.1.12", "dbd9dae1205e1905692decd9fc7243f4fbda3068", "c37878a2f83baf90fcfb222944d4d06178164a71"),
-    "studio": ("0.11.0", "5adad85941f2b64784384b9ebf34295a7f53fd31", "f3bd179978b701fe5849702f8bf2977c9b6c227f"),
+    "studio": ("0.11.0", "6d249ce69d5ddf2f0c4a831f33e70e9dda905471", "4815174c3b7b70932f37de6cfce6f27a87b01abf"),
     "tools": ("0.0.7", "88c2bc1e29603049cdbf1a1080a35845edf2f3c9", "d46a5fd2fcb7a2e14225cf1c3ad2661f7a4ab8b3"),
     "ui": ("0.1.13", "406d94d70004f27459ef12347af1e6f0079ab6ac", "377722160bbf188c474aacfecc8a6825095be2ca"),
     "web": ("0.1.10", "051bf636d7c1729087e5d40061b18bd690cd33b7", "e94251e350f31dbb996e1a2e477c466cfdf992ff"),
@@ -72,8 +72,8 @@ CANDIDATE_RELEASE_TRAIN = {
         "3567bd4abcaa64443a1946748a579f0803e91889",
         "a06c4015a26124df1e529f82108ee7bd115236cb",
         "0.11.0",
-        "5adad85941f2b64784384b9ebf34295a7f53fd31",
-        "f3bd179978b701fe5849702f8bf2977c9b6c227f",
+        "6d249ce69d5ddf2f0c4a831f33e70e9dda905471",
+        "4815174c3b7b70932f37de6cfce6f27a87b01abf",
         "native_fail_closed_rust_only",
     ),
 }
@@ -546,8 +546,8 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
         "README.md": (
             "nirs4all R1 0.13.0 are published",
             "Web 0.1.10 is deployed",
-            "2c0b97ec0d0dbf4eb1110a8839109d4eb242cc9e",
-            "c302d1bac898a2d528ada03cadf24823d4d7166df9f1ce92d8e81370e53c930f",
+            "8f47f16b11231daefecd1fb2ad8f1aeefb2ff039",
+            "4435ce6bb0d104729a3659741a0d391a8e041b11148c3c862854d6fdb7d4257d",
         ),
         "index.html": (
             "nirs4all R1 0.13.0</b> are published",
