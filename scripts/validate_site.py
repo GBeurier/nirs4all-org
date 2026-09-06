@@ -577,6 +577,25 @@ def validate_document(path: Path, parser: DocumentParser) -> None:
                 raise ValidationError(f"{rel}:{line}: missing anchor {url}")
 
 
+def validate_migration_guide(path: Path) -> None:
+    """Keep the public V1 migration guide English-first."""
+    parser = parse_document(path)
+    if parser.lang != "en":
+        raise ValidationError("v1-migration-support.html must use English as its primary language")
+
+    text = path.read_text(encoding="utf-8")
+    required = (
+        "V1 migration and support",
+        "Execution boundaries",
+        "Preserve without modifying the source",
+        "Read / write / migrate matrix",
+        "Verifiable V1 contracts",
+    )
+    for marker in required:
+        if marker not in text:
+            raise ValidationError(f"v1-migration-support.html: missing English marker {marker!r}")
+
+
 def validate_release_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
@@ -765,6 +784,7 @@ def main() -> int:
         validate_native_candidate(candidate)
         for path in sorted(ROOT.glob("*.html")):
             validate_document(path, parse_document(path))
+        validate_migration_guide(ROOT / "v1-migration-support.html")
         validate_release_page(ROOT / "release-status.html")
         validate_transition_copy(
             (ROOT / "README.md").read_text(encoding="utf-8"),

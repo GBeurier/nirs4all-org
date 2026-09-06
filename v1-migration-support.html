@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guide de migration et support V1 | nirs4all</title>
-  <meta name="description" content="Guide V1 pour préserver les archives nirs4all sans modifier les sources et comprendre les contrats DAG-ML, le rollback Python et le support Tools." />
+  <title>V1 migration and support guide | nirs4all</title>
+  <meta name="description" content="V1 guide to preserving nirs4all archives without modifying their sources, understanding DAG-ML contracts, using Python rollback, and working with Tools support." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nirs4all.org/v1-migration-support.html" />
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
@@ -12,8 +12,8 @@
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "name": "Guide de migration et support V1 nirs4all",
-    "description": "Guide de la V1 stable pour les contrats DAG-ML, la préservation sans modification des sources et le support des lecteurs legacy.",
+    "name": "nirs4all V1 migration and support guide",
+    "description": "Stable V1 guide to DAG-ML contracts, source-preserving archive copies, and legacy reader support.",
     "url": "https://nirs4all.org/v1-migration-support.html",
     "isPartOf": {"@type": "WebSite", "name": "nirs4all", "url": "https://nirs4all.org/"}
   }
@@ -53,91 +53,91 @@
   </style>
 </head>
 <body>
-  <a class="skip" href="#main-content">Aller au contenu</a>
-  <nav aria-label="Navigation principale">
+  <a class="skip" href="#main-content">Skip to content</a>
+  <nav aria-label="Main navigation">
     <div class="wrap">
       <a href="/">nirs4all</a>
-      <a href="https://cockpit.nirs4all.org/">État de l'écosystème</a>
-      <a href="r1-archive.html">Archive R1</a>
+      <a href="https://cockpit.nirs4all.org/">Ecosystem status</a>
+      <a href="r1-archive.html">R1 archive</a>
       <a href="r2-archive.html">Rollback R2</a>
     </div>
   </nav>
   <header>
     <div class="wrap">
-      <p class="eyebrow">V1 stable · migration et support</p>
-      <h1>Migration et support V1</h1>
-      <p class="lead">Contrats d'exécution, procédure de préservation des archives et limites explicites de la ligne V1 publiée, désormais fondée sur DAG-ML.</p>
-      <div class="notice"><strong>V1 publiée.</strong> nirs4all 1.0.1 et Studio 0.11.3 sont les surfaces utilisateur corrigées. Tools 0.0.7 préserve les anciens contenus en copie vérifiée; il ne prétend pas encore effectuer une conversion sémantique de workspace.</div>
+      <p class="eyebrow">Stable V1 · migration and support</p>
+      <h1>V1 migration and support</h1>
+      <p class="lead">Execution contracts, archive-preservation procedures, and explicit boundaries of the published V1 line, now powered by DAG-ML.</p>
+      <div class="notice"><strong>V1 is published.</strong> nirs4all 1.0.1 and Studio 0.11.3 are the corrected user-facing releases. Tools 0.0.7 creates verified preservation copies of legacy content; it does not yet claim to perform semantic workspace conversion.</div>
     </div>
   </header>
   <main id="main-content" class="wrap">
     <section aria-labelledby="boundary">
-      <h2 id="boundary">Frontière d'exécution</h2>
+      <h2 id="boundary">Execution boundaries</h2>
       <div class="table">
         <table>
-          <thead><tr><th>Surface</th><th>Propriétaire V1</th><th>Limite</th></tr></thead>
+          <thead><tr><th>Surface</th><th>V1 owner</th><th>Boundary</th></tr></thead>
           <tbody>
-            <tr><th>Bibliothèque Python</th><td>DAG-ML pour l'exécution générale; profil portable natif explicite</td><td><code>engine="legacy"</code> reste un rollback explicite réservé aux appels Python directs.</td></tr>
-            <tr><th>Studio</th><td>Rust pour HTTP, WebSocket, store, jobs et scheduler</td><td>Aucun backend Python et aucun fallback legacy sur les chemins stricts.</td></tr>
-            <tr><th>Plugins Python de Studio</th><td>Hôte CPython borné, JSON sur stdio, après préflight de capacité</td><td>Il n'écoute pas le réseau et ne possède ni store, ni job, ni scheduler.</td></tr>
-            <tr><th>Web</th><td>WASM côté client</td><td>Pas de runtime Python ni de backend d'analyse.</td></tr>
+            <tr><th>Python library</th><td>DAG-ML for general execution; explicit native portable profile</td><td><code>engine="legacy"</code> remains an explicit rollback available only to direct Python callers.</td></tr>
+            <tr><th>Studio</th><td>Rust for HTTP, WebSocket, storage, jobs, and scheduling</td><td>No Python backend and no legacy fallback on strict paths.</td></tr>
+            <tr><th>Studio Python plugins</th><td>Bounded CPython host using JSON over stdio after capability preflight</td><td>It does not listen on the network and owns no storage, jobs, or scheduler.</td></tr>
+            <tr><th>Web</th><td>Client-side WASM</td><td>No Python runtime or analysis backend.</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section aria-labelledby="migration">
-      <h2 id="migration">Préserver sans modifier la source</h2>
-      <p>Le paquet publié <code>nirs4all-tools 0.0.7</code> inspecte les stores historiques et peut en produire une copie de préservation disjointe, exhaustive et vérifiée. La source conserve son chemin, son inode et ses octets. La V1 refuse toute demande de conversion sémantique vers un nouveau workspace tant qu'un contrat de reconstruction complet n'est pas disponible.</p>
+      <h2 id="migration">Preserve without modifying the source</h2>
+      <p>The published <code>nirs4all-tools 0.0.7</code> package inspects historical stores and can create a separate, exhaustive, verified preservation copy. The source retains its path, inode, and bytes. V1 refuses requests for semantic conversion into a new workspace until a complete reconstruction contract is available.</p>
       <pre><code>python -m venv /opt/nirs4all-tools-0.0.7
 /opt/nirs4all-tools-0.0.7/bin/python -m pip install "nirs4all-tools==0.0.7"
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy inspect /data/ancien --format text
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy migrate /data/ancien \
-  --output /data/ancien-preserve --copy-only --verify
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy verify /data/ancien-preserve \
-  --manifest /data/ancien-preserve/migration-manifest.json</code></pre>
-      <p>Codes principaux: <code>0</code> préservation copy-only réussie; <code>20</code> capacité non supportée, dont la conversion sémantique; <code>30</code> échec de vérification; <code>40</code> refus de politique de sécurité; <code>70</code> erreur interne. Le code <code>10</code> est réservé à une future transformation best-effort.</p>
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy inspect /data/legacy --format text
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy migrate /data/legacy \
+  --output /data/legacy-preserved --copy-only --verify
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy verify /data/legacy-preserved \
+  --manifest /data/legacy-preserved/migration-manifest.json</code></pre>
+      <p>Main exit codes: <code>0</code> successful copy-only preservation; <code>20</code> unsupported capability, including semantic conversion; <code>30</code> verification failure; <code>40</code> security-policy refusal; <code>70</code> internal error. Code <code>10</code> is reserved for a future best-effort transformation.</p>
     </section>
 
     <section aria-labelledby="support">
-      <h2 id="support">Matrice read / write / migrate</h2>
-      <p>Toute écriture réelle cible un dossier de préservation neuf et disjoint. La V1 ne crée pas de <code>nirs4all-workspace-v2</code> à partir d'un store legacy et ne déclenche jamais de migration automatiquement. Un changement de cette politique devra être annoncé avec un chemin de migration explicite.</p>
+      <h2 id="support">Read / write / migrate matrix</h2>
+      <p>Every write targets a new, separate preservation directory. V1 does not create a <code>nirs4all-workspace-v2</code> from a legacy store and never starts migration automatically. Any change to this policy must be announced with an explicit migration path.</p>
       <div class="table">
         <table>
-          <thead><tr><th>Entrée</th><th>Read</th><th>Write</th><th>Migrate</th></tr></thead>
+          <thead><tr><th>Input</th><th>Read</th><th>Write</th><th>Migrate</th></tr></thead>
           <tbody>
-            <tr><th>DuckDB / SQLite workspace</th><td>Inspection en lecture seule</td><td>Copie préservée sous <code>payload/</code></td><td>Conversion sémantique refusée</td></tr>
-            <tr><th>Filesystem runs / predictions</th><td>Inventaire sans exécution</td><td>Copie préservée et checksummée</td><td>Conversion sémantique refusée</td></tr>
-            <tr><th>Bundle <code>.n4a</code></th><td>Détection; objet Python jamais exécuté</td><td>Copie préservée et checksummée</td><td>Conversion sémantique refusée</td></tr>
-            <tr><th>Entrée inconnue</th><td>Détection seule</td><td>Copy-only si la politique l'autorise</td><td>Refus</td></tr>
+            <tr><th>DuckDB / SQLite workspace</th><td>Read-only inspection</td><td>Preserved copy under <code>payload/</code></td><td>Semantic conversion refused</td></tr>
+            <tr><th>Filesystem runs / predictions</th><td>Inventory without execution</td><td>Preserved, checksummed copy</td><td>Semantic conversion refused</td></tr>
+            <tr><th><code>.n4a</code> bundle</th><td>Detection only; Python objects are never executed</td><td>Preserved, checksummed copy</td><td>Semantic conversion refused</td></tr>
+            <tr><th>Unknown input</th><td>Detection only</td><td>Copy-only when policy allows it</td><td>Refused</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section aria-labelledby="contracts">
-      <h2 id="contracts">API, ABI et schémas</h2>
+      <h2 id="contracts">APIs, ABIs, and schemas</h2>
       <div class="table">
         <table>
-          <thead><tr><th>Contrat</th><th>Identité V1</th><th>Règle</th></tr></thead>
+          <thead><tr><th>Contract</th><th>V1 identity</th><th>Rule</th></tr></thead>
           <tbody>
-            <tr><th>API Python</th><td><code>PipelineRunner</code>, export, predict et session native</td><td>La sélection legacy doit être explicite et réservée au rollback Python direct.</td></tr>
-            <tr><th>Methods C ABI</th><td><code>libn4m 2.5.0</code>, SONAME 2</td><td>Vérifier la compatibilité header/runtime avant toute autre opération; bindings minces.</td></tr>
-            <tr><th>Modèle Methods</th><td>N4MM v1/v2</td><td>Décodage borné; types et tailles validés avant allocation ou exécution.</td></tr>
-            <tr><th>Archive portable</th><td>Core Archive V2</td><td>Valider format, bornes, identité Methods et empreinte avant replay; aucun refit implicite.</td></tr>
-            <tr><th>Workspace</th><td><code>nirs4all-workspace-v2</code></td><td>SQLite pour les métadonnées et Parquet pour les tableaux.</td></tr>
-            <tr><th>Studio</th><td>Snapshots HTTP/OpenAPI/WS V1</td><td>Contrôle Rust unique; plugins par JSON stdio borné seulement.</td></tr>
+            <tr><th>Python API</th><td><code>PipelineRunner</code>, export, predict, and native session</td><td>Legacy selection must be explicit and is reserved for direct Python rollback.</td></tr>
+            <tr><th>Methods C ABI</th><td><code>libn4m 2.5.0</code>, SONAME 2</td><td>Verify header/runtime compatibility before any other operation; keep bindings thin.</td></tr>
+            <tr><th>Methods model</th><td>N4MM v1/v2</td><td>Bounded decoding; validate types and sizes before allocation or execution.</td></tr>
+            <tr><th>Portable archive</th><td>Core Archive V2</td><td>Validate format, bounds, Methods identity, and fingerprint before replay; never refit implicitly.</td></tr>
+            <tr><th>Workspace</th><td><code>nirs4all-workspace-v2</code></td><td>SQLite for metadata and Parquet for arrays.</td></tr>
+            <tr><th>Studio</th><td>V1 HTTP/OpenAPI/WS snapshots</td><td>Single Rust control plane; plugins communicate only through bounded JSON over stdio.</td></tr>
           </tbody>
         </table>
       </div>
-      <h3>Exemple Python général</h3>
+      <h3>General Python example</h3>
       <pre><code>import nirs4all
 
 result = nirs4all.run(pipeline="pipeline.yaml", dataset="dataset.yaml")
 archive = result.export("./run.n4a")
 prediction = nirs4all.predict(model=archive, data="new_dataset.yaml")</code></pre>
-      <p>Le profil portable strict se sélectionne explicitement avec <code>engine="native"</code>. Il demande une pipeline sous forme de liste, un splitter, un modèle Methods supporté et un dataset contenant <code>X</code>, <code>y</code> et <code>sample_ids</code>; consultez le guide Python V1 avant de présenter son export comme une archive Core portable.</p>
-      <h3>Rollback Python explicite</h3>
+      <p>Select the strict portable profile explicitly with <code>engine="native"</code>. It requires a list-form pipeline, a splitter, a supported Methods model, and a dataset containing <code>X</code>, <code>y</code>, and <code>sample_ids</code>. Read the V1 Python guide before presenting its export as a portable Core archive.</p>
+      <h3>Explicit Python rollback</h3>
       <pre><code>rollback = nirs4all.run(
     pipeline="pipeline.yaml",
     dataset="dataset.yaml",
@@ -147,26 +147,26 @@ prediction = nirs4all.predict(model=archive, data="new_dataset.yaml")</code></pr
 
     <section aria-labelledby="faq">
       <h2 id="faq">FAQ</h2>
-      <h3>Studio doit-il embarquer Python?</h3>
-      <p>Pas comme backend. Un CPython embarqué peut héberger une bibliothèque ou un plugin explicitement choisi, via JSON stdio borné. Le serveur, le store et le scheduler restent Rust.</p>
-      <h3>Studio peut-il revenir automatiquement au backend historique?</h3>
-      <p>Non. Les chemins Studio/Web et les profils Python stricts refusent la capacité indisponible. Le rollback legacy est uniquement un choix visible de l'appelant Python direct.</p>
-      <h3>Un ancien workspace est-il migré à l'ouverture?</h3>
-      <p>Non. La détection est en lecture seule. L'opérateur peut lancer une copie de préservation vers une nouvelle destination et en vérifier le rapport; cette copie n'est pas un workspace V1 reconstruit et ne déclenche aucun basculement automatique.</p>
-      <h3>Cette page annonce-t-elle V1?</h3>
-      <p>Oui. Elle accompagne la ligne stable corrigée nirs4all 1.0.1 / Studio 0.11.3. Le <a href="https://cockpit.nirs4all.org/">Cockpit</a> donne l'état opérationnel courant; la <a href="release-status.html">page de reçu</a> conserve la photographie vérifiable de la publication V1 initiale.</p>
+      <h3>Does Studio need to bundle Python?</h3>
+      <p>Not as a backend. An embedded CPython runtime may host an explicitly selected library or plugin through bounded JSON over stdio. The server, storage, and scheduler remain in Rust.</p>
+      <h3>Can Studio automatically fall back to the historical backend?</h3>
+      <p>No. Studio/Web paths and strict Python profiles reject unavailable capabilities. Legacy rollback is only a visible choice made by a direct Python caller.</p>
+      <h3>Is a legacy workspace migrated when it is opened?</h3>
+      <p>No. Detection is read-only. An operator may create a preservation copy at a new destination and verify its report. That copy is not a reconstructed V1 workspace and does not trigger an automatic cutover.</p>
+      <h3>Does this page announce V1?</h3>
+      <p>Yes. It accompanies the corrected nirs4all 1.0.1 / Studio 0.11.3 stable line. The <a href="https://cockpit.nirs4all.org/">Cockpit</a> reports current operational status, while the <a href="release-status.html">release receipt</a> preserves a verifiable snapshot of the initial V1 publication.</p>
     </section>
 
     <section aria-labelledby="sources">
-      <h2 id="sources">Contrats V1 vérifiables</h2>
+      <h2 id="sources">Verifiable V1 contracts</h2>
       <div class="links">
-        <a href="https://github.com/GBeurier/nirs4all/blob/main/docs/source/migration/native_v1.md">Guide Python V1</a>
-        <a href="https://github.com/GBeurier/nirs4all-methods/blob/main/docs/abi/reference.md">Référence ABI Methods</a>
-        <a href="https://github.com/GBeurier/nirs4all-tools/blob/main/README.md">Contrat de préservation Tools</a>
-        <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">Release nirs4all-tools</a>
+        <a href="https://github.com/GBeurier/nirs4all/blob/main/docs/source/migration/native_v1.md">V1 Python guide</a>
+        <a href="https://github.com/GBeurier/nirs4all-methods/blob/main/docs/abi/reference.md">Methods ABI reference</a>
+        <a href="https://github.com/GBeurier/nirs4all-tools/blob/main/README.md">Tools preservation contract</a>
+        <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">Latest nirs4all-tools release</a>
       </div>
     </section>
   </main>
-  <footer><div class="wrap">nirs4all · documentation de migration et support V1</div></footer>
+  <footer><div class="wrap">nirs4all · V1 migration and support documentation</div></footer>
 </body>
 </html>
