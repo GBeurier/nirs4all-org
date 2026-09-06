@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guide candidat migration et support natifs | nirs4all</title>
-  <meta name="description" content="Guide de staging, sans annonce de V1 stable, pour migrer les archives nirs4all et comprendre les contrats natifs, le rollback Python et le support Tools." />
-  <meta name="robots" content="noindex, nofollow" />
+  <title>Guide de migration et support V1 | nirs4all</title>
+  <meta name="description" content="Guide V1 pour préserver les archives nirs4all sans modifier les sources et comprendre les contrats DAG-ML, le rollback Python et le support Tools." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nirs4all.org/v1-migration-support.html" />
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "name": "Guide candidat migration et support natifs nirs4all",
-    "description": "Guide de staging des contrats natifs, de la migration et du support des lecteurs legacy, sans annonce de V1 stable.",
+    "name": "Guide de migration et support V1 nirs4all",
+    "description": "Guide de la V1 stable pour les contrats DAG-ML, la préservation sans modification des sources et le support des lecteurs legacy.",
     "url": "https://nirs4all.org/v1-migration-support.html",
     "isPartOf": {"@type": "WebSite", "name": "nirs4all", "url": "https://nirs4all.org/"}
   }
@@ -57,17 +57,17 @@
   <nav aria-label="Navigation principale">
     <div class="wrap">
       <a href="/">nirs4all</a>
-      <a href="release-status.html">État candidat</a>
+      <a href="https://cockpit.nirs4all.org/">État de l'écosystème</a>
       <a href="r1-archive.html">Archive R1</a>
       <a href="r2-archive.html">Rollback R2</a>
     </div>
   </nav>
   <header>
     <div class="wrap">
-      <p class="eyebrow">Documentation de staging · DOC-002 / SUP-002</p>
-      <h1>Migration et support natifs</h1>
-      <p class="lead">Contrats, exemples et durée de support proposés pour le candidat R4. Cette page prépare la transition mais ne déclare ni V1 stable, ni disponibilité produit.</p>
-      <div class="notice"><strong>NO-GO produit.</strong> R1 est publié. Les candidats R2 et R3 ne le sont pas, R4 n'est pas livré, et aucun téléchargement candidat n'est activé ici.</div>
+      <p class="eyebrow">V1 stable · migration et support</p>
+      <h1>Migration et support V1</h1>
+      <p class="lead">Contrats d'exécution, procédure de préservation des archives et limites explicites de la ligne V1 publiée, désormais fondée sur DAG-ML.</p>
+      <div class="notice"><strong>V1 publiée.</strong> nirs4all 1.0.1 et Studio 0.11.3 sont les surfaces utilisateur corrigées. Tools 0.0.7 préserve les anciens contenus en copie vérifiée; il ne prétend pas encore effectuer une conversion sémantique de workspace.</div>
     </div>
   </header>
   <main id="main-content" class="wrap">
@@ -75,9 +75,9 @@
       <h2 id="boundary">Frontière d'exécution</h2>
       <div class="table">
         <table>
-          <thead><tr><th>Surface</th><th>Propriétaire candidat</th><th>Limite</th></tr></thead>
+          <thead><tr><th>Surface</th><th>Propriétaire V1</th><th>Limite</th></tr></thead>
           <tbody>
-            <tr><th>Bibliothèque Python</th><td>Moteur natif par défaut, refus fermé</td><td><code>engine="legacy"</code> reste un rollback explicite pour les appels Python directs jusqu'à la fin de R4.</td></tr>
+            <tr><th>Bibliothèque Python</th><td>DAG-ML pour l'exécution générale; profil portable natif explicite</td><td><code>engine="legacy"</code> reste un rollback explicite réservé aux appels Python directs.</td></tr>
             <tr><th>Studio</th><td>Rust pour HTTP, WebSocket, store, jobs et scheduler</td><td>Aucun backend Python et aucun fallback legacy sur les chemins stricts.</td></tr>
             <tr><th>Plugins Python de Studio</th><td>Hôte CPython borné, JSON sur stdio, après préflight de capacité</td><td>Il n'écoute pas le réseau et ne possède ni store, ni job, ni scheduler.</td></tr>
             <tr><th>Web</th><td>WASM côté client</td><td>Pas de runtime Python ni de backend d'analyse.</td></tr>
@@ -87,33 +87,29 @@
     </section>
 
     <section aria-labelledby="migration">
-      <h2 id="migration">Migrer sans modifier la source</h2>
-      <p>Le paquet publié <code>nirs4all-tools 0.0.7</code> inspecte ou convertit explicitement les stores historiques. La source conserve son chemin, son inode et ses octets; la sortie est un nouveau workspace disjoint. Il n'existe pas de conversion inverse native vers legacy.</p>
+      <h2 id="migration">Préserver sans modifier la source</h2>
+      <p>Le paquet publié <code>nirs4all-tools 0.0.7</code> inspecte les stores historiques et peut en produire une copie de préservation disjointe, exhaustive et vérifiée. La source conserve son chemin, son inode et ses octets. La V1 refuse toute demande de conversion sémantique vers un nouveau workspace tant qu'un contrat de reconstruction complet n'est pas disponible.</p>
       <pre><code>python -m venv /opt/nirs4all-tools-0.0.7
-/opt/nirs4all-tools-0.0.7/bin/python -m pip install "nirs4all-tools[duckdb,parquet]==0.0.7"
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools workspace inspect /data/ancien --format text
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools workspace convert /data/ancien --output /data/native-v2 --verify
-/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy verify /data/native-v2 --manifest /data/native-v2/migration-manifest.json</code></pre>
-      <p>Codes de sortie: <code>0</code> conversion complète; <code>10</code> sortie sûre avec contenu conservé de façon opaque; <code>20</code> refus ou échec. Un code 10 n'est pas une conversion sémantique complète.</p>
+/opt/nirs4all-tools-0.0.7/bin/python -m pip install "nirs4all-tools==0.0.7"
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy inspect /data/ancien --format text
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy migrate /data/ancien \
+  --output /data/ancien-preserve --copy-only --verify
+/opt/nirs4all-tools-0.0.7/bin/nirs4all-tools legacy verify /data/ancien-preserve \
+  --manifest /data/ancien-preserve/migration-manifest.json</code></pre>
+      <p>Codes principaux: <code>0</code> préservation copy-only réussie; <code>20</code> capacité non supportée, dont la conversion sémantique; <code>30</code> échec de vérification; <code>40</code> refus de politique de sécurité; <code>70</code> erreur interne. Le code <code>10</code> est réservé à une future transformation best-effort.</p>
     </section>
 
     <section aria-labelledby="support">
       <h2 id="support">Matrice read / write / migrate</h2>
-      <p>Toutes les écritures ciblent uniquement un nouveau <code>nirs4all-workspace-v2</code>. Les dispositions ci-dessous sont garanties par la ligne Tools 0.x jusqu'à la fin de R4, donc pendant R3 et R4 après le basculement R2. Leur retrait ne peut intervenir qu'après V1, avec décision annoncée et préavis de migration.</p>
+      <p>Toute écriture réelle cible un dossier de préservation neuf et disjoint. La V1 ne crée pas de <code>nirs4all-workspace-v2</code> à partir d'un store legacy et ne déclenche jamais de migration automatiquement. Un changement de cette politique devra être annoncé avec un chemin de migration explicite.</p>
       <div class="table">
         <table>
           <thead><tr><th>Entrée</th><th>Read</th><th>Write</th><th>Migrate</th></tr></thead>
           <tbody>
-            <tr><th>DuckDB workspace</th><td>Conditionnel, extra DuckDB</td><td>Nouveau v2</td><td>Six tables exactes; sinon opaque ou refus</td></tr>
-            <tr><th>SQLite workspace v2</th><td>Qualifié</td><td>Nouveau v2</td><td>Déjà cible; opaque ou refus</td></tr>
-            <tr><th>SQLite legacy arrays</th><td>Qualifié</td><td>Nouveau v2</td><td>Sémantique</td></tr>
-            <tr><th>Filesystem runs v2</th><td>Détection qualifiée</td><td>Nouveau v2</td><td>Opaque ou refus</td></tr>
-            <tr><th>Filesystem runs legacy</th><td>Qualifié</td><td>Nouveau v2</td><td>Manifest unique; sinon opaque ou refus</td></tr>
-            <tr><th>Loose predictions</th><td>Qualifié</td><td>Nouveau v2</td><td>Payload unique complet; sinon opaque ou refus</td></tr>
-            <tr><th>N4A bundle</th><td>Structure bornée</td><td>Nouveau v2</td><td>Opaque ou refus</td></tr>
-            <tr><th>N4A Python bundle</th><td>Opaque, jamais exécuté</td><td>Nouveau v2</td><td>Opaque ou refus</td></tr>
-            <tr><th>Native results v1</th><td>Schéma 3 exact</td><td>Nouveau v2</td><td>Schéma 3 exact; sinon opaque ou refus</td></tr>
-            <tr><th>Inconnu</th><td>Détection seule</td><td>Nouveau v2</td><td>Refus</td></tr>
+            <tr><th>DuckDB / SQLite workspace</th><td>Inspection en lecture seule</td><td>Copie préservée sous <code>payload/</code></td><td>Conversion sémantique refusée</td></tr>
+            <tr><th>Filesystem runs / predictions</th><td>Inventaire sans exécution</td><td>Copie préservée et checksummée</td><td>Conversion sémantique refusée</td></tr>
+            <tr><th>Bundle <code>.n4a</code></th><td>Détection; objet Python jamais exécuté</td><td>Copie préservée et checksummée</td><td>Conversion sémantique refusée</td></tr>
+            <tr><th>Entrée inconnue</th><td>Détection seule</td><td>Copy-only si la politique l'autorise</td><td>Refus</td></tr>
           </tbody>
         </table>
       </div>
@@ -123,7 +119,7 @@
       <h2 id="contracts">API, ABI et schémas</h2>
       <div class="table">
         <table>
-          <thead><tr><th>Contrat</th><th>Version candidat</th><th>Règle</th></tr></thead>
+          <thead><tr><th>Contrat</th><th>Identité V1</th><th>Règle</th></tr></thead>
           <tbody>
             <tr><th>API Python</th><td><code>PipelineRunner</code>, export, predict et session native</td><td>La sélection legacy doit être explicite et réservée au rollback Python direct.</td></tr>
             <tr><th>Methods C ABI</th><td><code>libn4m 2.5.0</code>, SONAME 2</td><td>Vérifier la compatibilité header/runtime avant toute autre opération; bindings minces.</td></tr>
@@ -134,12 +130,13 @@
           </tbody>
         </table>
       </div>
-      <h3>Exemple Python natif</h3>
+      <h3>Exemple Python général</h3>
       <pre><code>import nirs4all
 
 result = nirs4all.run(pipeline="pipeline.yaml", dataset="dataset.yaml")
-archive = result.export("./portable-run.n4a")
+archive = result.export("./run.n4a")
 prediction = nirs4all.predict(model=archive, data="new_dataset.yaml")</code></pre>
+      <p>Le profil portable strict se sélectionne explicitement avec <code>engine="native"</code>. Il demande une pipeline sous forme de liste, un splitter, un modèle Methods supporté et un dataset contenant <code>X</code>, <code>y</code> et <code>sample_ids</code>; consultez le guide Python V1 avant de présenter son export comme une archive Core portable.</p>
       <h3>Rollback Python explicite</h3>
       <pre><code>rollback = nirs4all.run(
     pipeline="pipeline.yaml",
@@ -155,21 +152,21 @@ prediction = nirs4all.predict(model=archive, data="new_dataset.yaml")</code></pr
       <h3>Studio peut-il revenir automatiquement au backend historique?</h3>
       <p>Non. Les chemins Studio/Web et les profils Python stricts refusent la capacité indisponible. Le rollback legacy est uniquement un choix visible de l'appelant Python direct.</p>
       <h3>Un ancien workspace est-il migré à l'ouverture?</h3>
-      <p>Non. La détection est en lecture seule. L'opérateur lance Tools vers une nouvelle destination, puis vérifie le rapport avant basculement.</p>
+      <p>Non. La détection est en lecture seule. L'opérateur peut lancer une copie de préservation vers une nouvelle destination et en vérifier le rapport; cette copie n'est pas un workspace V1 reconstruit et ne déclenche aucun basculement automatique.</p>
       <h3>Cette page annonce-t-elle V1?</h3>
-      <p>Non. C'est une documentation candidate sous hold de publication. Le <a href="release-status.html">statut de staging</a> reste l'autorité visible de cette branche.</p>
+      <p>Oui. Elle accompagne la ligne stable corrigée nirs4all 1.0.1 / Studio 0.11.3. Le <a href="https://cockpit.nirs4all.org/">Cockpit</a> donne l'état opérationnel courant; la <a href="release-status.html">page de reçu</a> conserve la photographie vérifiable de la publication V1 initiale.</p>
     </section>
 
     <section aria-labelledby="sources">
-      <h2 id="sources">Contrats candidats vérifiables</h2>
+      <h2 id="sources">Contrats V1 vérifiables</h2>
       <div class="links">
-        <a href="https://github.com/GBeurier/nirs4all/blob/codex/r4-doc002-python-final/docs/source/migration/native_v1.md">Guide Python candidat</a>
-        <a href="https://github.com/GBeurier/nirs4all-methods/blob/codex/r4-doc002-methods/docs/abi/reference.md">Référence ABI Methods</a>
-        <a href="https://github.com/GBeurier/nirs4all-tools/blob/codex/r4-sup002-tools/docs/contracts/legacy-support-matrix.v1.json">Matrice Tools normative</a>
-        <a href="https://github.com/GBeurier/nirs4all-tools/blob/codex/r4-sup002-tools/docs/legacy-support-sla.md">SLA Tools</a>
+        <a href="https://github.com/GBeurier/nirs4all/blob/main/docs/source/migration/native_v1.md">Guide Python V1</a>
+        <a href="https://github.com/GBeurier/nirs4all-methods/blob/main/docs/abi/reference.md">Référence ABI Methods</a>
+        <a href="https://github.com/GBeurier/nirs4all-tools/blob/main/README.md">Contrat de préservation Tools</a>
+        <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">Release nirs4all-tools</a>
       </div>
     </section>
   </main>
-  <footer><div class="wrap">nirs4all · documentation candidate · aucune publication Pages déclenchée par cette branche</div></footer>
+  <footer><div class="wrap">nirs4all · documentation de migration et support V1</div></footer>
 </body>
 </html>

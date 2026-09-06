@@ -97,7 +97,7 @@
       </a>
       <div class="nav-links">
         <a href="/">Home</a>
-        <a href="release-status.html">Release status</a>
+        <a href="release-status.html">Initial V1 receipt</a>
         <a href="https://github.com/GBeurier/nirs4all">GitHub</a>
         <a href="https://cockpit.nirs4all.org/">Cockpit</a>
       </div>
@@ -124,21 +124,21 @@
         <div class="tool-grid">
           <article class="tool">
             <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all</h2>
-            <p>Python oracle/reference library and desktop ecosystem for preprocessing spectra, building pipelines, visualizing results, and deploying NIRS models. The maintained Python production line stays separate from the final V1 RC aggregate publication train.</p>
+            <p>Stable V1 Python oracle/reference library for preprocessing spectra, building DAG-ML pipelines, visualizing results, and deploying NIRS models.</p>
             <div class="tags"><span class="tag">Python</span><span class="tag">Studio</span><span class="tag">chemometrics</span></div>
             <a href="https://nirs4all.org/">Open nirs4all.org</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-studio/icon.svg" alt="" /> nirs4all-studio</h2>
-            <p>Desktop application for no-code NIRS workflows. Its candidate control plane is Rust-only (HTTP, store, jobs, scheduler and WebSocket); CPython is embedded only as a bounded stdio library/plugin host for Python interoperability. Candidate downloads remain unavailable.</p>
+            <p>Published desktop application for no-code NIRS workflows. Its control plane is Rust-only (HTTP, store, jobs, scheduler and WebSocket); CPython is embedded only as a bounded stdio library/plugin host for Python interoperability.</p>
             <div class="tags"><span class="tag">desktop</span><span class="tag">Electron</span><span class="tag">releases</span></div>
             <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">Open Studio releases</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-core/icon.svg" alt="" /> nirs4all-core</h2>
-            <p>Portable aggregate candidate over dag-ml, dag-ml-data, formats, IO, datasets and methods. The R4/V1 local snapshot is NO-GO and unpublished; exact versions, commits, trees and qualified limits are exposed without any artifact or registry link.</p>
-            <div class="tags"><span class="tag">aggregate</span><span class="tag">npm/crates</span><span class="tag">RC</span></div>
-            <a href="release-status.html">Check the verified release status</a>
+            <p>Published portable V1 aggregate over dag-ml, dag-ml-data, formats, IO, datasets and methods, providing one coherent cross-language integration surface.</p>
+            <div class="tags"><span class="tag">aggregate</span><span class="tag">npm/crates</span><span class="tag">V1</span></div>
+            <a href="https://github.com/GBeurier/nirs4all-core/releases/latest">Open nirs4all-core releases</a>
             <a href="https://github.com/GBeurier/nirs4all-core">Open the source repository</a>
           </article>
           <article class="tool">
@@ -150,13 +150,13 @@
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-providers/icon.svg" alt="" /> nirs4all-providers</h2>
             <p>Dependency-light Python provider clients over datasets and repository contracts. Benchmarks and papers keep their own public APIs. Read-side only, soft-importing, with package and source-repository surfaces.</p>
-            <div class="tags"><span class="tag">providers</span><span class="tag">contracts</span><span class="tag">RC</span></div>
+            <div class="tags"><span class="tag">providers</span><span class="tag">contracts</span><span class="tag">published</span></div>
             <a href="https://gbeurier.github.io/nirs4all-providers/">Open provider page</a>
             <a href="https://github.com/GBeurier/nirs4all-providers">Open source repo</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-tools/icon.svg" alt="" /> nirs4all-tools</h2>
-            <p>Migration toolkit for copy-on-write audit/conversion with dry-run, resume and verify. Exit code 0 means complete, 10 means warnings or opaque items preserved, and 20 means unsupported input without false success. Candidate 0.0.7 is not published.</p>
+            <p>Published V1 preservation toolkit for read-only inspection and checksummed copy-only migration with dry-run, resume and verify. Semantic workspace conversion fails closed instead of claiming unsupported completeness.</p>
             <div class="tags"><span class="tag">migration</span><span class="tag">CLI</span><span class="tag">release assets</span></div>
             <a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">Open nirs4all-tools releases</a>
             <a href="https://pypi.org/project/nirs4all-tools/">Open nirs4all-tools on PyPI</a>
@@ -175,7 +175,7 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-methods/icon.svg" alt="" /> nirs4all-methods</h2>
-            <p>Portable C++17 libn4m methods engine with a stable C ABI, language bindings and parity reports. The local scientific documentation candidate maps 209/209 method pages and carries 88 bibliography entries; publication remains pending.</p>
+            <p>Published portable C++17 libn4m methods engine with a stable C ABI, language bindings, parity reports, and scientific documentation mapping 209 method pages to 88 bibliography entries.</p>
             <div class="tags"><span class="tag">PLS</span><span class="tag">C ABI</span><span class="tag">bindings</span></div>
             <a href="https://methods.nirs4all.org/">Open methods.nirs4all.org</a>
           </article>
@@ -224,10 +224,10 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all-cockpit</h2>
-            <p>Operational dashboard for registries, code stats, CI, and public page visits. For the R2 train, the validated static manifest remains the authority for versions, commits, and downloads.</p>
+            <p>Operational dashboard for registries, releases, code statistics, CI, documentation, and public page visits across the ecosystem.</p>
             <div class="tags"><span class="tag">dashboard</span><span class="tag">releases</span><span class="tag">health</span></div>
             <a href="https://cockpit.nirs4all.org/">Open cockpit.nirs4all.org</a>
-            <a href="release-status.html">Check the verified release status</a>
+            <a href="release-status.html">Open the initial V1 release receipt</a>
           </article>
         </div>
       </div>
@@ -244,11 +244,11 @@
             <tr><td>Find reference data</td><td>Browse NIRS datasets with provenance, license, DOI, and statistical identity cards.</td><td><a href="https://datasets.nirs4all.org/">nirs4all-datasets</a></td></tr>
             <tr><td>Run methods</td><td>Use portable PLS and NIRS methods through C, Python, R, MATLAB, JavaScript, and other bindings.</td><td><a href="https://methods.nirs4all.org/">nirs4all-methods</a></td></tr>
             <tr><td>Run adaptive models</td><td>Use the paper companion implementation of AOM-PLS, POP-PLS, AOM-Ridge and FastAOM estimators.</td><td><a href="https://pypi.org/project/nirs4all-aom/">nirs4all-aom</a></td></tr>
-            <tr><td>Use a desktop app</td><td>Build and inspect NIRS workflows with the desktop app while the shared RC package surfaces keep evolving.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">nirs4all-studio</a></td></tr>
-            <tr><td>Track the portable aggregate</td><td>Inspect the selected sources while the incomplete R2 train is being qualified; downloads appear only with manifest evidence.</td><td><a href="release-status.html">verified release status</a></td></tr>
+            <tr><td>Use a desktop app</td><td>Build and inspect V1 NIRS workflows with the published desktop application.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">nirs4all-studio</a></td></tr>
+            <tr><td>Use the portable aggregate</td><td>Integrate the published DAG-ML, data, format, IO, dataset, and method stack through one package.</td><td><a href="https://github.com/GBeurier/nirs4all-core/releases/latest">nirs4all-core</a></td></tr>
             <tr><td>Share UI components</td><td>Reuse the published Studio/Web package, runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
             <tr><td>Read provider contracts</td><td>Consume datasets and repository descriptors through one soft-importing read-side client layer; benchmarks and papers keep their own APIs.</td><td><a href="https://gbeurier.github.io/nirs4all-providers/">nirs4all-providers</a></td></tr>
-            <tr><td>Migrate saved artifacts</td><td>Audit legacy workspaces, convert supported saved runs and predictions, and write cutover reports before switching runtimes.</td><td><a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">nirs4all-tools</a></td></tr>
+            <tr><td>Preserve saved artifacts</td><td>Inspect legacy workspaces, then create a disjoint, checksummed copy-only archive. Semantic conversion is explicitly unavailable in V1.</td><td><a href="https://github.com/GBeurier/nirs4all-tools/releases/latest">nirs4all-tools</a></td></tr>
             <tr><td>Model in the browser</td><td>Upload spectra, build a pipeline, run cross-validation, inspect results, and predict without a backend.</td><td><a href="https://web.nirs4all.org/">nirs4all-web</a></td></tr>
             <tr><td>Distribute lab execution</td><td>Route trusted-LAN jobs across local lab machines with scheduler, leases, capability matching, and crash recovery.</td><td><a href="https://github.com/GBeurier/nirs4all-cluster">nirs4all-cluster</a></td></tr>
             <tr><td>Reuse pipelines</td><td>Browse pipeline recipes with provenance and checksums; validation status is recorded per recipe.</td><td><a href="https://repository.nirs4all.org/">nirs4all-repository</a></td></tr>

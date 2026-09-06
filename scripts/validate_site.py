@@ -609,21 +609,26 @@ def validate_release_page(path: Path) -> None:
 
 
 def validate_transition_copy(readme: str, index: str, release_page: str) -> None:
-    """Keep human transition copy aligned with the candidate projection."""
+    """Keep current homepage copy and the historical release receipt aligned."""
     required = {
         "README.md": (
-            "Python R1 0.13.0, R2, R3 and stable R4 1.0.0",
-            "Repository 0.1.12 and Providers 0.2.11 are published",
-            "Web 0.1.10 is deployed",
+            "nirs4all 1.0.1 and Studio 0.11.3",
+            "DAG-ML 0.3.25 and dag-ml-data 0.2.11",
+            "nirs4all-core 0.3.30, Methods 1.0.18 and IO 0.1.18",
+            "Web 0.1.10 remains deployed",
             "d7d62825e5aa5ab5554ec7d084fab29be66acd74",
             "d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
         ),
         "index.html": (
-            "Python R1 0.13.0, R2, R3 and stable R4 1.0.0</b>",
-            "Repository 0.1.12</b>",
-            "Providers 0.2.11</b>",
-            "nirs4all-web 0.1.10</b> is live",
-            "R4 1.0.0</b> and <b>Studio 0.11.0</b> are published",
+            "nirs4all v1 is here</strong> &mdash; now powered by DAG-ML",
+            "nirs4all 1.0.1</b>",
+            "Studio 0.11.3</b>",
+            "nirs4all-core 0.3.30</b>",
+            "dag-ml 0.3.25</b>",
+            "dag-ml-data 0.2.11</b>",
+            "Methods 1.0.18</b>",
+            "IO 0.1.18</b>",
+            "nirs4all-web 0.1.10</b> remains live",
         ),
         "release-status.html": (
             "Python R1/R2/R3/R4 et Studio publiés · GO",

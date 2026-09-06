@@ -3,7 +3,7 @@
 Official landing page for the public nirs4all ecosystem: the Python
 reference/oracle package, [nirs4all Studio](https://github.com/GBeurier/nirs4all-studio),
 the client-side WASM web app, the shared UI package, the provider client layer,
-and the v1 RC package topology.
+and the stable V1 package topology powered by DAG-ML.
 
 Repository name: `nirs4all-org`
 
@@ -13,16 +13,15 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
-Current transition note: the native foundations, Python R1 0.13.0, R2, R3 and
-stable R4 1.0.0, Repository 0.1.12, Providers 0.2.11 and Studio 0.11.0 are
-published, and Web 0.1.10 is deployed. R1 keeps the legacy engine as its
-default. Studio remains unsigned/non-notarized under the explicit bounded
-waiver recorded with the release receipts.
-Repository 0.1.12 and Providers 0.2.11 are published. Web 0.1.10 is deployed.
+Current release note: nirs4all 1.0.1 and Studio 0.11.3 are the corrected stable
+V1 user surfaces. DAG-ML 0.3.25 and dag-ml-data 0.2.11 provide the execution
+and data-contract backend; nirs4all-core 0.3.30, Methods 1.0.18 and IO 0.1.18
+complete the current portable V1 line. Web 0.1.10 remains deployed.
 The public projection is sealed by the annotated `v1.0.7` and
 `n4a-v1-2026.09-native-release` tags.
 
-The release-status page has two deliberately separate inputs. The historical
+The release-status page is the immutable initial V1 publication receipt and has
+two deliberately separate inputs. The historical
 `release-manifest.json` remains the fail-closed projection of the unchanged
 canonical lock. The historical `r1-archive.html` reads only that deterministic
 projection: it records the R1 consolidation without claiming native-default or
@@ -97,7 +96,7 @@ announcement or add download links before lock-authorized publication.
 
 - **Hero**: Logo, tagline, install command, CTA buttons
 - **Overview**: Python reference library vs Studio comparison
-- **RC topology**: `nirs4all-core` as the V1 RC portable aggregate,
+- **V1 topology**: `nirs4all-core` as the published portable aggregate,
   `web.nirs4all.org` as client-side-only/WASM, `nirs4all-ui` as the shared
   Studio/Web reusable components/assets package, and `nirs4all-providers` as the
   soft-importing read-side client layer over datasets and repository
