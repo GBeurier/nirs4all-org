@@ -62,6 +62,8 @@
           "sameAs": [
             "https://github.com/GBeurier/nirs4all",
             "https://github.com/GBeurier/nirs4all-studio",
+            "https://github.com/GBeurier/nirs4all-quality",
+            "https://quali.nirs4all.org/",
             "https://nirs4all.readthedocs.io",
             "https://pypi.org/project/nirs4all/",
             "https://github.com/GBeurier/nirs4all-ecosystem",
@@ -135,6 +137,12 @@
               "@id": "https://nirs4all.org/#studio"
             },
             {
+              "@id": "https://nirs4all.org/#quali"
+            },
+            {
+              "@id": "https://nirs4all.org/#device"
+            },
+            {
               "@id": "https://nirs4all.org/#core"
             },
             {
@@ -159,6 +167,9 @@
           "softwareVersion": "1.0.1",
           "downloadUrl": "https://pypi.org/project/nirs4all/",
           "codeRepository": "https://github.com/GBeurier/nirs4all",
+          "citation": {
+            "@id": "https://nirs4all.org/#reference-paper"
+          },
           "license": "https://cecill.info/licences/Licence_CeCILL_V2.1-en.html",
           "isAccessibleForFree": true,
           "offers": {
@@ -306,6 +317,97 @@
             "@id": "https://nirs4all.org/#organization"
           },
           "description": "Dependency-light, soft-importing Python provider client layer over nirs4all-datasets and nirs4all-repository. Benchmarks and papers keep their own public APIs. It owns no NIRS, ML, IO, parsing, or write-back logic; PyPI nirs4all-providers is published and tagged GitHub Release fallback assets remain available."
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://nirs4all.org/#quali",
+          "name": "quali-nirs4all",
+          "url": "https://quali.nirs4all.org/",
+          "image": "https://nirs4all.org/assets/brand/quali-nirs4all/icon.svg",
+          "applicationCategory": "ScientificApplication",
+          "operatingSystem": "Web browser",
+          "browserRequirements": "JavaScript and WebAssembly",
+          "codeRepository": "https://github.com/GBeurier/nirs4all-quality",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Guided NIRS laboratory workflow",
+            "Spectral data health and repeat analysis",
+            "HPLC reference-sample selection",
+            "Calibration, prediction reliability and model maintenance"
+          ],
+          "publisher": {
+            "@id": "https://nirs4all.org/#organization"
+          },
+          "description": "Beta browser application for NIRS analysis laboratories, providing a guided workflow for data health, HPLC sample selection, calibration, prediction reliability, and model maintenance."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://nirs4all.org/#device",
+          "name": "nirs4all-device",
+          "url": "https://device.nirs4all.org/",
+          "image": "https://nirs4all.org/assets/brand/nirs4all-device/og.png",
+          "applicationCategory": "ScientificApplication",
+          "operatingSystem": "Android, iOS, Web browser",
+          "programmingLanguage": "TypeScript",
+          "codeRepository": "https://github.com/GBeurier/nirs4all-device",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Bluetooth NIRS spectrometer connection",
+            "Field capture and local project storage",
+            "Capture-quality gates and portable inference",
+            "Simulator for hardware-free workflow testing"
+          ],
+          "publisher": {
+            "@id": "https://nirs4all.org/#organization"
+          },
+          "description": "Prototype phone and tablet workbench for connected NIRS spectrometers. Hardware design files and build instructions for a DIY NIRS device are planned for publication soon."
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://nirs4all.org/#reference-paper",
+          "headline": "nirs4all: Canonical, content-addressed workflows for reproducible near-infrared calibration",
+          "url": "https://doi.org/10.1016/j.chemolab.2026.105880",
+          "sameAs": "https://www.sciencedirect.com/science/article/pii/S0169743926002534",
+          "identifier": "https://doi.org/10.1016/j.chemolab.2026.105880",
+          "datePublished": "2026-12-15",
+          "pagination": "105880",
+          "isPartOf": {
+            "@type": "PublicationVolume",
+            "volumeNumber": "279",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Chemometrics and Intelligent Laboratory Systems",
+              "issn": "0169-7439"
+            }
+          },
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Gregory Beurier"
+            },
+            {
+              "@type": "Person",
+              "name": "Lauriane Rouan"
+            },
+            {
+              "@type": "Person",
+              "name": "Denis Cornet"
+            }
+          ],
+          "about": {
+            "@id": "https://nirs4all.org/#library"
+          },
+          "description": "The reference publication for nirs4all, presenting canonical workflow declarations, content-addressed provenance, replicate-aware validation semantics, and portable audited calibration bundles."
         },
         {
           "@type": "FAQPage",
@@ -1652,6 +1754,7 @@
           <div class="nav-dd-head">Explore the packages</div>
           <a href="https://nirs4all.readthedocs.io" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all</b><span>Library · Docs</span></a>
           <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all Studio</b><span>Desktop app</span></a>
+          <a href="https://quali.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-engine" role="menuitem"><b>quali-nirs4all</b><span>Lab workflow · Beta</span></a>
           <a href="https://device.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all-device</b><span>Phone spectrometer app</span></a>
           <a href="https://methods.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-engine" role="menuitem"><b>nirs4all-methods</b><span>PLS engine</span></a>
           <a href="https://pypi.org/project/nirs4all-aom" target="_blank" rel="noopener" class="nav-dd-item acc-engine" role="menuitem"><b>nirs4all-aom</b><span>Adaptive models</span></a>
@@ -2193,6 +2296,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
           <a href="https://github.com/GBeurier/nirs4all" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://nirs4all.readthedocs.io" target="_blank" class="pill pill-teal">Docs</a>
           <a href="https://pypi.org/project/nirs4all" target="_blank" class="pill pill-teal">PyPI</a>
+          <a href="https://doi.org/10.1016/j.chemolab.2026.105880" target="_blank" rel="noopener" class="pill pill-teal">Reference paper</a>
         </div>
       </div>
 
@@ -2210,6 +2314,42 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-studio" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" class="pill pill-teal">Releases</a>
+        </div>
+      </div>
+
+      <!-- quali-nirs4all · Guided lab app (beta) -->
+      <div class="eco-card cat-engine fade-in">
+        <div class="eco-head">
+          <span class="eco-logo" data-eco-logo="quali-nirs4all" aria-hidden="true">quali</span>
+          <div class="eco-titles">
+            <div class="eco-cat">Guided lab workflow</div>
+            <div class="eco-name">quali-nirs4all <span class="eco-lang">React &middot; WASM</span></div>
+          </div>
+          <span class="eco-ver">Beta</span>
+        </div>
+        <p>A guided mini-studio for NIRS analysis laboratories. It helps lab technicians assess spectral data health and repeats, select samples for HPLC or wet chemistry, calibrate models, qualify prediction reliability, and monitor model drift &mdash; all locally in the browser through the nirs4all WASM stack.</p>
+        <div class="eco-links">
+          <a href="https://quali.nirs4all.org/" target="_blank" rel="noopener" class="pill pill-indigo">Open app</a>
+          <a href="https://github.com/GBeurier/nirs4all-quality" target="_blank" rel="noopener" class="pill pill-indigo"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <span class="eco-status">Beta</span>
+        </div>
+      </div>
+
+      <!-- nirs4all-device · Connected spectrometer app (prototype) -->
+      <div class="eco-card cat-soon fade-in">
+        <div class="eco-head">
+          <span class="eco-logo" data-eco-logo="nirs4all-device" aria-hidden="true">dev</span>
+          <div class="eco-titles">
+            <div class="eco-cat">Connected spectrometer app</div>
+            <div class="eco-name">nirs4all-device <span class="eco-lang">Mobile &middot; BLE</span></div>
+          </div>
+          <span class="eco-ver">Prototype</span>
+        </div>
+        <p>A prototype phone and tablet workbench for Bluetooth-connected NIRS spectrometers: organize field sessions, capture and inspect spectra, apply quality gates, and run portable inference locally. The hardware design files and build guide for a <strong>DIY NIRS device</strong> will be available soon.</p>
+        <div class="eco-links">
+          <a href="https://device.nirs4all.org/" target="_blank" rel="noopener" class="pill pill-cyan">Open prototype</a>
+          <a href="https://github.com/GBeurier/nirs4all-device" target="_blank" rel="noopener" class="pill pill-cyan"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+          <span class="eco-status">Prototype &middot; DIY files soon</span>
         </div>
       </div>
 
@@ -2516,7 +2656,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
         <span class="hud-corner"></span>
         <span class="hud-label">Ecosystem<i>_</i></span>
         <span class="hud-rule"></span>
-        <span class="hud-meta">21 projects &middot; open&nbsp;source</span>
+        <span class="hud-meta">22 projects &middot; open&nbsp;source</span>
         <span class="hud-dot"></span>
       </div>
       <div class="hud-body">
@@ -2526,6 +2666,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <a href="https://formats.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-formats <span class="k">demo</span></a>
             <a href="https://io.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-io <span class="k">demo</span></a>
             <a href="https://web.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-web <span class="k">WASM</span></a>
+            <a href="https://quali.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>quali-nirs4all <span class="k">beta</span></a>
             <a href="https://methods.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-methods <span class="k">site</span></a>
             <a href="https://datasets.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-datasets <span class="k">site</span></a>
             <a href="https://papers.nirs4all.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>nirs4all-papers <span class="k">demo</span></a>
@@ -2864,8 +3005,23 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   <div class="container">
     <div class="eyebrow-wrap fade-in"><span class="eyebrow">Research</span></div>
     <h2 class="section-title fade-in"><em>Publications</em></h2>
-    <p class="section-sub fade-in">Research using nirs4all and related spectroscopic analysis.</p>
+    <p class="section-sub fade-in">The reference publication for nirs4all, followed by research using the software and related spectroscopic analysis.</p>
     <div class="pub-list fade-in">
+      <div class="pub-card">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">nirs4all: Canonical, content-addressed workflows for reproducible near-infrared calibration</div>
+          <div class="pub-authors">Beurier G., Rouan L., Cornet D.</div>
+          <div class="pub-journal">Chemometrics and Intelligent Laboratory Systems, 279, Article 105880, 2026</div>
+          <div class="pub-links">
+            <span class="pill pill-amber" style="cursor:default">Reference publication</span>
+            <span class="pill pill-cyan" style="cursor:default">Reproducible NIRS workflows</span>
+            <span class="pill pill-indigo" style="cursor:default">Open access</span>
+            <a href="https://doi.org/10.1016/j.chemolab.2026.105880" target="_blank" rel="noopener" class="pill pill-teal">DOI &rarr;</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0169743926002534" target="_blank" rel="noopener" class="pill pill-teal">ScienceDirect &rarr;</a>
+          </div>
+        </div>
+      </div>
       <div class="pub-card">
         <div class="pub-year">2026</div>
         <div class="pub-body">
@@ -2984,15 +3140,18 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
       </div>
     </div>
     <div style="margin-top:48px" class="fade-in">
-      <div class="bibtex-label">Cite this software</div>
+      <div class="bibtex-label">Cite nirs4all</div>
       <div class="bibtex-block">
         <button class="copy-btn" id="copy-bibtex">Copy BibTeX</button>
-        <pre><span class="bk">@software</span>{<span class="bf">beurier2025nirs4all</span>,
-  <span class="bf">author</span>  = {<span class="bv">Gregory Beurier and Denis Cornet and Lauriane Rouan</span>},
-  <span class="bf">title</span>   = {<span class="bv">NIRS4ALL: Open spectroscopy for everyone</span>},
-  <span class="bf">url</span>     = {<span class="bv">https://github.com/GBeurier/nirs4all</span>},
-  <span class="bf">version</span> = {<span class="bv" data-lib-version>1.0.1</span>},
+        <pre><span class="bk">@article</span>{<span class="bf">beurier2026nirs4all</span>,
+  <span class="bf">author</span>  = {<span class="bv">Gregory Beurier and Lauriane Rouan and Denis Cornet</span>},
+  <span class="bf">title</span>   = {<span class="bv">nirs4all: Canonical, content-addressed workflows for reproducible near-infrared calibration</span>},
+  <span class="bf">journal</span> = {<span class="bv">Chemometrics and Intelligent Laboratory Systems</span>},
+  <span class="bf">volume</span>  = {<span class="bv">279</span>},
+  <span class="bf">pages</span>   = {<span class="bv">105880</span>},
   <span class="bf">year</span>    = {<span class="bv">2026</span>},
+  <span class="bf">doi</span>     = {<span class="bv">10.1016/j.chemolab.2026.105880</span>},
+  <span class="bf">url</span>     = {<span class="bv">https://doi.org/10.1016/j.chemolab.2026.105880</span>},
 }</pre>
       </div>
     </div>
@@ -3057,6 +3216,13 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
         </div>
         <h4>Studio on GitHub</h4>
         <p>Source code for the nirs4all Studio desktop application</p>
+      </a>
+      <a href="https://quali.nirs4all.org/" target="_blank" rel="noopener" class="link-card">
+        <div class="link-icon brand-icon">
+          <img src="assets/brand/quali-nirs4all/icon.svg" alt="quali-nirs4all logo" loading="lazy" decoding="async" />
+        </div>
+        <h4>quali-nirs4all <span style="font-family:var(--mono);font-size:.62rem;font-weight:600;color:var(--text-3);border:1px solid var(--border);border-radius:100px;padding:1px 7px;vertical-align:middle">beta</span></h4>
+        <p>Guided browser workflow for NIRS laboratory data health, HPLC selection, calibration, prediction reliability, and model maintenance</p>
       </a>
       <a href="https://nirs4all.readthedocs.io" target="_blank" class="link-card">
         <div class="link-icon">
@@ -3626,6 +3792,8 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
   const ECOSYSTEM_LOGOS = {
     "nirs4all":          "assets/brand/nirs4all/icon.svg",
     "nirs4all-studio":   "assets/brand/nirs4all-studio/icon.svg",
+    "quali-nirs4all":    "assets/brand/quali-nirs4all/icon.svg",
+    "nirs4all-device":   "assets/brand/nirs4all-device/icon.svg",
     "nirs4all-methods":  "assets/brand/nirs4all-methods/icon.svg",
     "nirs4all-aom":      "",                            // TODO: no brand color assigned yet
     "nirs4all-formats":  "assets/brand/nirs4all-formats/icon.svg",

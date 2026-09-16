@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Open-Source NIRS Tools | nirs4all ecosystem</title>
-  <meta name="description" content="Find open-source NIRS tools from nirs4all: Studio, portable core aggregate, shared UI package, provider clients, spectroscopy file readers, datasets, PLS methods, browser modelling, pipeline repositories, papers, benchmarks, and release dashboards." />
+  <meta name="description" content="Find open-source NIRS tools from nirs4all: Studio, guided lab quality workflows, portable core, shared UI, file readers, datasets, PLS methods, browser modelling, pipelines, papers, and benchmarks." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#0d9488" />
   <link rel="canonical" href="https://nirs4all.org/open-source-nirs-tools.html" />
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="nirs4all" />
   <meta property="og:title" content="Open-Source NIRS Tools | nirs4all ecosystem" />
-  <meta property="og:description" content="A practical map of open-source near-infrared spectroscopy tools for Studio, portable core aggregate, UI, providers, formats, datasets, methods, browser modelling, papers, benchmarks, and pipelines." />
+  <meta property="og:description" content="A practical map of open-source near-infrared spectroscopy tools for Studio, guided lab quality workflows, portable core, formats, datasets, methods, browser modelling, papers, benchmarks, and pipelines." />
   <meta property="og:url" content="https://nirs4all.org/open-source-nirs-tools.html" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Open-Source NIRS Tools | nirs4all ecosystem" />
-  <meta name="twitter:description" content="Open-source near-infrared spectroscopy tools for Studio, portable core aggregate, shared UI, providers, file reading, datasets, PLS methods, browser modelling, pipelines, papers, and benchmarks." />
+  <meta name="twitter:description" content="Open-source near-infrared spectroscopy tools for Studio, guided lab quality workflows, portable core, file reading, datasets, PLS methods, browser modelling, pipelines, papers, and benchmarks." />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <link rel="icon" type="image/x-icon" href="assets/nirs4all.ico" />
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
@@ -48,7 +48,9 @@
       {"@type": "ListItem", "position": 14, "name": "nirs4all-providers", "url": "https://gbeurier.github.io/nirs4all-providers/"},
       {"@type": "ListItem", "position": 15, "name": "nirs4all-cluster", "url": "https://github.com/GBeurier/nirs4all-cluster"},
       {"@type": "ListItem", "position": 16, "name": "nirs4all-tools", "url": "https://github.com/GBeurier/nirs4all-tools"},
-      {"@type": "ListItem", "position": 17, "name": "nirs4all-aom", "url": "https://pypi.org/project/nirs4all-aom/"}
+      {"@type": "ListItem", "position": 17, "name": "nirs4all-aom", "url": "https://pypi.org/project/nirs4all-aom/"},
+      {"@type": "ListItem", "position": 18, "name": "quali-nirs4all", "url": "https://quali.nirs4all.org/"},
+      {"@type": "ListItem", "position": 19, "name": "nirs4all-device", "url": "https://device.nirs4all.org/"}
     ]
   }
   </script>
@@ -133,6 +135,20 @@
             <p>Published desktop application for no-code NIRS workflows. Its control plane is Rust-only (HTTP, store, jobs, scheduler and WebSocket); CPython is embedded only as a bounded stdio library/plugin host for Python interoperability.</p>
             <div class="tags"><span class="tag">desktop</span><span class="tag">Electron</span><span class="tag">releases</span></div>
             <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">Open Studio releases</a>
+          </article>
+          <article class="tool">
+            <h2><img src="assets/brand/quali-nirs4all/icon.svg" alt="" /> quali-nirs4all</h2>
+            <p>Beta guided browser application for NIRS labs: check data health and repeats, select HPLC or wet-chemistry samples, calibrate, qualify predictions, and maintain models through a pedagogical workflow.</p>
+            <div class="tags"><span class="tag">laboratory</span><span class="tag">WASM</span><span class="tag">beta</span></div>
+            <a href="https://quali.nirs4all.org/">Open quali.nirs4all.org</a>
+            <a href="https://github.com/GBeurier/nirs4all-quality">Open the source repository</a>
+          </article>
+          <article class="tool">
+            <h2><img src="assets/brand/nirs4all-device/icon.svg" alt="" /> nirs4all-device</h2>
+            <p>Prototype phone and tablet workbench for connected NIRS spectrometers, with Bluetooth capture, field sessions, quality gates, local storage, and portable inference. Hardware files and a build guide for a DIY NIRS device are coming soon.</p>
+            <div class="tags"><span class="tag">mobile</span><span class="tag">Bluetooth</span><span class="tag">prototype</span></div>
+            <a href="https://device.nirs4all.org/">Open device.nirs4all.org</a>
+            <a href="https://github.com/GBeurier/nirs4all-device">Open the source repository</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-core/icon.svg" alt="" /> nirs4all-core</h2>
@@ -245,6 +261,8 @@
             <tr><td>Run methods</td><td>Use portable PLS and NIRS methods through C, Python, R, MATLAB, JavaScript, and other bindings.</td><td><a href="https://methods.nirs4all.org/">nirs4all-methods</a></td></tr>
             <tr><td>Run adaptive models</td><td>Use the paper companion implementation of AOM-PLS, POP-PLS, AOM-Ridge and FastAOM estimators.</td><td><a href="https://pypi.org/project/nirs4all-aom/">nirs4all-aom</a></td></tr>
             <tr><td>Use a desktop app</td><td>Build and inspect V1 NIRS workflows with the published desktop application.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest">nirs4all-studio</a></td></tr>
+            <tr><td>Guide routine lab work</td><td>Assess spectral data, select reference analyses, calibrate, qualify predictions, and maintain NIRS models in a guided browser workflow.</td><td><a href="https://quali.nirs4all.org/">quali-nirs4all (beta)</a></td></tr>
+            <tr><td>Capture spectra in the field</td><td>Connect a mobile device to a Bluetooth NIRS spectrometer, organize sessions, check capture quality, and run portable inference.</td><td><a href="https://device.nirs4all.org/">nirs4all-device (prototype)</a></td></tr>
             <tr><td>Use the portable aggregate</td><td>Integrate the published DAG-ML, data, format, IO, dataset, and method stack through one package.</td><td><a href="https://github.com/GBeurier/nirs4all-core/releases/latest">nirs4all-core</a></td></tr>
             <tr><td>Share UI components</td><td>Reuse the published Studio/Web package, runtime badges, status view models, score helpers and brand assets.</td><td><a href="https://gbeurier.github.io/nirs4all-ui/">nirs4all-ui</a></td></tr>
             <tr><td>Read provider contracts</td><td>Consume datasets and repository descriptors through one soft-importing read-side client layer; benchmarks and papers keep their own APIs.</td><td><a href="https://gbeurier.github.io/nirs4all-providers/">nirs4all-providers</a></td></tr>
