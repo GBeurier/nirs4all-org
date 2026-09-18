@@ -210,7 +210,6 @@
           "applicationCategory": "ScientificApplication",
           "operatingSystem": "Windows, macOS, Linux",
           "softwareVersion": "0.11.3",
-          "downloadUrl": "https://github.com/GBeurier/nirs4all-studio/releases/latest",
           "codeRepository": "https://github.com/GBeurier/nirs4all-studio",
           "license": "https://www.gnu.org/licenses/agpl-3.0.en.html",
           "isAccessibleForFree": true,
@@ -442,7 +441,7 @@
               "name": "How do I install or download nirs4all?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can install the Python reference library from PyPI with pip install nirs4all, and you can download nirs4all Studio for Windows, macOS, and Linux from the latest GitHub releases page."
+                "text": "You can install the Python reference library from PyPI with pip install nirs4all. Studio unavailable and under maintenance. Be back soon"
               }
             },
             {
@@ -686,6 +685,9 @@
     }
     .nav-dd-item:hover { background: rgba(13,148,136,0.07); color: var(--text); }
     .nav-dd-item:hover::before { height: 18px; }
+    .nav-dd-item.studio-download-disabled { cursor: not-allowed; opacity: .58; }
+    .nav-dd-item.studio-download-disabled:hover { background: transparent; color: var(--text); }
+    .nav-dd-item.studio-download-disabled:hover::before { height: 0; }
     .nav-dd-item.acc-engine { --accent: var(--indigo); }
     .nav-dd-item.acc-data   { --accent: var(--cyan-d); }
     .nav-dd-item.acc-dag    { --accent: var(--amber); }
@@ -835,6 +837,8 @@
       transition: border-color .2s, background .2s, transform .2s;
     }
     .release-news:hover { color: var(--text); border-color: var(--teal); background: #fff; transform: translateY(-1px); }
+    .release-news[role="status"] { cursor: default; }
+    .release-news[role="status"]:hover { color: var(--text-2); border-color: rgba(13,148,136,.24); background: rgba(255,255,255,.78); transform: none; }
     .release-news-label {
       padding: 4px 8px; border-radius: 999px; background: var(--teal-d); color: #fff;
       font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
@@ -917,8 +921,13 @@
       box-shadow: 0 10px 26px -8px rgba(13,94,88,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
     }
     .btn-download:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 32px -8px rgba(13,94,88,0.55); }
+    .btn-download.studio-download-disabled,
+    .btn-download.studio-download-disabled:hover {
+      cursor: not-allowed; opacity: .58; filter: grayscale(.35); transform: none;
+      color: #fff; box-shadow: 0 8px 18px -8px rgba(13,94,88,0.28);
+    }
     .dl-platforms { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 13; }
-    .dl-platforms a {
+    .dl-platforms a, .dl-platforms .studio-download-disabled {
       color: var(--text-2); font-size: .78rem; font-weight: 600;
       padding: 8px 14px; border: 1px solid rgba(15,23,42,0.1);
       background: rgba(255,255,255,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
@@ -926,6 +935,8 @@
       display: inline-flex; align-items: center; gap: 6px;
     }
     .dl-platforms a:hover { color: var(--teal-d); border-color: rgba(13,148,136,0.3); background: rgba(255,255,255,0.9); transform: translateY(-1px); }
+    .dl-platforms .studio-download-disabled { cursor: not-allowed; opacity: .58; filter: grayscale(.35); }
+    .dl-platforms .studio-download-disabled:hover { color: var(--text-2); border-color: rgba(15,23,42,0.1); background: rgba(255,255,255,0.7); transform: none; }
     .dl-platforms a svg { width: 12px; height: 12px; }
     .btn-pip {
       display: inline-flex; align-items: center; gap: 10px;
@@ -1022,6 +1033,8 @@
     .pill-amber:hover { background: rgba(217,119,6,.1); border-color: var(--amber); color: var(--amber); }
     .pill-green { color: #047857; border-color: rgba(16,185,129,.22); background: rgba(16,185,129,.05); }
     .pill-green:hover { background: rgba(16,185,129,.12); border-color: var(--green); color: #047857; }
+    .pill.studio-download-disabled,
+    .pill.studio-download-disabled:hover { cursor: not-allowed; opacity: .58; filter: grayscale(.35); transform: none; }
 
     /* ── Features ───────────────────────────────────────────────── */
     .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
@@ -1717,8 +1730,9 @@
     .map-ml .mn-pop::after, .map-app .mn-pop::after { bottom: auto; top: 100%; border-bottom-color: transparent; border-top-color: #0c1626; }
     .mn-pop p { font-family: var(--font); font-size: .76rem; line-height: 1.55; color: rgba(255,255,255,.82); margin: 0 0 9px; }
     .mn-links { display: flex; flex-wrap: wrap; gap: 6px; }
-    .mn-pop a { font-family: var(--mono); font-size: .64rem; font-weight: 600; color: #5eead4; background: rgba(45,212,191,.1); border: 1px solid rgba(45,212,191,.28); border-radius: 6px; padding: 3px 8px; }
+    .mn-pop a, .mn-pop .studio-download-disabled { font-family: var(--mono); font-size: .64rem; font-weight: 600; color: #5eead4; background: rgba(45,212,191,.1); border: 1px solid rgba(45,212,191,.28); border-radius: 6px; padding: 3px 8px; }
     .mn-pop a:hover { background: rgba(45,212,191,.2); color: #fff; }
+    .mn-pop .studio-download-disabled { cursor: not-allowed; opacity: .58; filter: grayscale(.35); }
 
     .map-hint { text-align: center; margin-top: 34px; font-family: var(--mono); font-size: .66rem; letter-spacing: .04em; color: var(--text-3); }
 
@@ -1753,7 +1767,7 @@
         <div class="nav-dd-panel" role="menu">
           <div class="nav-dd-head">Explore the packages</div>
           <a href="https://nirs4all.readthedocs.io" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all</b><span>Library · Docs</span></a>
-          <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all Studio</b><span>Desktop app</span></a>
+          <span class="nav-dd-item studio-download-disabled" role="menuitem" aria-disabled="true"><b>nirs4all Studio</b><span>Under maintenance</span></span>
           <a href="https://quali.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-engine" role="menuitem"><b>quali-nirs4all</b><span>Lab workflow · Beta</span></a>
           <a href="https://device.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item" role="menuitem"><b>nirs4all-device</b><span>Phone spectrometer app</span></a>
           <a href="https://methods.nirs4all.org/" target="_blank" rel="noopener" class="nav-dd-item acc-engine" role="menuitem"><b>nirs4all-methods</b><span>PLS engine</span></a>
@@ -1820,11 +1834,10 @@
 
   <div class="container hero-content fade-in">
     <img src="assets/brand/ecosystem/nirs4all_horizontal.svg" alt="nirs4all" class="hero-logo" />
-    <a class="release-news" href="https://github.com/GBeurier/nirs4all/releases/tag/1.0.1" target="_blank" rel="noopener">
-      <span class="release-news-label">News</span>
-      <span><strong>nirs4all v1 is here</strong> &mdash; now powered by DAG-ML</span>
-      <span aria-hidden="true">&rarr;</span>
-    </a>
+    <div class="release-news" role="status" aria-live="polite">
+      <span class="release-news-label">Status</span>
+      <span>Studio unavailable and under maintenance. Be back soon</span>
+    </div>
     <!-- <div class="hero-kicker">Near-Infrared Spectroscopy · Open Source</div> -->
     <h1 class="hero-tagline">Open spectroscopy <em>for everyone</em></h1>
     <p class="hero-sub">From raw spectra to deployed models &mdash; a stable Python library and desktop Studio, backed by DAG-ML for reproducible execution and joined by portable data, method, WASM, and integration packages.</p>
@@ -1865,23 +1878,23 @@
       </a>
     </div>
     <div class="hero-download">
-      <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" class="btn-download" id="studio-main-dl">
+      <span class="btn-download studio-download-disabled" id="studio-main-dl" aria-disabled="true">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Studio <span data-studio-version-prefix>v0.11.3</span>
-      </a>
+        Studio download unavailable
+      </span>
       <div class="dl-platforms">
-        <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" data-dl-win>
+        <span class="studio-download-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5L10 4.5v7H3zM11 4.3l10-1.3v8.5H11zM3 12.5h7v7L3 18.5zM11 12.5h10V21l-10-1.3z"/></svg>
           Windows
-        </a>
-        <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" data-dl-mac>
+        </span>
+        <span class="studio-download-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.2 3c.1 1-.3 2-.9 2.6-.6.7-1.6 1.2-2.5 1.2-.1-1 .3-2 .9-2.6.6-.7 1.6-1.1 2.5-1.2zM19 17.3c-.6 1.4-1 2-1.9 3.3-1.2 1.7-2.9 3.8-5 3.8s-2.7-1.4-5-1.4c-2.4 0-3 1.4-5 1.4s-3.8-2-5-3.7C-.4 18-1.3 13.4 2 10.3c1.4-1.3 3.2-2 5-2 2.2 0 3.6 1.2 5 1.2s2.8-1.2 5-1.2c1 0 4 .1 5.9 3-.2.1-3.5 2.1-3.5 6.2 0-.1 0 0-.4.8z"/></svg>
           macOS
-        </a>
-        <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" data-dl-linux>
+        </span>
+        <span class="studio-download-disabled" aria-disabled="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.75c-.55 0-1 .45-1 1 0 .55.45 1 1 1s1-.45 1-1c0-.55-.45-1-1-1zm-1.5 4c-1.5.2-2.5 1.5-2.5 3 0 1 .5 2 1.5 2.5C8.5 13 7.5 14.5 7 16c-.5 1.5 0 3 1 3.5.5.25 1 .25 1.5.25.5 0 1-.25 1.5-.5l.5-.25h.5c.5 0 1 .25 1.5.5.5.25 1 .5 1.5.5s1 0 1.5-.25c1-.5 1.5-2 1-3.5-.5-1.5-1.5-3-3-3.75 1-.5 1.5-1.5 1.5-2.5 0-1.5-1-2.8-2.5-3 0 .25.25.75.25 1.5s-.25 1.5-.75 2c-.5-.5-.75-1.25-.75-2s.25-1.25.25-1.5z"/></svg>
           Linux
-        </a>
+        </span>
       </div>
     </div>
   </div>
@@ -2073,7 +2086,7 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub
           </a>
-          <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" rel="noopener" class="pill pill-cyan" id="studio-card-dl">Download <span data-studio-version-prefix>v0.11.3</span></a>
+          <span class="pill pill-cyan studio-download-disabled" id="studio-card-dl" aria-disabled="true">Download unavailable</span>
           <span class="pill pill-cyan" style="cursor:default">AGPL-3.0</span>
         </div>
       </article>
@@ -2308,12 +2321,12 @@ results = nirs4all.<span class="fn">run</span>(pipeline=[pipeline_1, pipeline_2]
             <div class="eco-cat">Desktop app</div>
             <div class="eco-name">nirs4all Studio <span class="eco-lang">React &middot; Electron</span></div>
           </div>
-          <span class="eco-ver" data-studio-version-prefix>v0.11.3</span>
+          <span class="eco-ver">Maintenance</span>
         </div>
         <p>The no-code Electron desktop application uses a Rust-only HTTP/control/store/jobs/scheduler/WebSocket plane. Its embedded CPython is limited to an attested stdio library/plugin host for Python ecosystem interoperability, with no Python server or fallback. Version 0.11.3 is the stable V1-compatible release.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-studio" target="_blank" class="pill pill-teal"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-          <a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" class="pill pill-teal">Releases</a>
+          <span class="pill pill-teal studio-download-disabled" aria-disabled="true">Unavailable</span>
         </div>
       </div>
 
@@ -2858,7 +2871,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a4 4 0 0 0-4 4c0 1.4.4 2.1.4 3.3C8.4 10.6 6 12.6 6 16c0 2 1 3.4 2 3.9.3.1.5 0 .5-.3 0-.9.5-1.8 1.4-2.3.5.9 1.3 1.6 2.1 1.6s1.6-.7 2.1-1.6c.9.5 1.4 1.4 1.4 2.3 0 .3.2.4.5.3 1-.5 2-1.9 2-3.9 0-3.4-2.4-5.4-2.4-6.7 0-1.2.4-1.9.4-3.3a4 4 0 0 0-4-4z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.2 3c.1 1-.3 2-.9 2.6-.6.7-1.6 1.2-2.5 1.2-.1-1 .4-2 .9-2.6.6-.6 1.6-1.1 2.5-1.2zM19 17.3c-.5 1.2-1 1.9-1.9 3.1-1.1 1.6-2.7 3.6-4.6 3.6-1.7 0-2.1-1.1-4.4-1.1s-2.8 1.1-4.4 1.1c-1.9 0-3.4-1.8-4.5-3.4C-.6 16-1 11.5 1.4 8.9c1-1.1 2.4-1.8 3.9-1.8 1.7 0 2.8 1.1 4.2 1.1 1.4 0 2.2-1.1 4.2-1.1 1.5 0 3 .8 4.1 2.2-3.6 2-3 7.1.2 8z"/></svg>
           </div>
-          <div class="mn-pop" role="dialog"><p>The no-code desktop app, sharing display helpers and React components with nirs4all-web through nirs4all-ui.</p><div class="mn-links"><a href="https://github.com/GBeurier/nirs4all-studio" target="_blank" rel="noopener">GitHub</a><a href="https://github.com/GBeurier/nirs4all-studio/releases/latest" target="_blank" rel="noopener">Download</a><a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener">UI</a></div></div>
+          <div class="mn-pop" role="dialog"><p>The no-code desktop app, sharing display helpers and React components with nirs4all-web through nirs4all-ui.</p><div class="mn-links"><a href="https://github.com/GBeurier/nirs4all-studio" target="_blank" rel="noopener">GitHub</a><span class="studio-download-disabled" aria-disabled="true">Download unavailable</span><a href="https://github.com/GBeurier/nirs4all-ui" target="_blank" rel="noopener">UI</a></div></div>
         </div>
 
         <div class="map-ar a-ars"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
@@ -3179,7 +3192,7 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
       </article>
       <article class="faq-item">
         <h3>How do I install or download nirs4all?</h3>
-        <p>You can install the stable Python v1 library from PyPI with <code>pip install nirs4all</code>, and download the V1-compatible nirs4all Studio for Windows, macOS, and Linux from the latest GitHub release.</p>
+        <p>You can install the stable Python v1 library from PyPI with <code>pip install nirs4all</code>. Studio unavailable and under maintenance. Be back soon</p>
       </article>
       <article class="faq-item">
         <h3>What changed in nirs4all v1?</h3>
@@ -3526,45 +3539,15 @@ npm install <span class="pk">@nirs4all/datasets-wasm</span></div>
     copyText(bibtex, document.getElementById('copy-bibtex'));
   });
 
-  // ── Auto-fetch latest versions ─────────────────────────────
+  // ── Auto-fetch latest library version ───────────────────────
   // Library version from PyPI (jsDelivr CDN works with CORS)
   const LIB_PYPI = 'https://pypi.org/pypi/nirs4all/json';
-  const STUDIO_API = 'https://api.github.com/repos/GBeurier/nirs4all-studio/releases/latest';
-
   const applyLibVersion = (v) => {
     document.querySelectorAll('[data-lib-version]').forEach(el => { el.textContent = v; });
     document.querySelectorAll('[data-lib-version-prefix]').forEach(el => { el.textContent = 'v' + v; });
   };
-  const applyStudioVersion = (tag, assets) => {
-    const vClean = tag.replace(/^v/, '');
-    document.querySelectorAll('[data-studio-version]').forEach(el => { el.textContent = vClean; });
-    document.querySelectorAll('[data-studio-version-prefix]').forEach(el => { el.textContent = 'v' + vClean; });
-    if (!assets || !assets.length) return;
-    const find = re => {
-      const a = assets.find(x => re.test(x.name));
-      return a ? a.browser_download_url : null;
-    };
-    const urls = {
-      win: find(/win[-_].*\.exe$/i),
-      mac: find(/mac[-_].*\.dmg$/i),
-      linux: find(/linux[-_].*\.AppImage$/i),
-    };
-    const setHref = (sel, url) => {
-      if (!url) return;
-      document.querySelectorAll(sel).forEach(el => { el.href = url; });
-    };
-    setHref('[data-dl-win]', urls.win);
-    setHref('[data-dl-mac]', urls.mac);
-    setHref('[data-dl-linux]', urls.linux);
-  };
-
   fetch(LIB_PYPI).then(r => r.ok ? r.json() : Promise.reject())
     .then(data => applyLibVersion(data.info.version))
-    .catch(() => {});
-
-  fetch(STUDIO_API, { headers: { 'Accept': 'application/vnd.github+json' } })
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(data => applyStudioVersion(data.tag_name || '', data.assets || []))
     .catch(() => {});
 
   // Per-card ecosystem badges. Each <span class="eco-ver" data-ver="src:pkg">

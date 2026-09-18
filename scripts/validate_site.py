@@ -639,7 +639,7 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
             "d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
         ),
         "index.html": (
-            "nirs4all v1 is here</strong> &mdash; now powered by DAG-ML",
+            "Studio unavailable and under maintenance. Be back soon",
             "nirs4all 1.0.1</b>",
             "Studio 0.11.3</b>",
             "nirs4all-core 0.3.30</b>",
