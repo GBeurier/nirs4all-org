@@ -631,7 +631,12 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
     """Keep current homepage copy and the historical release receipt aligned."""
     required = {
         "README.md": (
-            "nirs4all 1.0.1 and Studio 0.11.3",
+            "nirs4all 1.0.1 is the Python V1 release.",
+            "Studio 0.11.8",
+            "Recovery pins the corrected nirs4all 1.0.2 library",
+            'uses `engine="legacy"`',
+            "schema-5 support",
+            "0.11.8 manually and keep their",
             "DAG-ML 0.3.25 and dag-ml-data 0.2.11",
             "nirs4all-core 0.3.30, Methods 1.0.18 and IO 0.1.18",
             "Web 0.1.10 remains deployed",
@@ -639,9 +644,15 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
             "d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450",
         ),
         "index.html": (
-            "Studio unavailable and under maintenance. Be back soon",
+            "https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.8",
+            "Keep your existing configuration when prompted",
+            "Windows installer",
+            "macOS installer",
+            "Linux installer",
+            ">Docker</a>",
             "nirs4all 1.0.1</b>",
-            "Studio 0.11.3</b>",
+            "Studio 0.11.8</b>",
+            "corrected nirs4all 1.0.2 library and legacy execution",
             "nirs4all-core 0.3.30</b>",
             "dag-ml 0.3.25</b>",
             "dag-ml-data 0.2.11</b>",
