@@ -13,15 +13,15 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
-Current release note: nirs4all 1.0.1 is the Python V1 release. Studio 0.11.8
+Current release note: nirs4all 1.1.3 is the Python V1 release. Studio 0.11.11
 is the separate recovery release with a Python backend, one installer per OS,
-and Docker. Recovery pins the corrected nirs4all 1.0.2 library and explicitly
+and Docker. Recovery pins the corrected nirs4all 1.1.3 library and explicitly
 uses `engine="legacy"`; its schema-5 support keeps existing 0.11.7 workspaces
-readable without downgrading their storage. Users of 0.11.7 should install 0.11.8 manually and keep their
+readable without downgrading their storage. Users of 0.11.7 should install 0.11.11 manually and keep their
 existing configuration when prompted. Download links point to the
-[0.11.8 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.8).
-DAG-ML 0.3.25 and dag-ml-data 0.2.11 provide the Python V1 execution
-and data-contract backend; nirs4all-core 0.3.30, Methods 1.0.18 and IO 0.1.18
+[0.11.11 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.11).
+DAG-ML 0.3.26 and dag-ml-data 0.2.11 provide the Python V1 execution
+and data-contract backend; nirs4all-core 0.3.30, Methods 1.0.21 and IO 0.2.0
 complete the current portable V1 line. Web 0.1.10 remains deployed.
 The initial V1 public projection is sealed by the annotated `v1.0.7` and
 `n4a-v1-2026.09-native-release` tags.

@@ -67,7 +67,7 @@
       <p class="eyebrow">Stable V1 · migration and support</p>
       <h1>V1 migration and support</h1>
       <p class="lead">Execution contracts, archive-preservation procedures, and explicit boundaries of the published V1 line, now powered by DAG-ML.</p>
-      <div class="notice"><strong>V1 is published.</strong> nirs4all 1.0.1 is the Python V1 release. Studio 0.11.8 is a separate recovery release restoring its Python backend with the corrected nirs4all 1.0.2 library. Tools 0.0.7 creates verified preservation copies of legacy content; it does not yet claim to perform semantic workspace conversion.</div>
+      <div class="notice"><strong>V1 is published.</strong> nirs4all 1.1.3 is the Python V1 release. Studio 0.11.11 uses its Python backend with the corrected nirs4all 1.1.3 library. Tools 0.0.7 creates verified preservation copies of legacy content; it does not yet claim to perform semantic workspace conversion.</div>
     </div>
   </header>
   <main id="main-content" class="wrap">
@@ -78,7 +78,7 @@
           <thead><tr><th>Surface</th><th>V1 owner</th><th>Boundary</th></tr></thead>
           <tbody>
             <tr><th>Python library</th><td>DAG-ML for general execution; explicit native portable profile</td><td><code>engine="legacy"</code> remains an explicit rollback for Python callers and is selected by the Studio recovery release.</td></tr>
-            <tr><th>Studio 0.11.8</th><td>Python backend for the recovery release</td><td>One installer per operating system and Docker. Existing 0.11.7 users should reinstall manually and keep their configuration.</td></tr>
+            <tr><th>Studio 0.11.11</th><td>Python backend</td><td>One installer per operating system and Docker. Existing 0.11.7 users should reinstall manually and keep their configuration.</td></tr>
             <tr><th>Web</th><td>Client-side WASM</td><td>No Python runtime or analysis backend.</td></tr>
           </tbody>
         </table>
@@ -125,7 +125,7 @@
             <tr><th>Methods model</th><td>N4MM v1/v2</td><td>Bounded decoding; validate types and sizes before allocation or execution.</td></tr>
             <tr><th>Portable archive</th><td>Core Archive V2</td><td>Validate format, bounds, Methods identity, and fingerprint before replay; never refit implicitly.</td></tr>
             <tr><th>Workspace</th><td><code>nirs4all-workspace-v2</code></td><td>SQLite for metadata and Parquet for arrays.</td></tr>
-            <tr><th>Studio 0.11.8</th><td>Recovery release</td><td>The shipped Python backend is separate from the V1 native-backend development contracts.</td></tr>
+            <tr><th>Studio 0.11.11</th><td>Python release</td><td>The shipped Python backend is separate from the V1 native-backend development contracts.</td></tr>
           </tbody>
         </table>
       </div>
@@ -147,13 +147,13 @@ prediction = nirs4all.predict(model=archive, data="new_dataset.yaml")</code></pr
     <section aria-labelledby="faq">
       <h2 id="faq">FAQ</h2>
       <h3>How do I update Studio 0.11.7?</h3>
-      <p>Download and run the installer from the <a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.8">Studio 0.11.8 release page</a> manually. Keep your existing configuration when prompted, then select your workspace.</p>
-      <h3>Which backend does Studio 0.11.8 use?</h3>
-      <p>This recovery release restores the Python backend, pins nirs4all 1.0.2 and selects <code>engine="legacy"</code>. The corrected library supports schema-5 SQLite workspaces from Studio 0.11.7; existing storage is not downgraded. The Python library default and the browser WASM app retain their own execution contracts.</p>
+      <p>Download and run the installer from the <a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.11.11">Studio 0.11.11 release page</a> manually. Keep your existing configuration when prompted, then select your workspace.</p>
+      <h3>Which backend does Studio 0.11.11 use?</h3>
+      <p>This release uses the Python backend, pins nirs4all 1.1.3 and selects <code>engine="legacy"</code>. The corrected library supports schema-5 SQLite workspaces from Studio 0.11.7; existing storage is not downgraded. The Python library default and the browser WASM app retain their own execution contracts.</p>
       <h3>Is a legacy workspace migrated when it is opened?</h3>
       <p>No. Detection is read-only. An operator may create a preservation copy at a new destination and verify its report. That copy is not a reconstructed V1 workspace and does not trigger an automatic cutover.</p>
       <h3>Does this page announce V1?</h3>
-      <p>This page documents the Python V1 release and its preservation tools, alongside the separate Studio 0.11.8 recovery instructions. The <a href="https://cockpit.nirs4all.org/">Cockpit</a> reports current operational status, while the <a href="release-status.html">release receipt</a> preserves a verifiable snapshot of the initial V1 publication.</p>
+      <p>This page documents the Python V1 release and its preservation tools, alongside the Studio 0.11.11 recovery instructions. The <a href="https://cockpit.nirs4all.org/">Cockpit</a> reports current operational status, while the <a href="release-status.html">release receipt</a> preserves a verifiable snapshot of the initial V1 publication.</p>
     </section>
 
     <section aria-labelledby="sources">
