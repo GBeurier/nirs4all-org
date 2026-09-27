@@ -168,7 +168,7 @@ class TransitionCopyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
             validate_transition_copy(
                 self.readme,
-                self.index.replace("nirs4all-web 0.2.0", "nirs4all-web 0.1.9"),
+                self.index.replace("nirs4all-web 0.3.1", "nirs4all-web 0.1.9"),
                 self.release_page,
             )
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
