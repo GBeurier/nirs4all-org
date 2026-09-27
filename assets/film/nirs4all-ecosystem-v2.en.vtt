@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:00.800 --> 00:00:08.679
+It all starts with spectra: near-infrared measurements, in dozens of instrument formats, with their reference values.
+
+00:00:08.759 --> 00:00:14.258
+nirs4all-formats reads them faithfully; nirs4all-io assembles them into a dataset.
+
+00:00:14.338 --> 00:00:19.020
+And every sample receives an identity it will keep until the very end.
+
+00:00:20.200 --> 00:00:26.627
+In practice, you never test a single pipeline: you explore an experiment space.
+
+00:00:26.707 --> 00:00:37.583
+A nirs4all recipe describes the alternatives — scatter correction, derivative, model — and the generator expands them systematically.
+
+00:00:37.663 --> 00:00:44.420
+Four, sixteen, sixty-four workflows: an experimental design, not a pile of scripts.
+
+00:00:46.200 --> 00:00:48.472
+Let's zoom in on one of them.
+
+00:00:48.552 --> 00:00:56.420
+Read as a recipe, it is a simple chain: MSC correction, Savitzky–Golay derivative, PLS regression.
+
+00:00:57.600 --> 00:01:04.254
+Preprocessing is not a detail hidden between two function calls: it is part of the workflow.
+
+00:01:04.334 --> 00:01:14.941
+MSC aligns each spectrum on a reference; Savitzky–Golay smooths and differentiates it; PLS projects it onto a few latent variables, then predicts.
+
+00:01:15.021 --> 00:01:18.820
+The data change at every step. Their identity, never.
+
+00:01:20.000 --> 00:01:27.809
+To evaluate this chain honestly, you need cross-validation folds, joins, and a selection between variants.
+
+00:01:27.889 --> 00:01:36.220
+The chain becomes a directed acyclic graph — a DAG: every dependency is explicit, and no hidden loop is possible.
+
+00:01:37.400 --> 00:01:44.028
+DAG-ML is the orchestration core. It does not compute the models: it carries their semantics.
+
+00:01:44.108 --> 00:01:53.620
+Fit and predict phases, folds, out-of-fold predictions, fingerprint cache, random seeds, selection, lineage — and replayable bundles.
+
+00:01:54.800 --> 00:02:03.504
+But who computes? DAG-ML only orchestrates: for each node it issues a task — phase, fold, variant — and handles nothing but opaque references.
+
+00:02:03.584 --> 00:02:17.174
+A controller, described by a manifest, receives the task and drives an operator: here the PLS of nirs4all-methods; elsewhere a scikit-learn model, a PyTorch, TensorFlow or JAX network, or, in R, ranger, glmnet or xgboost.
+
+00:02:17.254 --> 00:02:26.020
+The operator computes; the controller returns a fitted state and predictions indexed by sample. Swap the operator, the semantics stay the same.
+
+00:02:27.200 --> 00:02:33.212
+Let's watch the execution. The twelve samples are split into three folds.
+
+00:02:33.292 --> 00:02:46.231
+For each fold, whatever is learned — the MSC reference, then the PLS model — is fitted on the training samples only, then applied to the validation samples.
+
+00:02:46.311 --> 00:02:52.657
+Their predictions join the out-of-fold column, sample by sample, by identity.
+
+00:02:52.737 --> 00:03:01.420
+And a prediction made on training data that tries to feed a meta-model is refused: that would be leakage.
+
+00:03:02.600 --> 00:03:06.853
+What holds for one workflow holds for all sixty-four.
+
+00:03:06.933 --> 00:03:16.909
+When the space grows, nirs4all-cluster distributes the jobs across machines, without changing the semantics or the lineage.
+
+00:03:16.989 --> 00:03:25.820
+Every variant gets its out-of-fold score; compare, select, refit. The experimental design becomes executable.
+
+00:03:27.000 --> 00:03:36.788
+What makes the selected workflow portable is its operators. MSC, Savitzky–Golay and PLS come from nirs4all-methods: a single C++ core behind a stable C interface.
+
+00:03:36.868 --> 00:03:46.900
+Python, R, MATLAB, Octave and WebAssembly are only thin facades over it; more than two hundred methods are typed by role: transform, regression, selection, splitting…
+
+00:03:46.980 --> 00:03:56.220
+Their fitted state is a portable block of bytes: replayed by any binding, it gives the same numbers. A PyTorch model, by contrast, stays bound to Python.
+
+00:03:57.400 --> 00:04:08.438
+The selected, refitted workflow becomes a replayable artifact: the recipe, the learned parameters, the model, the fingerprints and the lineage.
+
+00:04:08.518 --> 00:04:17.923
+The same trained pipeline predicts in Python, in R, or directly in the browser through WebAssembly — with the same values.
+
+00:04:18.003 --> 00:04:25.620
+Not everything is portable everywhere: Python remains the richest surface. But the spine is shared.
+
+00:04:26.800 --> 00:04:30.599
+A validated experiment becomes a scientific object.
+
+00:04:30.679 --> 00:04:41.020
+It feeds the pipeline repository, the benchmarks, the papers' reproduction pages — replayable in the browser — and the ecosystem cockpit.
+
+00:04:42.200 --> 00:04:44.639
+The ecosystem lives on two levels.
+
+00:04:44.719 --> 00:04:55.827
+Below, libraries carry the contracts, the execution and the methods. Above, applications make them usable: code, explore, measure, distribute, publish.
+
+00:04:55.907 --> 00:04:58.420
+Many surfaces, one scientific core.
+
+00:04:59.600 --> 00:05:08.209
+From spectra to experimental design, from execution to publication: nirs4all.
+
+00:05:08.289 --> 00:05:11.820
+Generate, run, reproduce, share.

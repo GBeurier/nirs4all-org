@@ -168,13 +168,19 @@ class TransitionCopyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
             validate_transition_copy(
                 self.readme,
-                self.index.replace("nirs4all-web 0.1.10", "nirs4all-web 0.1.9"),
+                self.index.replace("nirs4all-web 0.2.0", "nirs4all-web 0.1.9"),
                 self.release_page,
             )
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
             validate_transition_copy(
                 self.readme + "\nR1 is still in progress.\n",
                 self.index,
+                self.release_page,
+            )
+        with self.assertRaisesRegex(ValidationError, "stale transition copy"):
+            validate_transition_copy(
+                self.readme,
+                self.index + "\n<p>Download Studio 0.11.11</p>\n",
                 self.release_page,
             )
 

@@ -3,13 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nirs4all.org/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://nirs4all.org/assets/nirs4all_logo.png</image:loc>
       <image:title>nirs4all logo</image:title>
       <image:caption>nirs4all open-source NIR spectroscopy platform</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nirs4all.org/assets/film/nirs4all-ecosystem-v2-poster.jpg</image:loc>
+      <image:title>The nirs4all ecosystem in five minutes</image:title>
+      <image:caption>Animated tour of nirs4all pipelines across Python, R and the browser</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://nirs4all.org/assets/screenshots_studio/playground-page.png</image:loc>

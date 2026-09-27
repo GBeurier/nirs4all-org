@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:00.800 --> 00:00:09.434
+Tout commence par des spectres : des mesures proche infrarouge, dans des dizaines de formats d'instruments, avec leurs valeurs de référence.
+
+00:00:09.514 --> 00:00:14.663
+nirs4all-formats les lit fidèlement ; nirs4all-io les assemble en un jeu de données.
+
+00:00:14.743 --> 00:00:19.020
+Et chaque échantillon reçoit une identité qu'il gardera jusqu'au bout.
+
+00:00:20.200 --> 00:00:26.952
+En pratique, on ne teste jamais une seule pipeline : on explore un espace d'expériences.
+
+00:00:27.032 --> 00:00:37.510
+Une recette nirs4all décrit les alternatives — correction de diffusion, dérivée, modèle — et le générateur les déploie systématiquement.
+
+00:00:37.590 --> 00:00:44.420
+Quatre, seize, soixante-quatre workflows : un plan d'expérience, pas une pile de scripts.
+
+00:00:46.200 --> 00:00:47.956
+Zoomons sur l'un d'eux.
+
+00:00:48.036 --> 00:00:56.420
+Lu comme une recette, c'est une simple chaîne : correction MSC, dérivée de Savitzky–Golay, régression PLS.
+
+00:00:57.600 --> 00:01:04.825
+Les prétraitements ne sont pas un détail caché entre deux appels de fonction : ils font partie du workflow.
+
+00:01:04.905 --> 00:01:14.792
+MSC aligne chaque spectre sur une référence ; Savitzky–Golay le lisse et le dérive ; PLS le projette sur quelques variables latentes, puis prédit.
+
+00:01:14.872 --> 00:01:18.820
+Les données changent à chaque étape. Leur identité, jamais.
+
+00:01:20.000 --> 00:01:27.942
+Pour évaluer honnêtement cette chaîne, il faut des folds de validation croisée, des jointures, une sélection entre variantes.
+
+00:01:28.022 --> 00:01:36.220
+La chaîne devient un graphe orienté acyclique — un DAG : chaque dépendance est explicite, et aucune boucle cachée n'est possible.
+
+00:01:37.400 --> 00:01:43.329
+DAG-ML est le cœur d'orchestration. Il ne calcule pas les modèles : il en porte la sémantique.
+
+00:01:43.409 --> 00:01:53.620
+Phases d'ajustement et de prédiction, folds, prédictions hors-fold, cache par empreintes, graines aléatoires, sélection, traçabilité — et des bundles rejouables.
+
+00:01:54.800 --> 00:02:03.832
+Mais qui calcule ? DAG-ML ne fait qu'orchestrer : pour chaque nœud, il émet une tâche — phase, fold, variante — et ne manipule que des références opaques.
+
+00:02:03.912 --> 00:02:17.026
+Un contrôleur, décrit par un manifeste, reçoit la tâche et pilote un opérateur : ici la PLS de nirs4all-methods ; ailleurs un modèle scikit-learn, un réseau PyTorch, TensorFlow ou JAX, ou, côté R, ranger, glmnet ou xgboost.
+
+00:02:17.106 --> 00:02:26.020
+L'opérateur calcule ; le contrôleur rend un état ajusté et des prédictions indexées par échantillon. On change d'opérateur, la sémantique ne change pas.
+
+00:02:27.200 --> 00:02:32.811
+Regardons l'exécution. Les douze échantillons sont répartis en trois folds.
+
+00:02:32.891 --> 00:02:45.105
+Pour chaque fold, ce qui s'apprend — la référence MSC, puis le modèle PLS — est ajusté sur l'entraînement seulement, puis appliqué aux échantillons de validation.
+
+00:02:45.185 --> 00:02:52.162
+Leurs prédictions rejoignent la colonne hors-fold, échantillon par échantillon, par identité.
+
+00:02:52.242 --> 00:03:01.420
+Et une prédiction obtenue sur l'entraînement, qui tenterait d'alimenter un méta-modèle, est refusée : ce serait une fuite.
+
+00:03:02.600 --> 00:03:06.857
+Ce qui vaut pour un workflow vaut pour les soixante-quatre.
+
+00:03:06.937 --> 00:03:16.559
+Quand l'espace grandit, nirs4all-cluster distribue les jobs sur plusieurs machines, sans changer ni la sémantique ni la traçabilité.
+
+00:03:16.639 --> 00:03:25.820
+Chaque variante reçoit son score hors-fold ; on compare, on sélectionne, on réajuste. Le plan d'expérience devient exécutable.
+
+00:03:27.000 --> 00:03:37.181
+Ce qui rend le workflow retenu transportable, ce sont ses opérateurs. MSC, Savitzky–Golay et PLS viennent de nirs4all-methods : un cœur C++ unique, derrière une interface C stable.
+
+00:03:37.261 --> 00:03:47.384
+Python, R, MATLAB, Octave et WebAssembly n'en sont que des façades minces ; plus de deux cents méthodes y sont typées par rôle : transformation, régression, sélection, séparation…
+
+00:03:47.464 --> 00:03:56.220
+Leur état ajusté est un bloc d'octets portable : rejoué par n'importe quel binding, il donne les mêmes nombres. Un modèle PyTorch, lui, reste lié à Python.
+
+00:03:57.400 --> 00:04:07.529
+Le workflow retenu, réajusté, devient un artefact rejouable : la recette, les paramètres appris, le modèle, les empreintes et la lignée.
+
+00:04:07.609 --> 00:04:17.213
+Le même pipeline entraîné prédit en Python, en R, ou directement dans le navigateur grâce à WebAssembly — avec les mêmes valeurs.
+
+00:04:17.293 --> 00:04:25.620
+Tout n'est pas portable partout : Python reste la surface la plus riche. Mais la colonne vertébrale est commune.
+
+00:04:26.800 --> 00:04:30.262
+Une expérience validée devient un objet scientifique.
+
+00:04:30.342 --> 00:04:41.020
+Elle alimente le repository de pipelines, les benchmarks, les pages de reproduction des articles — rejouables dans le navigateur — et le cockpit de l'écosystème.
+
+00:04:42.200 --> 00:04:44.134
+L'écosystème vit à deux niveaux.
+
+00:04:44.214 --> 00:04:55.525
+En dessous, des bibliothèques portent les contrats, l'exécution et les méthodes. Au-dessus, des applications les rendent utilisables : coder, explorer, mesurer, distribuer, publier.
+
+00:04:55.605 --> 00:04:58.420
+Plusieurs surfaces, un seul cœur scientifique.
+
+00:04:59.600 --> 00:05:07.651
+Des spectres au plan d'expérience, de l'exécution à la publication : nirs4all.
+
+00:05:07.731 --> 00:05:11.820
+Générer, exécuter, reproduire, partager.
