@@ -17,9 +17,9 @@ Current release note: nirs4all 1.4.7 is the Python release. The R package
 nirs4all 0.7.2 (R-universe) and the WebAssembly packages (npm `nirs4all` 0.4.5
 and `@nirs4all/methods` 1.3.4) share the native Methods 1.3.4 engine
 with ABI 2.17 generic roles, so recipes and trained models move between Python,
-R and the browser. Studio 0.15.0 keeps its own pinned runtime on its native backend,
+R and the browser. Studio 0.15.2 keeps its own pinned runtime on its native backend,
 with one installer per OS and Docker; download links point to the
-[0.15.0 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.15.0).
+[0.15.2 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.15.2).
 DAG-ML 0.3.41 and dag-ml-data 0.2.13 provide execution and data contracts;
 nirs4all-core 0.4.5 completes the portable line, and Web 0.4.1 is deployed.
 nirs4all-ui 0.1.15 provides the shared Studio/Web components.
