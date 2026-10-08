@@ -13,15 +13,18 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
-Current release note: nirs4all 1.3.0 is the Python release. The R package
-nirs4all 0.5.1 (R-universe) and the WebAssembly packages (npm `nirs4all` 0.4.0
-and `@nirs4all/methods` 1.2.1) share its native method engine, Methods 1.2.1
-with ABI 2.14 generic roles, so recipes and trained models move between Python,
-R and the browser. Studio 0.14.0 ships nirs4all 1.3.0 on its native backend, with
-one installer per OS and Docker; download links point to the
-[0.14.0 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.14.0).
-DAG-ML 0.3.30 and dag-ml-data 0.2.12 provide execution and data contracts;
-nirs4all-core 0.4.0 completes the portable line, and Web 0.3.1 is deployed.
+Current release note: nirs4all 1.4.7 is the Python release. The R package
+nirs4all 0.7.2 (R-universe) and the WebAssembly packages (npm `nirs4all` 0.4.5
+and `@nirs4all/methods` 1.3.4) share the native Methods 1.3.4 engine
+with ABI 2.17 generic roles, so recipes and trained models move between Python,
+R and the browser. Studio 0.15.0 keeps its own pinned runtime on its native backend,
+with one installer per OS and Docker; download links point to the
+[0.15.0 release page](https://github.com/GBeurier/nirs4all-studio/releases/tag/0.15.0).
+DAG-ML 0.3.41 and dag-ml-data 0.2.13 provide execution and data contracts;
+nirs4all-core 0.4.5 completes the portable line, and Web 0.4.1 is deployed.
+nirs4all-ui 0.1.15 provides the shared Studio/Web components.
+The current [common guide and API reference](https://gbeurier.github.io/nirs4all/)
+and [Legacy guide](https://gbeurier.github.io/nirs4all/legacy/index.html) are published.
 The initial V1 public projection is sealed by the annotated `v1.0.7` and
 `n4a-v1-2026.09-native-release` tags.
 
