@@ -126,15 +126,17 @@
         <div class="tool-grid">
           <article class="tool">
             <h2><img src="assets/brand/nirs4all/icon.svg" alt="" /> nirs4all</h2>
-            <p>Python reference library for preprocessing spectra, building DAG-ML pipelines, visualizing results, and deploying NIRS models. An R package and WebAssembly bindings share its native method engine, so recipes and trained models move between Python, R and the browser.</p>
+            <p>Python reference library nirs4all 1.4.7 for preprocessing spectra, building DAG-ML pipelines, visualizing results, and deploying NIRS models. An R package and WebAssembly bindings share its native method engine, so recipes and trained models move between Python, R and the browser.</p>
             <div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">WASM</span><span class="tag">chemometrics</span></div>
             <a href="https://nirs4all.org/">Open nirs4all.org</a>
+            <a href="https://gbeurier.github.io/nirs4all/">Common guide and API reference</a>
+            <a href="https://gbeurier.github.io/nirs4all/legacy/index.html">Legacy guide</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-studio/icon.svg" alt="" /> nirs4all-studio</h2>
-            <p>Explore spectra, build pipelines and inspect predictions without writing code. Studio 0.14.0 runs on a native backend with a bundled nirs4all 1.3 runtime and offers every nirs4all-methods estimator as a pipeline node. One installer per operating system and a Docker image are available.</p>
-            <div class="tags"><span class="tag">desktop</span><span class="tag">Electron</span><span class="tag">0.14.0</span></div>
-            <a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.14.0">Studio 0.14.0 installers and Docker</a>
+            <p>Explore spectra, build pipelines and inspect predictions without writing code. Studio 0.15.0 runs on a native backend with its own bundled, pinned Python runtime and offers every nirs4all-methods estimator as a pipeline node. One installer per operating system and a Docker image are available.</p>
+            <div class="tags"><span class="tag">desktop</span><span class="tag">Electron</span><span class="tag">0.15.0</span></div>
+            <a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.15.0">Studio 0.15.0 installers and Docker</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/quali-nirs4all/icon.svg" alt="" /> quali-nirs4all</h2>
@@ -152,14 +154,14 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-core/icon.svg" alt="" /> nirs4all-core</h2>
-            <p>Published portable V1 aggregate over dag-ml, dag-ml-data, formats, IO, datasets and methods, providing one coherent cross-language integration surface.</p>
+            <p>Published nirs4all-core 0.4.5 portable V1 aggregate over dag-ml 0.3.41, dag-ml-data 0.2.13, formats, IO, datasets and methods, providing one coherent cross-language integration surface.</p>
             <div class="tags"><span class="tag">aggregate</span><span class="tag">npm/crates</span><span class="tag">V1</span></div>
             <a href="https://github.com/GBeurier/nirs4all-core/releases/latest">Open nirs4all-core releases</a>
             <a href="https://github.com/GBeurier/nirs4all-core">Open the source repository</a>
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-ui/icon.svg" alt="" /> nirs4all-ui</h2>
-            <p>Published React/TypeScript package of reusable components, runtime status helpers, score helpers, default CSS tokens, brand generators, and packaged visual assets for Studio, Web, and custom app hosts.</p>
+            <p>Published nirs4all-ui 0.1.15 React/TypeScript package of reusable components, runtime status helpers, score helpers, default CSS tokens, brand generators, and packaged visual assets for Studio, Web, and custom app hosts.</p>
             <div class="tags"><span class="tag">React</span><span class="tag">npm</span><span class="tag">Pages</span></div>
             <a href="https://gbeurier.github.io/nirs4all-ui/">Open component showcase</a>
           </article>
@@ -191,7 +193,7 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-methods/icon.svg" alt="" /> nirs4all-methods</h2>
-            <p>Published portable C++17 libn4m methods engine with a stable C ABI, language bindings, parity reports, and scientific documentation mapping 209 method pages to 88 bibliography entries.</p>
+            <p>Published nirs4all-methods 1.3.4 portable C++17 libn4m methods engine with a stable C ABI, language bindings, parity reports, and scientific documentation mapping 209 method pages to 88 bibliography entries.</p>
             <div class="tags"><span class="tag">PLS</span><span class="tag">C ABI</span><span class="tag">bindings</span></div>
             <a href="https://methods.nirs4all.org/">Open methods.nirs4all.org</a>
           </article>
@@ -204,7 +206,7 @@
           </article>
           <article class="tool">
             <h2><img src="assets/brand/nirs4all-web/icon.svg" alt="" /> nirs4all-web</h2>
-            <p>Full-WASM browser workbench for uploading spectra, building a pipeline, running cross-validated PLS or PLS-DA, and predicting locally.</p>
+            <p>nirs4all-web 0.4.1 full-WASM browser workbench for uploading spectra, building a pipeline, running cross-validated PLS or PLS-DA, and predicting locally.</p>
             <div class="tags"><span class="tag">browser</span><span class="tag">WASM</span><span class="tag">modelling</span></div>
             <a href="https://web.nirs4all.org/">Open web.nirs4all.org</a>
           </article>
@@ -259,9 +261,9 @@
             <tr><td>Build datasets</td><td>Combine spectra, targets, metadata, sidecars, and validations into one dataset specification.</td><td><a href="https://io.nirs4all.org/">nirs4all-io</a></td></tr>
             <tr><td>Find reference data</td><td>Browse NIRS datasets with provenance, license, DOI, and statistical identity cards.</td><td><a href="https://datasets.nirs4all.org/">nirs4all-datasets</a></td></tr>
             <tr><td>Run methods</td><td>Use portable PLS and NIRS methods through C, Python, R, MATLAB, JavaScript, and other bindings.</td><td><a href="https://methods.nirs4all.org/">nirs4all-methods</a></td></tr>
-            <tr><td>Work in R</td><td>Run NIRS pipelines on the same native methods from R, and exchange recipes and trained models with Python and the browser.</td><td><a href="https://gbeurier.r-universe.dev/nirs4all">nirs4all for R</a></td></tr>
+            <tr><td>Work in R</td><td>Run NIRS pipelines with nirs4all for R 0.7.2 on the same native methods, and exchange recipes and trained models with Python and the browser.</td><td><a href="https://gbeurier.r-universe.dev/nirs4all">nirs4all for R</a></td></tr>
             <tr><td>Run adaptive models</td><td>Use the paper companion implementation of AOM-PLS, POP-PLS, AOM-Ridge and FastAOM estimators.</td><td><a href="https://pypi.org/project/nirs4all-aom/">nirs4all-aom</a></td></tr>
-            <tr><td>Use a desktop app</td><td>Build and inspect NIRS workflows with Studio 0.14.0.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.14.0">Studio 0.14.0 installers and Docker</a></td></tr>
+            <tr><td>Use a desktop app</td><td>Build and inspect NIRS workflows with Studio 0.15.0.</td><td><a href="https://github.com/GBeurier/nirs4all-studio/releases/tag/0.15.0">Studio 0.15.0 installers and Docker</a></td></tr>
             <tr><td>Guide routine lab work</td><td>Assess spectral data, select reference analyses, calibrate, qualify predictions, and maintain NIRS models in a guided browser workflow.</td><td><a href="https://quali.nirs4all.org/">quali-nirs4all (beta)</a></td></tr>
             <tr><td>Capture spectra in the field</td><td>Connect a mobile device to a Bluetooth NIRS spectrometer, organize sessions, check capture quality, and run portable inference.</td><td><a href="https://device.nirs4all.org/">nirs4all-device (prototype)</a></td></tr>
             <tr><td>Use the portable aggregate</td><td>Integrate the published DAG-ML, data, format, IO, dataset, and method stack through one package.</td><td><a href="https://github.com/GBeurier/nirs4all-core/releases/latest">nirs4all-core</a></td></tr>
