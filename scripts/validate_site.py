@@ -633,7 +633,7 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
         "README.md": (
             "nirs4all 1.4.15 is the Python release.",
             "nirs4all 0.7.3 (R-universe)",
-            "Studio 0.15.9 keeps its own pinned runtime",
+            "Studio 0.15.10 keeps its own pinned runtime",
             "https://github.com/GBeurier/nirs4all-studio/releases/latest",
             "DAG-ML 0.3.44 and dag-ml-data 0.2.16",
             "nirs4all-core 0.4.7 completes the portable line, and Web 0.5.0 is deployed.",
@@ -651,7 +651,7 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
             "Linux installer",
             ">Docker</a>",
             "nirs4all 1.4.15</b>",
-            "Studio 0.15.9</b>",
+            "Studio 0.15.10</b>",
             "nirs4all-core 0.4.7</b>",
             "dag-ml 0.3.44</b>",
             "dag-ml-data 0.2.16</b>",
