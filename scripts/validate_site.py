@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -11,6 +12,16 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlsplit
+
+from project_release_lock import (
+    COMPONENT_REPOSITORIES,
+    CURRENT_SCHEMA,
+    ProjectionError,
+    source_release_train,
+)
+
+HISTORICAL_MANIFEST_PATH = "release-manifest-r2-history.json"
+HISTORICAL_MANIFEST_SHA256 = "3868dbe836cba25d5b681864fbbffb8178c011353800ad1310767ae461f48f32"
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -159,8 +170,10 @@ def validate_release_manifest(manifest: Any) -> None:
         {"schema_version", "source_lock", "release_train", "components"},
         "manifest",
     )
-    if manifest["schema_version"] != "n4a.org-release-manifest/v1":
+    schema = manifest["schema_version"]
+    if not isinstance(schema, str) or schema not in {"n4a.org-release-manifest/v1", CURRENT_SCHEMA}:
         raise ValidationError("unsupported release-manifest schema")
+    current = schema == CURRENT_SCHEMA
 
     source = manifest["source_lock"]
     if not isinstance(source, dict):
@@ -176,7 +189,7 @@ def validate_release_manifest(manifest: Any) -> None:
         },
         "source_lock",
     )
-    if source["aggregation_lock_version"] != 1:
+    if type(source["aggregation_lock_version"]) is not int or source["aggregation_lock_version"] != 1:
         raise ValidationError("source_lock version must be 1")
     if not SHA256_RE.fullmatch(source["manifest_digest"] or ""):
         raise ValidationError("invalid source manifest digest")
@@ -190,14 +203,22 @@ def validate_release_manifest(manifest: Any) -> None:
     train = manifest["release_train"]
     if not isinstance(train, dict):
         raise ValidationError("release_train must be an object")
-    _exact_keys(train, {"milestone", "state", "published", "message"}, "release_train")
-    if train != {
-        "milestone": "R2",
-        "state": "in_progress",
-        "published": False,
-        "message": "Publication en cours — le jalon R2 reste incomplet.",
-    }:
-        raise ValidationError("public milestone must remain the incomplete R2 train")
+    if current:
+        try:
+            expected_train = source_release_train(train.get("id"), train.get("source_status"))
+        except ProjectionError as exc:
+            raise ValidationError(str(exc)) from exc
+        if train != expected_train:
+            raise ValidationError("current train must retain the source-only publication assessment")
+    else:
+        _exact_keys(train, {"milestone", "state", "published", "message"}, "release_train")
+        if train != {
+            "milestone": "R2",
+            "state": "in_progress",
+            "published": False,
+            "message": "Publication en cours — le jalon R2 reste incomplet.",
+        }:
+            raise ValidationError("public milestone must remain the incomplete R2 train")
 
     components = manifest["components"]
     if not isinstance(components, list) or not components:
@@ -220,6 +241,12 @@ def validate_release_manifest(manifest: Any) -> None:
         if component_id in seen:
             raise ValidationError(f"{where}: duplicate id")
         seen.add(component_id)
+        if current:
+            name = COMPONENT_REPOSITORIES.get(component_id)
+            if name is None:
+                raise ValidationError(f"{where}: unknown owner id")
+            if component["name"] != name or component["repository_url"] != f"https://github.com/GBeurier/{name}":
+                raise ValidationError(f"{where}: unexpected public owner identity")
         if not isinstance(component["name"], str) or not component["name"]:
             raise ValidationError(f"{where}: invalid name")
         if not re.fullmatch(
@@ -235,6 +262,11 @@ def validate_release_manifest(manifest: Any) -> None:
         publication = component["publication"]
         if not isinstance(publication, dict):
             raise ValidationError(f"{where}.publication must be an object")
+        if current:
+            _exact_keys(publication, {"assessment", "artifacts"}, f"{where}.publication")
+            if publication != {"assessment": "not_assessed_by_source_lock", "artifacts": []}:
+                raise ValidationError(f"{where}: source lock cannot project artifacts or assess publication")
+            continue
         _exact_keys(publication, {"state", "artifacts"}, f"{where}.publication")
         if publication["state"] not in {"pending", "published"}:
             raise ValidationError(f"{where}: invalid publication state")
@@ -258,6 +290,9 @@ def validate_release_manifest(manifest: Any) -> None:
                 raise ValidationError(f"{artifact_where}: artifact URL must use HTTPS")
             if not SHA256_RE.fullmatch(artifact["sha256"] or ""):
                 raise ValidationError(f"{artifact_where}: invalid SHA-256")
+
+    if current and seen != set(COMPONENT_REPOSITORIES):
+        raise ValidationError("current manifest must contain the complete declared owner cohort")
 
     serialized = json.dumps(manifest, ensure_ascii=False)
     for fragment in FORBIDDEN_PUBLIC_FRAGMENTS:
@@ -631,13 +666,11 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
     """Keep current homepage copy and the historical release receipt aligned."""
     required = {
         "README.md": (
-            "nirs4all 1.4.15 is the Python release.",
-            "nirs4all 0.7.3 (R-universe)",
-            "Studio 0.15.10 keeps its own pinned runtime",
+            "n4a.org-release-manifest/v2",
+            "Publication is not assessed by this source lock; artifacts are not projected.",
+            "release-manifest-r2-history.json",
+            "initial V1 publication history",
             "https://github.com/GBeurier/nirs4all-studio/releases/latest",
-            "DAG-ML 0.3.44 and dag-ml-data 0.2.16",
-            "nirs4all-core 0.4.7 completes the portable line, and Web 0.5.0 is deployed.",
-            "nirs4all-ui 0.2.1",
             "https://gbeurier.github.io/nirs4all/",
             "https://gbeurier.github.io/nirs4all/legacy/index.html",
             "d7d62825e5aa5ab5554ec7d084fab29be66acd74",
@@ -646,28 +679,22 @@ def validate_transition_copy(readme: str, index: str, release_page: str) -> None
         "index.html": (
             "https://github.com/GBeurier/nirs4all-studio/releases/latest",
             "your settings, workspaces and linked datasets are kept",
-            "Windows installer",
-            "macOS installer",
-            "Linux installer",
-            ">Docker</a>",
-            "nirs4all 1.4.15</b>",
-            "Studio 0.15.10</b>",
-            "nirs4all-core 0.4.7</b>",
-            "dag-ml 0.3.44</b>",
-            "dag-ml-data 0.2.16</b>",
-            "Methods 1.3.14</b>",
-            "nirs4all-ui 0.2.1</b>",
-            "nirs4all for R 0.7.3</b>",
+            "Windows installer", "macOS installer", "Linux installer", ">Docker</a>",
+            'data-ver="src:pkg"', 'data-ver="gh:nirs4all-core"',
+            'data-ver="gh:dag-ml"', 'data-ver="gh:dag-ml-data"',
+            'data-ver="pypi:nirs4all-methods"', 'data-ver="gh:nirs4all-ui"',
+            'data-ver="ru:nirs4all"',
             "https://gbeurier.github.io/nirs4all/",
             "https://gbeurier.github.io/nirs4all/legacy/index.html",
-            "nirs4all-web 0.5.0</b> runs client-side",
             "One method engine, <em>three languages</em>",
             "assets/film/nirs4all-ecosystem-v2.mp4",
         ),
         "release-status.html": (
-            "Python R1/R2/R3/R4 et Studio publiés · GO",
+            'id="current-source-cohort"', 'id="current-source-components"',
+            "n4a.org-release-manifest/v2", "not_assessed_by_source_lock",
+            "artifacts are not projected", "Initial V1 publication history",
+            "release-manifest-r2-history.json",
             "python_r1_r2_r3_r4_and_studio_published",
-            "R2/R3/R4 ont leurs reçus PyPI/GHCR",
         ),
     }
     documents = {
@@ -701,7 +728,7 @@ def validate_r1_archive_page(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     required = (
         "Archive historique · consolidation R1",
-        "release-manifest.json",
+        "release-manifest-r2-history.json",
         "lock canonique baseline",
         "elle ne décrit pas le backend natif comme défaut",
         "release-status.html#migration-title",
@@ -729,7 +756,7 @@ def validate_r2_archive_page(path: Path) -> None:
     required = (
         "Archive historique · profil de rollback R2",
         "RC R2 native-default, legacy opt-in",
-        "release-manifest.json",
+        "release-manifest-r2-history.json",
         "native-candidate-staging.json",
         "release-status.html#migration-title",
         "https://methods.nirs4all.org/",
@@ -795,6 +822,12 @@ def main() -> int:
             (ROOT / "release-manifest.json").read_text(encoding="utf-8")
         )
         validate_release_manifest(manifest)
+        if manifest["schema_version"] != CURRENT_SCHEMA:
+            raise ValidationError("active release manifest must use v2; regenerate from the selected source lock")
+        historical_raw = (ROOT / HISTORICAL_MANIFEST_PATH).read_bytes()
+        if hashlib.sha256(historical_raw).hexdigest() != HISTORICAL_MANIFEST_SHA256:
+            raise ValidationError("immutable historical release manifest bytes changed")
+        validate_release_manifest(json.loads(historical_raw))
         candidate = json.loads(
             (ROOT / "native-candidate-staging.json").read_text(encoding="utf-8")
         )

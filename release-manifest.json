@@ -1,27 +1,28 @@
 {
-  "schema_version": "n4a.org-release-manifest/v1",
+  "schema_version": "n4a.org-release-manifest/v2",
   "source_lock": {
     "aggregation_lock_version": 1,
-    "manifest_digest": "sha256:27595d11c3ac9f1219e405e2888931ec9122f55fdd4c3968a2535615802ee34e",
-    "lock_sha256": "sha256:dd855bbcc22cef4a8e1f6a958fbac4ed4ed6c70e17ceae88e654205c5b0c913b",
+    "manifest_digest": "sha256:5708012b777fb5b0019d707a9f2f8f48e1e08957c8726f5ea970840790e6b7d5",
+    "lock_sha256": "sha256:f7220088757a2f01681bb3165dff3b05f2f761ae55b0c1bd08d58fc0601181bb",
     "repository_url": "https://github.com/GBeurier/nirs4all-ecosystem",
     "path": "docs/contracts/release/aggregation-lock.n4a.lock.json"
   },
   "release_train": {
-    "milestone": "R2",
-    "state": "in_progress",
-    "published": false,
-    "message": "Publication en cours — le jalon R2 reste incomplet."
+    "id": "2026.11-owner-cohort",
+    "source_status": "candidate",
+    "publication_assessment": "not_assessed_by_source_lock",
+    "artifacts_projection": "not_projected",
+    "message": "Publication is not assessed by this source lock; artifacts are not projected."
   },
   "components": [
     {
       "id": "core",
       "name": "nirs4all-core",
       "repository_url": "https://github.com/GBeurier/nirs4all-core",
-      "version": "0.3.14",
-      "commit_sha": "983ad05e8174b799c7b1578e37401f542c6772d3",
+      "version": "0.5.1",
+      "commit_sha": "053704bd62b8d08f04dc6f61f744dee04e6a2387",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -29,10 +30,10 @@
       "id": "dag_ml",
       "name": "dag-ml",
       "repository_url": "https://github.com/GBeurier/dag-ml",
-      "version": "0.3.1",
-      "commit_sha": "3bedd72059c92f99a58ae18765a2dc2bd52193e2",
+      "version": "0.4.3",
+      "commit_sha": "d796152c148db3bb3f4398f818e1083f5e3aa816",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -40,10 +41,10 @@
       "id": "dag_ml_data",
       "name": "dag-ml-data",
       "repository_url": "https://github.com/GBeurier/dag-ml-data",
-      "version": "0.2.9",
-      "commit_sha": "df49fe953e28426e74b3170fe733e28c62efaf7a",
+      "version": "0.2.17",
+      "commit_sha": "854d5bebd88e1de761283139189735c349a6226c",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -51,10 +52,10 @@
       "id": "datasets",
       "name": "nirs4all-datasets",
       "repository_url": "https://github.com/GBeurier/nirs4all-datasets",
-      "version": "0.3.8",
-      "commit_sha": "a650d54432b1367bf80d8d5320d163ba93bdf40d",
+      "version": "0.3.19",
+      "commit_sha": "57ccd12fddbfb767b3ff5941433af5980f175c96",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -62,10 +63,10 @@
       "id": "formats",
       "name": "nirs4all-formats",
       "repository_url": "https://github.com/GBeurier/nirs4all-formats",
-      "version": "0.2.7",
-      "commit_sha": "7f384bbf6e4ccf70af8ab3da288078fc5caea7be",
+      "version": "0.2.16",
+      "commit_sha": "819f5764a2138d755155e5018d7bbcb178924861",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -73,10 +74,10 @@
       "id": "io",
       "name": "nirs4all-io",
       "repository_url": "https://github.com/GBeurier/nirs4all-io",
-      "version": "0.1.11",
-      "commit_sha": "98aca515d83369f1b61538ce31a5d2b1f519d4e9",
+      "version": "0.3.6",
+      "commit_sha": "284f50609212456e3275567f25dc0234e58333f6",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     },
@@ -84,10 +85,10 @@
       "id": "methods",
       "name": "nirs4all-methods",
       "repository_url": "https://github.com/GBeurier/nirs4all-methods",
-      "version": "1.0.9",
-      "commit_sha": "0ef355e6f74573ed07a6920bdeed1a052a6e8312",
+      "version": "1.3.15",
+      "commit_sha": "ff3ba7a4047c55e841ca92342abd0140b38be984",
       "publication": {
-        "state": "pending",
+        "assessment": "not_assessed_by_source_lock",
         "artifacts": []
       }
     }

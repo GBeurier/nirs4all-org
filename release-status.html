@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release native R1/R2/R3/R4 — V1 | nirs4all</title>
-  <meta name="description" content="Snapshot de staging vérifiable des candidats natifs nirs4all R1/R2/R3/R4 : SHAs, versions, architecture et capacités qualifiées, sans publication produit ni téléchargement." />
+  <title>Current source cohort and initial V1 history | nirs4all</title>
+  <meta name="description" content="Selected source versions and commits from the ecosystem lock, with publication assessed separately and immutable initial V1 receipts preserved." />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#0f766e" />
   <link rel="canonical" href="https://nirs4all.org/release-status.html" />
@@ -12,20 +12,20 @@
   <link rel="icon" type="image/svg+xml" href="assets/brand/nirs4all/icon.svg" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="nirs4all" />
-  <meta property="og:title" content="Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all" />
-  <meta property="og:description" content="Identités exactes et capacités réellement qualifiées du candidat local, explicitement non publié." />
+  <meta property="og:title" content="Current source cohort and initial V1 history | nirs4all" />
+  <meta property="og:description" content="Selected source versions and commits from the ecosystem lock, with publication assessed separately and immutable initial V1 receipts preserved." />
   <meta property="og:url" content="https://nirs4all.org/release-status.html" />
   <meta property="og:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Candidats natifs R1/R2/R3/R4 — staging NO-GO | nirs4all" />
-  <meta name="twitter:description" content="Vue statique et fail-closed du candidat local nirs4all, sans annonce de V1 stable." />
+  <meta name="twitter:title" content="Current source cohort and initial V1 history | nirs4all" />
+  <meta name="twitter:description" content="Selected source versions and commits from the ecosystem lock, with publication assessed separately and immutable initial V1 receipts preserved." />
   <meta name="twitter:image" content="https://nirs4all.org/assets/brand/ecosystem/nirs4all_og.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Candidats natifs R1/R2/R3/R4 nirs4all — staging NO-GO",
-    "description": "Snapshot de staging du candidat local natif nirs4all, explicitement non publié et sans téléchargement.",
+    "name": "Current source cohort and initial V1 history",
+    "description": "Selected source versions and commits from the ecosystem lock, with publication assessed separately and immutable initial V1 receipts preserved.",
     "url": "https://nirs4all.org/release-status.html",
     "isPartOf": {
       "@type": "WebSite",
@@ -150,18 +150,33 @@
 
   <header>
     <div class="wrap">
-      <p class="eyebrow">Release V1 · source vérifiable</p>
-      <h1>Release native R1/R2/R3/R4 — GO</h1>
-      <p class="lead">Cette page décrit le train publié R1, R2, R3 et R4 enregistré par le ledger de migration, avec ses identités et reçus immuables.</p>
-      <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
-        <strong id="train-message">Train produit GO — Python R1/R2/R3/R4, Studio, Web, Repository et Providers publiés.</strong>
-        <p id="train-detail">R1 est publié avec legacy par défaut; R2/R3/R4 ont leurs reçus PyPI/GHCR. Studio est publié, intentionnellement non signé/non notarized sous waiver explicite.</p>
-      </div>
-      <noscript><p class="noscript">Publication en cours — JavaScript est nécessaire pour lire le manifest statique. Aucun téléchargement n’est annoncé.</p></noscript>
+      <p class="eyebrow" lang="en">Source selection and historical publication receipts</p>
+      <h1 lang="en">Current source cohort and initial V1 history</h1>
+      <p class="lead" lang="en">The current source lock and the immutable initial V1 publication receipts are separate evidence scopes.</p>
+
+      <noscript><p class="noscript" lang="en">JavaScript is required to read the selected source manifest. Publication is not assessed by this source lock; artifacts are not projected.</p></noscript>
     </div>
   </header>
 
   <main id="main-content" class="wrap">
+    <section id="current-source-cohort" class="detail-card" aria-labelledby="current-source-title" lang="en">
+      <h2 id="current-source-title">Current source cohort</h2>
+      <p id="current-source-message" role="status" aria-live="polite">Loading the selected source manifest.</p>
+      <dl class="facts">
+        <dt>Source cohort</dt><dd id="current-source-id">Unavailable</dd>
+        <dt>Source status</dt><dd id="current-source-status">Unavailable</dd>
+        <dt>Source lock digest</dt><dd id="current-source-digest">Unavailable</dd>
+      </dl>
+      <p>Publication is not assessed by this source lock; artifacts are not projected. Existing <a href="index.html">registry badges and package links</a> assess availability separately. A final source status is not an artifact-publication receipt.</p>
+      <div id="current-source-components" class="component-grid"></div>
+    </section>
+    <h2 lang="en">Initial V1 publication history</h2>
+    <p lang="en">The following immutable receipts describe the initial V1 profile. They do not qualify the current source cohort. R1/R2 archives retain the <a href="release-manifest-r2-history.json">original historical source projection</a>.</p>
+      <div class="train-state" role="status" aria-live="polite" aria-atomic="true">
+        <strong id="train-message">Train produit GO — Python R1/R2/R3/R4, Studio, Web, Repository et Providers publiés.</strong>
+        <p id="train-detail">R1 est publié avec legacy par défaut; R2/R3/R4 ont leurs reçus PyPI/GHCR. Studio est publié, intentionnellement non signé/non notarized sous waiver explicite.</p>
+      </div>
+
     <dl class="summary" aria-label="Résumé du train de publication">
       <div class="metric"><dt>État</dt><dd id="milestone">Python R1/R2/R3/R4 et Studio publiés · GO</dd></div>
       <div class="metric"><dt>Composants candidats</dt><dd id="component-count">En attente du snapshot</dd></div>
@@ -237,7 +252,7 @@
   </main>
 
   <footer>
-    <div class="wrap">nirs4all · <a href="v1-migration-support.html">Migration et support</a> · <a href="r1-archive.html">Archive R1 historique</a> · <a href="r2-archive.html">Rollback R2 historique</a> · <a href="native-candidate-staging.json">Snapshot candidat</a> · <a href="release-manifest.json">Baseline du lock</a> · <a href="https://github.com/GBeurier/nirs4all-ecosystem">Gouvernance</a></div>
+    <div class="wrap">nirs4all · <a href="v1-migration-support.html">Migration et support</a> · <a href="r1-archive.html">Archive R1 historique</a> · <a href="r2-archive.html">Rollback R2 historique</a> · <a href="native-candidate-staging.json">Initial V1 receipt</a> · <a href="release-manifest.json">Current source lock projection</a> · <a href="https://github.com/GBeurier/nirs4all-ecosystem">Gouvernance</a></div>
   </footer>
 
   <template id="component-template">
@@ -484,6 +499,78 @@
       })
       .catch(() => {
         document.getElementById('train-message').textContent = 'Publication en cours — snapshot candidat absent ou invalide; aucune V1 stable ni aucun téléchargement.';
+      });
+  })();
+  </script>
+  <script>
+  (() => {
+    'use strict';
+    const repositories = {
+      core: 'nirs4all-core', dag_ml: 'dag-ml', dag_ml_data: 'dag-ml-data',
+      datasets: 'nirs4all-datasets', formats: 'nirs4all-formats',
+      io: 'nirs4all-io', methods: 'nirs4all-methods',
+    };
+    const message = 'Publication is not assessed by this source lock; artifacts are not projected.';
+    const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+    const exact = (value, keys) => object(value) && Object.keys(value).sort().join(',') === [...keys].sort().join(',');
+    const matches = (value, pattern) => typeof value === 'string' && pattern.test(value);
+    const digest = value => matches(value, /^sha256:[0-9a-f]{64}$/);
+    const admitted = value => {
+      if (!exact(value, ['schema_version', 'source_lock', 'release_train', 'components']) ||
+          value.schema_version !== 'n4a.org-release-manifest/v2') return false;
+      const source = value.source_lock, train = value.release_train;
+      if (!exact(source, ['aggregation_lock_version', 'manifest_digest', 'lock_sha256', 'repository_url', 'path']) ||
+          source.aggregation_lock_version !== 1 || !digest(source.manifest_digest) || !digest(source.lock_sha256) ||
+          source.repository_url !== 'https://github.com/GBeurier/nirs4all-ecosystem' ||
+          source.path !== 'docs/contracts/release/aggregation-lock.n4a.lock.json') return false;
+      if (!exact(train, ['id', 'source_status', 'publication_assessment', 'artifacts_projection', 'message']) ||
+          !matches(train.id, /^[A-Za-z0-9][A-Za-z0-9._-]*$/) ||
+          !['candidate', 'final'].includes(train.source_status) ||
+          train.publication_assessment !== 'not_assessed_by_source_lock' ||
+          train.artifacts_projection !== 'not_projected' || train.message !== message) return false;
+      if (!Array.isArray(value.components) || value.components.length !== Object.keys(repositories).length) return false;
+      const seen = new Set();
+      return value.components.every(component => {
+        if (!exact(component, ['id', 'name', 'repository_url', 'version', 'commit_sha', 'publication']) ||
+            !Object.hasOwn(repositories, component.id) || seen.has(component.id)) return false;
+        seen.add(component.id);
+        return component.name === repositories[component.id] &&
+          component.repository_url === 'https://github.com/GBeurier/' + repositories[component.id] &&
+          matches(component.version, /^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/) &&
+          matches(component.commit_sha, /^[0-9a-f]{40}$/) &&
+          exact(component.publication, ['assessment', 'artifacts']) &&
+          component.publication.assessment === 'not_assessed_by_source_lock' &&
+          Array.isArray(component.publication.artifacts) && component.publication.artifacts.length === 0;
+      });
+    };
+    const status = document.getElementById('current-source-message');
+    const grid = document.getElementById('current-source-components');
+    fetch('release-manifest.json', { cache: 'no-store', headers: { Accept: 'application/json' } })
+      .then(response => response.ok ? response.json() : Promise.reject(new Error('source manifest unavailable')))
+      .then(manifest => {
+        if (!admitted(manifest)) throw new Error('source manifest refused');
+        document.getElementById('current-source-id').textContent = manifest.release_train.id;
+        document.getElementById('current-source-status').textContent = manifest.release_train.source_status;
+        document.getElementById('current-source-digest').textContent = manifest.source_lock.lock_sha256;
+        status.textContent = manifest.release_train.message;
+        for (const component of manifest.components) {
+          const article = document.createElement('article');
+          article.className = 'component';
+          const title = document.createElement('h3');
+          title.textContent = component.name;
+          const version = document.createElement('p');
+          version.textContent = 'Selected source version: ' + component.version;
+          const commit = document.createElement('a');
+          commit.className = 'mono';
+          commit.href = component.repository_url + '/tree/' + component.commit_sha;
+          commit.textContent = component.commit_sha;
+          article.append(title, version, commit);
+          grid.append(article);
+        }
+      })
+      .catch(() => {
+        grid.replaceChildren();
+        status.textContent = 'Current source cohort unavailable. Publication is not assessed; artifacts are not projected.';
       });
   })();
   </script>
