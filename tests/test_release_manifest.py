@@ -10,7 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from project_release_lock import ProjectionError, project_lock  # noqa: E402
+from project_release_lock import (  # noqa: E402
+    COMPONENT_REPOSITORIES, CURRENT_SCHEMA, ProjectionError, project_lock,
+)
 from validate_site import (  # noqa: E402
     ValidationError,
     validate_native_candidate,
@@ -20,8 +22,11 @@ from validate_site import (  # noqa: E402
 
 
 def sample_lock() -> dict[str, object]:
-    return {
+    lock = {
+        "schema_version": "n4a.aggregation-lock/v1",
         "aggregation_lock_version": 1,
+        "release_train": "synthetic-source-cohort",
+        "status": "candidate",
         "manifest_digest": "sha256:" + "a" * 64,
         "members": {
             "core": {
@@ -41,6 +46,12 @@ def sample_lock() -> dict[str, object]:
             }
         },
     }
+    for component_id, name in COMPONENT_REPOSITORIES.items():
+        member = copy.deepcopy(lock["members"]["core"])
+        member["repo_path"] = name
+        member["repo_url"] = f"GBeurier/{name}"
+        lock["members"][component_id] = member
+    return lock
 
 
 class ProjectReleaseLockTests(unittest.TestCase):
@@ -53,7 +64,7 @@ class ProjectReleaseLockTests(unittest.TestCase):
         self.assertEqual(component["version"], "1.2.3")
         self.assertEqual(component["commit_sha"], "b" * 40)
         self.assertEqual(
-            component["publication"], {"state": "pending", "artifacts": []}
+            component["publication"], {"assessment": "not_assessed_by_source_lock", "artifacts": []}
         )
         serialized = json.dumps(first)
         self.assertNotIn("selected_workspace_path", serialized)
@@ -72,14 +83,105 @@ class ProjectReleaseLockTests(unittest.TestCase):
         with self.assertRaisesRegex(ProjectionError, "divergent public versions"):
             project_lock(lock, b"lock")
 
+    def test_identity_and_source_status_come_from_lock_without_publication_claim(self) -> None:
+        lock = sample_lock()
+        lock["release_train"] = "another-source-cohort"
+        lock["status"] = "final"
+        projected = project_lock(lock, b"lock")
+        self.assertEqual(projected["schema_version"], CURRENT_SCHEMA)
+        self.assertEqual(projected["release_train"]["id"], "another-source-cohort")
+        self.assertEqual(projected["release_train"]["source_status"], "final")
+        self.assertNotIn("published", projected["release_train"])
+        self.assertEqual(projected["release_train"]["artifacts_projection"], "not_projected")
+        self.assertTrue(all(c["publication"]["assessment"] == "not_assessed_by_source_lock" for c in projected["components"]))
+
+    def test_unknown_source_schemas_ids_status_and_owner_identity_are_rejected(self) -> None:
+        for field, value in [("schema_version", "unknown"), ("aggregation_lock_version", 2), ("release_train", "../private"), ("status", "published")]:
+            with self.subTest(field=field):
+                lock = sample_lock()
+                lock[field] = value
+                with self.assertRaises(ProjectionError):
+                    project_lock(lock, b"lock")
+        for mutation in ("unknown", "missing", "repository"):
+            with self.subTest(mutation=mutation):
+                lock = sample_lock()
+                if mutation == "unknown":
+                    lock["members"]["unknown"] = copy.deepcopy(lock["members"]["core"])
+                elif mutation == "missing":
+                    del lock["members"]["core"]
+                else:
+                    lock["members"]["core"]["repo_url"] = "someone/unrelated"
+                with self.assertRaises(ProjectionError):
+                    project_lock(lock, b"lock")
+
+    def test_source_labels_cannot_be_promoted_to_artifact_evidence(self) -> None:
+        lock = sample_lock()
+        lock["members"]["core"]["publication"] = {"state": "published", "artifacts": [{"url": "https://example.org/unproven"}]}
+        projected = project_lock(lock, b"lock")
+        self.assertEqual(projected["components"][0]["publication"], {"assessment": "not_assessed_by_source_lock", "artifacts": []})
+
+
+class CurrentManifestTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.manifest = project_lock(sample_lock(), b"synthetic lock")
+
+    def test_valid_current_manifest_is_source_only(self) -> None:
+        validate_release_manifest(self.manifest)
+        self.assertNotIn("published", self.manifest["release_train"])
+
+    def test_unknown_schema_id_duplicate_missing_and_repo_are_rejected(self) -> None:
+        for mutation in ("schema", "id", "duplicate", "missing", "repository"):
+            with self.subTest(mutation=mutation):
+                invalid = copy.deepcopy(self.manifest)
+                if mutation == "schema":
+                    invalid["schema_version"] = "unknown"
+                elif mutation == "id":
+                    invalid["components"][0]["id"] = "unknown"
+                elif mutation == "duplicate":
+                    invalid["components"][1] = copy.deepcopy(invalid["components"][0])
+                elif mutation == "missing":
+                    invalid["components"].pop()
+                else:
+                    invalid["components"][0]["repository_url"] = "https://github.com/someone/unrelated"
+                with self.assertRaises(ValidationError):
+                    validate_release_manifest(invalid)
+
+    def test_unassessed_publication_and_no_artifact_projection_are_required(self) -> None:
+        for publication in ({"assessment": "published", "artifacts": []}, {"assessment": "unpublished", "artifacts": []}, {"assessment": "not_assessed_by_source_lock", "artifacts": [{"name": "unproven", "url": "https://example.org/unproven", "sha256": "sha256:" + "c" * 64}]}, {"state": "pending", "artifacts": []}):
+            with self.subTest(publication=publication):
+                invalid = copy.deepcopy(self.manifest)
+                invalid["components"][0]["publication"] = publication
+                with self.assertRaises(ValidationError):
+                    validate_release_manifest(invalid)
+        invalid = copy.deepcopy(self.manifest)
+        invalid["release_train"]["published"] = False
+        with self.assertRaises(ValidationError):
+            validate_release_manifest(invalid)
+
+    def test_source_lock_version_requires_an_integer_one(self) -> None:
+        for version in (True, 1.0, 2):
+            with self.subTest(version=version):
+                invalid = copy.deepcopy(self.manifest)
+                invalid["source_lock"]["aggregation_lock_version"] = version
+                with self.assertRaisesRegex(ValidationError, "version must be 1"):
+                    validate_release_manifest(invalid)
+
+    def test_invalid_train_or_unknown_field_is_refused(self) -> None:
+        for key, value in [("source_status", "published"), ("id", "../private"), ("artifacts_projection", "available"), ("extra", True)]:
+            with self.subTest(key=key):
+                invalid = copy.deepcopy(self.manifest)
+                invalid["release_train"][key] = value
+                with self.assertRaises(ValidationError):
+                    validate_release_manifest(invalid)
+
 
 class PublicManifestTests(unittest.TestCase):
     def setUp(self) -> None:
         self.manifest = json.loads(
-            (ROOT / "release-manifest.json").read_text(encoding="utf-8")
+            (ROOT / "release-manifest-r2-history.json").read_text(encoding="utf-8")
         )
 
-    def test_committed_manifest_is_valid(self) -> None:
+    def test_historical_manifest_is_valid(self) -> None:
         validate_release_manifest(self.manifest)
 
     def test_pending_component_cannot_expose_download(self) -> None:
@@ -168,7 +270,7 @@ class TransitionCopyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
             validate_transition_copy(
                 self.readme,
-                self.index.replace("nirs4all-web 0.5.0", "nirs4all-web 0.1.9"),
+                self.index + "\n<p>nirs4all-web 0.1.9</p>\n",
                 self.release_page,
             )
         with self.assertRaisesRegex(ValidationError, "stale transition copy"):
@@ -183,6 +285,12 @@ class TransitionCopyTests(unittest.TestCase):
                 self.index + "\n<p>Download Studio 0.11.11</p>\n",
                 self.release_page,
             )
+
+    def test_current_source_hook_and_history_separation_are_required(self) -> None:
+        with self.assertRaisesRegex(ValidationError, "transition copy missing"):
+            validate_transition_copy(self.readme, self.index.replace('data-ver="gh:nirs4all-core"', 'data-ver="unknown"'), self.release_page)
+        with self.assertRaisesRegex(ValidationError, "transition copy missing"):
+            validate_transition_copy(self.readme, self.index, self.release_page.replace('id="current-source-cohort"', 'id="unknown"'))
 
 
 if __name__ == "__main__":

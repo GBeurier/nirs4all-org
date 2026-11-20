@@ -13,37 +13,31 @@ The public [open-source NIRS tools hub](https://nirs4all.org/open-source-nirs-to
 maps the nirs4all file readers, datasets, methods engine, browser modelling app,
 pipeline repository, papers archive, benchmarks, and release cockpit.
 
-Current release note: nirs4all 1.4.15 is the Python release. The R package
-nirs4all 0.7.3 (R-universe) and the WebAssembly packages (npm `nirs4all` 0.4.7
-and `@nirs4all/methods` 1.3.14) share the native Methods 1.3.14 engine
-with ABI 2.17 generic roles, so recipes and trained models move between Python,
-R and the browser. Studio 0.15.10 keeps its own pinned runtime on its native backend,
-with one installer per OS and Docker; download links point to the
-[latest stable release page](https://github.com/GBeurier/nirs4all-studio/releases/latest).
-DAG-ML 0.3.44 and dag-ml-data 0.2.16 provide execution and data contracts;
-nirs4all-core 0.4.7 completes the portable line, and Web 0.5.0 is deployed.
-nirs4all-ui 0.2.1 provides the shared Studio/Web components.
-The current [common guide and API reference](https://gbeurier.github.io/nirs4all/)
-and [Legacy guide](https://gbeurier.github.io/nirs4all/legacy/index.html) are published.
-The initial V1 public projection is sealed by the annotated `v1.0.7` and
-`n4a-v1-2026.09-native-release` tags.
+Current source selection is recorded in `release-manifest.json`, the explicit
+`n4a.org-release-manifest/v2` projection of the selected ecosystem lock. Its train
+identity and source status come from that lock. **Publication is not assessed by
+this source lock; artifacts are not projected.** Selected packages may already
+be published: existing registry badges/links report availability separately.
+A final source status is not itself an artifact-publication receipt or a claim
+of universal portability. Studio keeps its independently qualified pinned runtime;
+its [latest stable release](https://github.com/GBeurier/nirs4all-studio/releases/latest)
+and the current [common guide and API reference](https://gbeurier.github.io/nirs4all/)
+remain separate from source selection. The
+[Legacy guide](https://gbeurier.github.io/nirs4all/legacy/index.html) is historical.
 
-The release-status page is the immutable initial V1 publication receipt and has
-two deliberately separate inputs. The historical
-`release-manifest.json` remains the fail-closed projection of the unchanged
-canonical lock. The historical `r1-archive.html` reads only that deterministic
-projection: it records the R1 consolidation without claiming native-default or
-exposing a candidate artifact, and links the migration center and publishable
-Methods documentation. `native-candidate-staging.json` is the Org projection of
-governance commit `d7d62825e5aa5ab5554ec7d084fab29be66acd74`; it exposes exact release
-identities and the distinct R1/R2/R3/R4 train. The projected ledger SHA-256 is
+The `release-status.html` page separates the current source cohort from the
+**initial V1 publication history**. The original R2 projection is preserved
+byte-for-byte as `release-manifest-r2-history.json`; both `r1-archive.html` and
+`r2-archive.html` read this historical input, never the changing current endpoint.
+Its SHA-256 is `3868dbe836cba25d5b681864fbbffb8178c011353800ad1310767ae461f48f32`.
+The original annotated `v1.0.7` and `n4a-v1-2026.09-native-release` tags remain
+historical. The immutable `native-candidate-staging.json` keeps governance commit
+`d7d62825e5aa5ab5554ec7d084fab29be66acd74` and ledger SHA-256
 `d7fec320b6906c192bd7388f3137436ab8875e135f440ce1461c89379b537450`.
-Repository 0.1.12, Providers 0.2.11 and Methods 1.0.16 carry immutable publication receipts. R4 and Studio
-are published. The bounded functional soak is release evidence for V1; sustained
-performance budgets and longer cross-platform campaigns remain deferred post-V1.
-The historical `r2-archive.html` combines these two validated inputs to document
-the native-default, explicit-legacy RC rollback profile without publishing or
-inventing an installer, package, or download URL.
+Its distinct R1/R2/R3/R4 receipts qualify that historical V1 profile, not the
+current owner cohort. Preserve its exact bytes and the byte-identical Cockpit copy.
+The bounded V1 functional soak does not establish sustained performance budgets
+or universal cross-platform/model execution.
 
 ## Local preview
 
@@ -57,8 +51,9 @@ nirs4all-org/
 ├── release-status.html     # Manifest-driven, fail-closed release status
 ├── r1-archive.html         # Historical R1 consolidation from the baseline lock
 ├── r2-archive.html         # Historical R2 RC rollback from staging manifests
-├── release-manifest.json   # Public projection of the ecosystem release lock
-├── native-candidate-staging.json # Shared unpublished R4/V1 candidate snapshot
+├── release-manifest.json   # Current source-only v2 projection of the selected lock
+├── release-manifest-r2-history.json # Exact original v1 projection for R1/R2 history
+├── native-candidate-staging.json # Immutable shared initial V1 publication receipt
 ├── scripts/                # Stdlib projection and static-site validation
 ├── tests/                  # Release-manifest negative tests
 ├── assets/                 # Logos and screenshots
@@ -85,20 +80,24 @@ python scripts/project_release_lock.py \
   --output release-manifest.json
 ```
 
-The projector deliberately emits no downloads: the current lock proves source
-selection, not public artifact presence. Run the full local gate before review:
+The v2 projector emits no downloads and makes no published/unpublished claim.
+It admits only the declared seven source-owner identities and supported lock
+schema/status values. The active lock remains aggregation-lock/v1; this does not
+migrate that owner contract. Org 1.1.0 is a minor for the public projection wire
+change. Retain the v1 history bytes, regenerate only the current endpoint after
+selecting the actual canonical lock, and satisfy the version guard with the final
+v1.1.0 tag through the normal maintainer release route. Run the full local gate before review:
 
 ```bash
 python scripts/validate_site.py
 python -m unittest discover -s tests -v
 ```
 
-The native candidate snapshot is generated by the Cockpit staging projector
-from the exact governance ledger Git object and exact component commits. The
-Org and Cockpit copies must remain byte-identical; their SHA-256 is
-`8b9457453fcca20de0a7fa08d0afdcb34a10a27c910de32b1dcae4d2b68ae983`.
-It is staging data only; do not turn it into a public V1
-announcement or add download links before lock-authorized publication.
+The immutable initial V1 snapshot was projected from exact governance/component
+Git objects. Org and Cockpit copies remain byte-identical; the currently verified
+SHA-256 is `83d90148cbb42bfd41b14a9dc68fe69e10a295ba0400edf1247c7c88b0d91ac3`.
+Its original receipts remain historical and cannot be retargeted to a newer owner
+cohort by changing labels or digests.
 
 ## Content
 

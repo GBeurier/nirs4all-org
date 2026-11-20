@@ -109,7 +109,7 @@
 
     <section aria-labelledby="contents-title">
       <h2 id="contents-title">Sources de la consolidation</h2>
-      <p class="section-intro">Les versions et commits ci-dessous viennent exclusivement de <a href="release-manifest.json">la projection déterministe du lock canonique</a>. L’état « en attente » signifie qu’aucune disponibilité de paquet ou de téléchargement n’est affirmée.</p>
+      <p class="section-intro">Les versions et commits ci-dessous viennent exclusivement de <a href="release-manifest-r2-history.json">la projection déterministe du lock canonique</a>. L’état « en attente » signifie qu’aucune disponibilité de paquet ou de téléchargement n’est affirmée.</p>
       <div class="table-wrap">
         <table>
           <caption class="section-intro">Composants sélectionnés par le lock baseline</caption>
@@ -133,12 +133,12 @@
     </section>
   </main>
 
-  <footer><div class="wrap">nirs4all · archive R1 historique · <a href="release-manifest.json">manifeste baseline</a> · <a href="release-status.html">candidat actuel NO-GO</a></div></footer>
+  <footer><div class="wrap">nirs4all · archive R1 historique · <a href="release-manifest-r2-history.json">manifeste baseline</a> · <a href="release-status.html">Current source cohort</a></div></footer>
 
   <script>
   (() => {
     'use strict';
-    const MANIFEST_URL = 'release-manifest.json';
+    const MANIFEST_URL = 'release-manifest-r2-history.json';
     const SHA256 = /^sha256:[0-9a-f]{64}$/;
     const COMMIT = /^[0-9a-f]{40}$/;
     const VERSION = /^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/;
