@@ -2606,7 +2606,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">Method engine</div>
             <div class="eco-name">nirs4all-methods <span class="eco-lang">C++ &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-methods">v1.3.14</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-methods">v1.5.1</span>
         </div>
         <p>The portable NIRS method engine: 213 catalogued methods in C++17 behind a stable C ABI (<code style="color:var(--indigo-d);background:var(--bg-alt);padding:1px 5px;border-radius:4px">libn4m</code>), 208 of them through generic typed roles &mdash; transformers, selectors, regressors, classifiers, sample filters, splitters and augmenters &mdash; with a native manifest and a portable fitted state. The same classes are generated for Python, R, JavaScript/WebAssembly and Rust; MATLAB/Octave and Android bindings cover the classic API.</p>
         <div class="eco-links">
@@ -2642,7 +2642,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">File readers</div>
             <div class="eco-name">nirs4all-formats <span class="eco-lang">Rust</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-formats">v0.2.14</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-formats">v0.2.19</span>
         </div>
         <p>Rust-first, low-level readers for ~58 NIRS &amp; spectroscopy format families. Content-sniffed, lossless, provenance-tracked records with Python, R, WebAssembly and C bindings &mdash; the messy vendor-file zoo turned into one clean data model. Try the full reader catalog right in the browser via the live demo.</p>
         <div class="eco-links">
@@ -2662,7 +2662,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">Dataset bridge</div>
             <div class="eco-name">nirs4all-io <span class="eco-lang">Python &middot; Rust &middot; R</span></div>
           </div>
-          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.2.14</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-io">v0.3.8</span>
         </div>
         <p>A dataset-assembly bridge: turn any input &mdash; a folder, a glob, vendor spectra plus a reference table, or a config &mdash; into a pipeline-ready dataset through resolve &rarr; infer &rarr; configure &rarr; materialize, with a score-based inference engine. Built on nirs4all-formats.</p>
         <div class="eco-links">
@@ -2702,7 +2702,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">Execution core</div>
             <div class="eco-name">dag-ml <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml">v0.3.44</span>
+          <span class="eco-ver" data-ver="gh:dag-ml">v0.5.0</span>
         </div>
         <p>A leakage-safe, in-process DAG execution core. It owns the graph, phases, folds, out-of-fold joins, lineage, caching and deterministic RNG, and runs multi-model campaigns: many candidate pipelines scored on identical folds, deterministic selection, stacking with nested out-of-fold predictions, HPO, refit and replay. Its controllers for the nirs4all-methods roles derive from the Methods manifest; everything is exposed through a C ABI, Python and WebAssembly.</p>
         <div class="eco-links">
@@ -2719,7 +2719,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">Data contracts</div>
             <div class="eco-name">dag-ml-data <span class="eco-lang">Rust &middot; C ABI</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.16</span>
+          <span class="eco-ver" data-ver="gh:dag-ml-data">v0.2.17</span>
         </div>
         <p>The data-contract and planning layer beneath dag-ml: typed, sample-aligned, multi-source data views, representation adapters, data plans, and schema fingerprints &mdash; the foundation that keeps pipelines reproducible.</p>
         <div class="eco-links">
@@ -2769,11 +2769,11 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
           <span class="eco-logo" data-eco-logo="nirs4all-core" aria-hidden="true">core</span>
           <div class="eco-titles">
             <div class="eco-cat">Portable V1 aggregate</div>
-            <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; R &middot; WASM</span></div>
+            <div class="eco-name">nirs4all-core <span class="eco-lang">Rust &middot; Python &middot; WASM</span></div>
           </div>
           <span class="eco-ver" data-ver="gh:nirs4all-core">v0.6.1</span>
         </div>
-        <p>The published portable aggregate for the reproducible cross-language stack gathers dag-ml, dag-ml-data, formats, IO, datasets, and methods behind one coherent V1 integration surface, and reads and writes the trained-model envelope shared by Python, R and WebAssembly.</p>
+        <p>The published portable aggregate for the reproducible cross-language stack gathers dag-ml, dag-ml-data, formats, IO, datasets, and methods behind one coherent V1 integration surface, and reads and writes the trained-model envelope shared by Python and WebAssembly hosts. The R product is maintained separately.</p>
         <div class="eco-links">
           <a href="https://github.com/GBeurier/nirs4all-core" target="_blank" class="pill pill-amber"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
           <a href="https://github.com/GBeurier/nirs4all-core/releases/latest" target="_blank" rel="noopener" class="pill pill-amber">Releases</a>
@@ -2843,7 +2843,7 @@ fit &lt;- <span class="fn">nirs4all_fit_role_recipe</span>(
             <div class="eco-cat">Provider clients</div>
             <div class="eco-name">nirs4all-providers <span class="eco-lang">Python</span></div>
           </div>
-          <span class="eco-ver" data-ver="gh:nirs4all-providers">v0.2.11</span>
+          <span class="eco-ver" data-ver="pypi:nirs4all-providers">v0.2.12</span>
         </div>
         <p>The dependency-light, soft-importing provider client layer over <strong>nirs4all-datasets</strong> and <strong>nirs4all-repository</strong>. Benchmarks and papers keep their own public APIs. It stays read-side only, with optional-dependency contracts and local export helpers, without owning NIRS, ML, IO, parsing, or write-back logic.</p>
         <div class="eco-links">
